@@ -1,3 +1,3 @@
-Basic git client
+Basic Git client
 
 Simple WinForms app to speed up using git commands on the command line.

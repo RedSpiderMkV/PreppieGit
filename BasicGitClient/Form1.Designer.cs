@@ -35,9 +35,11 @@
             // 
             // tbDirectory
             // 
+            this.tbDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDirectory.Location = new System.Drawing.Point(93, 15);
             this.tbDirectory.Name = "tbDirectory";
-            this.tbDirectory.Size = new System.Drawing.Size(187, 20);
+            this.tbDirectory.Size = new System.Drawing.Size(350, 20);
             this.tbDirectory.TabIndex = 0;
             // 
             // btnSetDir
@@ -52,18 +54,21 @@
             // 
             // tbOutput
             // 
-            this.tbOutput.Location = new System.Drawing.Point(12, 165);
+            this.tbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbOutput.Location = new System.Drawing.Point(12, 237);
             this.tbOutput.Multiline = true;
             this.tbOutput.Name = "tbOutput";
             this.tbOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbOutput.Size = new System.Drawing.Size(268, 96);
+            this.tbOutput.Size = new System.Drawing.Size(431, 124);
             this.tbOutput.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 273);
+            this.ClientSize = new System.Drawing.Size(455, 373);
             this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.btnSetDir);
             this.Controls.Add(this.tbDirectory);

@@ -31,15 +31,20 @@
             this.tbDirectory = new System.Windows.Forms.TextBox();
             this.btnSetDir = new System.Windows.Forms.Button();
             this.tbOutput = new System.Windows.Forms.TextBox();
+            this.btnPull = new System.Windows.Forms.Button();
+            this.btnCommit = new System.Windows.Forms.Button();
+            this.btnPush = new System.Windows.Forms.Button();
+            this.btnInit = new System.Windows.Forms.Button();
+            this.btnStatus = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbDirectory
             // 
-            this.tbDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDirectory.Location = new System.Drawing.Point(93, 15);
             this.tbDirectory.Name = "tbDirectory";
-            this.tbDirectory.Size = new System.Drawing.Size(350, 20);
+            this.tbDirectory.Size = new System.Drawing.Size(318, 20);
             this.tbDirectory.TabIndex = 0;
             // 
             // btnSetDir
@@ -54,21 +59,72 @@
             // 
             // tbOutput
             // 
-            this.tbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tbOutput.Location = new System.Drawing.Point(12, 237);
             this.tbOutput.Multiline = true;
             this.tbOutput.Name = "tbOutput";
             this.tbOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbOutput.Size = new System.Drawing.Size(431, 124);
+            this.tbOutput.Size = new System.Drawing.Size(399, 124);
             this.tbOutput.TabIndex = 2;
+            // 
+            // btnPull
+            // 
+            this.btnPull.Location = new System.Drawing.Point(12, 41);
+            this.btnPull.Name = "btnPull";
+            this.btnPull.Size = new System.Drawing.Size(75, 23);
+            this.btnPull.TabIndex = 3;
+            this.btnPull.Text = "Pull";
+            this.btnPull.UseVisualStyleBackColor = true;
+            // 
+            // btnCommit
+            // 
+            this.btnCommit.Location = new System.Drawing.Point(93, 41);
+            this.btnCommit.Name = "btnCommit";
+            this.btnCommit.Size = new System.Drawing.Size(75, 23);
+            this.btnCommit.TabIndex = 4;
+            this.btnCommit.Text = "Commit";
+            this.btnCommit.UseVisualStyleBackColor = true;
+            // 
+            // btnPush
+            // 
+            this.btnPush.Location = new System.Drawing.Point(174, 41);
+            this.btnPush.Name = "btnPush";
+            this.btnPush.Size = new System.Drawing.Size(75, 23);
+            this.btnPush.TabIndex = 5;
+            this.btnPush.Text = "Push";
+            this.btnPush.UseVisualStyleBackColor = true;
+            // 
+            // btnInit
+            // 
+            this.btnInit.Location = new System.Drawing.Point(255, 41);
+            this.btnInit.Name = "btnInit";
+            this.btnInit.Size = new System.Drawing.Size(75, 23);
+            this.btnInit.TabIndex = 6;
+            this.btnInit.Text = "Init";
+            this.btnInit.UseVisualStyleBackColor = true;
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.Location = new System.Drawing.Point(336, 41);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(75, 23);
+            this.btnStatus.TabIndex = 7;
+            this.btnStatus.Text = "Status";
+            this.btnStatus.UseVisualStyleBackColor = true;
+            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 373);
+            this.ClientSize = new System.Drawing.Size(423, 373);
+            this.Controls.Add(this.btnStatus);
+            this.Controls.Add(this.btnInit);
+            this.Controls.Add(this.btnPush);
+            this.Controls.Add(this.btnCommit);
+            this.Controls.Add(this.btnPull);
             this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.btnSetDir);
             this.Controls.Add(this.tbDirectory);
@@ -84,6 +140,11 @@
         private System.Windows.Forms.TextBox tbDirectory;
         private System.Windows.Forms.Button btnSetDir;
         private System.Windows.Forms.TextBox tbOutput;
+        private System.Windows.Forms.Button btnPull;
+        private System.Windows.Forms.Button btnCommit;
+        private System.Windows.Forms.Button btnPush;
+        private System.Windows.Forms.Button btnInit;
+        private System.Windows.Forms.Button btnStatus;
     }
 }
 

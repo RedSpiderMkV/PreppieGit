@@ -13,6 +13,8 @@ namespace BasicGitClient
     public partial class Form1 : Form
     {
         private GitClientAccess gitClient;
+        // TODO: Make this come from a config file and not hard coded..
+        private static string defaultDir = @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014";
 
         public Form1()
         {
@@ -24,8 +26,6 @@ namespace BasicGitClient
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
 
-            // TODO: Make this come from a config file and not hard coded..
-            string defaultDir = @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014";
             if (Directory.Exists(defaultDir))
             {
                 fbd.SelectedPath = defaultDir;
@@ -36,9 +36,13 @@ namespace BasicGitClient
             string directory = fbd.SelectedPath;
             tbDirectory.Text = directory;
 
-            string error, output;
             gitClient.SetDirectory(directory);
-            gitClient.RunGitCommand("status", out output, out error);
+        }
+
+        private void btnStatus_Click(object sender, EventArgs e)
+        {
+            string error, output;
+            gitClient.RunGitCommand(GitCommands.STATUS, out output, out error);
 
             tbOutput.Text += output.Replace("\n", Environment.NewLine);
             tbOutput.Text += error.Replace("\n", Environment.NewLine);

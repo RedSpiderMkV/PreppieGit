@@ -79,6 +79,7 @@
             this.btnPull.TabIndex = 3;
             this.btnPull.Text = "Pull";
             this.btnPull.UseVisualStyleBackColor = true;
+            this.btnPull.Click += new System.EventHandler(this.btnPull_Click);
             // 
             // btnCommit
             // 

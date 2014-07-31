@@ -95,8 +95,16 @@ namespace BasicGitClient
             string command = String.Format(GitCommands.PUSH, username, password, "BasicGitClient");
             gitClient.RunGitCommand(command, out output, out error);
 
-            // does reset need to be done now?
-            // then pull to fix sync...
+            tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+            tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+
+            // push then pull required due to master/origin local mismatch
+            btnPull_Click(null, new EventArgs());
+        }
+
+        private void btnPull_Click(object sender, EventArgs e)
+        {
+            gitClient.RunGitCommand(GitCommands.PULL, out output, out error);
 
             tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
             tbOutput.AppendText(error.Replace("\n", Environment.NewLine));

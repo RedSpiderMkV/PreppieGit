@@ -36,6 +36,8 @@
             this.btnPush = new System.Windows.Forms.Button();
             this.btnInit = new System.Windows.Forms.Button();
             this.btnStatus = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnClone = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbDirectory
@@ -71,7 +73,7 @@
             // 
             // btnPull
             // 
-            this.btnPull.Location = new System.Drawing.Point(12, 41);
+            this.btnPull.Location = new System.Drawing.Point(174, 41);
             this.btnPull.Name = "btnPull";
             this.btnPull.Size = new System.Drawing.Size(75, 23);
             this.btnPull.TabIndex = 3;
@@ -80,16 +82,17 @@
             // 
             // btnCommit
             // 
-            this.btnCommit.Location = new System.Drawing.Point(93, 41);
+            this.btnCommit.Location = new System.Drawing.Point(12, 99);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(75, 23);
             this.btnCommit.TabIndex = 4;
             this.btnCommit.Text = "Commit";
             this.btnCommit.UseVisualStyleBackColor = true;
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
             // btnPush
             // 
-            this.btnPush.Location = new System.Drawing.Point(174, 41);
+            this.btnPush.Location = new System.Drawing.Point(12, 128);
             this.btnPush.Name = "btnPush";
             this.btnPush.Size = new System.Drawing.Size(75, 23);
             this.btnPush.TabIndex = 5;
@@ -115,11 +118,32 @@
             this.btnStatus.UseVisualStyleBackColor = true;
             this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(12, 70);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 8;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnClone
+            // 
+            this.btnClone.Location = new System.Drawing.Point(93, 41);
+            this.btnClone.Name = "btnClone";
+            this.btnClone.Size = new System.Drawing.Size(75, 23);
+            this.btnClone.TabIndex = 9;
+            this.btnClone.Text = "Clone";
+            this.btnClone.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 373);
+            this.Controls.Add(this.btnClone);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnStatus);
             this.Controls.Add(this.btnInit);
             this.Controls.Add(this.btnPush);
@@ -145,6 +169,8 @@
         private System.Windows.Forms.Button btnPush;
         private System.Windows.Forms.Button btnInit;
         private System.Windows.Forms.Button btnStatus;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnClone;
     }
 }
 

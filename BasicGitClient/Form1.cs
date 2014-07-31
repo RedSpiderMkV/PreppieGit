@@ -89,7 +89,11 @@ namespace BasicGitClient
 
         private void btnPush_Click(object sender, EventArgs e)
         {
-            gitClient.RunGitCommand(GitCommands.PUSH, out output, out error);
+            string username = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\username.txt")[0];
+            string password = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\password.txt")[0];
+
+            string command = String.Format(GitCommands.PUSH, username, password);
+            gitClient.RunGitCommand(command, out output, out error);
 
             tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
             tbOutput.AppendText(error.Replace("\n", Environment.NewLine));

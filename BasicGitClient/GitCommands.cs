@@ -10,10 +10,11 @@ namespace BasicGitClient
         public const string STATUS = "status";
         public const string INIT = "init";
         public const string PULL = "pull";
-        public const string PUSH = "push -u origin master";
         public const string COMMIT = "commit -m";
         public const string ADD = "add";
         public const string ADD_ALL = "add -A";
         public const string CLONE = "clone";
+
+        public static string PUSH = "push https://{0}:{1}@github.com/{0}/BasicGitClient.git master";
     }
 }

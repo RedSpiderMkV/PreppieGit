@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -38,6 +39,16 @@ namespace BasicGitClient
             info.Arguments = command;
             gitProc.StartInfo = info;
             gitProc.Start();
+
+            if (command.StartsWith("push"))
+            {
+                System.Threading.Thread.Sleep(5000);
+                string username = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\username.txt")[0];
+                string password = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\password.txt")[0];
+
+                gitProc.StandardInput.WriteLine(username);
+                gitProc.StandardInput.Write(password);
+            }
 
             stdout = gitProc.StandardOutput.ReadToEnd();
             stderror = gitProc.StandardError.ReadToEnd();

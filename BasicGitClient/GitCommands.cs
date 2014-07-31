@@ -14,7 +14,8 @@ namespace BasicGitClient
         public const string ADD = "add";
         public const string ADD_ALL = "add -A";
         public const string CLONE = "clone";
+        public const string SHOW_ORIGIN = "remote -v";
 
-        public static string PUSH = "push https://{0}:{1}@github.com/{0}/{2}.git master";
+        public static string PUSH = "push https://{0}:{1}@github.com{2} master";
     }
 }

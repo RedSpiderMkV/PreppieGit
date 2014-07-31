@@ -38,6 +38,7 @@
             this.btnStatus = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClone = new System.Windows.Forms.Button();
+            this.tbnShowOrigin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbDirectory
@@ -139,11 +140,22 @@
             this.btnClone.Text = "Clone";
             this.btnClone.UseVisualStyleBackColor = true;
             // 
+            // tbnShowOrigin
+            // 
+            this.tbnShowOrigin.Location = new System.Drawing.Point(336, 70);
+            this.tbnShowOrigin.Name = "tbnShowOrigin";
+            this.tbnShowOrigin.Size = new System.Drawing.Size(75, 23);
+            this.tbnShowOrigin.TabIndex = 10;
+            this.tbnShowOrigin.Text = "Show Origin";
+            this.tbnShowOrigin.UseVisualStyleBackColor = true;
+            this.tbnShowOrigin.Click += new System.EventHandler(this.tbnShowOrigin_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 373);
+            this.Controls.Add(this.tbnShowOrigin);
             this.Controls.Add(this.btnClone);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnStatus);
@@ -173,6 +185,7 @@
         private System.Windows.Forms.Button btnStatus;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnClone;
+        private System.Windows.Forms.Button tbnShowOrigin;
     }
 }
 

@@ -17,6 +17,7 @@ namespace BasicGitClient
         private string comment = String.Empty;
         // TODO: Make this come from a config file and not hard coded..
         private static string defaultDir = @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014";
+        private string remoteName;
 
         public Form1()
         {
@@ -39,6 +40,9 @@ namespace BasicGitClient
             tbDirectory.Text = directory;
 
             gitClient.SetDirectory(directory);
+
+            // get remote name
+            tbnShowOrigin_Click(null, new EventArgs());
         }
 
         private void btnStatus_Click(object sender, EventArgs e)
@@ -92,7 +96,7 @@ namespace BasicGitClient
             string username = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\username.txt")[0];
             string password = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\password.txt")[0];
 
-            string command = String.Format(GitCommands.PUSH, username, password, "BasicGitClient");
+            string command = String.Format(GitCommands.PUSH, username, password, remoteName);
             gitClient.RunGitCommand(command, out output, out error);
 
             tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
@@ -108,6 +112,21 @@ namespace BasicGitClient
 
             tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
             tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+        }
+
+        private void tbnShowOrigin_Click(object sender, EventArgs e)
+        {
+            gitClient.RunGitCommand(GitCommands.SHOW_ORIGIN, out output, out error);
+
+            remoteName = output.Split('\n')[0].Split('\t')[1]
+                .Split(new string[] { "(fetch)" }, StringSplitOptions.None)[0]
+                .Split(new string[] {"github.com"}, StringSplitOptions.None)[1];
+
+            if (sender != null)
+            {
+                tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+                tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+            }
         }
     }
 }

@@ -20,6 +20,7 @@ namespace BasicGitClient
                 CreateNoWindow = true,
                 RedirectStandardError = true,
                 RedirectStandardOutput = true,
+                RedirectStandardInput = true,
                 UseShellExecute = false,
                 FileName = "git"
             };

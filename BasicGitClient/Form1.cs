@@ -86,5 +86,13 @@ namespace BasicGitClient
         {
             this.comment = "\"" + comment + "\"";
         }
+
+        private void btnPush_Click(object sender, EventArgs e)
+        {
+            gitClient.RunGitCommand(GitCommands.PUSH, out output, out error);
+
+            tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+            tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+        }
     }
 }

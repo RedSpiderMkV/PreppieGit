@@ -98,6 +98,7 @@
             this.btnPush.TabIndex = 5;
             this.btnPush.Text = "Push";
             this.btnPush.UseVisualStyleBackColor = true;
+            this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
             // 
             // btnInit
             // 

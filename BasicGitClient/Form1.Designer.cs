@@ -142,7 +142,7 @@
             // 
             // tbnShowOrigin
             // 
-            this.tbnShowOrigin.Location = new System.Drawing.Point(336, 70);
+            this.tbnShowOrigin.Location = new System.Drawing.Point(12, 41);
             this.tbnShowOrigin.Name = "tbnShowOrigin";
             this.tbnShowOrigin.Size = new System.Drawing.Size(75, 23);
             this.tbnShowOrigin.TabIndex = 10;

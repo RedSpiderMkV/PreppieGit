@@ -11,9 +11,23 @@ namespace BasicGitClient
 {
     public partial class CommitCommentWindow : Form
     {
+        public delegate void CommitCommentStringHandler(string comment, EventArgs e);
+        public event CommitCommentStringHandler CommitCommentEvent;
+
         public CommitCommentWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+            CommitCommentStringHandler handler = CommitCommentEvent;
+            if (handler != null)
+            {
+                handler(tbComment.Text, new EventArgs());
+            }
+
+            this.Close();
         }
     }
 }

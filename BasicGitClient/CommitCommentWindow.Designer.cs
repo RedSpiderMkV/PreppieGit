@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbComment = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCommit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbComment
             // 
-            this.textBox1.Location = new System.Drawing.Point(69, 8);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(211, 77);
-            this.textBox1.TabIndex = 1;
+            this.tbComment.Location = new System.Drawing.Point(69, 8);
+            this.tbComment.Multiline = true;
+            this.tbComment.Name = "tbComment";
+            this.tbComment.Size = new System.Drawing.Size(211, 77);
+            this.tbComment.TabIndex = 1;
             // 
             // label1
             // 
@@ -58,6 +58,7 @@
             this.btnCommit.TabIndex = 3;
             this.btnCommit.Text = "Commit";
             this.btnCommit.UseVisualStyleBackColor = true;
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
             // CommitCommentWindow
             // 
@@ -66,7 +67,7 @@
             this.ClientSize = new System.Drawing.Size(292, 99);
             this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbComment);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "CommitCommentWindow";
             this.Text = "Commit";
@@ -77,7 +78,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbComment;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCommit;
     }

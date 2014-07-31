@@ -95,6 +95,8 @@ namespace BasicGitClient
             string command = String.Format(GitCommands.PUSH, username, password, "BasicGitClient");
             gitClient.RunGitCommand(command, out output, out error);
 
+            // does reset need to be done now?
+
             tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
             tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
         }

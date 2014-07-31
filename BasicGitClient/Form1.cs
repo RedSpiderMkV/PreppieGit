@@ -92,7 +92,7 @@ namespace BasicGitClient
             string username = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\username.txt")[0];
             string password = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\password.txt")[0];
 
-            string command = String.Format(GitCommands.PUSH, username, password);
+            string command = String.Format(GitCommands.PUSH, username, password, "BasicGitClient");
             gitClient.RunGitCommand(command, out output, out error);
 
             tbOutput.AppendText(output.Replace("\n", Environment.NewLine));

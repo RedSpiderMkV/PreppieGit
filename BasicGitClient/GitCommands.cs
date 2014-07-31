@@ -15,6 +15,6 @@ namespace BasicGitClient
         public const string ADD_ALL = "add -A";
         public const string CLONE = "clone";
 
-        public static string PUSH = "push https://{0}:{1}@github.com/{0}/BasicGitClient.git master";
+        public static string PUSH = "push https://{0}:{1}@github.com/{0}/{2}.git master";
     }
 }

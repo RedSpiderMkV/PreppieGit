@@ -96,6 +96,7 @@ namespace BasicGitClient
             gitClient.RunGitCommand(command, out output, out error);
 
             // does reset need to be done now?
+            // then pull to fix sync...
 
             tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
             tbOutput.AppendText(error.Replace("\n", Environment.NewLine));

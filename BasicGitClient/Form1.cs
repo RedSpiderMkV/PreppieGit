@@ -69,7 +69,7 @@ namespace BasicGitClient
             {
                 string command = GitCommands.COMMIT + " " + comment;
 
-                gitClient.RunGitCommand(GitCommands.COMMIT, out output, out error);
+                gitClient.RunGitCommand(command, out output, out error);
 
                 tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
                 tbOutput.AppendText(error.Replace("\n", Environment.NewLine));

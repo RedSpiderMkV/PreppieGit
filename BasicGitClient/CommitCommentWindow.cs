@@ -21,6 +21,19 @@ namespace BasicGitClient
 
         private void btnCommit_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void tbComment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyData == Keys.Enter) || (e.KeyData == Keys.Return))
+            {
+                commitComment();
+            }
+        }
+
+        private void commitComment()
+        {
             CommitCommentStringHandler handler = CommitCommentEvent;
             if (handler != null)
             {

@@ -40,6 +40,7 @@
             this.tbComment.Name = "tbComment";
             this.tbComment.Size = new System.Drawing.Size(211, 77);
             this.tbComment.TabIndex = 1;
+            this.tbComment.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbComment_KeyDown);
             // 
             // label1
             // 

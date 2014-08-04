@@ -39,20 +39,25 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClone = new System.Windows.Forms.Button();
             this.tbnShowOrigin = new System.Windows.Forms.Button();
+            this.mnuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbDirectory
             // 
             this.tbDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDirectory.Location = new System.Drawing.Point(93, 15);
+            this.tbDirectory.Location = new System.Drawing.Point(93, 42);
             this.tbDirectory.Name = "tbDirectory";
             this.tbDirectory.Size = new System.Drawing.Size(318, 20);
             this.tbDirectory.TabIndex = 0;
             // 
             // btnSetDir
             // 
-            this.btnSetDir.Location = new System.Drawing.Point(12, 12);
+            this.btnSetDir.Location = new System.Drawing.Point(12, 39);
             this.btnSetDir.Name = "btnSetDir";
             this.btnSetDir.Size = new System.Drawing.Size(75, 23);
             this.btnSetDir.TabIndex = 1;
@@ -74,7 +79,7 @@
             // 
             // btnPull
             // 
-            this.btnPull.Location = new System.Drawing.Point(174, 41);
+            this.btnPull.Location = new System.Drawing.Point(174, 68);
             this.btnPull.Name = "btnPull";
             this.btnPull.Size = new System.Drawing.Size(75, 23);
             this.btnPull.TabIndex = 3;
@@ -84,7 +89,7 @@
             // 
             // btnCommit
             // 
-            this.btnCommit.Location = new System.Drawing.Point(12, 99);
+            this.btnCommit.Location = new System.Drawing.Point(12, 126);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(75, 23);
             this.btnCommit.TabIndex = 4;
@@ -94,7 +99,7 @@
             // 
             // btnPush
             // 
-            this.btnPush.Location = new System.Drawing.Point(12, 128);
+            this.btnPush.Location = new System.Drawing.Point(12, 155);
             this.btnPush.Name = "btnPush";
             this.btnPush.Size = new System.Drawing.Size(75, 23);
             this.btnPush.TabIndex = 5;
@@ -104,7 +109,7 @@
             // 
             // btnInit
             // 
-            this.btnInit.Location = new System.Drawing.Point(255, 41);
+            this.btnInit.Location = new System.Drawing.Point(255, 68);
             this.btnInit.Name = "btnInit";
             this.btnInit.Size = new System.Drawing.Size(75, 23);
             this.btnInit.TabIndex = 6;
@@ -113,7 +118,7 @@
             // 
             // btnStatus
             // 
-            this.btnStatus.Location = new System.Drawing.Point(336, 41);
+            this.btnStatus.Location = new System.Drawing.Point(336, 68);
             this.btnStatus.Name = "btnStatus";
             this.btnStatus.Size = new System.Drawing.Size(75, 23);
             this.btnStatus.TabIndex = 7;
@@ -123,7 +128,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 70);
+            this.btnAdd.Location = new System.Drawing.Point(12, 97);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 8;
@@ -133,7 +138,7 @@
             // 
             // btnClone
             // 
-            this.btnClone.Location = new System.Drawing.Point(93, 41);
+            this.btnClone.Location = new System.Drawing.Point(93, 68);
             this.btnClone.Name = "btnClone";
             this.btnClone.Size = new System.Drawing.Size(75, 23);
             this.btnClone.TabIndex = 9;
@@ -142,13 +147,44 @@
             // 
             // tbnShowOrigin
             // 
-            this.tbnShowOrigin.Location = new System.Drawing.Point(12, 41);
+            this.tbnShowOrigin.Location = new System.Drawing.Point(12, 68);
             this.tbnShowOrigin.Name = "tbnShowOrigin";
             this.tbnShowOrigin.Size = new System.Drawing.Size(75, 23);
             this.tbnShowOrigin.TabIndex = 10;
             this.tbnShowOrigin.Text = "Show Origin";
             this.tbnShowOrigin.UseVisualStyleBackColor = true;
             this.tbnShowOrigin.Click += new System.EventHandler(this.tbnShowOrigin_Click);
+            // 
+            // mnuStrip
+            // 
+            this.mnuStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.connectionToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.mnuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mnuStrip.Name = "mnuStrip";
+            this.mnuStrip.Size = new System.Drawing.Size(423, 24);
+            this.mnuStrip.TabIndex = 11;
+            this.mnuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // connectionToolStripMenuItem
+            // 
+            this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.connectionToolStripMenuItem.Text = "Connection";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.aboutToolStripMenuItem.Text = "About";
             // 
             // Form1
             // 
@@ -166,8 +202,12 @@
             this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.btnSetDir);
             this.Controls.Add(this.tbDirectory);
+            this.Controls.Add(this.mnuStrip);
+            this.MainMenuStrip = this.mnuStrip;
             this.Name = "Form1";
             this.Text = "BasicGit";
+            this.mnuStrip.ResumeLayout(false);
+            this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,6 +226,10 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnClone;
         private System.Windows.Forms.Button tbnShowOrigin;
+        private System.Windows.Forms.MenuStrip mnuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem connectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

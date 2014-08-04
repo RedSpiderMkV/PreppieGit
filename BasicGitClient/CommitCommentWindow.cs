@@ -21,7 +21,7 @@ namespace BasicGitClient
 
         private void btnCommit_Click(object sender, EventArgs e)
         {
-            
+            commitComment();
         }
 
         private void tbComment_KeyDown(object sender, KeyEventArgs e)

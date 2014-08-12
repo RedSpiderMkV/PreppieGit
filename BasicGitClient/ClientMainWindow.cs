@@ -11,7 +11,7 @@ using System.Xml;
 
 namespace BasicGitClient
 {
-    public partial class Form1 : Form
+    public partial class ClientMainWindow : Form
     {
         private GitClientAccess gitClient;
         private string error, output;
@@ -20,7 +20,7 @@ namespace BasicGitClient
         private static string defaultDir = @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014";
         private string remoteName;
 
-        public Form1()
+        public ClientMainWindow()
         {
             InitializeComponent();
             gitClient = new GitClientAccess();

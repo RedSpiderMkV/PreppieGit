@@ -1,6 +1,6 @@
 ﻿namespace BasicGitClient
 {
-    partial class Form1
+    partial class ClientMainWindow
     {
         /// <summary>
         /// Required designer variable.

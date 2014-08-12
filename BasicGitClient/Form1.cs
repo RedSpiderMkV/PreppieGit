@@ -50,8 +50,8 @@ namespace BasicGitClient
         {
             gitClient.RunGitCommand(GitCommands.STATUS, out output, out error);
             
-            tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-            tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace BasicGitClient
 
             if (String.Equals(String.Empty, output) && String.Equals(String.Empty, error))
             {
-                tbOutput.AppendText(Environment.NewLine + "Added all modified files.  Check status" + Environment.NewLine);
+                rtbOutput.AppendText(Environment.NewLine + "Added all modified files.  Check status" + Environment.NewLine);
             }
         }
 
@@ -76,12 +76,12 @@ namespace BasicGitClient
 
                 gitClient.RunGitCommand(command, out output, out error);
 
-                tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-                tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+                rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+                rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
             }
             else
             {
-                tbOutput.AppendText("\nNo comment added.  Not committed..");
+                rtbOutput.AppendText("\nNo comment added.  Not committed..");
             }
 
             commitWindow.CommitCommentEvent -= commitWindow_CommitCommentEvent;
@@ -102,8 +102,8 @@ namespace BasicGitClient
             string command = String.Format(GitCommands.PUSH, username, password, remoteName);
             gitClient.RunGitCommand(command, out output, out error);
 
-            tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-            tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
 
             // push then pull required due to master/origin local mismatch
             btnPull_Click(null, new EventArgs());
@@ -137,16 +137,16 @@ namespace BasicGitClient
         {
             gitClient.RunGitCommand(GitCommands.PULL, out output, out error);
 
-            tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-            tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             gitClient.RunGitCommand(GitCommands.RESET, out output, out error);
 
-            tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-            tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
         }
 
         private void btnShowOrigin_Click(object sender, EventArgs e)
@@ -162,8 +162,8 @@ namespace BasicGitClient
 
             if (sender != null)
             {
-                tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-                tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+                rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+                rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
             }
         }
 

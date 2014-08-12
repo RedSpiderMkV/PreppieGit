@@ -50,7 +50,7 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReset = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbOutput = new System.Windows.Forms.RichTextBox();
+            this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -249,21 +249,21 @@
             // 
             // tbOutput
             // 
-            this.tbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.rtbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbOutput.Location = new System.Drawing.Point(10, 194);
-            this.tbOutput.Name = "tbOutput";
-            this.tbOutput.Size = new System.Drawing.Size(401, 167);
-            this.tbOutput.TabIndex = 14;
-            this.tbOutput.Text = "";
+            this.rtbOutput.Location = new System.Drawing.Point(10, 194);
+            this.rtbOutput.Name = "tbOutput";
+            this.rtbOutput.Size = new System.Drawing.Size(401, 167);
+            this.rtbOutput.TabIndex = 14;
+            this.rtbOutput.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 373);
-            this.Controls.Add(this.tbOutput);
+            this.Controls.Add(this.rtbOutput);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.tbnShowOrigin);
@@ -311,7 +311,7 @@
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox tbOutput;
+        private System.Windows.Forms.RichTextBox rtbOutput;
     }
 }
 

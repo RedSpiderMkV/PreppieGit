@@ -171,5 +171,10 @@ namespace BasicGitClient
         {
             Environment.Exit(0);
         }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnSetDir_Click(this, new EventArgs());
+        }
     }
 }

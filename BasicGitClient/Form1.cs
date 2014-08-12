@@ -94,9 +94,7 @@ namespace BasicGitClient
 
         private void btnPush_Click(object sender, EventArgs e)
         {
-            string username;// = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\username.txt")[0];
-            string password;// = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\password.txt")[0];
-
+            string username, password;
             getCredentials(out username, out password);
 
             string command = String.Format(GitCommands.PUSH, username, password, remoteName);
@@ -139,6 +137,14 @@ namespace BasicGitClient
             tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
         }
 
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            gitClient.RunGitCommand(GitCommands.RESET, out output, out error);
+
+            tbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+            tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+        }
+
         private void btnShowOrigin_Click(object sender, EventArgs e)
         {
             gitClient.RunGitCommand(GitCommands.SHOW_ORIGIN, out output, out error);
@@ -157,7 +163,7 @@ namespace BasicGitClient
             }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }

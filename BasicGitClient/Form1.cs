@@ -115,17 +115,17 @@ namespace BasicGitClient
 
             string credentialFile = "credentials.xml";
             XmlDocument doc = new XmlDocument();
-            doc.LoadXml(credentialFile);
+            doc.Load(credentialFile);
 
-            foreach (XmlNode node in doc.ChildNodes)
+            foreach (XmlNode node in doc.FirstChild.ChildNodes)
             {
                 switch(node.Name)
                 {
                     case "username":
-                        username = node.Value;
+                        username = node.InnerText;
                         break;
                     case "password":
-                        password = node.Value;
+                        password = node.InnerText;
                         break;
                 }
             }

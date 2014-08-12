@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace BasicGitClient
 {
@@ -42,7 +43,7 @@ namespace BasicGitClient
             gitClient.SetDirectory(directory);
 
             // get remote name
-            tbnShowOrigin_Click(null, new EventArgs());
+            btnShowOrigin_Click(null, new EventArgs());
         }
 
         private void btnStatus_Click(object sender, EventArgs e)
@@ -93,8 +94,10 @@ namespace BasicGitClient
 
         private void btnPush_Click(object sender, EventArgs e)
         {
-            string username = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\username.txt")[0];
-            string password = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\password.txt")[0];
+            string username;// = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\username.txt")[0];
+            string password;// = File.ReadAllLines(@"E:\Documents and Settings\Nikeah\Desktop\password.txt")[0];
+
+            getCredentials(out username, out password);
 
             string command = String.Format(GitCommands.PUSH, username, password, remoteName);
             gitClient.RunGitCommand(command, out output, out error);
@@ -106,6 +109,28 @@ namespace BasicGitClient
             btnPull_Click(null, new EventArgs());
         }
 
+        private void getCredentials(out string username, out string password)
+        {
+            username = password = "";
+
+            string credentialFile = "credentials.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(credentialFile);
+
+            foreach (XmlNode node in doc.ChildNodes)
+            {
+                switch(node.Name)
+                {
+                    case "username":
+                        username = node.Value;
+                        break;
+                    case "password":
+                        password = node.Value;
+                        break;
+                }
+            }
+        }
+
         private void btnPull_Click(object sender, EventArgs e)
         {
             gitClient.RunGitCommand(GitCommands.PULL, out output, out error);
@@ -114,13 +139,16 @@ namespace BasicGitClient
             tbOutput.AppendText(error.Replace("\n", Environment.NewLine));
         }
 
-        private void tbnShowOrigin_Click(object sender, EventArgs e)
+        private void btnShowOrigin_Click(object sender, EventArgs e)
         {
             gitClient.RunGitCommand(GitCommands.SHOW_ORIGIN, out output, out error);
 
-            remoteName = output.Split('\n')[0].Split('\t')[1]
+            if (!String.Equals(output, String.Empty))
+            {
+                remoteName = output.Split('\n')[0].Split('\t')[1]
                 .Split(new string[] { "(fetch)" }, StringSplitOptions.None)[0]
-                .Split(new string[] {"github.com"}, StringSplitOptions.None)[1];
+                .Split(new string[] { "github.com" }, StringSplitOptions.None)[1];
+            }
 
             if (sender != null)
             {

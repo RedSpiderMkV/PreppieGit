@@ -30,7 +30,6 @@
         {
             this.tbDirectory = new System.Windows.Forms.TextBox();
             this.btnSetDir = new System.Windows.Forms.Button();
-            this.tbOutput = new System.Windows.Forms.TextBox();
             this.btnPull = new System.Windows.Forms.Button();
             this.btnCommit = new System.Windows.Forms.Button();
             this.btnPush = new System.Windows.Forms.Button();
@@ -51,6 +50,7 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReset = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbOutput = new System.Windows.Forms.RichTextBox();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,18 +72,6 @@
             this.btnSetDir.Text = "Open";
             this.btnSetDir.UseVisualStyleBackColor = true;
             this.btnSetDir.Click += new System.EventHandler(this.btnSetDir_Click);
-            // 
-            // tbOutput
-            // 
-            this.tbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbOutput.Location = new System.Drawing.Point(12, 237);
-            this.tbOutput.Multiline = true;
-            this.tbOutput.Name = "tbOutput";
-            this.tbOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbOutput.Size = new System.Drawing.Size(399, 124);
-            this.tbOutput.TabIndex = 2;
             // 
             // btnPull
             // 
@@ -197,13 +185,13 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(148, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -259,11 +247,23 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Git Location";
             // 
+            // tbOutput
+            // 
+            this.tbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbOutput.Location = new System.Drawing.Point(10, 194);
+            this.tbOutput.Name = "tbOutput";
+            this.tbOutput.Size = new System.Drawing.Size(401, 167);
+            this.tbOutput.TabIndex = 14;
+            this.tbOutput.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 373);
+            this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.tbnShowOrigin);
@@ -274,7 +274,6 @@
             this.Controls.Add(this.btnPush);
             this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.btnPull);
-            this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.btnSetDir);
             this.Controls.Add(this.tbDirectory);
             this.Controls.Add(this.mnuStrip);
@@ -292,7 +291,6 @@
 
         private System.Windows.Forms.TextBox tbDirectory;
         private System.Windows.Forms.Button btnSetDir;
-        private System.Windows.Forms.TextBox tbOutput;
         private System.Windows.Forms.Button btnPull;
         private System.Windows.Forms.Button btnCommit;
         private System.Windows.Forms.Button btnPush;
@@ -313,6 +311,7 @@
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox tbOutput;
     }
 }
 

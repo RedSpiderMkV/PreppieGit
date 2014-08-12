@@ -94,6 +94,8 @@ namespace BasicGitClient
 
         private void btnPush_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
+
             string username, password;
             getCredentials(out username, out password);
 
@@ -105,6 +107,8 @@ namespace BasicGitClient
 
             // push then pull required due to master/origin local mismatch
             btnPull_Click(null, new EventArgs());
+
+            Cursor = DefaultCursor;
         }
 
         private void getCredentials(out string username, out string password)

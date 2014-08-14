@@ -36,13 +36,16 @@ namespace BasicGitClient
 
             DialogResult result = fbd.ShowDialog();
 
-            string directory = fbd.SelectedPath;
-            tbDirectory.Text = directory;
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                string directory = fbd.SelectedPath;
+                tbDirectory.Text = directory;
 
-            gitClient.SetDirectory(directory);
+                gitClient.SetDirectory(directory);
 
-            // get remote name
-            btnShowOrigin_Click(null, new EventArgs());
+                // get remote name
+                btnShowOrigin_Click(null, new EventArgs());
+            }
         }
 
         private void btnStatus_Click(object sender, EventArgs e)

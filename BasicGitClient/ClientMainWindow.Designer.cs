@@ -261,6 +261,7 @@
             this.rtbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbOutput.BackColor = System.Drawing.SystemColors.Window;
             this.rtbOutput.Location = new System.Drawing.Point(10, 194);
             this.rtbOutput.Name = "rtbOutput";
             this.rtbOutput.ReadOnly = true;

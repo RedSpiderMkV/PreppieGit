@@ -16,7 +16,7 @@ namespace BasicGitClient
         private GitClientAccess gitClient;
         private string error, output;
         private string comment = String.Empty;
-        // TODO: Make this come from a config file and not hard coded..
+        // TODO: Make this come from a config file and not be hard coded..
         private static string defaultDir = @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014";
         private string remoteName;
 

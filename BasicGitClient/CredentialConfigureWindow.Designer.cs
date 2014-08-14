@@ -38,16 +38,16 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(98, 12);
+            this.tbUsername.Location = new System.Drawing.Point(73, 12);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(182, 20);
+            this.tbUsername.Size = new System.Drawing.Size(207, 20);
             this.tbUsername.TabIndex = 0;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(98, 38);
+            this.tbPassword.Location = new System.Drawing.Point(73, 38);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(182, 20);
+            this.tbPassword.Size = new System.Drawing.Size(207, 20);
             this.tbPassword.TabIndex = 1;
             // 
             // label1
@@ -55,18 +55,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "New Username";
+            this.label1.Text = "Username";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "New Password";
+            this.label2.Text = "Password";
             // 
             // btnCancel
             // 
@@ -76,6 +76,7 @@
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOk
             // 
@@ -85,6 +86,7 @@
             this.btnOk.TabIndex = 5;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // CredentialConfigureWindow
             // 

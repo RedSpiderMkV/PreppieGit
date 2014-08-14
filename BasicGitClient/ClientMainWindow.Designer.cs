@@ -207,8 +207,9 @@
             // configureEmailToolStripMenuItem
             // 
             this.configureEmailToolStripMenuItem.Name = "configureEmailToolStripMenuItem";
-            this.configureEmailToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.configureEmailToolStripMenuItem.Text = "Configure Email";
+            this.configureEmailToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.configureEmailToolStripMenuItem.Text = "Set Credentials";
+            this.configureEmailToolStripMenuItem.Click += new System.EventHandler(this.configureEmailToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 

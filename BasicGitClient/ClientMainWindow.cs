@@ -172,5 +172,38 @@ namespace BasicGitClient
         {
             btnSetDir_Click(this, new EventArgs());
         }
+
+        private void configureEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CredentialConfigureWindow credentialWindow = new CredentialConfigureWindow();
+            credentialWindow.ShowDialog();
+
+            string username = credentialWindow.Username;
+            string password = credentialWindow.Password;
+
+            setCredentials(username, password);
+        }
+
+        private void setCredentials(string username, string password)
+        {
+            string credentialFile = "credentials.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(credentialFile);
+
+            foreach (XmlNode node in doc.FirstChild.ChildNodes)
+            {
+                switch (node.Name)
+                {
+                    case "username":
+                        node.InnerText = username;
+                        break;
+                    case "password":
+                        node.InnerText = password;
+                        break;
+                }
+            }
+
+            doc.Save(credentialFile);
+        }
     }
 }

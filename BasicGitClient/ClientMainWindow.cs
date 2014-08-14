@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace BasicGitClient
 {
@@ -18,6 +17,7 @@ namespace BasicGitClient
         // TODO: Make this come from a config file and not be hard coded..
         private static string defaultDir = @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014";
         private string remoteName;
+        private CredentialXmlHandler xmlHandler = new CredentialXmlHandler();
 
         public ClientMainWindow()
         {
@@ -93,7 +93,7 @@ namespace BasicGitClient
             Cursor = Cursors.WaitCursor;
 
             string username, password;
-            getCredentials(out username, out password);
+            xmlHandler.getCredentials(out username, out password);
 
             string command = String.Format(GitCommands.PUSH, username, password, remoteName);
             gitClient.RunGitCommand(command, out output, out error);
@@ -105,28 +105,6 @@ namespace BasicGitClient
             btnPull_Click(null, new EventArgs());
 
             Cursor = DefaultCursor;
-        }
-
-        private void getCredentials(out string username, out string password)
-        {
-            username = password = "";
-
-            string credentialFile = "credentials.xml";
-            XmlDocument doc = new XmlDocument();
-            doc.Load(credentialFile);
-
-            foreach (XmlNode node in doc.FirstChild.ChildNodes)
-            {
-                switch(node.Name)
-                {
-                    case "username":
-                        username = node.InnerText;
-                        break;
-                    case "password":
-                        password = node.InnerText;
-                        break;
-                }
-            }
         }
 
         private void btnPull_Click(object sender, EventArgs e)
@@ -181,29 +159,7 @@ namespace BasicGitClient
             string username = credentialWindow.Username;
             string password = credentialWindow.Password;
 
-            setCredentials(username, password);
-        }
-
-        private void setCredentials(string username, string password)
-        {
-            string credentialFile = "credentials.xml";
-            XmlDocument doc = new XmlDocument();
-            doc.Load(credentialFile);
-
-            foreach (XmlNode node in doc.FirstChild.ChildNodes)
-            {
-                switch (node.Name)
-                {
-                    case "username":
-                        node.InnerText = username;
-                        break;
-                    case "password":
-                        node.InnerText = password;
-                        break;
-                }
-            }
-
-            doc.Save(credentialFile);
+            xmlHandler.setCredentials(username, password);
         }
     }
 }

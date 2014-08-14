@@ -64,6 +64,7 @@
     <Compile Include="CredentialConfigureWindow.Designer.cs">
       <DependentUpon>CredentialConfigureWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="CredentialXmlHandler.cs" />
     <Compile Include="GitClientAccess.cs" />
     <Compile Include="GitCommands.cs" />
     <Compile Include="Program.cs" />

@@ -15,7 +15,6 @@ namespace BasicGitClient
     {
         private GitClientAccess gitClient;
         private string error, output;
-        private string comment = String.Empty;
         // TODO: Make this come from a config file and not be hard coded..
         private static string defaultDir = @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014";
         private string remoteName;
@@ -67,8 +66,9 @@ namespace BasicGitClient
         private void btnCommit_Click(object sender, EventArgs e)
         {
             CommitCommentWindow commitWindow = new CommitCommentWindow();
-            commitWindow.CommitCommentEvent += new CommitCommentWindow.CommitCommentStringHandler(commitWindow_CommitCommentEvent);
             commitWindow.ShowDialog();
+
+            string comment = commitWindow.CommitComment;
 
             if (comment != String.Empty)
             {
@@ -83,13 +83,6 @@ namespace BasicGitClient
             {
                 rtbOutput.AppendText("\nNo comment added.  Not committed..");
             }
-
-            commitWindow.CommitCommentEvent -= commitWindow_CommitCommentEvent;
-        }
-
-        private void commitWindow_CommitCommentEvent(string comment, EventArgs e)
-        {
-            this.comment = "\"" + comment + "\"";
         }
 
         private void btnPush_Click(object sender, EventArgs e)

@@ -11,12 +11,12 @@ namespace BasicGitClient
 {
     public partial class CommitCommentWindow : Form
     {
-        public delegate void CommitCommentStringHandler(string comment, EventArgs e);
-        public event CommitCommentStringHandler CommitCommentEvent;
+        public string CommitComment { get; private set; }
 
         public CommitCommentWindow()
         {
             InitializeComponent();
+            CommitComment = String.Empty;
         }
 
         private void btnCommit_Click(object sender, EventArgs e)
@@ -34,11 +34,7 @@ namespace BasicGitClient
 
         private void commitComment()
         {
-            CommitCommentStringHandler handler = CommitCommentEvent;
-            if (handler != null)
-            {
-                handler(tbComment.Text, new EventArgs());
-            }
+            CommitComment = String.Format("\"{0}\"", tbComment.Text);
 
             this.Close();
         }

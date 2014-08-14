@@ -30,6 +30,12 @@ namespace BasicGitClient
             {
                 commitComment();
             }
+
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                tbComment.SelectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void commitComment()

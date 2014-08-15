@@ -35,7 +35,6 @@ namespace BasicGitClient
             }
 
             DialogResult result = fbd.ShowDialog();
-
             if (result == System.Windows.Forms.DialogResult.OK)
             {
                 string directory = fbd.SelectedPath;
@@ -51,9 +50,7 @@ namespace BasicGitClient
         private void btnStatus_Click(object sender, EventArgs e)
         {
             gitClient.RunGitCommand(GitCommands.STATUS, out output, out error);
-            
-            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+            updateRtbOutput(output, error);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -78,9 +75,7 @@ namespace BasicGitClient
                 string command = GitCommands.COMMIT + " " + comment;
 
                 gitClient.RunGitCommand(command, out output, out error);
-
-                rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-                rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+                updateRtbOutput(output, error);
             }
             else
             {
@@ -98,8 +93,7 @@ namespace BasicGitClient
             string command = String.Format(GitCommands.PUSH, username, password, remoteName);
             gitClient.RunGitCommand(command, out output, out error);
 
-            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+            updateRtbOutput(output, error);
 
             // push then pull required due to master/origin local mismatch
             btnPull_Click(null, new EventArgs());
@@ -110,17 +104,13 @@ namespace BasicGitClient
         private void btnPull_Click(object sender, EventArgs e)
         {
             gitClient.RunGitCommand(GitCommands.PULL, out output, out error);
-
-            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+            updateRtbOutput(output, error);
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             gitClient.RunGitCommand(GitCommands.RESET, out output, out error);
-
-            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+            updateRtbOutput(output, error);
         }
 
         private void btnShowOrigin_Click(object sender, EventArgs e)
@@ -136,8 +126,7 @@ namespace BasicGitClient
 
             if (sender != null)
             {
-                rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-                rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+                updateRtbOutput(output, error);
             }
         }
 
@@ -160,6 +149,12 @@ namespace BasicGitClient
             string password = credentialWindow.Password;
 
             xmlHandler.setCredentials(username, password);
+        }
+
+        private void updateRtbOutput(string output, string error)
+        {
+            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
         }
     }
 }

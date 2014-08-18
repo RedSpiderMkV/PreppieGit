@@ -21,7 +21,7 @@ namespace BasicGitClient
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Url))
+            if (!String.IsNullOrEmpty(tbUrl.Text))
             {
                 Url = tbUrl.Text;
 

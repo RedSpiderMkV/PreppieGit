@@ -25,7 +25,9 @@ namespace BasicGitClient
             gitClient = new GitClientAccess();
 
             string d = xmlHandler.GetLastLocation();
-            defaultDir = string.IsNullOrWhiteSpace(d) ? @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014" : d;
+            defaultDir = string.IsNullOrWhiteSpace(d) ?
+                @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014"
+                : d;
             tbDirectory.Text = defaultDir;
             gitClient.SetDirectory(defaultDir);
         }
@@ -160,6 +162,16 @@ namespace BasicGitClient
         {
             rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
             rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+        }
+
+        private void btnClone_Click(object sender, EventArgs e)
+        {
+            // TODO: add cloning option here
+        }
+
+        private void rtbOutput_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

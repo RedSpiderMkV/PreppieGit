@@ -37,7 +37,7 @@ namespace BasicGitClient
             }
         }
 
-        public void getCredentials(out string username, out string password)
+        public void GetCredentials(out string username, out string password)
         {
             username = password = "";
             
@@ -58,7 +58,7 @@ namespace BasicGitClient
             }
         }
 
-        public void setCredentials(string username, string password)
+        public void SetCredentials(string username, string password)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(credentialFile);

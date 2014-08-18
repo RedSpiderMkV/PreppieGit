@@ -95,7 +95,7 @@ namespace BasicGitClient
             Cursor = Cursors.WaitCursor;
 
             string username, password;
-            xmlHandler.getCredentials(out username, out password);
+            xmlHandler.GetCredentials(out username, out password);
 
             string command = String.Format(GitCommands.PUSH, username, password, remoteName);
             gitClient.RunGitCommand(command, out output, out error);
@@ -155,7 +155,7 @@ namespace BasicGitClient
             string username = credentialWindow.Username;
             string password = credentialWindow.Password;
 
-            xmlHandler.setCredentials(username, password);
+            xmlHandler.SetCredentials(username, password);
         }
 
         private void updateRtbOutput(string output, string error)

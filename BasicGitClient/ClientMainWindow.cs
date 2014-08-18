@@ -15,7 +15,7 @@ namespace BasicGitClient
         private GitClientAccess gitClient;
         private string error, output;
         // TODO: Make this come from a config file and not be hard coded..
-        private static string defaultDir = @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014";
+        private string defaultDir;
         private string remoteName;
         private CredentialXmlHandler xmlHandler = new CredentialXmlHandler();
 
@@ -23,6 +23,9 @@ namespace BasicGitClient
         {
             InitializeComponent();
             gitClient = new GitClientAccess();
+
+            string d = xmlHandler.GetLastLocation();
+            defaultDir = string.IsNullOrWhiteSpace(d) ? @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014" : d;
         }
 
         private void btnSetDir_Click(object sender, EventArgs e)
@@ -41,7 +44,7 @@ namespace BasicGitClient
                 tbDirectory.Text = directory;
 
                 gitClient.SetDirectory(directory);
-
+                xmlHandler.SetLastLocation(directory);
                 // get remote name
                 btnShowOrigin_Click(null, new EventArgs());
             }

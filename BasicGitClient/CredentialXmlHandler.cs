@@ -10,6 +10,33 @@ namespace BasicGitClient
     {
         private readonly string credentialFile = "credentials.xml";
 
+        public string GetLastLocation()
+        {
+            string lastLocation = "";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(credentialFile);
+            
+            XmlNode node = doc.FirstChild.ChildNodes[1];
+            lastLocation = node.InnerText;
+            
+            return lastLocation;
+        }
+
+        public void SetLastLocation(string lastLocation)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(credentialFile);
+
+            foreach (XmlNode node in doc.FirstChild.ChildNodes)
+            {
+                if (String.Equals(node.Name, "lastLocation"))
+                {
+                    node.InnerText = lastLocation;
+                    doc.Save(credentialFile);
+                }
+            }
+        }
+
         public void getCredentials(out string username, out string password)
         {
             username = password = "";
@@ -17,7 +44,7 @@ namespace BasicGitClient
             XmlDocument doc = new XmlDocument();
             doc.Load(credentialFile);
 
-            foreach (XmlNode node in doc.FirstChild.ChildNodes)
+            foreach (XmlNode node in doc.FirstChild.ChildNodes[0].ChildNodes)
             {
                 switch (node.Name)
                 {
@@ -36,7 +63,7 @@ namespace BasicGitClient
             XmlDocument doc = new XmlDocument();
             doc.Load(credentialFile);
 
-            foreach (XmlNode node in doc.FirstChild.ChildNodes)
+            foreach (XmlNode node in doc.FirstChild.ChildNodes[0].ChildNodes)
             {
                 switch (node.Name)
                 {

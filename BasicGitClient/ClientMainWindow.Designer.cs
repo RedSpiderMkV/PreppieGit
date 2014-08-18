@@ -52,6 +52,7 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
+            this.btnSetOrigin = new System.Windows.Forms.Button();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,6 +113,7 @@
             this.btnInit.TabIndex = 6;
             this.btnInit.Text = "Init";
             this.btnInit.UseVisualStyleBackColor = true;
+            this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
             // 
             // btnStatus
             // 
@@ -272,11 +274,22 @@
             this.rtbOutput.Text = "";
             this.rtbOutput.TextChanged += new System.EventHandler(this.rtbOutput_TextChanged);
             // 
+            // btnSetOrigin
+            // 
+            this.btnSetOrigin.Location = new System.Drawing.Point(13, 146);
+            this.btnSetOrigin.Name = "btnSetOrigin";
+            this.btnSetOrigin.Size = new System.Drawing.Size(75, 23);
+            this.btnSetOrigin.TabIndex = 15;
+            this.btnSetOrigin.Text = "Set Origin";
+            this.btnSetOrigin.UseVisualStyleBackColor = true;
+            this.btnSetOrigin.Click += new System.EventHandler(this.btnSetOrigin_Click);
+            // 
             // ClientMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 373);
+            this.Controls.Add(this.btnSetOrigin);
             this.Controls.Add(this.rtbOutput);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReset);
@@ -327,6 +340,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox rtbOutput;
         private System.Windows.Forms.ToolStripMenuItem configureEmailToolStripMenuItem;
+        private System.Windows.Forms.Button btnSetOrigin;
     }
 }
 

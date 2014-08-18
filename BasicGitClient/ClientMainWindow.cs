@@ -181,10 +181,27 @@ namespace BasicGitClient
                     rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
                     rtbOutput.SelectionColor = Color.DarkRed;
                 }
+
+                if (rtbOutput.Lines[i].Contains("new file: "))
+                {
+                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
+                    rtbOutput.SelectionColor = Color.DarkGreen;
+                }
             }
 
             rtbOutput.SelectionStart = rtbOutput.TextLength;
             rtbOutput.ScrollToCaret();
+        }
+
+        private void btnInit_Click(object sender, EventArgs e)
+        {
+            gitClient.RunGitCommand(GitCommands.INIT, out output, out error);
+            updateRtbOutput(output, error);
+        }
+
+        private void btnSetOrigin_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

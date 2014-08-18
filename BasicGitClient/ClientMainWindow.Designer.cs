@@ -276,7 +276,7 @@
             // 
             // btnSetOrigin
             // 
-            this.btnSetOrigin.Location = new System.Drawing.Point(13, 146);
+            this.btnSetOrigin.Location = new System.Drawing.Point(10, 146);
             this.btnSetOrigin.Name = "btnSetOrigin";
             this.btnSetOrigin.Size = new System.Drawing.Size(75, 23);
             this.btnSetOrigin.TabIndex = 15;

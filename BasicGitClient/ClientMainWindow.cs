@@ -127,7 +127,7 @@ namespace BasicGitClient
         {
             gitClient.RunGitCommand(GitCommands.SHOW_ORIGIN, out output, out error);
 
-            if (!String.Equals(output, String.Empty))
+            if (!String.IsNullOrEmpty(output))
             {
                 remoteName = output.Split('\n')[0].Split('\t')[1]
                 .Split(new string[] { "(fetch)" }, StringSplitOptions.None)[0]
@@ -136,6 +136,11 @@ namespace BasicGitClient
 
             if (sender != null)
             {
+                if (output == string.Empty && error == string.Empty)
+                {
+                    output = "Origin is not set." + Environment.NewLine;
+                }
+
                 updateRtbOutput(output, error);
             }
         }

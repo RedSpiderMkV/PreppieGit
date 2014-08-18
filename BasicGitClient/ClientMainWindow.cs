@@ -29,6 +29,7 @@ namespace BasicGitClient
                 @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014"
                 : d;
             tbDirectory.Text = defaultDir;
+            tbDirectory.SelectionStart = tbDirectory.TextLength;
             gitClient.SetDirectory(defaultDir);
         }
 

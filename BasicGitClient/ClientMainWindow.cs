@@ -31,6 +31,8 @@ namespace BasicGitClient
             tbDirectory.Text = defaultDir;
             tbDirectory.SelectionStart = tbDirectory.TextLength;
             gitClient.SetDirectory(defaultDir);
+            // set remote
+            btnShowOrigin_Click(null, new EventArgs());
         }
 
         private void btnSetDir_Click(object sender, EventArgs e)

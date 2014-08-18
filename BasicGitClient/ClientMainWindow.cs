@@ -172,7 +172,17 @@ namespace BasicGitClient
 
         private void rtbOutput_TextChanged(object sender, EventArgs e)
         {
+            for (int i = 0; i < rtbOutput.Lines.Length; ++i)
+            {
+                if (rtbOutput.Lines[i].Contains("modified: "))
+                {
+                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
+                    rtbOutput.SelectionColor = Color.DarkRed;
+                }
+            }
 
+            rtbOutput.SelectionStart = rtbOutput.TextLength;
+            rtbOutput.ScrollToCaret();
         }
     }
 }

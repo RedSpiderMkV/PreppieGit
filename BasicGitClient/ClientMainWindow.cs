@@ -201,7 +201,16 @@ namespace BasicGitClient
 
         private void btnSetOrigin_Click(object sender, EventArgs e)
         {
-            
+            SetOriginWindow setOriginWindow = new SetOriginWindow();
+            setOriginWindow.ShowDialog();
+
+            if (!String.IsNullOrEmpty(setOriginWindow.Url))
+            {
+                string command = GitCommands.SET_ORIGIN + setOriginWindow.Url;
+                
+                gitClient.RunGitCommand(command, out output, out error);
+                updateRtbOutput(output, error);
+            }
         }
     }
 }

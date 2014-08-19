@@ -29,15 +29,11 @@
         private void InitializeComponent()
         {
             this.tbDirectory = new System.Windows.Forms.TextBox();
-            this.btnSetDir = new System.Windows.Forms.Button();
             this.btnPull = new System.Windows.Forms.Button();
             this.btnCommit = new System.Windows.Forms.Button();
             this.btnPush = new System.Windows.Forms.Button();
-            this.btnInit = new System.Windows.Forms.Button();
             this.btnStatus = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnClone = new System.Windows.Forms.Button();
-            this.tbnShowOrigin = new System.Windows.Forms.Button();
             this.mnuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,14 +41,18 @@
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configureEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setOriginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetToHeadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cloneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initialiseNewRepoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showOriginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnReset = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
-            this.btnSetOrigin = new System.Windows.Forms.Button();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,16 +64,6 @@
             this.tbDirectory.Name = "tbDirectory";
             this.tbDirectory.Size = new System.Drawing.Size(399, 20);
             this.tbDirectory.TabIndex = 0;
-            // 
-            // btnSetDir
-            // 
-            this.btnSetDir.Location = new System.Drawing.Point(10, 88);
-            this.btnSetDir.Name = "btnSetDir";
-            this.btnSetDir.Size = new System.Drawing.Size(75, 23);
-            this.btnSetDir.TabIndex = 1;
-            this.btnSetDir.Text = "Open";
-            this.btnSetDir.UseVisualStyleBackColor = true;
-            this.btnSetDir.Click += new System.EventHandler(this.btnSetDir_Click);
             // 
             // btnPull
             // 
@@ -87,7 +77,7 @@
             // 
             // btnCommit
             // 
-            this.btnCommit.Location = new System.Drawing.Point(91, 117);
+            this.btnCommit.Location = new System.Drawing.Point(91, 88);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(75, 23);
             this.btnCommit.TabIndex = 4;
@@ -97,23 +87,13 @@
             // 
             // btnPush
             // 
-            this.btnPush.Location = new System.Drawing.Point(172, 117);
+            this.btnPush.Location = new System.Drawing.Point(253, 88);
             this.btnPush.Name = "btnPush";
             this.btnPush.Size = new System.Drawing.Size(75, 23);
             this.btnPush.TabIndex = 5;
             this.btnPush.Text = "Push";
             this.btnPush.UseVisualStyleBackColor = true;
             this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
-            // 
-            // btnInit
-            // 
-            this.btnInit.Location = new System.Drawing.Point(253, 88);
-            this.btnInit.Name = "btnInit";
-            this.btnInit.Size = new System.Drawing.Size(75, 23);
-            this.btnInit.TabIndex = 6;
-            this.btnInit.Text = "Init";
-            this.btnInit.UseVisualStyleBackColor = true;
-            this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
             // 
             // btnStatus
             // 
@@ -127,7 +107,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(10, 117);
+            this.btnAdd.Location = new System.Drawing.Point(10, 88);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 8;
@@ -135,32 +115,13 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnClone
-            // 
-            this.btnClone.Location = new System.Drawing.Point(334, 117);
-            this.btnClone.Name = "btnClone";
-            this.btnClone.Size = new System.Drawing.Size(75, 23);
-            this.btnClone.TabIndex = 9;
-            this.btnClone.Text = "Clone";
-            this.btnClone.UseVisualStyleBackColor = true;
-            this.btnClone.Click += new System.EventHandler(this.btnClone_Click);
-            // 
-            // tbnShowOrigin
-            // 
-            this.tbnShowOrigin.Location = new System.Drawing.Point(91, 88);
-            this.tbnShowOrigin.Name = "tbnShowOrigin";
-            this.tbnShowOrigin.Size = new System.Drawing.Size(75, 23);
-            this.tbnShowOrigin.TabIndex = 10;
-            this.tbnShowOrigin.Text = "Show Origin";
-            this.tbnShowOrigin.UseVisualStyleBackColor = true;
-            this.tbnShowOrigin.Click += new System.EventHandler(this.btnShowOrigin_Click);
-            // 
             // mnuStrip
             // 
             this.mnuStrip.BackColor = System.Drawing.SystemColors.Control;
             this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.connectionToolStripMenuItem,
+            this.advancedToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.mnuStrip.Location = new System.Drawing.Point(0, 0);
             this.mnuStrip.Name = "mnuStrip";
@@ -214,6 +175,54 @@
             this.configureEmailToolStripMenuItem.Text = "Set Credentials";
             this.configureEmailToolStripMenuItem.Click += new System.EventHandler(this.configureEmailToolStripMenuItem_Click);
             // 
+            // advancedToolStripMenuItem
+            // 
+            this.advancedToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setOriginToolStripMenuItem,
+            this.resetToHeadToolStripMenuItem,
+            this.cloneToolStripMenuItem,
+            this.initialiseNewRepoToolStripMenuItem,
+            this.showOriginToolStripMenuItem});
+            this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
+            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
+            this.advancedToolStripMenuItem.Text = "Advanced Commands";
+            // 
+            // setOriginToolStripMenuItem
+            // 
+            this.setOriginToolStripMenuItem.Name = "setOriginToolStripMenuItem";
+            this.setOriginToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.setOriginToolStripMenuItem.Text = "Set Origin";
+            this.setOriginToolStripMenuItem.Click += new System.EventHandler(this.setOriginToolStripMenuItem_Click);
+            // 
+            // resetToHeadToolStripMenuItem
+            // 
+            this.resetToHeadToolStripMenuItem.Name = "resetToHeadToolStripMenuItem";
+            this.resetToHeadToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.resetToHeadToolStripMenuItem.Text = "Reset to Head";
+            this.resetToHeadToolStripMenuItem.Click += new System.EventHandler(this.resetToHeadToolStripMenuItem_Click);
+            // 
+            // cloneToolStripMenuItem
+            // 
+            this.cloneToolStripMenuItem.Name = "cloneToolStripMenuItem";
+            this.cloneToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.cloneToolStripMenuItem.Text = "Clone";
+            this.cloneToolStripMenuItem.Click += new System.EventHandler(this.cloneToolStripMenuItem_Click);
+            // 
+            // initialiseNewRepoToolStripMenuItem
+            // 
+            this.initialiseNewRepoToolStripMenuItem.Name = "initialiseNewRepoToolStripMenuItem";
+            this.initialiseNewRepoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.initialiseNewRepoToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.initialiseNewRepoToolStripMenuItem.Text = "Initialise New Repo";
+            this.initialiseNewRepoToolStripMenuItem.Click += new System.EventHandler(this.initialiseNewRepoToolStripMenuItem_Click);
+            // 
+            // showOriginToolStripMenuItem
+            // 
+            this.showOriginToolStripMenuItem.Name = "showOriginToolStripMenuItem";
+            this.showOriginToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.showOriginToolStripMenuItem.Text = "Show Origin";
+            this.showOriginToolStripMenuItem.Click += new System.EventHandler(this.showOriginToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -241,16 +250,6 @@
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(253, 117);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 12;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -274,34 +273,18 @@
             this.rtbOutput.Text = "";
             this.rtbOutput.TextChanged += new System.EventHandler(this.rtbOutput_TextChanged);
             // 
-            // btnSetOrigin
-            // 
-            this.btnSetOrigin.Location = new System.Drawing.Point(10, 146);
-            this.btnSetOrigin.Name = "btnSetOrigin";
-            this.btnSetOrigin.Size = new System.Drawing.Size(75, 23);
-            this.btnSetOrigin.TabIndex = 15;
-            this.btnSetOrigin.Text = "Set Origin";
-            this.btnSetOrigin.UseVisualStyleBackColor = true;
-            this.btnSetOrigin.Click += new System.EventHandler(this.btnSetOrigin_Click);
-            // 
             // ClientMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 373);
-            this.Controls.Add(this.btnSetOrigin);
             this.Controls.Add(this.rtbOutput);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.tbnShowOrigin);
-            this.Controls.Add(this.btnClone);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnStatus);
-            this.Controls.Add(this.btnInit);
             this.Controls.Add(this.btnPush);
             this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.btnPull);
-            this.Controls.Add(this.btnSetDir);
             this.Controls.Add(this.tbDirectory);
             this.Controls.Add(this.mnuStrip);
             this.MainMenuStrip = this.mnuStrip;
@@ -317,15 +300,11 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbDirectory;
-        private System.Windows.Forms.Button btnSetDir;
         private System.Windows.Forms.Button btnPull;
         private System.Windows.Forms.Button btnCommit;
         private System.Windows.Forms.Button btnPush;
-        private System.Windows.Forms.Button btnInit;
         private System.Windows.Forms.Button btnStatus;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnClone;
-        private System.Windows.Forms.Button tbnShowOrigin;
         private System.Windows.Forms.MenuStrip mnuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectionToolStripMenuItem;
@@ -336,11 +315,15 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
-        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox rtbOutput;
         private System.Windows.Forms.ToolStripMenuItem configureEmailToolStripMenuItem;
-        private System.Windows.Forms.Button btnSetOrigin;
+        private System.Windows.Forms.ToolStripMenuItem advancedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setOriginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetToHeadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cloneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem initialiseNewRepoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showOriginToolStripMenuItem;
     }
 }
 

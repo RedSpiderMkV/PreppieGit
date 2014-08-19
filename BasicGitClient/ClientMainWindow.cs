@@ -32,29 +32,12 @@ namespace BasicGitClient
             tbDirectory.SelectionStart = tbDirectory.TextLength;
             gitClient.SetDirectory(defaultDir);
             // set remote
-            btnShowOrigin_Click(null, new EventArgs());
+            showOriginToolStripMenuItem_Click(null, new EventArgs());
         }
 
         private void btnSetDir_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-
-            if (Directory.Exists(defaultDir))
-            {
-                fbd.SelectedPath = defaultDir;
-            }
-
-            DialogResult result = fbd.ShowDialog();
-            if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                string directory = fbd.SelectedPath;
-                tbDirectory.Text = directory;
-
-                gitClient.SetDirectory(directory);
-                xmlHandler.SetLastLocation(directory);
-                // get remote name
-                btnShowOrigin_Click(null, new EventArgs());
-            }
+            
         }
 
         private void btnStatus_Click(object sender, EventArgs e)
@@ -117,34 +100,6 @@ namespace BasicGitClient
             updateRtbOutput(output, error);
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            gitClient.RunGitCommand(GitCommands.RESET, out output, out error);
-            updateRtbOutput(output, error);
-        }
-
-        private void btnShowOrigin_Click(object sender, EventArgs e)
-        {
-            gitClient.RunGitCommand(GitCommands.SHOW_ORIGIN, out output, out error);
-
-            if (!String.IsNullOrEmpty(output))
-            {
-                remoteName = output.Split('\n')[0].Split('\t')[1]
-                .Split(new string[] { "(fetch)" }, StringSplitOptions.None)[0]
-                .Split(new string[] { "github.com" }, StringSplitOptions.None)[1];
-            }
-
-            if (sender != null)
-            {
-                if (output == string.Empty && error == string.Empty)
-                {
-                    output = "Origin is not set." + Environment.NewLine;
-                }
-
-                updateRtbOutput(output, error);
-            }
-        }
-
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -152,7 +107,24 @@ namespace BasicGitClient
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnSetDir_Click(this, new EventArgs());
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+            if (Directory.Exists(defaultDir))
+            {
+                fbd.SelectedPath = defaultDir;
+            }
+
+            DialogResult result = fbd.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                string directory = fbd.SelectedPath;
+                tbDirectory.Text = directory;
+
+                gitClient.SetDirectory(directory);
+                xmlHandler.SetLastLocation(directory);
+                // get remote name
+                showOriginToolStripMenuItem_Click(null, new EventArgs());
+            }
         }
 
         private void configureEmailToolStripMenuItem_Click(object sender, EventArgs e)
@@ -170,18 +142,6 @@ namespace BasicGitClient
         {
             rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
             rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
-        }
-
-        private void btnClone_Click(object sender, EventArgs e)
-        {
-            SetUrlWindow cloneWindow = new SetUrlWindow("Clone");
-            cloneWindow.ShowDialog();
-
-            if (!string.IsNullOrEmpty(cloneWindow.Url))
-            {
-                gitClient.RunGitCommand(GitCommands.CLONE + cloneWindow.Url, out output, out error);
-                updateRtbOutput(output, error);
-            }
         }
 
         private void rtbOutput_TextChanged(object sender, EventArgs e)
@@ -205,13 +165,7 @@ namespace BasicGitClient
             rtbOutput.ScrollToCaret();
         }
 
-        private void btnInit_Click(object sender, EventArgs e)
-        {
-            gitClient.RunGitCommand(GitCommands.INIT, out output, out error);
-            updateRtbOutput(output, error);
-        }
-
-        private void btnSetOrigin_Click(object sender, EventArgs e)
+        private void setOriginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SetUrlWindow setOriginWindow = new SetUrlWindow("Set Origin...");
             setOriginWindow.ShowDialog();
@@ -219,10 +173,56 @@ namespace BasicGitClient
             if (!String.IsNullOrEmpty(setOriginWindow.Url))
             {
                 string command = GitCommands.SET_ORIGIN + setOriginWindow.Url;
-                
+
                 gitClient.RunGitCommand(command, out output, out error);
                 updateRtbOutput(output, error);
             }
+        }
+
+        private void initialiseNewRepoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gitClient.RunGitCommand(GitCommands.INIT, out output, out error);
+            updateRtbOutput(output, error);
+        }
+
+        private void showOriginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gitClient.RunGitCommand(GitCommands.SHOW_ORIGIN, out output, out error);
+
+            if (!String.IsNullOrEmpty(output))
+            {
+                remoteName = output.Split('\n')[0].Split('\t')[1]
+                .Split(new string[] { "(fetch)" }, StringSplitOptions.None)[0]
+                .Split(new string[] { "github.com" }, StringSplitOptions.None)[1];
+            }
+
+            if (sender != null)
+            {
+                if (output == string.Empty && error == string.Empty)
+                {
+                    output = "Origin is not set." + Environment.NewLine;
+                }
+
+                updateRtbOutput(output, error);
+            }
+        }
+
+        private void cloneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetUrlWindow cloneWindow = new SetUrlWindow("Clone");
+            cloneWindow.ShowDialog();
+
+            if (!string.IsNullOrEmpty(cloneWindow.Url))
+            {
+                gitClient.RunGitCommand(GitCommands.CLONE + cloneWindow.Url, out output, out error);
+                updateRtbOutput(output, error);
+            }
+        }
+
+        private void resetToHeadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gitClient.RunGitCommand(GitCommands.RESET, out output, out error);
+            updateRtbOutput(output, error);
         }
     }
 }

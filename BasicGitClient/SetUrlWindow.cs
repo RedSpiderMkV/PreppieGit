@@ -9,14 +9,15 @@ using System.Windows.Forms;
 
 namespace BasicGitClient
 {
-    public partial class SetOriginWindow : Form
+    public partial class SetUrlWindow : Form
     {
         public string Url { get; private set; }
 
-        public SetOriginWindow()
+        public SetUrlWindow(string title)
         {
             InitializeComponent();
             Url = String.Empty;
+            this.Text = title;
         }
 
         private void btnOk_Click(object sender, EventArgs e)

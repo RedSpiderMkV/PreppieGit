@@ -1,6 +1,6 @@
 ﻿namespace BasicGitClient
 {
-    partial class SetOriginWindow
+    partial class SetUrlWindow
     {
         /// <summary>
         /// Required designer variable.

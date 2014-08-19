@@ -13,7 +13,7 @@ namespace BasicGitClient
         public const string COMMIT = "commit -m";
         public const string ADD = "add";
         public const string ADD_ALL = "add -A";
-        public const string CLONE = "clone";
+        public const string CLONE = "clone ";
         public const string SHOW_ORIGIN = "remote -v";
         public const string SET_ORIGIN = "remote add origin ";
         public const string RESET = "reset --hard";

@@ -174,7 +174,14 @@ namespace BasicGitClient
 
         private void btnClone_Click(object sender, EventArgs e)
         {
-            // TODO: add cloning option here
+            SetUrlWindow cloneWindow = new SetUrlWindow("Clone");
+            cloneWindow.ShowDialog();
+
+            if (!string.IsNullOrEmpty(cloneWindow.Url))
+            {
+                gitClient.RunGitCommand(GitCommands.CLONE + cloneWindow.Url, out output, out error);
+                updateRtbOutput(output, error);
+            }
         }
 
         private void rtbOutput_TextChanged(object sender, EventArgs e)
@@ -206,7 +213,7 @@ namespace BasicGitClient
 
         private void btnSetOrigin_Click(object sender, EventArgs e)
         {
-            SetOriginWindow setOriginWindow = new SetOriginWindow();
+            SetUrlWindow setOriginWindow = new SetUrlWindow("Set Origin...");
             setOriginWindow.ShowDialog();
 
             if (!String.IsNullOrEmpty(setOriginWindow.Url))

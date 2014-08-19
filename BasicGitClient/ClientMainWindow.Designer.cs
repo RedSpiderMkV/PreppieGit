@@ -67,7 +67,7 @@
             // 
             // btnPull
             // 
-            this.btnPull.Location = new System.Drawing.Point(172, 88);
+            this.btnPull.Location = new System.Drawing.Point(253, 88);
             this.btnPull.Name = "btnPull";
             this.btnPull.Size = new System.Drawing.Size(75, 23);
             this.btnPull.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             // btnPush
             // 
-            this.btnPush.Location = new System.Drawing.Point(253, 88);
+            this.btnPush.Location = new System.Drawing.Point(172, 88);
             this.btnPush.Name = "btnPush";
             this.btnPush.Size = new System.Drawing.Size(75, 23);
             this.btnPush.TabIndex = 5;

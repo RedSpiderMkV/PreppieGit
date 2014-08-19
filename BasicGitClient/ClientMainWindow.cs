@@ -224,5 +224,12 @@ namespace BasicGitClient
             gitClient.RunGitCommand(GitCommands.RESET, out output, out error);
             updateRtbOutput(output, error);
         }
+
+        private void pushAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnAdd_Click(null, new EventArgs());
+            btnCommit_Click(null, new EventArgs());
+            btnPush_Click(null, new EventArgs());
+        }
     }
 }

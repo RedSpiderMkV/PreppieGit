@@ -53,6 +53,7 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
+            this.pushAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -182,7 +183,8 @@
             this.resetToHeadToolStripMenuItem,
             this.cloneToolStripMenuItem,
             this.initialiseNewRepoToolStripMenuItem,
-            this.showOriginToolStripMenuItem});
+            this.showOriginToolStripMenuItem,
+            this.pushAllToolStripMenuItem});
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
             this.advancedToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
             this.advancedToolStripMenuItem.Text = "Advanced Commands";
@@ -273,6 +275,16 @@
             this.rtbOutput.Text = "";
             this.rtbOutput.TextChanged += new System.EventHandler(this.rtbOutput_TextChanged);
             // 
+            // pushAllToolStripMenuItem
+            // 
+            this.pushAllToolStripMenuItem.Name = "pushAllToolStripMenuItem";
+            this.pushAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+                        | System.Windows.Forms.Keys.P)));
+            this.pushAllToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.pushAllToolStripMenuItem.Text = "Push All";
+            this.pushAllToolStripMenuItem.ToolTipText = "Add, commit, push all changes";
+            this.pushAllToolStripMenuItem.Click += new System.EventHandler(this.pushAllToolStripMenuItem_Click);
+            // 
             // ClientMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,6 +336,7 @@
         private System.Windows.Forms.ToolStripMenuItem cloneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem initialiseNewRepoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showOriginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pushAllToolStripMenuItem;
     }
 }
 

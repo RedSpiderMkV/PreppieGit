@@ -8,7 +8,7 @@ namespace BasicGitClient
 {
     internal class XmlHandler
     {
-        private readonly string credentialFile = "configuration.xml";
+        private const string credentialFile = "configuration.xml";
 
         public string GetLastLocation()
         {

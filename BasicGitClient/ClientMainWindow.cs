@@ -35,11 +35,6 @@ namespace BasicGitClient
             showOriginToolStripMenuItem_Click(null, new EventArgs());
         }
 
-        private void btnSetDir_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnStatus_Click(object sender, EventArgs e)
         {
             gitClient.RunGitCommand(GitCommands.STATUS, out output, out error);

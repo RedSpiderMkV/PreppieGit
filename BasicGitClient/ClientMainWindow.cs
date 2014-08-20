@@ -14,7 +14,6 @@ namespace BasicGitClient
     {
         private GitClientAccess gitClient;
         private string error, output;
-        // TODO: Make this come from a config file and not be hard coded..
         private string defaultDir;
         private string remoteName;
         private XmlHandler xmlHandler = new XmlHandler();

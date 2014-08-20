@@ -1,6 +1,6 @@
 ﻿namespace BasicGitClient
 {
-    partial class SetUrlWindow
+    partial class SingleTextBoxDialogWindow
     {
         /// <summary>
         /// Required designer variable.

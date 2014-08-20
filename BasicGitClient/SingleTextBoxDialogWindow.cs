@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace BasicGitClient
 {
-    public partial class SetUrlWindow : Form
+    public partial class SingleTextBoxDialogWindow : Form
     {
-        public string Url { get; private set; }
+        public string TextField { get; private set; }
 
-        public SetUrlWindow(string title)
+        public SingleTextBoxDialogWindow(string title)
         {
             InitializeComponent();
-            Url = String.Empty;
+            TextField = String.Empty;
             this.Text = title;
         }
 
@@ -24,7 +24,7 @@ namespace BasicGitClient
         {
             if (!String.IsNullOrEmpty(tbUrl.Text))
             {
-                Url = tbUrl.Text;
+                TextField = tbUrl.Text;
 
                 this.Close();
             }

@@ -167,12 +167,12 @@ namespace BasicGitClient
 
         private void setOriginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUrlWindow setOriginWindow = new SetUrlWindow("Set Origin...");
+            SingleTextBoxDialogWindow setOriginWindow = new SingleTextBoxDialogWindow("Set Origin...");
             setOriginWindow.ShowDialog();
 
-            if (!String.IsNullOrEmpty(setOriginWindow.Url))
+            if (!String.IsNullOrEmpty(setOriginWindow.TextField))
             {
-                string command = GitCommands.SET_ORIGIN + setOriginWindow.Url;
+                string command = GitCommands.SET_ORIGIN + setOriginWindow.TextField;
 
                 gitClient.RunGitCommand(command, out output, out error);
                 updateRtbOutput(output, error);
@@ -209,12 +209,12 @@ namespace BasicGitClient
 
         private void cloneToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUrlWindow cloneWindow = new SetUrlWindow("Clone");
+            SingleTextBoxDialogWindow cloneWindow = new SingleTextBoxDialogWindow("Clone");
             cloneWindow.ShowDialog();
 
-            if (!string.IsNullOrEmpty(cloneWindow.Url))
+            if (!string.IsNullOrEmpty(cloneWindow.TextField))
             {
-                gitClient.RunGitCommand(GitCommands.CLONE + cloneWindow.Url, out output, out error);
+                gitClient.RunGitCommand(GitCommands.CLONE + cloneWindow.TextField, out output, out error);
                 updateRtbOutput(output, error);
             }
         }
@@ -230,6 +230,18 @@ namespace BasicGitClient
             btnAdd_Click(null, new EventArgs());
             btnCommit_Click(null, new EventArgs());
             btnPush_Click(null, new EventArgs());
+        }
+
+        private void changeRepoUsernameToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SingleTextBoxDialogWindow emailDialogWindow = new SingleTextBoxDialogWindow("Set email...");
+            emailDialogWindow.ShowDialog();
+
+            if (!string.IsNullOrEmpty(emailDialogWindow.TextField))
+            {
+                gitClient.RunGitCommand(GitCommands.SET_EMAIL + emailDialogWindow.TextField, out output, out error);
+                updateRtbOutput(output, error);
+            }
         }
     }
 }

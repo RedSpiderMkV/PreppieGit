@@ -17,7 +17,7 @@ namespace BasicGitClient
         // TODO: Make this come from a config file and not be hard coded..
         private string defaultDir;
         private string remoteName;
-        private CredentialXmlHandler xmlHandler = new CredentialXmlHandler();
+        private XmlHandler xmlHandler = new XmlHandler();
 
         public ClientMainWindow()
         {

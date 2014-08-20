@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace BasicGitClient
 {
-    internal class CredentialXmlHandler
+    internal class XmlHandler
     {
         private readonly string credentialFile = "configuration.xml";
 

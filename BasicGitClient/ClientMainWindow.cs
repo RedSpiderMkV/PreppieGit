@@ -63,12 +63,13 @@ namespace BasicGitClient
                 string command = GitCommands.COMMIT + " " + comment;
 
                 gitClient.RunGitCommand(command, out output, out error);
-                updateRtbOutput(output, error);
             }
             else
             {
-                rtbOutput.AppendText("\nNo comment added.  Not committed..");
+                output = "\nNo comment added.  Not committed..";
             }
+
+            updateRtbOutput(output, error);
         }
 
         private void btnPush_Click(object sender, EventArgs e)

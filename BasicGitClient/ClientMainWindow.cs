@@ -34,6 +34,8 @@ namespace BasicGitClient
             showOriginToolStripMenuItem_Click(null, new EventArgs());
         }
 
+        #region UI Button Click Handlers
+
         private void btnStatus_Click(object sender, EventArgs e)
         {
             gitClient.RunGitCommand(GitCommands.STATUS, out output, out error);
@@ -46,8 +48,10 @@ namespace BasicGitClient
 
             if (String.Equals(String.Empty, output) && String.Equals(String.Empty, error))
             {
-                rtbOutput.AppendText(Environment.NewLine + "Added all modified files.  Check status" + Environment.NewLine);
+                output = Environment.NewLine + "Added all modified files.  Check status" + Environment.NewLine;
             }
+
+            updateRtbOutput(output, error);
         }
 
         private void btnCommit_Click(object sender, EventArgs e)
@@ -94,6 +98,10 @@ namespace BasicGitClient
             updateRtbOutput(output, error);
         }
 
+        #endregion
+
+        #region UI Toolstrip Menu Item Click Handlers
+
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -132,32 +140,7 @@ namespace BasicGitClient
             xmlHandler.SetCredentials(username, password);
         }
 
-        private void updateRtbOutput(string output, string error)
-        {
-            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
-        }
-
-        private void rtbOutput_TextChanged(object sender, EventArgs e)
-        {
-            for (int i = 0; i < rtbOutput.Lines.Length; ++i)
-            {
-                if (rtbOutput.Lines[i].Contains("modified: "))
-                {
-                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
-                    rtbOutput.SelectionColor = Color.DarkRed;
-                }
-
-                if (rtbOutput.Lines[i].Contains("new file: "))
-                {
-                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
-                    rtbOutput.SelectionColor = Color.DarkGreen;
-                }
-            }
-
-            rtbOutput.SelectionStart = rtbOutput.TextLength;
-            rtbOutput.ScrollToCaret();
-        }
+        
 
         private void setOriginToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -237,5 +220,38 @@ namespace BasicGitClient
                 updateRtbOutput(output, error);
             }
         }
+
+        #endregion
+
+        #region Textbox Update Methods
+
+        private void updateRtbOutput(string output, string error)
+        {
+            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+        }
+
+        private void rtbOutput_TextChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < rtbOutput.Lines.Length; ++i)
+            {
+                if (rtbOutput.Lines[i].Contains("modified: "))
+                {
+                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
+                    rtbOutput.SelectionColor = Color.DarkRed;
+                }
+
+                if (rtbOutput.Lines[i].Contains("new file: "))
+                {
+                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
+                    rtbOutput.SelectionColor = Color.DarkGreen;
+                }
+            }
+
+            rtbOutput.SelectionStart = rtbOutput.TextLength;
+            rtbOutput.ScrollToCaret();
+        }
+
+        #endregion
     }
 }

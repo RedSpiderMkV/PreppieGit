@@ -61,7 +61,6 @@ namespace BasicGitClient
             if (comment != String.Empty)
             {
                 string command = GitCommands.COMMIT + " " + comment;
-
                 gitClient.RunGitCommand(command, out output, out error);
             }
             else

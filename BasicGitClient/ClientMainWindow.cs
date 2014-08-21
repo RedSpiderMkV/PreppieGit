@@ -23,10 +23,7 @@ namespace BasicGitClient
             InitializeComponent();
             gitClient = new GitClientAccess();
 
-            string d = xmlHandler.GetLastLocation();
-            defaultDir = string.IsNullOrWhiteSpace(d) ?
-                @"E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014"
-                : d;
+            defaultDir = xmlHandler.GetLastLocation();
             tbDirectory.Text = defaultDir;
             tbDirectory.SelectionStart = tbDirectory.TextLength;
             gitClient.SetDirectory(defaultDir);

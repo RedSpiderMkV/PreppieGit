@@ -218,6 +218,12 @@ namespace BasicGitClient
             }
         }
 
+        private void revertLastChangeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gitClient.RunGitCommand(GitCommands.REVERT, out output, out error);
+            updateRtbOutput(output, error);
+        }
+
         #endregion
 
         #region Textbox Update Methods
@@ -250,11 +256,5 @@ namespace BasicGitClient
         }
 
         #endregion
-
-        private void revertLastChangeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            gitClient.RunGitCommand(GitCommands.REVERT, out output, out error);
-            updateRtbOutput(output, error);
-        }
     }
 }

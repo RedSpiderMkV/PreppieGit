@@ -18,6 +18,7 @@ namespace BasicGitClient
         public const string SET_ORIGIN = "remote add origin ";
         public const string RESET = "reset --hard";
         public const string SET_EMAIL = "config --global user.email ";
+        public const string REVERT = "revert HEAD";
 
         public static string PUSH = "push https://{0}:{1}@github.com{2} master";
     }

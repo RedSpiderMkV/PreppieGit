@@ -45,7 +45,7 @@ namespace BasicGitClient
 
             if (String.Equals(String.Empty, output) && String.Equals(String.Empty, error))
             {
-                output = Environment.NewLine + "Added all modified files.  Check status" + Environment.NewLine;
+                output = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
             }
 
             updateRtbOutput(output, error);
@@ -250,5 +250,11 @@ namespace BasicGitClient
         }
 
         #endregion
+
+        private void revertLastChangeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gitClient.RunGitCommand(GitCommands.REVERT, out output, out error);
+            updateRtbOutput(output, error);
+        }
     }
 }

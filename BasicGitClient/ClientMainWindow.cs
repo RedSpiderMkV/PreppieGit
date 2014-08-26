@@ -12,11 +12,17 @@ namespace BasicGitClient
 {
     public partial class ClientMainWindow : Form
     {
+        #region Private Data
+
         private GitClientAccess gitClient;
         private string error, output;
         private string defaultDir;
         private string remoteName;
         private XmlHandler xmlHandler = new XmlHandler();
+
+        #endregion
+
+        #region Constructors
 
         public ClientMainWindow()
         {
@@ -29,7 +35,11 @@ namespace BasicGitClient
             gitClient.SetDirectory(defaultDir);
             // set remote
             showOriginToolStripMenuItem_Click(null, new EventArgs());
+
+            populateTreeView();
         }
+
+        #endregion
 
         #region UI Button Click Handlers
 
@@ -137,8 +147,6 @@ namespace BasicGitClient
             xmlHandler.SetCredentials(username, password);
         }
 
-        
-
         private void setOriginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingleTextBoxDialogWindow setOriginWindow = new SingleTextBoxDialogWindow("Set Origin...");
@@ -213,7 +221,7 @@ namespace BasicGitClient
             btnPush_Click(null, new EventArgs());
         }
 
-        private void changeRepoUsernameToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void changeRepoUsernameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingleTextBoxDialogWindow emailDialogWindow = new SingleTextBoxDialogWindow("Set email...");
             emailDialogWindow.ShowDialog();
@@ -260,6 +268,53 @@ namespace BasicGitClient
 
             rtbOutput.SelectionStart = rtbOutput.TextLength;
             rtbOutput.ScrollToCaret();
+        }
+
+        #endregion
+
+        #region Tree View File Viewer
+
+        private void populateTreeView()
+        {
+            TreeNode rootNode;
+            DirectoryInfo info = new DirectoryInfo(defaultDir);
+
+            if (info.Exists)
+            {
+                rootNode = new TreeNode(info.Name);
+                rootNode.Tag = info;
+                getDirectories(info.GetDirectories(), rootNode);
+                treeView1.Nodes.Add(rootNode);
+            }
+        }
+
+        private void getDirectories(DirectoryInfo[] subDirs, TreeNode nodeToAddTo)
+        {
+            TreeNode aNode;
+            DirectoryInfo[] subSubDirs;
+            foreach (DirectoryInfo subDir in subDirs)
+            {
+                aNode = new TreeNode(subDir.Name, 0, 0);
+                aNode.Tag = subDir;
+                subSubDirs = subDir.GetDirectories();
+                if (subSubDirs.Length != 0)
+                {
+                    getDirectories(subSubDirs, aNode);
+                }
+                nodeToAddTo.Nodes.Add(aNode);
+            }
+        }
+
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            TreeNode newSelected = e.Node;
+            listBox1.Items.Clear();
+            DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag;
+
+            foreach (FileInfo file in nodeDirInfo.GetFiles())
+            {
+                listBox1.Items.Add(file.Name);
+            }
         }
 
         #endregion

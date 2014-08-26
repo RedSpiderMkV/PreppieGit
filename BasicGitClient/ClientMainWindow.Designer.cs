@@ -41,8 +41,8 @@
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setCredentialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeRepoUsernameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.setCredentialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setOriginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToHeadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,14 +51,21 @@
             this.showOriginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pushAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revertLastChangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.commitChangesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
-            this.commitChangesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.mnuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbDirectory
@@ -179,8 +186,15 @@
             this.changeRepoUsernameToolStripMenuItem1,
             this.setCredentialsToolStripMenuItem});
             this.userSettingsToolStripMenuItem.Name = "userSettingsToolStripMenuItem";
-            this.userSettingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.userSettingsToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.userSettingsToolStripMenuItem.Text = "User Settings";
+            // 
+            // changeRepoUsernameToolStripMenuItem1
+            // 
+            this.changeRepoUsernameToolStripMenuItem1.Name = "changeRepoUsernameToolStripMenuItem1";
+            this.changeRepoUsernameToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.changeRepoUsernameToolStripMenuItem1.Text = "Change Repo Email";
+            this.changeRepoUsernameToolStripMenuItem1.Click += new System.EventHandler(this.changeRepoUsernameToolStripMenuItem_Click);
             // 
             // setCredentialsToolStripMenuItem
             // 
@@ -188,13 +202,6 @@
             this.setCredentialsToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.setCredentialsToolStripMenuItem.Text = "Set Credentials";
             this.setCredentialsToolStripMenuItem.Click += new System.EventHandler(this.configureEmailToolStripMenuItem_Click);
-            // 
-            // changeRepoUsernameToolStripMenuItem1
-            // 
-            this.changeRepoUsernameToolStripMenuItem1.Name = "changeRepoUsernameToolStripMenuItem1";
-            this.changeRepoUsernameToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.changeRepoUsernameToolStripMenuItem1.Text = "Change Repo Email";
-            this.changeRepoUsernameToolStripMenuItem1.Click += new System.EventHandler(this.changeRepoUsernameToolStripMenuItem1_Click);
             // 
             // advancedToolStripMenuItem
             // 
@@ -264,6 +271,13 @@
             this.revertLastChangeToolStripMenuItem.Text = "Revert Last Change";
             this.revertLastChangeToolStripMenuItem.Click += new System.EventHandler(this.revertLastChangeToolStripMenuItem_Click);
             // 
+            // commitChangesToolStripMenuItem1
+            // 
+            this.commitChangesToolStripMenuItem1.Name = "commitChangesToolStripMenuItem1";
+            this.commitChangesToolStripMenuItem1.Size = new System.Drawing.Size(212, 22);
+            this.commitChangesToolStripMenuItem1.Text = "Commit Changes";
+            this.commitChangesToolStripMenuItem1.Click += new System.EventHandler(this.btnCommit_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -306,26 +320,54 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbOutput.BackColor = System.Drawing.SystemColors.Window;
-            this.rtbOutput.Location = new System.Drawing.Point(10, 194);
+            this.rtbOutput.Location = new System.Drawing.Point(10, 318);
             this.rtbOutput.Name = "rtbOutput";
             this.rtbOutput.ReadOnly = true;
-            this.rtbOutput.Size = new System.Drawing.Size(401, 167);
+            this.rtbOutput.Size = new System.Drawing.Size(401, 168);
             this.rtbOutput.TabIndex = 14;
             this.rtbOutput.Text = "";
             this.rtbOutput.TextChanged += new System.EventHandler(this.rtbOutput_TextChanged);
             // 
-            // commitChangesToolStripMenuItem1
+            // treeView1
             // 
-            this.commitChangesToolStripMenuItem1.Name = "commitChangesToolStripMenuItem1";
-            this.commitChangesToolStripMenuItem1.Size = new System.Drawing.Size(212, 22);
-            this.commitChangesToolStripMenuItem1.Text = "Commit Changes";
-            this.commitChangesToolStripMenuItem1.Click += new System.EventHandler(this.btnCommit_Click);
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(195, 195);
+            this.treeView1.TabIndex = 15;
+            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Location = new System.Drawing.Point(13, 117);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.listBox1);
+            this.splitContainer1.Size = new System.Drawing.Size(396, 195);
+            this.splitContainer1.SplitterDistance = 195;
+            this.splitContainer1.TabIndex = 16;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(197, 195);
+            this.listBox1.TabIndex = 0;
             // 
             // ClientMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 373);
+            this.ClientSize = new System.Drawing.Size(423, 498);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.rtbOutput);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
@@ -340,6 +382,10 @@
             this.Text = "BasicGit";
             this.mnuStrip.ResumeLayout(false);
             this.mnuStrip.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,6 +423,9 @@
         private System.Windows.Forms.ToolStripMenuItem changeRepoUsernameToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem revertLastChangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem commitChangesToolStripMenuItem1;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

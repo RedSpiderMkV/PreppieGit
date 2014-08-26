@@ -174,7 +174,7 @@ namespace BasicGitClient
             }
             catch (Exception)
             {
-                MessageBox.Show("Error getting origin data.");
+                MessageBox.Show("Error getting origin data.  Check it is set.");
             }
 
             if (sender != null)

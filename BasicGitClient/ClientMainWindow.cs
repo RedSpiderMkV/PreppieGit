@@ -163,11 +163,18 @@ namespace BasicGitClient
         {
             gitClient.RunGitCommand(GitCommands.SHOW_ORIGIN, out output, out error);
 
-            if (!String.IsNullOrEmpty(output))
+            try
             {
-                remoteName = output.Split('\n')[0].Split('\t')[1]
-                .Split(new string[] { "(fetch)" }, StringSplitOptions.None)[0]
-                .Split(new string[] { "github.com" }, StringSplitOptions.None)[1];
+                if (!String.IsNullOrEmpty(output))
+                {
+                    remoteName = output.Split('\n')[0].Split('\t')[1]
+                    .Split(new string[] { "(fetch)" }, StringSplitOptions.None)[0]
+                    .Split(new string[] { "github.com" }, StringSplitOptions.None)[1];
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error getting origin data.");
             }
 
             if (sender != null)

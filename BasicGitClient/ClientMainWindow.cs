@@ -36,6 +36,7 @@ namespace BasicGitClient
             // set remote
             showOriginToolStripMenuItem_Click(null, new EventArgs());
 
+            // Populate tree view.
             populateTreeView();
         }
 
@@ -130,6 +131,9 @@ namespace BasicGitClient
                 tbDirectory.Text = directory;
 
                 gitClient.SetDirectory(directory);
+                // repopulate tree view
+                populateTreeView();
+
                 xmlHandler.SetLastLocation(directory);
                 // get remote name
                 showOriginToolStripMenuItem_Click(null, new EventArgs());
@@ -277,7 +281,7 @@ namespace BasicGitClient
         private void populateTreeView()
         {
             TreeNode rootNode;
-            DirectoryInfo info = new DirectoryInfo(defaultDir);
+            DirectoryInfo info = new DirectoryInfo(gitClient.Directory);
 
             if (info.Exists)
             {

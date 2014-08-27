@@ -19,6 +19,7 @@ namespace BasicGitClient
         private string defaultDir;
         private string remoteName;
         private XmlHandler xmlHandler = new XmlHandler();
+        private string treeViewSelectedDirectory;
 
         #endregion
 
@@ -326,5 +327,34 @@ namespace BasicGitClient
         }
 
         #endregion
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (treeView1.SelectedNode != null)
+            {
+                int headNodeLength = treeView1.Nodes[0].Text.Length;
+                string selectedNode = treeView1.SelectedNode.FullPath.Remove(0, headNodeLength);
+                treeViewSelectedDirectory = gitClient.Directory + selectedNode;
+            }
+        }
+
+        private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SingleTextBoxDialogWindow newFileWindow = new SingleTextBoxDialogWindow("File Name");
+            newFileWindow.ShowDialog();
+
+            File.Create(treeViewSelectedDirectory + "\\" + newFileWindow.TextField).Dispose();
+            listBox1.Items.Add(newFileWindow.TextField);
+        }
+
+        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void renameFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

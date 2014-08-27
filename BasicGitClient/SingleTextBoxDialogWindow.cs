@@ -22,7 +22,6 @@ namespace BasicGitClient
 
         public SingleTextBoxDialogWindow(string title, string labelName) : this(title)
         {
-            title = "hoohaahee";
             label1.Text = labelName;
         }
 

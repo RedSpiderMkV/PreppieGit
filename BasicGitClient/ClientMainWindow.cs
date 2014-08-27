@@ -340,11 +340,14 @@ namespace BasicGitClient
 
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SingleTextBoxDialogWindow newFileWindow = new SingleTextBoxDialogWindow("File Name");
+            SingleTextBoxDialogWindow newFileWindow = new SingleTextBoxDialogWindow("File Name", "FileName");
             newFileWindow.ShowDialog();
 
-            File.Create(treeViewSelectedDirectory + "\\" + newFileWindow.TextField).Dispose();
-            listBox1.Items.Add(newFileWindow.TextField);
+            if (!String.IsNullOrEmpty(newFileWindow.TextField))
+            {
+                File.Create(treeViewSelectedDirectory + "\\" + newFileWindow.TextField).Dispose();
+                listBox1.Items.Add(newFileWindow.TextField);
+            }
         }
 
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)

@@ -20,6 +20,12 @@ namespace BasicGitClient
             this.Text = title;
         }
 
+        public SingleTextBoxDialogWindow(string title, string labelName) : this(title)
+        {
+            title = "hoohaahee";
+            label1.Text = labelName;
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(tbUrl.Text))

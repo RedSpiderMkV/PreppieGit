@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -352,7 +353,9 @@ namespace BasicGitClient
 
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Process process = new Process();
+            process.StartInfo.FileName = treeViewSelectedDirectory + "\\" + listBox1.GetItemText(listBox1.SelectedItem);
+            process.Start();
         }
 
         private void renameFileToolStripMenuItem_Click(object sender, EventArgs e)

@@ -369,6 +369,8 @@ namespace BasicGitClient
         {
             string file = treeViewSelectedDirectory + "\\" + listBox1.GetItemText(listBox1.SelectedItem);
             File.Delete(file);
+
+            listBox1.Items.Remove(listBox1.SelectedItem);
         }
     }
 }

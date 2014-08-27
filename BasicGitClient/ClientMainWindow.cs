@@ -343,7 +343,7 @@ namespace BasicGitClient
 
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SingleTextBoxDialogWindow newFileWindow = new SingleTextBoxDialogWindow("File Name", "FileName");
+            SingleTextBoxDialogWindow newFileWindow = new SingleTextBoxDialogWindow("File Name", "Name");
             newFileWindow.ShowDialog();
 
             if (!String.IsNullOrEmpty(newFileWindow.TextField))

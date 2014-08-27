@@ -325,6 +325,8 @@ namespace BasicGitClient
             {
                 listBox1.Items.Add(file.Name);
             }
+
+            treeView1.SelectedNode = treeView1.Nodes[0];
         }
 
         #endregion

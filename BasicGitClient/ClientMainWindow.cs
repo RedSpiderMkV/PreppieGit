@@ -364,5 +364,11 @@ namespace BasicGitClient
         {
 
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string file = treeViewSelectedDirectory + "\\" + listBox1.GetItemText(listBox1.SelectedItem);
+            File.Delete(file);
+        }
     }
 }

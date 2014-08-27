@@ -305,7 +305,11 @@ namespace BasicGitClient
                 {
                     getDirectories(subSubDirs, aNode);
                 }
-                nodeToAddTo.Nodes.Add(aNode);
+                
+                if (!(subDir.Attributes.HasFlag(FileAttributes.Hidden)))
+                {
+                    nodeToAddTo.Nodes.Add(aNode);
+                }
             }
         }
 

@@ -332,8 +332,6 @@ namespace BasicGitClient
             tvDirectoryList.SelectedNode = e.Node;
         }
 
-        #endregion
-
         private void tvDirectoryList_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (tvDirectoryList.SelectedNode != null)
@@ -408,5 +406,7 @@ namespace BasicGitClient
 
             return true;
         }
+
+        #endregion
     }
 }

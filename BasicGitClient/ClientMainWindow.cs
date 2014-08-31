@@ -365,7 +365,19 @@ namespace BasicGitClient
 
         private void renameFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string file = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
+            
+            SingleTextBoxDialogWindow newFileWindow = new SingleTextBoxDialogWindow("File Name", "Name");
+            newFileWindow.ShowDialog();
 
+            if (!String.IsNullOrEmpty(newFileWindow.TextField))
+            {
+                string newFile = treeViewSelectedDirectory + "\\" + newFileWindow.TextField;
+                File.Move(file, newFile);
+                
+                lbFileList.Items.Remove(lbFileList.GetItemText(lbFileList.SelectedItem));
+                lbFileList.Items.Add(newFileWindow.TextField);
+            }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)

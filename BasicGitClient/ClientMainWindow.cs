@@ -282,6 +282,9 @@ namespace BasicGitClient
 
         private void populateTreeView()
         {
+            treeView1.Nodes.Clear();
+            listBox1.Items.Clear();
+
             TreeNode rootNode;
             DirectoryInfo info = new DirectoryInfo(gitClient.Directory);
 
@@ -326,7 +329,7 @@ namespace BasicGitClient
                 listBox1.Items.Add(file.Name);
             }
 
-            treeView1.SelectedNode = treeView1.Nodes[0];
+            treeView1.SelectedNode = e.Node;
         }
 
         #endregion

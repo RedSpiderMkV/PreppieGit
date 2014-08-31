@@ -65,7 +65,7 @@ namespace BasicGitClient
                 output = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
             }
 
-            updateRtbOutput(output, error);
+            rtbOutput.AppendText(output);
         }
 
         private void btnCommit_Click(object sender, EventArgs e)

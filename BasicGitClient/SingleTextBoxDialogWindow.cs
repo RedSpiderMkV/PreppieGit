@@ -46,6 +46,11 @@ namespace BasicGitClient
             {
                 btnOk_Click(null, new EventArgs());
             }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                btnCancel_Click(null, new EventArgs());
+            }
         }
     }
 }

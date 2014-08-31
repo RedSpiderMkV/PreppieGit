@@ -282,8 +282,8 @@ namespace BasicGitClient
 
         private void populateTreeView()
         {
-            treeView1.Nodes.Clear();
-            listBox1.Items.Clear();
+            tvDirectoryList.Nodes.Clear();
+            lbFileList.Items.Clear();
 
             TreeNode rootNode;
             DirectoryInfo info = new DirectoryInfo(gitClient.Directory);
@@ -293,7 +293,7 @@ namespace BasicGitClient
                 rootNode = new TreeNode(info.Name);
                 rootNode.Tag = info;
                 getDirectories(info.GetDirectories(), rootNode);
-                treeView1.Nodes.Add(rootNode);
+                tvDirectoryList.Nodes.Add(rootNode);
             }
         }
 
@@ -318,28 +318,28 @@ namespace BasicGitClient
             }
         }
 
-        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void tvDirectoryList_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             TreeNode newSelected = e.Node;
-            listBox1.Items.Clear();
+            lbFileList.Items.Clear();
             DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag;
 
             foreach (FileInfo file in nodeDirInfo.GetFiles())
             {
-                listBox1.Items.Add(file.Name);
+                lbFileList.Items.Add(file.Name);
             }
 
-            treeView1.SelectedNode = e.Node;
+            tvDirectoryList.SelectedNode = e.Node;
         }
 
         #endregion
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        private void tvDirectoryList_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (treeView1.SelectedNode != null)
+            if (tvDirectoryList.SelectedNode != null)
             {
-                int headNodeLength = treeView1.Nodes[0].Text.Length;
-                string selectedNode = treeView1.SelectedNode.FullPath.Remove(0, headNodeLength);
+                int headNodeLength = tvDirectoryList.Nodes[0].Text.Length;
+                string selectedNode = tvDirectoryList.SelectedNode.FullPath.Remove(0, headNodeLength);
                 treeViewSelectedDirectory = gitClient.Directory + selectedNode;
             }
         }
@@ -352,14 +352,14 @@ namespace BasicGitClient
             if (!String.IsNullOrEmpty(newFileWindow.TextField))
             {
                 File.Create(treeViewSelectedDirectory + "\\" + newFileWindow.TextField).Dispose();
-                listBox1.Items.Add(newFileWindow.TextField);
+                lbFileList.Items.Add(newFileWindow.TextField);
             }
         }
 
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process process = new Process();
-            process.StartInfo.FileName = treeViewSelectedDirectory + "\\" + listBox1.GetItemText(listBox1.SelectedItem);
+            process.StartInfo.FileName = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
             process.Start();
         }
 
@@ -370,10 +370,10 @@ namespace BasicGitClient
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string file = treeViewSelectedDirectory + "\\" + listBox1.GetItemText(listBox1.SelectedItem);
+            string file = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
             File.Delete(file);
 
-            listBox1.Items.Remove(listBox1.SelectedItem);
+            lbFileList.Items.Remove(lbFileList.SelectedItem);
         }
     }
 }

@@ -59,9 +59,9 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.tvDirectoryList = new System.Windows.Forms.TreeView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbFileList = new System.Windows.Forms.ListBox();
             this.cMnuFileViewer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -340,13 +340,13 @@
             // 
             // treeView1
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(195, 184);
-            this.treeView1.TabIndex = 15;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
+            this.tvDirectoryList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvDirectoryList.Location = new System.Drawing.Point(0, 0);
+            this.tvDirectoryList.Name = "treeView1";
+            this.tvDirectoryList.Size = new System.Drawing.Size(195, 184);
+            this.tvDirectoryList.TabIndex = 15;
+            this.tvDirectoryList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDirectoryList_AfterSelect);
+            this.tvDirectoryList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvDirectoryList_NodeMouseClick);
             // 
             // splitContainer1
             // 
@@ -356,25 +356,25 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer1.Panel1.Controls.Add(this.tvDirectoryList);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.listBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.lbFileList);
             this.splitContainer1.Size = new System.Drawing.Size(396, 184);
             this.splitContainer1.SplitterDistance = 195;
             this.splitContainer1.TabIndex = 16;
             // 
             // listBox1
             // 
-            this.listBox1.ContextMenuStrip = this.cMnuFileViewer;
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.IntegralHeight = false;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(197, 184);
-            this.listBox1.TabIndex = 0;
+            this.lbFileList.ContextMenuStrip = this.cMnuFileViewer;
+            this.lbFileList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbFileList.FormattingEnabled = true;
+            this.lbFileList.IntegralHeight = false;
+            this.lbFileList.Location = new System.Drawing.Point(0, 0);
+            this.lbFileList.Name = "listBox1";
+            this.lbFileList.Size = new System.Drawing.Size(197, 184);
+            this.lbFileList.TabIndex = 0;
             // 
             // cMnuFileViewer
             // 
@@ -499,9 +499,9 @@
         private System.Windows.Forms.ToolStripMenuItem changeRepoUsernameToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem revertLastChangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem commitChangesToolStripMenuItem1;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView tvDirectoryList;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbFileList;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ContextMenuStrip cMnuFileViewer;
         private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;

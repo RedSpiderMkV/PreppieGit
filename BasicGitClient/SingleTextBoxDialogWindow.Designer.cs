@@ -40,6 +40,7 @@
             this.tbUrl.Name = "tbUrl";
             this.tbUrl.Size = new System.Drawing.Size(228, 20);
             this.tbUrl.TabIndex = 0;
+            this.tbUrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbUrl_KeyDown);
             // 
             // label1
             // 
@@ -70,7 +71,7 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // SetOriginWindow
+            // SingleTextBoxDialogWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -79,7 +80,7 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbUrl);
-            this.Name = "SetOriginWindow";
+            this.Name = "SingleTextBoxDialogWindow";
             this.Text = "SetOriginWindow";
             this.ResumeLayout(false);
             this.PerformLayout();

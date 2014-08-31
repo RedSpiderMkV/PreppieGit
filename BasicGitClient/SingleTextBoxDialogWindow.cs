@@ -39,5 +39,13 @@ namespace BasicGitClient
         {
             this.Close();
         }
+
+        private void tbUrl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            {
+                btnOk_Click(null, new EventArgs());
+            }
+        }
     }
 }

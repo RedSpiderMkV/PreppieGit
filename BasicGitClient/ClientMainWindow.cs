@@ -48,8 +48,12 @@ namespace BasicGitClient
 
         private void btnStatus_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
+
             gitClient.RunGitCommand(GitCommands.STATUS, out output, out error);
             updateRtbOutput(output, error);
+            
+            Cursor = Cursors.Default;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -104,8 +108,12 @@ namespace BasicGitClient
 
         private void btnPull_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
+
             gitClient.RunGitCommand(GitCommands.PULL, out output, out error);
             updateRtbOutput(output, error);
+
+            Cursor = Cursors.Default;
         }
 
         #endregion

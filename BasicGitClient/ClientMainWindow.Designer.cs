@@ -68,6 +68,7 @@
             this.renameFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -380,11 +381,12 @@
             // 
             this.cMnuFileViewer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newFileToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.openFileToolStripMenuItem,
             this.renameFileToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.cMnuFileViewer.Name = "cMnuFileViewer";
-            this.cMnuFileViewer.Size = new System.Drawing.Size(153, 114);
+            this.cMnuFileViewer.Size = new System.Drawing.Size(144, 98);
             this.cMnuFileViewer.Opening += new System.ComponentModel.CancelEventHandler(this.cMnuFileViewer_Opening);
             // 
             // newFileToolStripMenuItem
@@ -434,6 +436,11 @@
             this.splitContainer2.Size = new System.Drawing.Size(396, 369);
             this.splitContainer2.SplitterDistance = 184;
             this.splitContainer2.TabIndex = 17;
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(140, 6);
             // 
             // ClientMainWindow
             // 
@@ -509,6 +516,7 @@
         private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     }
 }
 

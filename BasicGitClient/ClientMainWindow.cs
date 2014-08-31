@@ -414,6 +414,8 @@ namespace BasicGitClient
             if (lbFileList.SelectedItem == null)
             {
                 cMnuFileViewer.Items["openFileToolStripMenuItem"].Enabled = false;
+                cMnuFileViewer.Items["renameFileToolStripMenuItem"].Enabled = false;
+                cMnuFileViewer.Items["deleteToolStripMenuItem"].Enabled = false;
             }
         }
     }

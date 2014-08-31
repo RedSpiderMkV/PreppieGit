@@ -408,5 +408,13 @@ namespace BasicGitClient
         }
 
         #endregion
+
+        private void cMnuFileViewer_Opening(object sender, CancelEventArgs e)
+        {
+            if (lbFileList.SelectedItem == null)
+            {
+                cMnuFileViewer.Items["openFileToolStripMenuItem"].Enabled = false;
+            }
+        }
     }
 }

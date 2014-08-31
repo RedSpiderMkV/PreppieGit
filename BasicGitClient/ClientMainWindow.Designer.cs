@@ -338,11 +338,11 @@
             this.rtbOutput.Text = "";
             this.rtbOutput.TextChanged += new System.EventHandler(this.rtbOutput_TextChanged);
             // 
-            // treeView1
+            // tvDirectoryList
             // 
             this.tvDirectoryList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvDirectoryList.Location = new System.Drawing.Point(0, 0);
-            this.tvDirectoryList.Name = "treeView1";
+            this.tvDirectoryList.Name = "tvDirectoryList";
             this.tvDirectoryList.Size = new System.Drawing.Size(195, 184);
             this.tvDirectoryList.TabIndex = 15;
             this.tvDirectoryList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDirectoryList_AfterSelect);
@@ -365,14 +365,14 @@
             this.splitContainer1.SplitterDistance = 195;
             this.splitContainer1.TabIndex = 16;
             // 
-            // listBox1
+            // lbFileList
             // 
             this.lbFileList.ContextMenuStrip = this.cMnuFileViewer;
             this.lbFileList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbFileList.FormattingEnabled = true;
             this.lbFileList.IntegralHeight = false;
             this.lbFileList.Location = new System.Drawing.Point(0, 0);
-            this.lbFileList.Name = "listBox1";
+            this.lbFileList.Name = "lbFileList";
             this.lbFileList.Size = new System.Drawing.Size(197, 184);
             this.lbFileList.TabIndex = 0;
             // 
@@ -384,7 +384,8 @@
             this.renameFileToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.cMnuFileViewer.Name = "cMnuFileViewer";
-            this.cMnuFileViewer.Size = new System.Drawing.Size(144, 92);
+            this.cMnuFileViewer.Size = new System.Drawing.Size(153, 114);
+            this.cMnuFileViewer.Opening += new System.ComponentModel.CancelEventHandler(this.cMnuFileViewer_Opening);
             // 
             // newFileToolStripMenuItem
             // 

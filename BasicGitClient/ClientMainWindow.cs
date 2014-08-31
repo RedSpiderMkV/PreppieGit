@@ -358,6 +358,11 @@ namespace BasicGitClient
 
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!lbFileListSelectedCheck())
+            {
+                return;
+            }
+
             Process process = new Process();
             process.StartInfo.FileName = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
             process.Start();
@@ -365,6 +370,11 @@ namespace BasicGitClient
 
         private void renameFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!lbFileListSelectedCheck())
+            {
+                return;
+            }
+
             string file = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
             
             SingleTextBoxDialogWindow newFileWindow = new SingleTextBoxDialogWindow("File Name", "Name");
@@ -386,6 +396,17 @@ namespace BasicGitClient
             File.Delete(file);
 
             lbFileList.Items.Remove(lbFileList.SelectedItem);
+        }
+
+        private bool lbFileListSelectedCheck()
+        {
+            if (lbFileList.SelectedItem == null)
+            {
+                MessageBox.Show("No file selected");
+                return false;
+            }
+
+            return true;
         }
     }
 }

@@ -21,6 +21,7 @@ namespace BasicGitClient
         private string remoteName;
         private XmlHandler xmlHandler = new XmlHandler();
         private string treeViewSelectedDirectory;
+        private TreeNode currentSelectedNode;
 
         #endregion
 
@@ -330,16 +331,19 @@ namespace BasicGitClient
 
         private void tvDirectoryList_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            TreeNode newSelected = e.Node;
+            if (e != null)
+            {
+                currentSelectedNode = e.Node;
+                tvDirectoryList.SelectedNode = e.Node;
+            }
+
             lbFileList.Items.Clear();
-            DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag;
+            DirectoryInfo nodeDirInfo = (DirectoryInfo)currentSelectedNode.Tag;
 
             foreach (FileInfo file in nodeDirInfo.GetFiles())
             {
                 lbFileList.Items.Add(file.Name);
             }
-
-            tvDirectoryList.SelectedNode = e.Node;
         }
 
         private void tvDirectoryList_AfterSelect(object sender, TreeViewEventArgs e)
@@ -360,7 +364,8 @@ namespace BasicGitClient
             if (!String.IsNullOrEmpty(newFileWindow.TextField))
             {
                 File.Create(treeViewSelectedDirectory + "\\" + newFileWindow.TextField).Dispose();
-                lbFileList.Items.Add(newFileWindow.TextField);
+                //lbFileList.Items.Add(newFileWindow.TextField);
+                tvDirectoryList_NodeMouseClick(this, null);
             }
         }
 
@@ -393,8 +398,10 @@ namespace BasicGitClient
                 string newFile = treeViewSelectedDirectory + "\\" + newFileWindow.TextField;
                 File.Move(file, newFile);
                 
-                lbFileList.Items.Remove(lbFileList.GetItemText(lbFileList.SelectedItem));
-                lbFileList.Items.Add(newFileWindow.TextField);
+                //lbFileList.Items.Remove(lbFileList.GetItemText(lbFileList.SelectedItem));
+                //lbFileList.Items.Add(newFileWindow.TextField);
+
+                tvDirectoryList_NodeMouseClick(this, null);
             }
         }
 
@@ -403,7 +410,8 @@ namespace BasicGitClient
             string file = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
             File.Delete(file);
 
-            lbFileList.Items.Remove(lbFileList.SelectedItem);
+            //lbFileList.Items.Remove(lbFileList.SelectedItem);
+            tvDirectoryList_NodeMouseClick(this, null);
         }
 
         private bool lbFileListSelectedCheck()

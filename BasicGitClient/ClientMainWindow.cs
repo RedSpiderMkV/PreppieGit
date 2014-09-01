@@ -267,7 +267,9 @@ namespace BasicGitClient
         {
             for (int i = 0; i < rtbOutput.Lines.Length; ++i)
             {
-                if (rtbOutput.Lines[i].Contains("modified: ") || rtbOutput.Lines[i].Contains("renamed: "))
+                if (rtbOutput.Lines[i].Contains("modified: ") 
+                    || rtbOutput.Lines[i].Contains("renamed: ") 
+                    || rtbOutput.Lines[i].Contains("deleted: "))
                 {
                     rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
                     rtbOutput.SelectionColor = Color.DarkRed;

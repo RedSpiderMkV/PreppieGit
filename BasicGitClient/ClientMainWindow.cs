@@ -364,7 +364,6 @@ namespace BasicGitClient
             if (!String.IsNullOrEmpty(newFileWindow.TextField))
             {
                 File.Create(treeViewSelectedDirectory + "\\" + newFileWindow.TextField).Dispose();
-                //lbFileList.Items.Add(newFileWindow.TextField);
                 tvDirectoryList_NodeMouseClick(this, null);
             }
         }
@@ -397,9 +396,6 @@ namespace BasicGitClient
             {
                 string newFile = treeViewSelectedDirectory + "\\" + newFileWindow.TextField;
                 File.Move(file, newFile);
-                
-                //lbFileList.Items.Remove(lbFileList.GetItemText(lbFileList.SelectedItem));
-                //lbFileList.Items.Add(newFileWindow.TextField);
 
                 tvDirectoryList_NodeMouseClick(this, null);
             }
@@ -410,7 +406,6 @@ namespace BasicGitClient
             string file = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
             File.Delete(file);
 
-            //lbFileList.Items.Remove(lbFileList.SelectedItem);
             tvDirectoryList_NodeMouseClick(this, null);
         }
 

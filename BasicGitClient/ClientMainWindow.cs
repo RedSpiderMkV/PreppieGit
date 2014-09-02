@@ -427,18 +427,10 @@ namespace BasicGitClient
 
         private void cMnuFileViewer_Opening(object sender, CancelEventArgs e)
         {
-            if (lbFileList.SelectedItem == null)
-            {
-                cMnuFileViewer.Items["openFileToolStripMenuItem"].Enabled = false;
-                cMnuFileViewer.Items["renameFileToolStripMenuItem"].Enabled = false;
-                cMnuFileViewer.Items["deleteToolStripMenuItem"].Enabled = false;
-            }
-            else
-            {
-                cMnuFileViewer.Items["openFileToolStripMenuItem"].Enabled = true;
-                cMnuFileViewer.Items["renameFileToolStripMenuItem"].Enabled = true;
-                cMnuFileViewer.Items["deleteToolStripMenuItem"].Enabled = true;
-            }
+            cMnuFileViewer.Items["deleteToolStripMenuItem"].Enabled
+                = cMnuFileViewer.Items["renameFileToolStripMenuItem"].Enabled
+                = cMnuFileViewer.Items["openFileToolStripMenuItem"].Enabled
+                = lbFileList.SelectedItem != null;
         }
 
         #endregion

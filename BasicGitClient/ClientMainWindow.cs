@@ -51,8 +51,7 @@ namespace BasicGitClient
         {
             Cursor = Cursors.WaitCursor;
 
-            gitClient.RunGitCommand(GitCommands.STATUS, out output, out error);
-            updateRtbOutput(output, error);
+            runCommand(GitCommands.STATUS);
             
             Cursor = Cursors.Default;
         }
@@ -97,9 +96,7 @@ namespace BasicGitClient
             xmlHandler.GetCredentials(out username, out password);
 
             string command = String.Format(GitCommands.PUSH, username, password, remoteName);
-            gitClient.RunGitCommand(command, out output, out error);
-
-            updateRtbOutput(output, error);
+            runCommand(command);
 
             // push then pull required due to master/origin local mismatch
             btnPull_Click(null, new EventArgs());
@@ -111,9 +108,8 @@ namespace BasicGitClient
         {
             Cursor = Cursors.WaitCursor;
 
-            gitClient.RunGitCommand(GitCommands.PULL, out output, out error);
-            updateRtbOutput(output, error);
-
+            runCommand(GitCommands.PULL);
+            
             Cursor = Cursors.Default;
         }
 
@@ -170,16 +166,13 @@ namespace BasicGitClient
             if (!String.IsNullOrEmpty(setOriginWindow.TextField))
             {
                 string command = GitCommands.SET_ORIGIN + setOriginWindow.TextField;
-
-                gitClient.RunGitCommand(command, out output, out error);
-                updateRtbOutput(output, error);
+                runCommand(command);
             }
         }
 
         private void initialiseNewRepoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gitClient.RunGitCommand(GitCommands.INIT, out output, out error);
-            updateRtbOutput(output, error);
+            runCommand(GitCommands.INIT);
         }
 
         private void showOriginToolStripMenuItem_Click(object sender, EventArgs e)
@@ -218,15 +211,13 @@ namespace BasicGitClient
 
             if (!string.IsNullOrEmpty(cloneWindow.TextField))
             {
-                gitClient.RunGitCommand(GitCommands.CLONE + cloneWindow.TextField, out output, out error);
-                updateRtbOutput(output, error);
+                runCommand(GitCommands.CLONE + cloneWindow.TextField);
             }
         }
 
         private void resetToHeadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gitClient.RunGitCommand(GitCommands.RESET, out output, out error);
-            updateRtbOutput(output, error);
+            runCommand(GitCommands.RESET);
         }
 
         private void pushAllToolStripMenuItem_Click(object sender, EventArgs e)
@@ -243,20 +234,24 @@ namespace BasicGitClient
 
             if (!string.IsNullOrEmpty(emailDialogWindow.TextField))
             {
-                gitClient.RunGitCommand(GitCommands.SET_EMAIL + emailDialogWindow.TextField, out output, out error);
-                updateRtbOutput(output, error);
+                runCommand(GitCommands.SET_EMAIL + emailDialogWindow.TextField);
             }
         }
 
         private void revertLastChangeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gitClient.RunGitCommand(GitCommands.REVERT, out output, out error);
-            updateRtbOutput(output, error);
+            runCommand(GitCommands.REVERT);
         }
 
         #endregion
 
-        #region Textbox Update Methods
+        #region Helper Methods
+
+        private void runCommand(string command)
+        {
+            gitClient.RunGitCommand(command, out output, out error);
+            updateRtbOutput(output, error);
+        }
 
         private void updateRtbOutput(string output, string error)
         {
@@ -444,13 +439,10 @@ namespace BasicGitClient
             {
                 Cursor = Cursors.WaitCursor;
 
-                gitClient.RunGitCommand("rm -r --cached .", out output, out error);
-                updateRtbOutput(output, error);
-                gitClient.RunGitCommand("add .", out output, out error);
-                updateRtbOutput(output, error);
+                runCommand("rm -r --cahced .");
+                runCommand("add .");
                 btnStatus_Click(this, null);
-                gitClient.RunGitCommand("commit -m \"gitignore updated\"", out output, out error);
-                updateRtbOutput(output, error);
+                runCommand("commit -m \"gitignore updated\"");
 
                 btnPush_Click(this, null);
 

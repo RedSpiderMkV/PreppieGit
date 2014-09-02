@@ -420,8 +420,6 @@ namespace BasicGitClient
             return true;
         }
 
-        #endregion
-
         private void cMnuFileViewer_Opening(object sender, CancelEventArgs e)
         {
             if (lbFileList.SelectedItem == null)
@@ -431,5 +429,7 @@ namespace BasicGitClient
                 cMnuFileViewer.Items["deleteToolStripMenuItem"].Enabled = false;
             }
         }
+
+        #endregion
     }
 }

@@ -433,6 +433,12 @@ namespace BasicGitClient
                 cMnuFileViewer.Items["renameFileToolStripMenuItem"].Enabled = false;
                 cMnuFileViewer.Items["deleteToolStripMenuItem"].Enabled = false;
             }
+            else
+            {
+                cMnuFileViewer.Items["openFileToolStripMenuItem"].Enabled = true;
+                cMnuFileViewer.Items["renameFileToolStripMenuItem"].Enabled = true;
+                cMnuFileViewer.Items["deleteToolStripMenuItem"].Enabled = true;
+            }
         }
 
         #endregion

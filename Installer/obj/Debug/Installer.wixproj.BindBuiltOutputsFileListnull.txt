@@ -1,2 +1,0 @@
-E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014\GitClient\Installer\bin\Debug\Installer.msi
-E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014\GitClient\Installer\bin\Debug\Installer.wixpdb

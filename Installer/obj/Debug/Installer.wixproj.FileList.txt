@@ -1,6 +1,0 @@
-E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014\GitClient\Installer\bin\Debug\Installer.msi
-E:\Documents and Settings\Nikeah\My Documents\Python\Python_2014\GitClient\Installer\bin\Debug\Installer.wixpdb
-obj\Debug\Product.wixobj
-obj\Debug\Installer.wixproj.BindContentsFileListnull.txt
-obj\Debug\Installer.wixproj.BindOutputsFileListnull.txt
-obj\Debug\Installer.wixproj.BindBuiltOutputsFileListnull.txt

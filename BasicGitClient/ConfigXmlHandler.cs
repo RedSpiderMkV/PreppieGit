@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
@@ -16,6 +17,25 @@ namespace BasicGitClient
         #endregion
 
         #region Public Methods
+
+        public XmlHandler()
+        {
+            if (!File.Exists(configFile))
+            {
+                string xml = "<gitClient><credential><username></username>" +
+                    "<password></password></credential><lastLocation></lastLocation></gitClient>";
+                File.WriteAllText(configFile, xml);
+
+                System.Windows.Forms.MessageBox.Show("Credentials required");
+                CredentialConfigureWindow credentialWindow = new CredentialConfigureWindow();
+                credentialWindow.ShowDialog();
+
+                string username = credentialWindow.Username;
+                string password = credentialWindow.Password;
+
+                SetCredentials(username, password);
+            }
+        }
 
         /// <summary>
         /// Retrieve the last directory the client was used in.

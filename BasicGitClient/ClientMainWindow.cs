@@ -293,6 +293,11 @@ namespace BasicGitClient
 
         private void populateTreeView()
         {
+            if (String.IsNullOrEmpty(gitClient.Directory))
+            {
+                return;
+            }
+
             tvDirectoryList.Nodes.Clear();
             lbFileList.Items.Clear();
 

@@ -70,6 +70,7 @@
             this.renameFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.updategitignoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -227,7 +228,8 @@
             this.showOriginToolStripMenuItem,
             this.pushAllToolStripMenuItem,
             this.revertLastChangeToolStripMenuItem,
-            this.commitChangesToolStripMenuItem1});
+            this.commitChangesToolStripMenuItem1,
+            this.updategitignoreToolStripMenuItem});
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
             this.advancedToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.advancedToolStripMenuItem.Text = "Actions";
@@ -443,6 +445,13 @@
             this.splitContainer2.SplitterDistance = 184;
             this.splitContainer2.TabIndex = 17;
             // 
+            // updategitignoreToolStripMenuItem
+            // 
+            this.updategitignoreToolStripMenuItem.Name = "updategitignoreToolStripMenuItem";
+            this.updategitignoreToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.updategitignoreToolStripMenuItem.Text = "Update .gitignore";
+            this.updategitignoreToolStripMenuItem.Click += new System.EventHandler(this.updategitignoreToolStripMenuItem_Click);
+            // 
             // ClientMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,6 +528,7 @@
         private System.Windows.Forms.ToolStripMenuItem renameFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem updategitignoreToolStripMenuItem;
     }
 }
 

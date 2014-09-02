@@ -434,5 +434,27 @@ namespace BasicGitClient
         }
 
         #endregion
+
+        private void updategitignoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Have you committed outstanding code changes?",
+                "Commit Changes", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Cursor = Cursors.WaitCursor;
+
+                gitClient.RunGitCommand("rm -r --cached .", out output, out error);
+                updateRtbOutput(output, error);
+                gitClient.RunGitCommand("add .", out output, out error);
+                updateRtbOutput(output, error);
+                gitClient.RunGitCommand("commit -m \"gitignore updated\"", out output, out error);
+                updateRtbOutput(output, error);
+
+                btnPush_Click(this, null);
+
+                Cursor = Cursors.Default;
+            }
+        }
     }
 }

@@ -448,6 +448,7 @@ namespace BasicGitClient
                 updateRtbOutput(output, error);
                 gitClient.RunGitCommand("add .", out output, out error);
                 updateRtbOutput(output, error);
+                btnStatus_Click(this, null);
                 gitClient.RunGitCommand("commit -m \"gitignore updated\"", out output, out error);
                 updateRtbOutput(output, error);
 

@@ -54,6 +54,7 @@
             this.pushAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revertLastChangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commitChangesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.updategitignoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -70,7 +71,7 @@
             this.renameFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.updategitignoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -294,6 +295,13 @@
             this.commitChangesToolStripMenuItem1.Text = "Commit Changes";
             this.commitChangesToolStripMenuItem1.Click += new System.EventHandler(this.btnCommit_Click);
             // 
+            // updategitignoreToolStripMenuItem
+            // 
+            this.updategitignoreToolStripMenuItem.Name = "updategitignoreToolStripMenuItem";
+            this.updategitignoreToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.updategitignoreToolStripMenuItem.Text = "Update .gitignore";
+            this.updategitignoreToolStripMenuItem.Click += new System.EventHandler(this.updategitignoreToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -387,9 +395,10 @@
             this.toolStripMenuItem1,
             this.openFileToolStripMenuItem,
             this.renameFileToolStripMenuItem,
-            this.deleteToolStripMenuItem});
+            this.deleteToolStripMenuItem,
+            this.deleteFolderToolStripMenuItem});
             this.cMnuFileViewer.Name = "cMnuFileViewer";
-            this.cMnuFileViewer.Size = new System.Drawing.Size(144, 98);
+            this.cMnuFileViewer.Size = new System.Drawing.Size(153, 142);
             this.cMnuFileViewer.Opening += new System.ComponentModel.CancelEventHandler(this.cMnuFileViewer_Opening);
             // 
             // newFileToolStripMenuItem
@@ -402,7 +411,7 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(140, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // openFileToolStripMenuItem
             // 
@@ -445,12 +454,12 @@
             this.splitContainer2.SplitterDistance = 184;
             this.splitContainer2.TabIndex = 17;
             // 
-            // updategitignoreToolStripMenuItem
+            // deleteFolderToolStripMenuItem
             // 
-            this.updategitignoreToolStripMenuItem.Name = "updategitignoreToolStripMenuItem";
-            this.updategitignoreToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.updategitignoreToolStripMenuItem.Text = "Update .gitignore";
-            this.updategitignoreToolStripMenuItem.Click += new System.EventHandler(this.updategitignoreToolStripMenuItem_Click);
+            this.deleteFolderToolStripMenuItem.Name = "deleteFolderToolStripMenuItem";
+            this.deleteFolderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteFolderToolStripMenuItem.Text = "Delete Folder";
+            this.deleteFolderToolStripMenuItem.Click += new System.EventHandler(this.deleteFolderToolStripMenuItem_Click);
             // 
             // ClientMainWindow
             // 
@@ -529,6 +538,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem updategitignoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteFolderToolStripMenuItem;
     }
 }
 

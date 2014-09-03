@@ -409,6 +409,12 @@ namespace BasicGitClient
             tvDirectoryList_NodeMouseClick(this, null);
         }
 
+        private void deleteFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Directory.Delete(treeViewSelectedDirectory, true);
+            populateTreeView();
+        }
+
         private bool lbFileListSelectedCheck()
         {
             if (lbFileList.SelectedItem == null)

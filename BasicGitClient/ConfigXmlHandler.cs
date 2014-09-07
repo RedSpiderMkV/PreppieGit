@@ -40,17 +40,14 @@ namespace BasicGitClient
         /// <summary>
         /// Retrieve the last directory the client was used in.
         /// </summary>
-        /// <returns>Last working directory opened in this client.</returns>
+        /// <returns>Last working directory opened in this client if it exists on disk.</returns>
         public string GetLastLocation()
         {
-            string lastLocation = "";
             XmlDocument doc = new XmlDocument();
             doc.Load(configFile);
             
             XmlNode node = doc.FirstChild.ChildNodes[1];
-            lastLocation = node.InnerText;
-            
-            return lastLocation;
+            return Directory.Exists(node.InnerText) ? node.InnerText : string.Empty;
         }
 
         /// <summary>

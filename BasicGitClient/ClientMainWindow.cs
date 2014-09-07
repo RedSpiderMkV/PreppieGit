@@ -227,7 +227,7 @@ namespace BasicGitClient
             btnPush_Click(null, new EventArgs());
         }
 
-        private void changeRepoUsernameToolStripMenuItem_Click(object sender, EventArgs e)
+        private void configureRepoEmailToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingleTextBoxDialogWindow emailDialogWindow = new SingleTextBoxDialogWindow("Set email...");
             emailDialogWindow.ShowDialog();
@@ -235,6 +235,17 @@ namespace BasicGitClient
             if (!string.IsNullOrEmpty(emailDialogWindow.TextField))
             {
                 runCommand(GitCommands.SET_EMAIL + emailDialogWindow.TextField);
+            }
+        }
+
+        private void configureRepoUsernameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SingleTextBoxDialogWindow userNameDialogWindow = new SingleTextBoxDialogWindow("Set email...");
+            userNameDialogWindow.ShowDialog();
+
+            if (!string.IsNullOrEmpty(userNameDialogWindow.TextField))
+            {
+                runCommand(GitCommands.SET_USERNAME + userNameDialogWindow.TextField);
             }
         }
 

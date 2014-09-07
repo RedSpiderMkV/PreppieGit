@@ -49,11 +49,7 @@ namespace BasicGitClient
 
         private void btnStatus_Click(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
-
             runCommand(GitCommands.STATUS);
-            
-            Cursor = Cursors.Default;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -90,8 +86,6 @@ namespace BasicGitClient
 
         private void btnPush_Click(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
-
             string username, password;
             xmlHandler.GetCredentials(out username, out password);
 
@@ -100,17 +94,11 @@ namespace BasicGitClient
 
             // push then pull required due to master/origin local mismatch
             btnPull_Click(null, new EventArgs());
-
-            Cursor = DefaultCursor;
         }
 
         private void btnPull_Click(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
-
             runCommand(GitCommands.PULL);
-            
-            Cursor = Cursors.Default;
         }
 
         #endregion
@@ -260,8 +248,12 @@ namespace BasicGitClient
 
         private void runCommand(string command)
         {
+            Cursor = Cursors.WaitCursor;
+            
             gitClient.RunGitCommand(command, out output, out error);
             updateRtbOutput(output, error);
+            
+            Cursor = Cursors.Default;
         }
 
         private void updateRtbOutput(string output, string error)
@@ -461,16 +453,12 @@ namespace BasicGitClient
 
             if (dialogResult == DialogResult.Yes)
             {
-                Cursor = Cursors.WaitCursor;
-
-                runCommand("rm -r --cahced .");
+                runCommand("rm -r --cached .");
                 runCommand("add .");
                 btnStatus_Click(this, null);
                 runCommand("commit -m \"gitignore updated\"");
 
                 btnPush_Click(this, null);
-
-                Cursor = Cursors.Default;
             }
         }
     }

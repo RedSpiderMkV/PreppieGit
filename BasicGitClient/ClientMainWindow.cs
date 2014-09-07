@@ -386,9 +386,16 @@ namespace BasicGitClient
                 return;
             }
 
-            Process process = new Process();
-            process.StartInfo.FileName = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
-            process.Start();
+            try
+            {
+                Process process = new Process();
+                process.StartInfo.FileName = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
+                process.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening file: " + ex.Message);
+            }
         }
 
         private void renameFileToolStripMenuItem_Click(object sender, EventArgs e)

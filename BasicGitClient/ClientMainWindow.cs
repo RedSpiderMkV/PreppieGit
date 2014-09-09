@@ -228,7 +228,7 @@ namespace BasicGitClient
 
         private void configureRepoUsernameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SingleTextBoxDialogWindow userNameDialogWindow = new SingleTextBoxDialogWindow("Set Username...", "Username");
+            SingleTextBoxDialogWindow userNameDialogWindow = new SingleTextBoxDialogWindow("Set Username...", "Name");
             userNameDialogWindow.ShowDialog();
 
             if (!string.IsNullOrEmpty(userNameDialogWindow.TextField))

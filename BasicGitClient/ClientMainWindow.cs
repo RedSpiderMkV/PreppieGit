@@ -217,7 +217,7 @@ namespace BasicGitClient
 
         private void configureRepoEmailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SingleTextBoxDialogWindow emailDialogWindow = new SingleTextBoxDialogWindow("Set email...");
+            SingleTextBoxDialogWindow emailDialogWindow = new SingleTextBoxDialogWindow("Set email...", "Email");
             emailDialogWindow.ShowDialog();
 
             if (!string.IsNullOrEmpty(emailDialogWindow.TextField))
@@ -228,7 +228,7 @@ namespace BasicGitClient
 
         private void configureRepoUsernameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SingleTextBoxDialogWindow userNameDialogWindow = new SingleTextBoxDialogWindow("Set email...");
+            SingleTextBoxDialogWindow userNameDialogWindow = new SingleTextBoxDialogWindow("Set Username...", "Username");
             userNameDialogWindow.ShowDialog();
 
             if (!string.IsNullOrEmpty(userNameDialogWindow.TextField))

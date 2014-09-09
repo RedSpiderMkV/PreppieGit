@@ -73,6 +73,7 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.changeRepoUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -239,7 +240,8 @@
             this.pushAllToolStripMenuItem,
             this.revertLastChangeToolStripMenuItem,
             this.commitChangesToolStripMenuItem1,
-            this.updategitignoreToolStripMenuItem});
+            this.updategitignoreToolStripMenuItem,
+            this.changeRepoUrlToolStripMenuItem});
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
             this.advancedToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.advancedToolStripMenuItem.Text = "Actions";
@@ -470,6 +472,13 @@
             this.splitContainer2.SplitterDistance = 184;
             this.splitContainer2.TabIndex = 17;
             // 
+            // changeRepoUrlToolStripMenuItem
+            // 
+            this.changeRepoUrlToolStripMenuItem.Name = "changeRepoUrlToolStripMenuItem";
+            this.changeRepoUrlToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.changeRepoUrlToolStripMenuItem.Text = "Change Repo Url";
+            this.changeRepoUrlToolStripMenuItem.Click += new System.EventHandler(this.changeRepoUrlToolStripMenuItem_Click);
+            // 
             // ClientMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -549,6 +558,7 @@
         private System.Windows.Forms.ToolStripMenuItem updategitignoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configureRepoUsernameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeRepoUrlToolStripMenuItem;
     }
 }
 

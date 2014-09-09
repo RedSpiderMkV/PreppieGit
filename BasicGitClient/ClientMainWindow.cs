@@ -158,6 +158,17 @@ namespace BasicGitClient
             }
         }
 
+        private void changeRepoUrlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SingleTextBoxDialogWindow newUrlDialog = new SingleTextBoxDialogWindow("Set Repo URL");
+            DialogResult dialogResult = newUrlDialog.ShowDialog();
+
+            if (!String.IsNullOrEmpty(newUrlDialog.TextField))
+            {
+                runCommand(GitCommands.SET_URL + newUrlDialog.TextField);
+            }
+        }
+
         private void initialiseNewRepoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             runCommand(GitCommands.INIT);

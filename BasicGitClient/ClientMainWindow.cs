@@ -167,6 +167,8 @@ namespace BasicGitClient
             {
                 runCommand(GitCommands.SET_URL + newUrlDialog.TextField);
             }
+
+            showOriginToolStripMenuItem_Click(this, new EventArgs());
         }
 
         private void initialiseNewRepoToolStripMenuItem_Click(object sender, EventArgs e)

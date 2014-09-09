@@ -1,4 +1,4 @@
-#Basic Git Client
+#PreppieGit - Basic GitHub Client
 -------------------------
 
 Basic WinForms based git hub client to help speed up running github commands.

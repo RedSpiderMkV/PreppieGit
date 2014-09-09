@@ -5,6 +5,10 @@ using System.Text;
 
 namespace BasicGitClient
 {
+    /// <summary>
+    /// Git Commands - others can be supported but these are the
+    /// most common ones I use.
+    /// </summary>
     public class GitCommands
     {
         public const string STATUS = "status";

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicGitClient", "BasicGitClient\BasicGitClient.csproj", "{1BB8B7EE-AD95-4EAA-8E94-2FFF8DC1626C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GithubClient", "BasicGitClient\GithubClient.csproj", "{1BB8B7EE-AD95-4EAA-8E94-2FFF8DC1626C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

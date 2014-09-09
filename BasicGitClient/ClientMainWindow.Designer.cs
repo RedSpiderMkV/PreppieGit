@@ -43,6 +43,7 @@
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configureRepoUsernameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeRepoEmailToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.setCredentialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,6 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.configureRepoUsernameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -206,6 +206,13 @@
             this.userSettingsToolStripMenuItem.Name = "userSettingsToolStripMenuItem";
             this.userSettingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.userSettingsToolStripMenuItem.Text = "User Settings";
+            // 
+            // configureRepoUsernameToolStripMenuItem
+            // 
+            this.configureRepoUsernameToolStripMenuItem.Name = "configureRepoUsernameToolStripMenuItem";
+            this.configureRepoUsernameToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.configureRepoUsernameToolStripMenuItem.Text = "Configure Repo Username";
+            this.configureRepoUsernameToolStripMenuItem.Click += new System.EventHandler(this.configureRepoUsernameToolStripMenuItem_Click);
             // 
             // changeRepoEmailToolStripMenuItem1
             // 
@@ -463,13 +470,6 @@
             this.splitContainer2.SplitterDistance = 184;
             this.splitContainer2.TabIndex = 17;
             // 
-            // configureRepoUsernameToolStripMenuItem
-            // 
-            this.configureRepoUsernameToolStripMenuItem.Name = "configureRepoUsernameToolStripMenuItem";
-            this.configureRepoUsernameToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.configureRepoUsernameToolStripMenuItem.Text = "Configure Repo Username";
-            this.configureRepoUsernameToolStripMenuItem.Click += new System.EventHandler(this.configureRepoUsernameToolStripMenuItem_Click);
-            // 
             // ClientMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,7 +487,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuStrip;
             this.Name = "ClientMainWindow";
-            this.Text = "BasicGit";
+            this.Text = "PreppieGit";
             this.mnuStrip.ResumeLayout(false);
             this.mnuStrip.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);

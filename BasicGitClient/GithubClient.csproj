@@ -8,8 +8,8 @@
     <ProjectGuid>{1BB8B7EE-AD95-4EAA-8E94-2FFF8DC1626C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BasicGitClient</RootNamespace>
-    <AssemblyName>BasicGitClient</AssemblyName>
+    <RootNamespace>PreppieGit</RootNamespace>
+    <AssemblyName>PreppieGit</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>

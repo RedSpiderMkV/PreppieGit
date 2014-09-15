@@ -42,10 +42,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.userSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configureRepoUsernameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changeRepoEmailToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.setCredentialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setOriginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToHeadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +52,7 @@
             this.revertLastChangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commitChangesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.updategitignoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeRepoUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -73,7 +70,9 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.changeRepoUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setCredentialsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.configureRepoUsernameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.configureEmailAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -193,41 +192,12 @@
             // connectionToolStripMenuItem
             // 
             this.connectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.userSettingsToolStripMenuItem});
+            this.setCredentialsToolStripMenuItem1,
+            this.configureRepoUsernameToolStripMenuItem1,
+            this.configureEmailAddressToolStripMenuItem});
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
             this.connectionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.connectionToolStripMenuItem.Text = "Connection";
-            // 
-            // userSettingsToolStripMenuItem
-            // 
-            this.userSettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configureRepoUsernameToolStripMenuItem,
-            this.changeRepoEmailToolStripMenuItem1,
-            this.setCredentialsToolStripMenuItem});
-            this.userSettingsToolStripMenuItem.Name = "userSettingsToolStripMenuItem";
-            this.userSettingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.userSettingsToolStripMenuItem.Text = "User Settings";
-            // 
-            // configureRepoUsernameToolStripMenuItem
-            // 
-            this.configureRepoUsernameToolStripMenuItem.Name = "configureRepoUsernameToolStripMenuItem";
-            this.configureRepoUsernameToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.configureRepoUsernameToolStripMenuItem.Text = "Configure Repo Username";
-            this.configureRepoUsernameToolStripMenuItem.Click += new System.EventHandler(this.configureRepoUsernameToolStripMenuItem_Click);
-            // 
-            // changeRepoEmailToolStripMenuItem1
-            // 
-            this.changeRepoEmailToolStripMenuItem1.Name = "changeRepoEmailToolStripMenuItem1";
-            this.changeRepoEmailToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
-            this.changeRepoEmailToolStripMenuItem1.Text = "Configure Repo Email";
-            this.changeRepoEmailToolStripMenuItem1.Click += new System.EventHandler(this.configureRepoEmailToolStripMenuItem_Click);
-            // 
-            // setCredentialsToolStripMenuItem
-            // 
-            this.setCredentialsToolStripMenuItem.Name = "setCredentialsToolStripMenuItem";
-            this.setCredentialsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.setCredentialsToolStripMenuItem.Text = "Set Credentials";
-            this.setCredentialsToolStripMenuItem.Click += new System.EventHandler(this.configureEmailToolStripMenuItem_Click);
             // 
             // advancedToolStripMenuItem
             // 
@@ -312,6 +282,13 @@
             this.updategitignoreToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.updategitignoreToolStripMenuItem.Text = "Update .gitignore";
             this.updategitignoreToolStripMenuItem.Click += new System.EventHandler(this.updategitignoreToolStripMenuItem_Click);
+            // 
+            // changeRepoUrlToolStripMenuItem
+            // 
+            this.changeRepoUrlToolStripMenuItem.Name = "changeRepoUrlToolStripMenuItem";
+            this.changeRepoUrlToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.changeRepoUrlToolStripMenuItem.Text = "Change Repo Url";
+            this.changeRepoUrlToolStripMenuItem.Click += new System.EventHandler(this.changeRepoUrlToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -409,46 +386,46 @@
             this.deleteToolStripMenuItem,
             this.deleteFolderToolStripMenuItem});
             this.cMnuFileViewer.Name = "cMnuFileViewer";
-            this.cMnuFileViewer.Size = new System.Drawing.Size(153, 142);
+            this.cMnuFileViewer.Size = new System.Drawing.Size(150, 120);
             this.cMnuFileViewer.Opening += new System.ComponentModel.CancelEventHandler(this.cMnuFileViewer_Opening);
             // 
             // newFileToolStripMenuItem
             // 
             this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
-            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.newFileToolStripMenuItem.Text = "New File";
             this.newFileToolStripMenuItem.Click += new System.EventHandler(this.newFileToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(146, 6);
             // 
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.openFileToolStripMenuItem.Text = "Open File";
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
             // 
             // renameFileToolStripMenuItem
             // 
             this.renameFileToolStripMenuItem.Name = "renameFileToolStripMenuItem";
-            this.renameFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.renameFileToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.renameFileToolStripMenuItem.Text = "Rename File";
             this.renameFileToolStripMenuItem.Click += new System.EventHandler(this.renameFileToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.deleteToolStripMenuItem.Text = "Delete File";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // deleteFolderToolStripMenuItem
             // 
             this.deleteFolderToolStripMenuItem.Name = "deleteFolderToolStripMenuItem";
-            this.deleteFolderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteFolderToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.deleteFolderToolStripMenuItem.Text = "Delete Folder";
             this.deleteFolderToolStripMenuItem.Click += new System.EventHandler(this.deleteFolderToolStripMenuItem_Click);
             // 
@@ -472,12 +449,26 @@
             this.splitContainer2.SplitterDistance = 184;
             this.splitContainer2.TabIndex = 17;
             // 
-            // changeRepoUrlToolStripMenuItem
+            // setCredentialsToolStripMenuItem1
             // 
-            this.changeRepoUrlToolStripMenuItem.Name = "changeRepoUrlToolStripMenuItem";
-            this.changeRepoUrlToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.changeRepoUrlToolStripMenuItem.Text = "Change Repo Url";
-            this.changeRepoUrlToolStripMenuItem.Click += new System.EventHandler(this.changeRepoUrlToolStripMenuItem_Click);
+            this.setCredentialsToolStripMenuItem1.Name = "setCredentialsToolStripMenuItem1";
+            this.setCredentialsToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
+            this.setCredentialsToolStripMenuItem1.Text = "Set Credentials";
+            this.setCredentialsToolStripMenuItem1.Click += new System.EventHandler(this.configureEmailToolStripMenuItem_Click);
+            // 
+            // configureRepoUsernameToolStripMenuItem1
+            // 
+            this.configureRepoUsernameToolStripMenuItem1.Name = "configureRepoUsernameToolStripMenuItem1";
+            this.configureRepoUsernameToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
+            this.configureRepoUsernameToolStripMenuItem1.Text = "Configure Repo Username";
+            this.configureRepoUsernameToolStripMenuItem1.Click += new System.EventHandler(this.configureRepoUsernameToolStripMenuItem_Click);
+            // 
+            // configureEmailAddressToolStripMenuItem
+            // 
+            this.configureEmailAddressToolStripMenuItem.Name = "configureEmailAddressToolStripMenuItem";
+            this.configureEmailAddressToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.configureEmailAddressToolStripMenuItem.Text = "Configure Email Address";
+            this.configureEmailAddressToolStripMenuItem.Click += new System.EventHandler(this.configureRepoEmailToolStripMenuItem_Click);
             // 
             // ClientMainWindow
             // 
@@ -540,9 +531,6 @@
         private System.Windows.Forms.ToolStripMenuItem initialiseNewRepoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showOriginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pushAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem userSettingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setCredentialsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem changeRepoEmailToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem revertLastChangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem commitChangesToolStripMenuItem1;
         private System.Windows.Forms.TreeView tvDirectoryList;
@@ -557,8 +545,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem updategitignoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteFolderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configureRepoUsernameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeRepoUrlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setCredentialsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem configureRepoUsernameToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem configureEmailAddressToolStripMenuItem;
     }
 }
 

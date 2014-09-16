@@ -30,17 +30,31 @@ namespace BasicGitClient
         public ClientMainWindow()
         {
             InitializeComponent();
-            gitClient = new GitClientAccess();
 
-            defaultDir = xmlHandler.GetLastLocation();
-            tbDirectory.Text = defaultDir;
-            tbDirectory.SelectionStart = tbDirectory.TextLength;
-            gitClient.SetDirectory(defaultDir);
-            // set remote
-            showOriginToolStripMenuItem_Click(null, new EventArgs());
+            try
+            {
+                gitClient = new GitClientAccess();
+                runCommand(GitCommands.VERSION);
 
-            // Populate tree view.
-            populateTreeView();
+                defaultDir = xmlHandler.GetLastLocation();
+                tbDirectory.Text = defaultDir;
+                tbDirectory.SelectionStart = tbDirectory.TextLength;
+                gitClient.SetDirectory(defaultDir);
+                // set remote
+                showOriginToolStripMenuItem_Click(null, new EventArgs());
+
+                // Populate tree view.
+                populateTreeView();
+            }
+            catch (Win32Exception)
+            {
+                MessageBox.Show("Error with application.  Could not find Git.\nTerminating..");
+                Environment.Exit(0);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         #endregion

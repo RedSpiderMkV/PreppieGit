@@ -22,10 +22,7 @@ namespace BasicGitClient
         {
             if (!File.Exists(configFile))
             {
-                string xml = "<gitClient><credential><username></username>" +
-                    "<password></password></credential><lastLocation></lastLocation></gitClient>";
-                File.WriteAllText(configFile, xml);
-
+                // Change this, message box shouldn't be shown here perhaps??
                 System.Windows.Forms.MessageBox.Show("Credentials required");
                 CredentialConfigureWindow credentialWindow = new CredentialConfigureWindow();
                 credentialWindow.ShowDialog();
@@ -33,7 +30,14 @@ namespace BasicGitClient
                 string username = credentialWindow.Username;
                 string password = credentialWindow.Password;
 
-                SetCredentials(username, password);
+                if (!username.Equals(String.Empty) && !password.Equals(String.Empty))
+                {
+                    string xml = "<gitClient><credential><username></username>" +
+                        "<password></password></credential><lastLocation></lastLocation></gitClient>";
+                    File.WriteAllText(configFile, xml);
+
+                    SetCredentials(username, password);
+                }
             }
         }
 

@@ -40,6 +40,7 @@ namespace BasicGitClient
                 tbDirectory.Text = defaultDir;
                 tbDirectory.SelectionStart = tbDirectory.TextLength;
                 gitClient.SetDirectory(defaultDir);
+
                 // set remote
                 showOriginToolStripMenuItem_Click(null, new EventArgs());
 
@@ -54,6 +55,7 @@ namespace BasicGitClient
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+                Environment.Exit(0);
             }
         }
 

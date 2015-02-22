@@ -45,5 +45,18 @@ namespace BasicGitClient
             Username = String.Empty;
             Password = String.Empty;
         }
+
+        private void tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            {
+                btnOk_Click(this, null);
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                btnCancel_Click(this, null);
+            }
+        }
     }
 }

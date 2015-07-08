@@ -15,13 +15,14 @@ namespace BasicGitClient
     {
         #region Private Data
 
-        private GitClientAccess gitClient;
-        private string error, output;
+        private string error;
+        private string output;
         private string defaultDir;
         private string remoteName;
-        private XmlHandler xmlHandler = new XmlHandler();
         private string treeViewSelectedDirectory;
+        private XmlHandler xmlHandler;
         private TreeNode currentSelectedNode;
+        private GitClientAccess gitClient;
 
         #endregion
 
@@ -33,6 +34,8 @@ namespace BasicGitClient
 
             try
             {
+                xmlHandler = new XmlHandler();
+
                 gitClient = new GitClientAccess();
                 runCommand(GitCommands.VERSION);
 

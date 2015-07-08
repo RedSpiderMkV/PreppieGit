@@ -6,8 +6,7 @@ using System.Text;
 namespace BasicGitClient
 {
     /// <summary>
-    /// Git Commands - others can be supported but these are the
-    /// most common ones I use.
+    /// Git Commands - Support for others to be added later.
     /// </summary>
     public class GitCommands
     {

@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>page_white_code_red.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\page_white_code_red.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -113,7 +113,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="page_white_code_red.ico" />
+    <Content Include="Resources\page_white_code_red.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

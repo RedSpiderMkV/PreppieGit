@@ -534,9 +534,12 @@ namespace BasicGitClient
             }
         }
 
-        private void tvDirectoryList_KeyPress(object sender, KeyPressEventArgs e)
+        private void tvDirectoryList_KeyDown(object sender, KeyEventArgs e)
         {
-            populateTreeView();
+            if (e.KeyCode == Keys.F5)
+            {
+                populateTreeView();
+            }
         }
     }
 }

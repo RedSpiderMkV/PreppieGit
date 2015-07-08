@@ -1,6 +1,4 @@
-BasicGitClient/bin
-BasicGitClient/obj
-Installer/bin
-Installer/obj
-*/bin
-*/obj
+src/BasicGitClient/bin
+src/BasicGitClient/obj
+src/Installer/bin
+src/Installer/obj

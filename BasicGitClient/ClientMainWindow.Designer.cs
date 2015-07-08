@@ -42,6 +42,9 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setCredentialsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.configureRepoUsernameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.configureEmailAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setOriginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToHeadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,9 +73,6 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.setCredentialsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.configureRepoUsernameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.configureEmailAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -198,6 +198,27 @@
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
             this.connectionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.connectionToolStripMenuItem.Text = "Connection";
+            // 
+            // setCredentialsToolStripMenuItem1
+            // 
+            this.setCredentialsToolStripMenuItem1.Name = "setCredentialsToolStripMenuItem1";
+            this.setCredentialsToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
+            this.setCredentialsToolStripMenuItem1.Text = "Set Credentials";
+            this.setCredentialsToolStripMenuItem1.Click += new System.EventHandler(this.configureEmailToolStripMenuItem_Click);
+            // 
+            // configureRepoUsernameToolStripMenuItem1
+            // 
+            this.configureRepoUsernameToolStripMenuItem1.Name = "configureRepoUsernameToolStripMenuItem1";
+            this.configureRepoUsernameToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
+            this.configureRepoUsernameToolStripMenuItem1.Text = "Configure Repo Username";
+            this.configureRepoUsernameToolStripMenuItem1.Click += new System.EventHandler(this.configureRepoUsernameToolStripMenuItem_Click);
+            // 
+            // configureEmailAddressToolStripMenuItem
+            // 
+            this.configureEmailAddressToolStripMenuItem.Name = "configureEmailAddressToolStripMenuItem";
+            this.configureEmailAddressToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.configureEmailAddressToolStripMenuItem.Text = "Configure Email Address";
+            this.configureEmailAddressToolStripMenuItem.Click += new System.EventHandler(this.configureRepoEmailToolStripMenuItem_Click);
             // 
             // advancedToolStripMenuItem
             // 
@@ -347,6 +368,7 @@
             this.tvDirectoryList.TabIndex = 15;
             this.tvDirectoryList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDirectoryList_AfterSelect);
             this.tvDirectoryList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvDirectoryList_NodeMouseClick);
+            this.tvDirectoryList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tvDirectoryList_KeyPress);
             // 
             // splitContainer1
             // 
@@ -448,27 +470,6 @@
             this.splitContainer2.Size = new System.Drawing.Size(396, 369);
             this.splitContainer2.SplitterDistance = 184;
             this.splitContainer2.TabIndex = 17;
-            // 
-            // setCredentialsToolStripMenuItem1
-            // 
-            this.setCredentialsToolStripMenuItem1.Name = "setCredentialsToolStripMenuItem1";
-            this.setCredentialsToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
-            this.setCredentialsToolStripMenuItem1.Text = "Set Credentials";
-            this.setCredentialsToolStripMenuItem1.Click += new System.EventHandler(this.configureEmailToolStripMenuItem_Click);
-            // 
-            // configureRepoUsernameToolStripMenuItem1
-            // 
-            this.configureRepoUsernameToolStripMenuItem1.Name = "configureRepoUsernameToolStripMenuItem1";
-            this.configureRepoUsernameToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
-            this.configureRepoUsernameToolStripMenuItem1.Text = "Configure Repo Username";
-            this.configureRepoUsernameToolStripMenuItem1.Click += new System.EventHandler(this.configureRepoUsernameToolStripMenuItem_Click);
-            // 
-            // configureEmailAddressToolStripMenuItem
-            // 
-            this.configureEmailAddressToolStripMenuItem.Name = "configureEmailAddressToolStripMenuItem";
-            this.configureEmailAddressToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.configureEmailAddressToolStripMenuItem.Text = "Configure Email Address";
-            this.configureEmailAddressToolStripMenuItem.Click += new System.EventHandler(this.configureRepoEmailToolStripMenuItem_Click);
             // 
             // ClientMainWindow
             // 

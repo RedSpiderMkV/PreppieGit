@@ -533,5 +533,10 @@ namespace BasicGitClient
                 btnPush_Click(this, null);
             }
         }
+
+        private void tvDirectoryList_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            populateTreeView();
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace BasicGitClient
         #region Private Data
 
         // Location of configuration file.
-        private const string configFile = "configuration.xml";
+        private const string configFile_m = "configuration.xml";
         
         #endregion
 
@@ -20,7 +20,7 @@ namespace BasicGitClient
 
         public XmlHandler()
         {
-            if (!File.Exists(configFile))
+            if (!File.Exists(configFile_m))
             {
                 // Change this, message box shouldn't be shown here perhaps??
                 System.Windows.Forms.MessageBox.Show("Credentials required");
@@ -34,7 +34,7 @@ namespace BasicGitClient
                 {
                     string xml = "<gitClient><credential><username></username>" +
                         "<password></password></credential><lastLocation></lastLocation></gitClient>";
-                    File.WriteAllText(configFile, xml);
+                    File.WriteAllText(configFile_m, xml);
 
                     SetCredentials(username, password);
                 }
@@ -48,7 +48,7 @@ namespace BasicGitClient
         public string GetLastLocation()
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load(configFile);
+            doc.Load(configFile_m);
             
             XmlNode node = doc.FirstChild.ChildNodes[1];
             return Directory.Exists(node.InnerText) ? node.InnerText : string.Empty;
@@ -61,14 +61,14 @@ namespace BasicGitClient
         public void SetLastLocation(string currentLocation)
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load(configFile);
+            doc.Load(configFile_m);
 
             foreach (XmlNode node in doc.FirstChild.ChildNodes)
             {
                 if (String.Equals(node.Name, "lastLocation"))
                 {
                     node.InnerText = currentLocation;
-                    doc.Save(configFile);
+                    doc.Save(configFile_m);
                 }
             }
         }
@@ -83,7 +83,7 @@ namespace BasicGitClient
             username = password = "";
             
             XmlDocument doc = new XmlDocument();
-            doc.Load(configFile);
+            doc.Load(configFile_m);
 
             foreach (XmlNode node in doc.FirstChild.ChildNodes[0].ChildNodes)
             {
@@ -107,7 +107,7 @@ namespace BasicGitClient
         public void SetCredentials(string username, string password)
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load(configFile);
+            doc.Load(configFile_m);
 
             foreach (XmlNode node in doc.FirstChild.ChildNodes[0].ChildNodes)
             {
@@ -122,7 +122,7 @@ namespace BasicGitClient
                 }
             }
 
-            doc.Save(configFile);
+            doc.Save(configFile_m);
         }
 
         #endregion

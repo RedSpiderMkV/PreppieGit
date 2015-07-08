@@ -109,7 +109,7 @@ namespace BasicGitClient
             runCommand(command);
 
             // push then pull required due to master/origin local mismatch
-            btnPull_Click(null, new EventArgs());
+            runCommand(GitCommands.PULL);
         }
 
         private void btnPull_Click(object sender, EventArgs e)

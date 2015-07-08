@@ -323,7 +323,7 @@ namespace BasicGitClient
 
         private void populateTreeView()
         {
-            if (String.IsNullOrEmpty(gitClient_m.Directory))
+            if (String.IsNullOrEmpty(gitClient_m.RepoDirectory))
             {
                 return;
             }
@@ -332,7 +332,7 @@ namespace BasicGitClient
             lbFileList.Items.Clear();
 
             TreeNode rootNode;
-            DirectoryInfo info = new DirectoryInfo(gitClient_m.Directory);
+            DirectoryInfo info = new DirectoryInfo(gitClient_m.RepoDirectory);
 
             if (info.Exists)
             {
@@ -387,7 +387,7 @@ namespace BasicGitClient
             {
                 int headNodeLength = tvDirectoryList.Nodes[0].Text.Length;
                 string selectedNode = tvDirectoryList.SelectedNode.FullPath.Remove(0, headNodeLength);
-                treeViewSelectedDirectory_m = gitClient_m.Directory + selectedNode;
+                treeViewSelectedDirectory_m = gitClient_m.RepoDirectory + selectedNode;
             }
         }
 

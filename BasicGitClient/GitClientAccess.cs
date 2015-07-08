@@ -18,15 +18,15 @@ namespace BasicGitClient
         /// Directory in which client will operate.
         /// i.e. repo directory.
         /// </summary>
-        public string Directory { get; private set; }
+        public string RepoDirectory { get; private set; }
 
         #endregion
 
         #region Private Data
 
         // Process runner information.
-        private ProcessStartInfo info;
-        private Process gitProc;
+        private ProcessStartInfo procInfo_m;
+        private Process gitProc_m;
 
         #endregion
 
@@ -37,7 +37,7 @@ namespace BasicGitClient
         /// </summary>
         public GitClientAccess()
         {
-            info = new ProcessStartInfo
+            procInfo_m = new ProcessStartInfo
             {
                 CreateNoWindow = true,
                 RedirectStandardError = true,
@@ -58,7 +58,7 @@ namespace BasicGitClient
         /// <param name="directory"></param>
         public void SetDirectory(string directory)
         {
-            Directory = info.WorkingDirectory = directory;
+            RepoDirectory = procInfo_m.WorkingDirectory = directory;
         }
 
         /// <summary>
@@ -69,17 +69,17 @@ namespace BasicGitClient
         /// <param name="stderror">Standard error from git process.</param>
         public void RunGitCommand(string command, out string stdout, out string stderror)
         {
-            gitProc = new Process();
+            gitProc_m = new Process();
 
-            info.Arguments = command;
-            gitProc.StartInfo = info;
-            gitProc.Start();
+            procInfo_m.Arguments = command;
+            gitProc_m.StartInfo = procInfo_m;
+            gitProc_m.Start();
 
-            stdout = gitProc.StandardOutput.ReadToEnd();
-            stderror = gitProc.StandardError.ReadToEnd();
+            stdout = gitProc_m.StandardOutput.ReadToEnd();
+            stderror = gitProc_m.StandardError.ReadToEnd();
 
-            gitProc.WaitForExit();
-            gitProc.Close();
+            gitProc_m.WaitForExit();
+            gitProc_m.Close();
         }
 
         #endregion

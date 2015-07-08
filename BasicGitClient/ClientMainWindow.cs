@@ -15,14 +15,14 @@ namespace BasicGitClient
     {
         #region Private Data
 
-        private string error;
-        private string output;
-        private string defaultDir;
-        private string remoteName;
-        private string treeViewSelectedDirectory;
-        private XmlHandler xmlHandler;
-        private TreeNode currentSelectedNode;
-        private GitClientAccess gitClient;
+        private string error_m;
+        private string output_m;
+        private string defaultDir_m;
+        private string remoteName_m;
+        private string treeViewSelectedDirectory_m;
+        private XmlHandler xmlHandler_m;
+        private TreeNode currentSelectedNode_m;
+        private GitClientAccess gitClient_m;
 
         #endregion
 
@@ -34,15 +34,15 @@ namespace BasicGitClient
 
             try
             {
-                xmlHandler = new XmlHandler();
+                xmlHandler_m = new XmlHandler();
 
-                gitClient = new GitClientAccess();
+                gitClient_m = new GitClientAccess();
                 runCommand(GitCommands.VERSION);
 
-                defaultDir = xmlHandler.GetLastLocation();
-                tbDirectory.Text = defaultDir;
+                defaultDir_m = xmlHandler_m.GetLastLocation();
+                tbDirectory.Text = defaultDir_m;
                 tbDirectory.SelectionStart = tbDirectory.TextLength;
-                gitClient.SetDirectory(defaultDir);
+                gitClient_m.SetDirectory(defaultDir_m);
 
                 // set remote
                 showOriginToolStripMenuItem_Click(null, new EventArgs());
@@ -73,14 +73,14 @@ namespace BasicGitClient
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            gitClient.RunGitCommand(GitCommands.ADD_ALL, out output, out error);
+            gitClient_m.RunGitCommand(GitCommands.ADD_ALL, out output_m, out error_m);
 
-            if (String.Equals(String.Empty, output) && String.Equals(String.Empty, error))
+            if (String.Equals(String.Empty, output_m) && String.Equals(String.Empty, error_m))
             {
-                output = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
+                output_m = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
             }
 
-            rtbOutput.AppendText(output);
+            rtbOutput.AppendText(output_m);
         }
 
         private void btnCommit_Click(object sender, EventArgs e)
@@ -93,22 +93,22 @@ namespace BasicGitClient
             if (comment != String.Empty)
             {
                 string command = GitCommands.COMMIT + " " + comment;
-                gitClient.RunGitCommand(command, out output, out error);
+                gitClient_m.RunGitCommand(command, out output_m, out error_m);
             }
             else
             {
-                output = "\nNo comment added.  Not committed..";
+                output_m = "\nNo comment added.  Not committed..";
             }
 
-            updateRtbOutput(output, error);
+            updateRtbOutput(output_m, error_m);
         }
 
         private void btnPush_Click(object sender, EventArgs e)
         {
             string username, password;
-            xmlHandler.GetCredentials(out username, out password);
+            xmlHandler_m.GetCredentials(out username, out password);
 
-            string command = String.Format(GitCommands.PUSH, username, password, remoteName);
+            string command = String.Format(GitCommands.PUSH, username, password, remoteName_m);
             runCommand(command);
 
             // push then pull required due to master/origin local mismatch
@@ -133,9 +133,9 @@ namespace BasicGitClient
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
 
-            if (Directory.Exists(defaultDir))
+            if (Directory.Exists(defaultDir_m))
             {
-                fbd.SelectedPath = defaultDir;
+                fbd.SelectedPath = defaultDir_m;
             }
 
             DialogResult result = fbd.ShowDialog();
@@ -144,11 +144,11 @@ namespace BasicGitClient
                 string directory = fbd.SelectedPath;
                 tbDirectory.Text = directory;
 
-                gitClient.SetDirectory(directory);
+                gitClient_m.SetDirectory(directory);
                 // repopulate tree view
                 populateTreeView();
 
-                xmlHandler.SetLastLocation(directory);
+                xmlHandler_m.SetLastLocation(directory);
                 // get remote name
                 showOriginToolStripMenuItem_Click(null, new EventArgs());
             }
@@ -162,7 +162,7 @@ namespace BasicGitClient
             string username = credentialWindow.Username;
             string password = credentialWindow.Password;
 
-            xmlHandler.SetCredentials(username, password);
+            xmlHandler_m.SetCredentials(username, password);
         }
 
         private void setOriginToolStripMenuItem_Click(object sender, EventArgs e)
@@ -197,13 +197,13 @@ namespace BasicGitClient
 
         private void showOriginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gitClient.RunGitCommand(GitCommands.SHOW_ORIGIN, out output, out error);
+            gitClient_m.RunGitCommand(GitCommands.SHOW_ORIGIN, out output_m, out error_m);
 
             try
             {
-                if (!String.IsNullOrEmpty(output))
+                if (!String.IsNullOrEmpty(output_m))
                 {
-                    remoteName = output.Split('\n')[0].Split('\t')[1]
+                    remoteName_m = output_m.Split('\n')[0].Split('\t')[1]
                     .Split(new string[] { "(fetch)" }, StringSplitOptions.None)[0]
                     .Split(new string[] { "github.com" }, StringSplitOptions.None)[1];
                 }
@@ -215,12 +215,12 @@ namespace BasicGitClient
 
             if (sender != null)
             {
-                if (output == string.Empty && error == string.Empty)
+                if (output_m == string.Empty && error_m == string.Empty)
                 {
-                    output = "Origin is not set." + Environment.NewLine;
+                    output_m = "Origin is not set." + Environment.NewLine;
                 }
 
-                updateRtbOutput(output, error);
+                updateRtbOutput(output_m, error_m);
             }
         }
 
@@ -282,8 +282,8 @@ namespace BasicGitClient
         {
             Cursor = Cursors.WaitCursor;
             
-            gitClient.RunGitCommand(command, out output, out error);
-            updateRtbOutput(output, error);
+            gitClient_m.RunGitCommand(command, out output_m, out error_m);
+            updateRtbOutput(output_m, error_m);
             
             Cursor = Cursors.Default;
         }
@@ -323,7 +323,7 @@ namespace BasicGitClient
 
         private void populateTreeView()
         {
-            if (String.IsNullOrEmpty(gitClient.Directory))
+            if (String.IsNullOrEmpty(gitClient_m.Directory))
             {
                 return;
             }
@@ -332,7 +332,7 @@ namespace BasicGitClient
             lbFileList.Items.Clear();
 
             TreeNode rootNode;
-            DirectoryInfo info = new DirectoryInfo(gitClient.Directory);
+            DirectoryInfo info = new DirectoryInfo(gitClient_m.Directory);
 
             if (info.Exists)
             {
@@ -368,12 +368,12 @@ namespace BasicGitClient
         {
             if (e != null)
             {
-                currentSelectedNode = e.Node;
+                currentSelectedNode_m = e.Node;
                 tvDirectoryList.SelectedNode = e.Node;
             }
 
             lbFileList.Items.Clear();
-            DirectoryInfo nodeDirInfo = (DirectoryInfo)currentSelectedNode.Tag;
+            DirectoryInfo nodeDirInfo = (DirectoryInfo)currentSelectedNode_m.Tag;
 
             foreach (FileInfo file in nodeDirInfo.GetFiles())
             {
@@ -387,7 +387,7 @@ namespace BasicGitClient
             {
                 int headNodeLength = tvDirectoryList.Nodes[0].Text.Length;
                 string selectedNode = tvDirectoryList.SelectedNode.FullPath.Remove(0, headNodeLength);
-                treeViewSelectedDirectory = gitClient.Directory + selectedNode;
+                treeViewSelectedDirectory_m = gitClient_m.Directory + selectedNode;
             }
         }
 
@@ -398,7 +398,7 @@ namespace BasicGitClient
 
             if (!String.IsNullOrEmpty(newFileWindow.TextField))
             {
-                File.Create(treeViewSelectedDirectory + "\\" + newFileWindow.TextField).Dispose();
+                File.Create(treeViewSelectedDirectory_m + "\\" + newFileWindow.TextField).Dispose();
                 tvDirectoryList_NodeMouseClick(this, null);
             }
         }
@@ -413,7 +413,7 @@ namespace BasicGitClient
             try
             {
                 Process process = new Process();
-                process.StartInfo.FileName = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
+                process.StartInfo.FileName = treeViewSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
                 process.Start();
             }
             catch (Exception ex)
@@ -429,14 +429,14 @@ namespace BasicGitClient
                 return;
             }
 
-            string file = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
+            string file = treeViewSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
             
             SingleTextBoxDialogWindow newFileWindow = new SingleTextBoxDialogWindow("File Name", "Name");
             newFileWindow.ShowDialog();
 
             if (!String.IsNullOrEmpty(newFileWindow.TextField))
             {
-                string newFile = treeViewSelectedDirectory + "\\" + newFileWindow.TextField;
+                string newFile = treeViewSelectedDirectory_m + "\\" + newFileWindow.TextField;
                 File.Move(file, newFile);
 
                 tvDirectoryList_NodeMouseClick(this, null);
@@ -445,7 +445,7 @@ namespace BasicGitClient
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string file = treeViewSelectedDirectory + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
+            string file = treeViewSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
             File.Delete(file);
 
             tvDirectoryList_NodeMouseClick(this, null);
@@ -491,7 +491,7 @@ namespace BasicGitClient
         {
             try
             {
-                DeleteDirectory(treeViewSelectedDirectory, true);
+                DeleteDirectory(treeViewSelectedDirectory_m, true);
                 populateTreeView();
             }
             catch (Exception ex)

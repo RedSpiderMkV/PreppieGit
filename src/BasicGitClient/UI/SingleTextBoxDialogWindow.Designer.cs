@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbUrl = new System.Windows.Forms.TextBox();
+            this.tbInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // tbUrl
+            // tbInput
             // 
-            this.tbUrl.Location = new System.Drawing.Point(52, 12);
-            this.tbUrl.Name = "tbUrl";
-            this.tbUrl.Size = new System.Drawing.Size(228, 20);
-            this.tbUrl.TabIndex = 0;
-            this.tbUrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbUrl_KeyDown);
+            this.tbInput.Location = new System.Drawing.Point(52, 12);
+            this.tbInput.Name = "tbInput";
+            this.tbInput.Size = new System.Drawing.Size(228, 20);
+            this.tbInput.TabIndex = 0;
+            this.tbInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbInputl_KeyDown);
             // 
             // label1
             // 
@@ -79,7 +79,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbUrl);
+            this.Controls.Add(this.tbInput);
             this.Name = "SingleTextBoxDialogWindow";
             this.Text = "SetOriginWindow";
             this.ResumeLayout(false);
@@ -89,7 +89,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbUrl;
+        private System.Windows.Forms.TextBox tbInput;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;

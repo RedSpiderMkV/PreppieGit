@@ -11,7 +11,13 @@ namespace BasicGitClient
 {
     public partial class SingleTextBoxDialogWindow : Form
     {
+        #region Properties
+
         public string TextField { get; private set; }
+
+        #endregion
+
+        #region Constructors
 
         public SingleTextBoxDialogWindow(string title)
         {
@@ -25,32 +31,43 @@ namespace BasicGitClient
             label1.Text = labelName;
         }
 
+        #endregion
+
+        #region Private Methods
+
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(tbUrl.Text))
-            {
-                TextField = tbUrl.Text;
-
-                this.Close();
-            }
-        }
+            validateAndCompleteDialog();
+        } // end method
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        } // end method
 
-        private void tbUrl_KeyDown(object sender, KeyEventArgs e)
+        private void tbInputl_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
             {
-                btnOk_Click(null, new EventArgs());
-            }
+                validateAndCompleteDialog();
+            } // end if
 
             if (e.KeyCode == Keys.Escape)
             {
-                btnCancel_Click(null, new EventArgs());
+                this.Close();
+            } // end if
+        } // end method
+
+        private void validateAndCompleteDialog()
+        {
+            if (!String.IsNullOrEmpty(tbInput.Text))
+            {
+                TextField = tbInput.Text;
+
+                this.Close();
             }
-        }
+        } // end method
+
+        #endregion
     }
 }

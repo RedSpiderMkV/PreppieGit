@@ -10,9 +10,9 @@ namespace BasicGitClient
     /// <summary>
     /// Class to access the git client via input/output redirection.
     /// </summary>
-    public class GitClientAccess
+    public class GitClientAccessor
     {
-        #region Public Properties
+        #region Properties
         
         /// <summary>
         /// Directory in which client will operate.
@@ -22,20 +22,12 @@ namespace BasicGitClient
 
         #endregion
 
-        #region Private Data
-
-        // Process runner information.
-        private ProcessStartInfo procInfo_m;
-        private Process gitProc_m;
-
-        #endregion
-
         #region Constructors
 
         /// <summary>
         /// Initialise a new object to access the git client.
         /// </summary>
-        public GitClientAccess()
+        public GitClientAccessor()
         {
             procInfo_m = new ProcessStartInfo
             {
@@ -69,18 +61,26 @@ namespace BasicGitClient
         /// <param name="stderror">Standard error from git process.</param>
         public void RunGitCommand(string command, out string stdout, out string stderror)
         {
-            gitProc_m = new Process();
+            using (Process gitProc = new Process())
+            {
+                procInfo_m.Arguments = command;
+                gitProc.StartInfo = procInfo_m;
+                gitProc.Start();
 
-            procInfo_m.Arguments = command;
-            gitProc_m.StartInfo = procInfo_m;
-            gitProc_m.Start();
+                stdout = gitProc.StandardOutput.ReadToEnd();
+                stderror = gitProc.StandardError.ReadToEnd();
 
-            stdout = gitProc_m.StandardOutput.ReadToEnd();
-            stderror = gitProc_m.StandardError.ReadToEnd();
+                gitProc.WaitForExit();
+                gitProc.Close();
+            } // end using
+        } // end method
 
-            gitProc_m.WaitForExit();
-            gitProc_m.Close();
-        }
+        #endregion
+
+        #region Private Data
+
+        // Process runner information.
+        private ProcessStartInfo procInfo_m;
 
         #endregion
     }

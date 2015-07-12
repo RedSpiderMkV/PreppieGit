@@ -22,7 +22,7 @@ namespace BasicGitClient
         private string treeViewSelectedDirectory_m;
         private XmlHandler xmlHandler_m;
         private TreeNode currentSelectedNode_m;
-        private GitClientAccess gitClient_m;
+        private GitClientAccessor gitClient_m;
 
         #endregion
 
@@ -36,7 +36,7 @@ namespace BasicGitClient
             {
                 xmlHandler_m = new XmlHandler();
 
-                gitClient_m = new GitClientAccess();
+                gitClient_m = new GitClientAccessor();
                 runCommand(GitCommands.VERSION);
 
                 defaultDir_m = xmlHandler_m.GetLastLocation();

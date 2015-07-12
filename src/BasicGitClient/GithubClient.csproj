@@ -69,7 +69,7 @@
       <DependentUpon>CredentialConfigureWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="ConfigXmlHandler.cs" />
-    <Compile Include="GitClientAccess.cs" />
+    <Compile Include="GitClientAccessor.cs" />
     <Compile Include="GitCommands.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

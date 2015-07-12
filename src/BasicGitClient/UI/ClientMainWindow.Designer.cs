@@ -367,6 +367,7 @@
             this.tvDirectoryList.Size = new System.Drawing.Size(195, 184);
             this.tvDirectoryList.TabIndex = 15;
             this.tvDirectoryList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDirectoryList_AfterSelect);
+            this.tvDirectoryList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvDirectoryList_NodeMouseClick);
             this.tvDirectoryList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvDirectoryList_KeyDown);
             // 
             // splitContainer1

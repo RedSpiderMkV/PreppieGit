@@ -321,6 +321,17 @@ namespace BasicGitClient
 
         #region Tree View File Viewer
 
+        private void populateFileList()
+        {
+            lbFileList.Items.Clear();
+            DirectoryInfo nodeDirInfo = (DirectoryInfo)currentSelectedNode_m.Tag;
+
+            foreach (FileInfo file in nodeDirInfo.GetFiles())
+            {
+                lbFileList.Items.Add(file.Name);
+            } // end foreach
+        } // end method
+
         private void populateTreeView()
         {
             if (String.IsNullOrEmpty(gitClient_m.RepoDirectory))
@@ -366,20 +377,11 @@ namespace BasicGitClient
 
         private void tvDirectoryList_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (e != null)
-            {
-                currentSelectedNode_m = e.Node;
-                tvDirectoryList.SelectedNode = e.Node;
-            }
+            currentSelectedNode_m = e.Node;
+            tvDirectoryList.SelectedNode = e.Node;
 
-            lbFileList.Items.Clear();
-            DirectoryInfo nodeDirInfo = (DirectoryInfo)currentSelectedNode_m.Tag;
-
-            foreach (FileInfo file in nodeDirInfo.GetFiles())
-            {
-                lbFileList.Items.Add(file.Name);
-            }
-        }
+            populateFileList();
+        } // end method
 
         private void tvDirectoryList_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -399,7 +401,7 @@ namespace BasicGitClient
             if (!String.IsNullOrEmpty(newFileWindow.TextField))
             {
                 File.Create(treeViewSelectedDirectory_m + "\\" + newFileWindow.TextField).Dispose();
-                tvDirectoryList_NodeMouseClick(this, null);
+                populateFileList();
             }
         }
 
@@ -439,7 +441,7 @@ namespace BasicGitClient
                 string newFile = treeViewSelectedDirectory_m + "\\" + newFileWindow.TextField;
                 File.Move(file, newFile);
 
-                tvDirectoryList_NodeMouseClick(this, null);
+                populateFileList();
             }
         }
 
@@ -448,7 +450,7 @@ namespace BasicGitClient
             string file = treeViewSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
             File.Delete(file);
 
-            tvDirectoryList_NodeMouseClick(this, null);
+            populateFileList();
         }
 
         private void DeleteDirectory(string path, bool recursive)
@@ -465,21 +467,21 @@ namespace BasicGitClient
             }
 
             // Get all files of the folder
-            var files = Directory.GetFiles(path);
-            foreach (var f in files)
+            string[] files = Directory.GetFiles(path);
+            foreach (string file in files)
             {
                 // Get the attributes of the file
-                var attr = File.GetAttributes(f);
+                FileAttributes attr = File.GetAttributes(file);
 
                 // Is this file marked as 'read-only'?
                 if ((attr & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
                 {
                     // Yes... Remove the 'read-only' attribute, then
-                    File.SetAttributes(f, attr ^ FileAttributes.ReadOnly);
+                    File.SetAttributes(file, attr ^ FileAttributes.ReadOnly);
                 }
 
                 // Delete the file
-                File.Delete(f);
+                File.Delete(file);
             }
 
             // When we get here, all the files of the folder were

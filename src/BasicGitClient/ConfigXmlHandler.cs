@@ -9,13 +9,6 @@ namespace BasicGitClient
 {
     internal class XmlHandler
     {
-        #region Private Data
-
-        // Location of configuration file.
-        private const string configFile_m = "configuration.xml";
-        
-        #endregion
-
         #region Public Methods
 
         public XmlHandler()
@@ -65,7 +58,7 @@ namespace BasicGitClient
 
             foreach (XmlNode node in doc.FirstChild.ChildNodes)
             {
-                if (String.Equals(node.Name, "lastLocation"))
+                if (String.Equals(node.Name, NodeLastLocation))
                 {
                     node.InnerText = currentLocation;
                     doc.Save(configFile_m);
@@ -89,10 +82,10 @@ namespace BasicGitClient
             {
                 switch (node.Name)
                 {
-                    case "username":
+                    case NodeUsername:
                         username = node.InnerText;
                         break;
-                    case "password":
+                    case NodePassword:
                         password = node.InnerText;
                         break;
                 }
@@ -113,10 +106,10 @@ namespace BasicGitClient
             {
                 switch (node.Name)
                 {
-                    case "username":
+                    case NodeUsername:
                         node.InnerText = username;
                         break;
-                    case "password":
+                    case NodePassword:
                         node.InnerText = password;
                         break;
                 }
@@ -127,5 +120,14 @@ namespace BasicGitClient
 
         #endregion
 
-    }
-}
+        #region Private Data
+
+        // Location of configuration file.
+        private const string configFile_m = "configuration.xml";
+        private const string NodePassword = "password";
+        private const string NodeUsername = "username";
+        private const string NodeLastLocation = "lastLocation";
+
+        #endregion
+    } // end class
+} // end namespace

@@ -45,7 +45,7 @@ namespace BasicGitClient
                 gitClient_m.SetDirectory(defaultDir_m);
 
                 // set remote
-                showOriginToolStripMenuItem_Click(null, new EventArgs());
+                showOrigin();
 
                 // Populate tree view.
                 populateTreeView();
@@ -64,8 +64,6 @@ namespace BasicGitClient
 
         #endregion
 
-        #region UI Button Click Handlers
-
         private void btnStatus_Click(object sender, EventArgs e)
         {
             runCommand(GitCommands.STATUS);
@@ -73,56 +71,23 @@ namespace BasicGitClient
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            gitClient_m.RunGitCommand(GitCommands.ADD_ALL, out output_m, out error_m);
-
-            if (String.Equals(String.Empty, output_m) && String.Equals(String.Empty, error_m))
-            {
-                output_m = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
-            }
-
-            rtbOutput.AppendText(output_m);
+            addAll();
         }
 
         private void btnCommit_Click(object sender, EventArgs e)
         {
-            CommitCommentWindow commitWindow = new CommitCommentWindow();
-            commitWindow.ShowDialog();
-
-            string comment = commitWindow.CommitComment;
-
-            if (comment != String.Empty)
-            {
-                string command = GitCommands.COMMIT + " " + comment;
-                gitClient_m.RunGitCommand(command, out output_m, out error_m);
-            }
-            else
-            {
-                output_m = "\nNo comment added.  Not committed..";
-            }
-
-            updateRtbOutput(output_m, error_m);
+            commitChanges();
         }
 
         private void btnPush_Click(object sender, EventArgs e)
         {
-            string username, password;
-            xmlHandler_m.GetCredentials(out username, out password);
-
-            string command = String.Format(GitCommands.PUSH, username, password, remoteName_m);
-            runCommand(command);
-
-            // push then pull required due to master/origin local mismatch
-            runCommand(GitCommands.PULL);
+            pushCommits();
         }
 
         private void btnPull_Click(object sender, EventArgs e)
         {
             runCommand(GitCommands.PULL);
         }
-
-        #endregion
-
-        #region UI Toolstrip Menu Item Click Handlers
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -150,7 +115,7 @@ namespace BasicGitClient
 
                 xmlHandler_m.SetLastLocation(directory);
                 // get remote name
-                showOriginToolStripMenuItem_Click(null, new EventArgs());
+                showOrigin();
             }
         }
 
@@ -187,7 +152,8 @@ namespace BasicGitClient
                 runCommand(GitCommands.SET_URL + newUrlDialog.TextField);
             }
 
-            showOriginToolStripMenuItem_Click(this, new EventArgs());
+            showOrigin();
+            displayGitOutput();
         }
 
         private void initialiseNewRepoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -197,31 +163,8 @@ namespace BasicGitClient
 
         private void showOriginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gitClient_m.RunGitCommand(GitCommands.SHOW_ORIGIN, out output_m, out error_m);
-
-            try
-            {
-                if (!String.IsNullOrEmpty(output_m))
-                {
-                    remoteName_m = output_m.Split('\n')[0].Split('\t')[1]
-                    .Split(new string[] { "(fetch)" }, StringSplitOptions.None)[0]
-                    .Split(new string[] { "github.com" }, StringSplitOptions.None)[1];
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error getting origin data.  Check it is set.");
-            }
-
-            if (sender != null)
-            {
-                if (output_m == string.Empty && error_m == string.Empty)
-                {
-                    output_m = "Origin is not set." + Environment.NewLine;
-                }
-
-                updateRtbOutput(output_m, error_m);
-            }
+            showOrigin();
+            displayGitOutput();
         }
 
         private void cloneToolStripMenuItem_Click(object sender, EventArgs e)
@@ -242,9 +185,9 @@ namespace BasicGitClient
 
         private void pushAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnAdd_Click(null, new EventArgs());
-            btnCommit_Click(null, new EventArgs());
-            btnPush_Click(null, new EventArgs());
+            addAll();
+            commitChanges();
+            pushCommits();
         }
 
         private void configureRepoEmailToolStripMenuItem_Click(object sender, EventArgs e)
@@ -274,8 +217,6 @@ namespace BasicGitClient
             runCommand(GitCommands.REVERT);
         }
 
-        #endregion
-
         #region Helper Methods
 
         private void runCommand(string command)
@@ -294,32 +235,78 @@ namespace BasicGitClient
             rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
         }
 
-        private void rtbOutput_TextChanged(object sender, EventArgs e)
+        private void addAll()
         {
-            for (int i = 0; i < rtbOutput.Lines.Length; ++i)
-            {
-                if (rtbOutput.Lines[i].Contains("modified: ") 
-                    || rtbOutput.Lines[i].Contains("renamed: ") 
-                    || rtbOutput.Lines[i].Contains("deleted: "))
-                {
-                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
-                    rtbOutput.SelectionColor = Color.DarkRed;
-                }
+            gitClient_m.RunGitCommand(GitCommands.ADD_ALL, out output_m, out error_m);
 
-                if (rtbOutput.Lines[i].Contains("new file: "))
-                {
-                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
-                    rtbOutput.SelectionColor = Color.DarkGreen;
-                }
+            if (String.Equals(String.Empty, output_m) && String.Equals(String.Empty, error_m))
+            {
+                output_m = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
             }
 
-            rtbOutput.SelectionStart = rtbOutput.TextLength;
-            rtbOutput.ScrollToCaret();
-        }
+            displayGitOutput();
+        } // end method
 
-        #endregion
+        private void commitChanges()
+        {
+            CommitCommentWindow commitWindow = new CommitCommentWindow();
+            commitWindow.ShowDialog();
 
-        #region Tree View File Viewer
+            string comment = commitWindow.CommitComment;
+
+            if (comment != String.Empty)
+            {
+                string command = GitCommands.COMMIT + " " + comment;
+                gitClient_m.RunGitCommand(command, out output_m, out error_m);
+            }
+            else
+            {
+                output_m = "\nNo comment added.  Not committed..";
+            }
+
+            displayGitOutput();
+        } // end method
+
+        private void pushCommits()
+        {
+            string username, password;
+            xmlHandler_m.GetCredentials(out username, out password);
+
+            string command = String.Format(GitCommands.PUSH, username, password, remoteName_m);
+            runCommand(command);
+
+            // push then pull required due to master/origin local mismatch
+            runCommand(GitCommands.PULL);
+        } // end method
+
+        private void showOrigin()
+        {
+            gitClient_m.RunGitCommand(GitCommands.SHOW_ORIGIN, out output_m, out error_m);
+
+            try
+            {
+                if (!String.IsNullOrEmpty(output_m))
+                {
+                    remoteName_m = output_m.Split('\n')[0].Split('\t')[1]
+                    .Split(new string[] { "(fetch)" }, StringSplitOptions.None)[0]
+                    .Split(new string[] { "github.com" }, StringSplitOptions.None)[1];
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error getting origin data.  Check it is set.");
+            }
+        } // end method
+
+        private void displayGitOutput()
+        {
+            if (output_m == string.Empty && error_m == string.Empty)
+            {
+                output_m = "Error running command..." + Environment.NewLine;
+            }
+
+            updateRtbOutput(output_m, error_m);
+        } // end method
 
         private void populateFileList()
         {
@@ -367,13 +354,53 @@ namespace BasicGitClient
                 {
                     getDirectories(subSubDirs, aNode);
                 }
-                
+
                 if (!(subDir.Attributes.HasFlag(FileAttributes.Hidden)))
                 {
                     nodeToAddTo.Nodes.Add(aNode);
                 }
             }
         }
+
+        private void deleteDirectory(string path, bool recursive)
+        {
+            // Delete all files and sub-folders?
+            if (recursive)
+            {
+                // Yep... Let's do this
+                var subfolders = Directory.GetDirectories(path);
+                foreach (var s in subfolders)
+                {
+                    deleteDirectory(s, recursive);
+                }
+            }
+
+            // Get all files of the folder
+            string[] files = Directory.GetFiles(path);
+            foreach (string file in files)
+            {
+                // Get the attributes of the file
+                FileAttributes attr = File.GetAttributes(file);
+
+                // Is this file marked as 'read-only'?
+                if ((attr & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
+                {
+                    // Yes... Remove the 'read-only' attribute, then
+                    File.SetAttributes(file, attr ^ FileAttributes.ReadOnly);
+                }
+
+                // Delete the file
+                File.Delete(file);
+            }
+
+            // When we get here, all the files of the folder were
+            // already deleted, so we just delete the empty folder
+            Directory.Delete(path);
+        }
+
+        #endregion
+
+        #region Tree View File Viewer
 
         private void tvDirectoryList_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -393,6 +420,18 @@ namespace BasicGitClient
             }
         }
 
+        private void tvDirectoryList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                populateTreeView();
+            }
+        }
+
+        #endregion
+
+        #region Toolstrip Menu Click Handlers
+        
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingleTextBoxDialogWindow newFileWindow = new SingleTextBoxDialogWindow("File Name", "Name");
@@ -453,47 +492,11 @@ namespace BasicGitClient
             populateFileList();
         }
 
-        private void DeleteDirectory(string path, bool recursive)
-        {
-            // Delete all files and sub-folders?
-            if (recursive)
-            {
-                // Yep... Let's do this
-                var subfolders = Directory.GetDirectories(path);
-                foreach (var s in subfolders)
-                {
-                    DeleteDirectory(s, recursive);
-                }
-            }
-
-            // Get all files of the folder
-            string[] files = Directory.GetFiles(path);
-            foreach (string file in files)
-            {
-                // Get the attributes of the file
-                FileAttributes attr = File.GetAttributes(file);
-
-                // Is this file marked as 'read-only'?
-                if ((attr & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
-                {
-                    // Yes... Remove the 'read-only' attribute, then
-                    File.SetAttributes(file, attr ^ FileAttributes.ReadOnly);
-                }
-
-                // Delete the file
-                File.Delete(file);
-            }
-
-            // When we get here, all the files of the folder were
-            // already deleted, so we just delete the empty folder
-            Directory.Delete(path);
-        }
-
         private void deleteFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                DeleteDirectory(treeViewSelectedDirectory_m, true);
+                deleteDirectory(treeViewSelectedDirectory_m, true);
                 populateTreeView();
             }
             catch (Exception ex)
@@ -501,6 +504,8 @@ namespace BasicGitClient
                 MessageBox.Show(ex.Message);
             }
         }
+
+        #endregion
 
         private bool lbFileListSelectedCheck()
         {
@@ -521,7 +526,28 @@ namespace BasicGitClient
                 = lbFileList.SelectedItem != null;
         }
 
-        #endregion
+        private void rtbOutput_TextChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < rtbOutput.Lines.Length; ++i)
+            {
+                if (rtbOutput.Lines[i].Contains("modified: ")
+                    || rtbOutput.Lines[i].Contains("renamed: ")
+                    || rtbOutput.Lines[i].Contains("deleted: "))
+                {
+                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
+                    rtbOutput.SelectionColor = Color.DarkRed;
+                }
+
+                if (rtbOutput.Lines[i].Contains("new file: "))
+                {
+                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
+                    rtbOutput.SelectionColor = Color.DarkGreen;
+                }
+            }
+
+            rtbOutput.SelectionStart = rtbOutput.TextLength;
+            rtbOutput.ScrollToCaret();
+        }
 
         private void updategitignoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -535,15 +561,7 @@ namespace BasicGitClient
                 btnStatus_Click(this, null);
                 runCommand("commit -m \"gitignore updated\"");
 
-                btnPush_Click(this, null);
-            }
-        }
-
-        private void tvDirectoryList_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F5)
-            {
-                populateTreeView();
+                pushCommits();
             }
         }
     }

@@ -564,5 +564,10 @@ namespace BasicGitClient
                 pushCommits();
             }
         }
+
+        private void cMenuOutputBox_Clear_Click(object sender, EventArgs e)
+        {
+            rtbOutput.Clear();
+        } // end method
     }
 }

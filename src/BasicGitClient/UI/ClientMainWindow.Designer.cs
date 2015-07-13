@@ -62,6 +62,8 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
+            this.cMenuOutputBox = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cMenuOutputBox_Clear = new System.Windows.Forms.ToolStripMenuItem();
             this.tvDirectoryList = new System.Windows.Forms.TreeView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lbFileList = new System.Windows.Forms.ListBox();
@@ -74,6 +76,7 @@
             this.deleteFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.mnuStrip.SuspendLayout();
+            this.cMenuOutputBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -350,6 +353,7 @@
             // rtbOutput
             // 
             this.rtbOutput.BackColor = System.Drawing.SystemColors.Window;
+            this.rtbOutput.ContextMenuStrip = this.cMenuOutputBox;
             this.rtbOutput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbOutput.Location = new System.Drawing.Point(0, 0);
             this.rtbOutput.Name = "rtbOutput";
@@ -358,6 +362,20 @@
             this.rtbOutput.TabIndex = 14;
             this.rtbOutput.Text = "";
             this.rtbOutput.TextChanged += new System.EventHandler(this.rtbOutput_TextChanged);
+            // 
+            // cMenuOutputBox
+            // 
+            this.cMenuOutputBox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cMenuOutputBox_Clear});
+            this.cMenuOutputBox.Name = "cMenuOutputBox";
+            this.cMenuOutputBox.Size = new System.Drawing.Size(153, 48);
+            // 
+            // cMenuOutputBox_Clear
+            // 
+            this.cMenuOutputBox_Clear.Name = "cMenuOutputBox_Clear";
+            this.cMenuOutputBox_Clear.Size = new System.Drawing.Size(152, 22);
+            this.cMenuOutputBox_Clear.Text = "Clear";
+            this.cMenuOutputBox_Clear.Click += new System.EventHandler(this.cMenuOutputBox_Clear_Click);
             // 
             // tvDirectoryList
             // 
@@ -491,6 +509,7 @@
             this.Text = "PreppieGit";
             this.mnuStrip.ResumeLayout(false);
             this.mnuStrip.PerformLayout();
+            this.cMenuOutputBox.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -550,6 +569,8 @@
         private System.Windows.Forms.ToolStripMenuItem setCredentialsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem configureRepoUsernameToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem configureEmailAddressToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip cMenuOutputBox;
+        private System.Windows.Forms.ToolStripMenuItem cMenuOutputBox_Clear;
     }
 }
 

@@ -22,6 +22,29 @@ namespace BasicGitClient
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            okHandler();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            cancelHandler();
+        }
+
+        private void tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            {
+                okHandler();
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                cancelHandler();
+            }
+        }
+
+        private void okHandler()
+        {
             if (String.IsNullOrEmpty(tbUsername.Text) || String.IsNullOrEmpty(tbPassword.Text))
             {
                 MessageBox.Show("Please enter a username and password");
@@ -32,31 +55,18 @@ namespace BasicGitClient
             Password = tbPassword.Text;
 
             this.Close();
-        }
+        } // end method
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void cancelHandler()
         {
             ClearCredentials();
             this.Close();
-        }
+        } // end method
 
         private void ClearCredentials()
         {
             Username = String.Empty;
             Password = String.Empty;
-        }
-
-        private void tb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
-            {
-                btnOk_Click(this, null);
-            }
-
-            if (e.KeyCode == Keys.Escape)
-            {
-                btnCancel_Click(this, null);
-            }
         }
     }
 }

@@ -47,7 +47,12 @@ namespace BasicGitClient
                 tbDirectory.SelectionStart = tbDirectory.TextLength;
                 gitClient_m.SetDirectory(defaultDir_m);
 
-                splitContainer2.Panel1.Controls.Add(new ControlDirectoryBrowser(eventManager_m));
+                ControlDirectoryBrowser directoryBrowser = new ControlDirectoryBrowser(eventManager_m, defaultDir_m, splitContainer2.Panel1.Height);
+                directoryBrowser.Width = splitContainer2.Panel1.Width;
+                directoryBrowser.Height = splitContainer2.Panel1.Height;
+                directoryBrowser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                
+                splitContainer2.Panel1.Controls.Add(directoryBrowser);
 
                 // set remote
                 showOrigin();

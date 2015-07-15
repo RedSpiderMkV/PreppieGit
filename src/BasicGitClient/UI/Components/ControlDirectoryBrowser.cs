@@ -12,9 +12,20 @@ namespace BasicGitClient
 {
     internal partial class ControlDirectoryBrowser : UserControl
     {
-        public ControlDirectoryBrowser(UIEventManager eventManager)
+        public ControlDirectoryBrowser(UIEventManager eventManager, string currentDirectory, int height)
         {
             InitializeComponent();
+
+            currentDirectoryPath_m = currentDirectory;
+
+            tvDirectoryList.Location = lbFileList.Location = new Point(0, 0);
+            tvDirectoryList.Height = lbFileList.Height = height;
+
+            tvDirectoryList.Width = splitContainer1.Panel1.Width;
+            lbFileList.Width = splitContainer1.Panel2.Width;
+
+            populateTreeView();
+            //populateFileList();
 
             eventManager_m = eventManager;
             eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);

@@ -23,6 +23,7 @@ namespace BasicGitClient
         private XmlHandler xmlHandler_m;
         private TreeNode currentSelectedNode_m;
         private GitClientAccessor gitClient_m;
+        private UIEventManager eventManager_m;
 
         #endregion
 
@@ -34,9 +35,11 @@ namespace BasicGitClient
 
             try
             {
-                xmlHandler_m = new XmlHandler();
+                eventManager_m = new UIEventManager();
 
+                xmlHandler_m = new XmlHandler();
                 gitClient_m = new GitClientAccessor();
+
                 runCommand(GitCommands.VERSION);
 
                 defaultDir_m = xmlHandler_m.GetLastLocation();
@@ -108,6 +111,8 @@ namespace BasicGitClient
             {
                 string directory = fbd.SelectedPath;
                 tbDirectory.Text = directory;
+
+                eventManager_m.TriggerDirectoryChangedEvent(directory);
 
                 gitClient_m.SetDirectory(directory);
                 // repopulate tree view
@@ -222,10 +227,10 @@ namespace BasicGitClient
         private void runCommand(string command)
         {
             Cursor = Cursors.WaitCursor;
-            
+
             gitClient_m.RunGitCommand(command, out output_m, out error_m);
             updateRtbOutput(output_m, error_m);
-            
+
             Cursor = Cursors.Default;
         }
 
@@ -336,12 +341,12 @@ namespace BasicGitClient
             {
                 rootNode = new TreeNode(info.Name);
                 rootNode.Tag = info;
-                getDirectories(info.GetDirectories(), rootNode);
+                addDirectoriesToNode(info.GetDirectories(), rootNode);
                 tvDirectoryList.Nodes.Add(rootNode);
             }
         }
 
-        private void getDirectories(DirectoryInfo[] subDirs, TreeNode nodeToAddTo)
+        private void addDirectoriesToNode(DirectoryInfo[] subDirs, TreeNode nodeToAddTo)
         {
             TreeNode aNode;
             DirectoryInfo[] subSubDirs;
@@ -352,7 +357,7 @@ namespace BasicGitClient
                 subSubDirs = subDir.GetDirectories();
                 if (subSubDirs.Length != 0)
                 {
-                    getDirectories(subSubDirs, aNode);
+                    addDirectoriesToNode(subSubDirs, aNode);
                 }
 
                 if (!(subDir.Attributes.HasFlag(FileAttributes.Hidden)))
@@ -431,7 +436,7 @@ namespace BasicGitClient
         #endregion
 
         #region Toolstrip Menu Click Handlers
-        
+
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingleTextBoxDialogWindow newFileWindow = new SingleTextBoxDialogWindow("File Name", "Name");
@@ -471,7 +476,7 @@ namespace BasicGitClient
             }
 
             string file = treeViewSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
-            
+
             SingleTextBoxDialogWindow newFileWindow = new SingleTextBoxDialogWindow("File Name", "Name");
             newFileWindow.ShowDialog();
 

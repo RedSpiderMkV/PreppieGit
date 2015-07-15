@@ -22,11 +22,17 @@ namespace BasicGitClient
 
         private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
         {
+            currentDirectoryPath_m = newDirectoryFullPath;
+            populateTreeView();
+        } // end method
+
+        private void populateTreeView()
+        {
             tvDirectoryList.Nodes.Clear();
             lbFileList.Items.Clear();
 
             TreeNode rootNode;
-            DirectoryInfo info = new DirectoryInfo(newDirectoryFullPath);
+            DirectoryInfo info = new DirectoryInfo(currentDirectoryPath_m);
 
             if (info.Exists)
             {
@@ -35,7 +41,7 @@ namespace BasicGitClient
                 addDirectoriesToNode(info.GetDirectories(), rootNode);
                 tvDirectoryList.Nodes.Add(rootNode);
             } // end if
-        } // end method
+        }
 
         private void addDirectoriesToNode(DirectoryInfo[] subDirs, TreeNode nodeToAddTo)
         {
@@ -85,6 +91,14 @@ namespace BasicGitClient
             tvDirectoryList.SelectedNode = e.Node;
 
             populateFileList();
+        } // end method
+
+        private void tvDirectoryList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                populateTreeView();
+            } // end if
         } // end method
 
         private UIEventManager eventManager_m;

@@ -47,11 +47,13 @@ namespace BasicGitClient
                 tbDirectory.SelectionStart = tbDirectory.TextLength;
                 gitClient_m.SetDirectory(defaultDir_m);
 
+                splitContainer2.Panel1.Controls.Add(new ControlDirectoryBrowser(eventManager_m));
+
                 // set remote
                 showOrigin();
 
                 // Populate tree view.
-                populateTreeView();
+                //populateTreeView();
             }
             catch (Win32Exception)
             {
@@ -116,7 +118,7 @@ namespace BasicGitClient
 
                 gitClient_m.SetDirectory(directory);
                 // repopulate tree view
-                populateTreeView();
+                //populateTreeView();
 
                 xmlHandler_m.SetLastLocation(directory);
                 // get remote name
@@ -313,7 +315,7 @@ namespace BasicGitClient
             updateRtbOutput(output_m, error_m);
         } // end method
 
-        private void populateFileList()
+        /*private void populateFileList()
         {
             lbFileList.Items.Clear();
             DirectoryInfo nodeDirInfo = (DirectoryInfo)currentSelectedNode_m.Tag;
@@ -322,9 +324,9 @@ namespace BasicGitClient
             {
                 lbFileList.Items.Add(file.Name);
             } // end foreach
-        } // end method
+        } // end method*/
 
-        private void populateTreeView()
+        /*private void populateTreeView()
         {
             if (String.IsNullOrEmpty(gitClient_m.RepoDirectory))
             {
@@ -344,9 +346,9 @@ namespace BasicGitClient
                 addDirectoriesToNode(info.GetDirectories(), rootNode);
                 tvDirectoryList.Nodes.Add(rootNode);
             }
-        }
+        }*/
 
-        private void addDirectoriesToNode(DirectoryInfo[] subDirs, TreeNode nodeToAddTo)
+        /*private void addDirectoriesToNode(DirectoryInfo[] subDirs, TreeNode nodeToAddTo)
         {
             TreeNode aNode;
             DirectoryInfo[] subSubDirs;
@@ -365,7 +367,7 @@ namespace BasicGitClient
                     nodeToAddTo.Nodes.Add(aNode);
                 }
             }
-        }
+        }*/
 
         private void deleteDirectory(string path, bool recursive)
         {
@@ -407,7 +409,7 @@ namespace BasicGitClient
 
         #region Tree View File Viewer
 
-        private void tvDirectoryList_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        /*private void tvDirectoryList_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             currentSelectedNode_m = e.Node;
             tvDirectoryList.SelectedNode = e.Node;
@@ -431,7 +433,7 @@ namespace BasicGitClient
             {
                 populateTreeView();
             }
-        }
+        }*/
 
         #endregion
 
@@ -445,7 +447,7 @@ namespace BasicGitClient
             if (!String.IsNullOrEmpty(newFileWindow.TextField))
             {
                 File.Create(treeViewSelectedDirectory_m + "\\" + newFileWindow.TextField).Dispose();
-                populateFileList();
+                //populateFileList();
             }
         }
 
@@ -459,7 +461,7 @@ namespace BasicGitClient
             try
             {
                 Process process = new Process();
-                process.StartInfo.FileName = treeViewSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
+                //process.StartInfo.FileName = treeViewSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
                 process.Start();
             }
             catch (Exception ex)
@@ -470,7 +472,7 @@ namespace BasicGitClient
 
         private void renameFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!lbFileListSelectedCheck())
+            /*if (!lbFileListSelectedCheck())
             {
                 return;
             }
@@ -486,15 +488,15 @@ namespace BasicGitClient
                 File.Move(file, newFile);
 
                 populateFileList();
-            }
+            }*/
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string file = treeViewSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
+            /*string file = treeViewSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
             File.Delete(file);
 
-            populateFileList();
+            populateFileList();*/
         }
 
         private void deleteFolderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -502,7 +504,7 @@ namespace BasicGitClient
             try
             {
                 deleteDirectory(treeViewSelectedDirectory_m, true);
-                populateTreeView();
+                //populateTreeView();
             }
             catch (Exception ex)
             {
@@ -514,21 +516,21 @@ namespace BasicGitClient
 
         private bool lbFileListSelectedCheck()
         {
-            if (lbFileList.SelectedItem == null)
+            /*if (lbFileList.SelectedItem == null)
             {
                 MessageBox.Show("No file selected");
                 return false;
-            }
+            }*/
 
             return true;
         }
 
         private void cMnuFileViewer_Opening(object sender, CancelEventArgs e)
         {
-            cMnuFileViewer.Items["deleteToolStripMenuItem"].Enabled
+            /*cMnuFileViewer.Items["deleteToolStripMenuItem"].Enabled
                 = cMnuFileViewer.Items["renameFileToolStripMenuItem"].Enabled
                 = cMnuFileViewer.Items["openFileToolStripMenuItem"].Enabled
-                = lbFileList.SelectedItem != null;
+                = lbFileList.SelectedItem != null;*/
         }
 
         private void rtbOutput_TextChanged(object sender, EventArgs e)

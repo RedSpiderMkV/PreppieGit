@@ -64,9 +64,6 @@
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.cMenuOutputBox = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cMenuOutputBox_Clear = new System.Windows.Forms.ToolStripMenuItem();
-            this.tvDirectoryList = new System.Windows.Forms.TreeView();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lbFileList = new System.Windows.Forms.ListBox();
             this.cMnuFileViewer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -77,13 +74,8 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.mnuStrip.SuspendLayout();
             this.cMenuOutputBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             this.cMnuFileViewer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
@@ -377,45 +369,6 @@
             this.cMenuOutputBox_Clear.Text = "Clear";
             this.cMenuOutputBox_Clear.Click += new System.EventHandler(this.cMenuOutputBox_Clear_Click);
             // 
-            // tvDirectoryList
-            // 
-            this.tvDirectoryList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvDirectoryList.Location = new System.Drawing.Point(0, 0);
-            this.tvDirectoryList.Name = "tvDirectoryList";
-            this.tvDirectoryList.Size = new System.Drawing.Size(195, 184);
-            this.tvDirectoryList.TabIndex = 15;
-            this.tvDirectoryList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDirectoryList_AfterSelect);
-            this.tvDirectoryList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvDirectoryList_NodeMouseClick);
-            this.tvDirectoryList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvDirectoryList_KeyDown);
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.tvDirectoryList);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.lbFileList);
-            this.splitContainer1.Size = new System.Drawing.Size(396, 184);
-            this.splitContainer1.SplitterDistance = 195;
-            this.splitContainer1.TabIndex = 16;
-            // 
-            // lbFileList
-            // 
-            this.lbFileList.ContextMenuStrip = this.cMnuFileViewer;
-            this.lbFileList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFileList.FormattingEnabled = true;
-            this.lbFileList.IntegralHeight = false;
-            this.lbFileList.Location = new System.Drawing.Point(0, 0);
-            this.lbFileList.Name = "lbFileList";
-            this.lbFileList.Size = new System.Drawing.Size(197, 184);
-            this.lbFileList.TabIndex = 0;
-            // 
             // cMnuFileViewer
             // 
             this.cMnuFileViewer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -478,10 +431,6 @@
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.splitContainer1);
-            // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.rtbOutput);
@@ -510,12 +459,7 @@
             this.mnuStrip.ResumeLayout(false);
             this.mnuStrip.PerformLayout();
             this.cMenuOutputBox.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             this.cMnuFileViewer.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
@@ -553,9 +497,6 @@
         private System.Windows.Forms.ToolStripMenuItem pushAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem revertLastChangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem commitChangesToolStripMenuItem1;
-        private System.Windows.Forms.TreeView tvDirectoryList;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ListBox lbFileList;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ContextMenuStrip cMnuFileViewer;
         private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;

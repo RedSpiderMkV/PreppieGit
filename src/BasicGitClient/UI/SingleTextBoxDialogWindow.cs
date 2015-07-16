@@ -42,6 +42,7 @@ namespace BasicGitClient
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
         } // end method
 
@@ -54,6 +55,7 @@ namespace BasicGitClient
 
             if (e.KeyCode == Keys.Escape)
             {
+                this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
                 this.Close();
             } // end if
         } // end method
@@ -64,6 +66,7 @@ namespace BasicGitClient
             {
                 TextField = tbInput.Text;
 
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
             }
         } // end method

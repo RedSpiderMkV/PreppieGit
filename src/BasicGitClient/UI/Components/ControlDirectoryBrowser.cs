@@ -116,7 +116,7 @@ namespace BasicGitClient
         {
             if (currentSelectedNode_m != null)
             {
-                string dirPath = currentDirectoryPath_m + "\\" + currentSelectedNode_m.Text + "\\New Folder";
+                string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath + "\\New Folder";
                 Directory.CreateDirectory(dirPath);
             }
             else
@@ -130,7 +130,7 @@ namespace BasicGitClient
         {
             if (currentSelectedNode_m != null)
             {
-                string dirPath = currentDirectoryPath_m + "\\" + currentSelectedNode_m.Text;
+                string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath;
                 Directory.Delete(dirPath, true);
             } // end if
         }
@@ -139,8 +139,26 @@ namespace BasicGitClient
         {
             if (currentSelectedNode_m != null)
             {
-                string dirPath = currentDirectoryPath_m + "\\" + currentSelectedNode_m.Text;
-                Directory.Delete(dirPath, true);
+                string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath; ;
+
+                SingleTextBoxDialogWindow dialog = new SingleTextBoxDialogWindow("Rename", "Name");
+                DialogResult result = dialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    string newName = dialog.TextField;
+                    string[] dirPathParts = dirPath.Split('\\');
+                    dirPathParts[dirPathParts.Length - 1] = newName;
+
+                    string newFullPath = "";
+
+                    foreach (string part in dirPathParts)
+                    {
+                        newFullPath += part + "\\";
+                    }
+
+                    Directory.Move(dirPath, newFullPath);
+                }
             } // end if
         }
 

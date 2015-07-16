@@ -141,8 +141,14 @@ namespace BasicGitClient
                 case DirectoryTask.CREATE:
                     if (currentSelectedNode_m != null)
                     {
-                        string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath + "\\New Folder";
-                        Directory.CreateDirectory(dirPath);
+                        SingleTextBoxDialogWindow dialog = new SingleTextBoxDialogWindow("New Directory", "Name");
+                        DialogResult result = dialog.ShowDialog();
+
+                        if (result == DialogResult.OK)
+                        {
+                            string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath + "\\" + dialog.TextField;
+                            Directory.CreateDirectory(dirPath);
+                        } // end if
                     }
                     else
                     {

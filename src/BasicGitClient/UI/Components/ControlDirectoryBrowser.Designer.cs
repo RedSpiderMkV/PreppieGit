@@ -31,16 +31,23 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvDirectoryList = new System.Windows.Forms.TreeView();
-            this.lbFileList = new System.Windows.Forms.ListBox();
             this.ctxMnuDirBrowser = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renameDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbFileList = new System.Windows.Forms.ListBox();
+            this.ctxMnuFileBrowser = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.ctxMnuDirBrowser.SuspendLayout();
+            this.ctxMnuFileBrowser.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -74,17 +81,6 @@
             this.tvDirectoryList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvDirectoryList_NodeMouseClick);
             this.tvDirectoryList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvDirectoryList_KeyDown);
             // 
-            // lbFileList
-            // 
-            this.lbFileList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbFileList.FormattingEnabled = true;
-            this.lbFileList.Location = new System.Drawing.Point(3, 3);
-            this.lbFileList.Name = "lbFileList";
-            this.lbFileList.Size = new System.Drawing.Size(66, 147);
-            this.lbFileList.TabIndex = 0;
-            // 
             // ctxMnuDirBrowser
             // 
             this.ctxMnuDirBrowser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -115,6 +111,59 @@
             this.deleteDirectoryToolStripMenuItem.Text = "Delete Directory";
             this.deleteDirectoryToolStripMenuItem.Click += new System.EventHandler(this.deleteDirectoryToolStripMenuItem_Click);
             // 
+            // lbFileList
+            // 
+            this.lbFileList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFileList.ContextMenuStrip = this.ctxMnuFileBrowser;
+            this.lbFileList.FormattingEnabled = true;
+            this.lbFileList.Location = new System.Drawing.Point(3, 3);
+            this.lbFileList.Name = "lbFileList";
+            this.lbFileList.Size = new System.Drawing.Size(66, 147);
+            this.lbFileList.TabIndex = 0;
+            // 
+            // ctxMnuFileBrowser
+            // 
+            this.ctxMnuFileBrowser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newFileToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.openFileToolStripMenuItem,
+            this.renameToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.ctxMnuFileBrowser.Name = "ctxMnuFileBrowser";
+            this.ctxMnuFileBrowser.Size = new System.Drawing.Size(153, 120);
+            this.ctxMnuFileBrowser.Opening += new System.ComponentModel.CancelEventHandler(this.ctxMnuFileBrowser_Opening);
+            // 
+            // openFileToolStripMenuItem
+            // 
+            this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openFileToolStripMenuItem.Text = "Open File";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // newFileToolStripMenuItem
+            // 
+            this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
+            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newFileToolStripMenuItem.Text = "New File";
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.renameToolStripMenuItem.Text = "Rename File";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Text = "Delete File";
+            // 
             // ControlDirectoryBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -126,6 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ctxMnuDirBrowser.ResumeLayout(false);
+            this.ctxMnuFileBrowser.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -139,5 +189,11 @@
         private System.Windows.Forms.ToolStripMenuItem newDirectoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteDirectoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameDirectoryToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip ctxMnuFileBrowser;
+        private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
     }
 }

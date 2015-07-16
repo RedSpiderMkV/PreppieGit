@@ -14,7 +14,8 @@ namespace BasicGitClient
     {
         CREATE,
         RENAME,
-        DELETE
+        DELETE,
+        OPEN
     } // end enum
 
     internal partial class ControlDirectoryBrowser : UserControl
@@ -194,6 +195,25 @@ namespace BasicGitClient
 
             populateTreeView();
             lbFileList.Items.Clear();
+        } // end method
+
+        private void FileModify(DirectoryTask task)
+        {
+            switch (task)
+            {
+                default:
+                    return;
+            } // end switch
+
+            populateFileList();
+        } // end method
+
+        private void ctxMnuFileBrowser_Opening(object sender, CancelEventArgs e)
+        {
+            ctxMnuFileBrowser.Items["deleteToolStripMenuItem"].Enabled
+                = ctxMnuFileBrowser.Items["renameToolStripMenuItem"].Enabled
+                = ctxMnuFileBrowser.Items["openFileToolStripMenuItem"].Enabled
+                = lbFileList.SelectedItem != null;
         } // end method
 
         private UIEventManager eventManager_m;

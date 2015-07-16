@@ -112,6 +112,38 @@ namespace BasicGitClient
             } // end if
         } // end method
 
+        private void newDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentSelectedNode_m != null)
+            {
+                string dirPath = currentDirectoryPath_m + "\\" + currentSelectedNode_m.Text + "\\New Folder";
+                Directory.CreateDirectory(dirPath);
+            }
+            else
+            {
+                string dirPath = currentDirectoryPath_m + "\\New Folder";
+                Directory.CreateDirectory(currentDirectoryPath_m + "\\New Folder");
+            }
+        }
+
+        private void deleteDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentSelectedNode_m != null)
+            {
+                string dirPath = currentDirectoryPath_m + "\\" + currentSelectedNode_m.Text;
+                Directory.Delete(dirPath, true);
+            } // end if
+        }
+
+        private void renameDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentSelectedNode_m != null)
+            {
+                string dirPath = currentDirectoryPath_m + "\\" + currentSelectedNode_m.Text;
+                Directory.Delete(dirPath, true);
+            } // end if
+        }
+
         private UIEventManager eventManager_m;
         private TreeNode currentSelectedNode_m;
         private string currentDirectoryPath_m;

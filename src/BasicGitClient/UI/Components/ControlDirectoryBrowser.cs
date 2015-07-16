@@ -10,6 +10,13 @@ using System.Windows.Forms;
 
 namespace BasicGitClient
 {
+    enum DirectoryTask
+    {
+        CREATE,
+        RENAME,
+        DELETE
+    } // end enum
+
     internal partial class ControlDirectoryBrowser : UserControl
     {
         public ControlDirectoryBrowser(UIEventManager eventManager, string currentDirectory, int height)
@@ -114,53 +121,71 @@ namespace BasicGitClient
 
         private void newDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (currentSelectedNode_m != null)
-            {
-                string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath + "\\New Folder";
-                Directory.CreateDirectory(dirPath);
-            }
-            else
-            {
-                string dirPath = currentDirectoryPath_m + "\\New Folder";
-                Directory.CreateDirectory(currentDirectoryPath_m + "\\New Folder");
-            }
+            directoryModify(DirectoryTask.CREATE);
         }
 
         private void deleteDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (currentSelectedNode_m != null)
-            {
-                string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath;
-                Directory.Delete(dirPath, true);
-            } // end if
+            directoryModify(DirectoryTask.DELETE);
         }
 
         private void renameDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (currentSelectedNode_m != null)
-            {
-                string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath; ;
-
-                SingleTextBoxDialogWindow dialog = new SingleTextBoxDialogWindow("Rename", "Name");
-                DialogResult result = dialog.ShowDialog();
-
-                if (result == DialogResult.OK)
-                {
-                    string newName = dialog.TextField;
-                    string[] dirPathParts = dirPath.Split('\\');
-                    dirPathParts[dirPathParts.Length - 1] = newName;
-
-                    string newFullPath = "";
-
-                    foreach (string part in dirPathParts)
-                    {
-                        newFullPath += part + "\\";
-                    }
-
-                    Directory.Move(dirPath, newFullPath);
-                }
-            } // end if
+            directoryModify(DirectoryTask.RENAME);
         }
+
+        private void directoryModify(DirectoryTask task)
+        {
+            switch (task)
+            {
+                case DirectoryTask.CREATE:
+                    if (currentSelectedNode_m != null)
+                    {
+                        string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath + "\\New Folder";
+                        Directory.CreateDirectory(dirPath);
+                    }
+                    else
+                    {
+                        string dirPath = currentDirectoryPath_m + "\\New Folder";
+                        Directory.CreateDirectory(currentDirectoryPath_m + "\\New Folder");
+                    } // end if
+                    break;
+                case DirectoryTask.DELETE:
+                    if (currentSelectedNode_m != null)
+                    {
+                        string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath;
+                        Directory.Delete(dirPath, true);
+                    } // end if
+                    break;
+                case DirectoryTask.RENAME:
+                    if (currentSelectedNode_m != null)
+                    {
+                        string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath; ;
+
+                        SingleTextBoxDialogWindow dialog = new SingleTextBoxDialogWindow("Rename", "Name");
+                        DialogResult result = dialog.ShowDialog();
+
+                        if (result == DialogResult.OK)
+                        {
+                            string newName = dialog.TextField;
+                            string[] dirPathParts = dirPath.Split('\\');
+                            dirPathParts[dirPathParts.Length - 1] = newName;
+
+                            string newFullPath = "";
+
+                            foreach (string part in dirPathParts)
+                            {
+                                newFullPath += part + "\\";
+                            } // end foreach
+
+                            Directory.Move(dirPath, newFullPath);
+                        } // end if
+                    } // end if
+                    break;
+                default:
+                    break;
+            } // end switch
+        } // end method
 
         private UIEventManager eventManager_m;
         private TreeNode currentSelectedNode_m;

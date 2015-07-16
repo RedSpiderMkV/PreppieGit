@@ -183,8 +183,11 @@ namespace BasicGitClient
                     } // end if
                     break;
                 default:
-                    break;
+                    return;
             } // end switch
+
+            populateTreeView();
+            lbFileList.Items.Clear();
         } // end method
 
         private UIEventManager eventManager_m;

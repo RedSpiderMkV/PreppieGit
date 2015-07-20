@@ -11,26 +11,18 @@ namespace BasicGitClient
     {
         #region Public Methods
 
-        public XmlHandler()
+        public XmlHandler(UIEventManager eventManager)
         {
+            eventManager_m = eventManager;
+            eventManager_m.OnNewCredentials += new UIEventManager.NewCredentialsEvent(eventManager_m_OnNewCredentials);
+
             if (!File.Exists(configFile_m))
             {
-                // Change this, message box shouldn't be shown here perhaps??
-                System.Windows.Forms.MessageBox.Show("Credentials required");
-                CredentialConfigureWindow credentialWindow = new CredentialConfigureWindow();
-                credentialWindow.ShowDialog();
-
-                string username = credentialWindow.Username;
-                string password = credentialWindow.Password;
-
-                if (!username.Equals(String.Empty) && !password.Equals(String.Empty))
-                {
-                    string xml = "<gitClient><credential><username></username>" +
+                string xml = "<gitClient><credential><username></username>" +
                         "<password></password></credential><lastLocation></lastLocation></gitClient>";
-                    File.WriteAllText(configFile_m, xml);
+                File.WriteAllText(configFile_m, xml);
 
-                    SetCredentials(username, password);
-                }
+                eventManager_m.TriggerUpdateCredentialsEvent(true);
             }
         }
 
@@ -112,11 +104,20 @@ namespace BasicGitClient
                     case NodePassword:
                         node.InnerText = password;
                         break;
-                }
-            }
+                } // end switch
+            } // end foreach
 
             doc.Save(configFile_m);
         }
+
+        #endregion
+
+        #region Private Methods
+
+        private void eventManager_m_OnNewCredentials(string username, string password)
+        {
+            SetCredentials(username, password);
+        } // end method
 
         #endregion
 
@@ -127,6 +128,8 @@ namespace BasicGitClient
         private const string NodePassword = "password";
         private const string NodeUsername = "username";
         private const string NodeLastLocation = "lastLocation";
+
+        private UIEventManager eventManager_m;
 
         #endregion
     } // end class

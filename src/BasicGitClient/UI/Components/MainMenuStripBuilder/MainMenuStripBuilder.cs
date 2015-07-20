@@ -23,7 +23,7 @@ namespace BasicGitClient
         public MenuStrip GetMainMenuStrip()
         {
             mainMenuStrip_m.Items.Add((new FileMenuItemBuilder(eventManager_m, defaultDir_m)).GetFileMenu());
-            mainMenuStrip_m.Items.Add("Connection");
+            mainMenuStrip_m.Items.Add((new ConnectionMenuItemBuilder(eventManager_m)).GetConnectionMenuItem());
             mainMenuStrip_m.Items.Add("Actions");
             mainMenuStrip_m.Items.Add("Help");
 

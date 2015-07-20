@@ -47,6 +47,11 @@ namespace BasicGitClient
 
         private void populateTreeView()
         {
+            if (String.IsNullOrEmpty(currentDirectoryPath_m))
+            {
+                return;
+            } // end if
+
             tvDirectoryList.Nodes.Clear();
             lbFileList.Items.Clear();
 

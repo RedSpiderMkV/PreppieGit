@@ -37,8 +37,9 @@ namespace BasicGitClient
             {
                 eventManager_m = new UIEventManager();
                 eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
+                eventManager_m.OnCredentialsUpdateRequired += new UIEventManager.UpdateCredentialsEvent(eventManager_m_OnCredentialsUpdateRequired);
 
-                xmlHandler_m = new XmlHandler();
+                xmlHandler_m = new XmlHandler(eventManager_m);
                 gitClient_m = new GitClientAccessor();
 
                 runCommand(GitCommands.VERSION);
@@ -73,6 +74,25 @@ namespace BasicGitClient
             {
                 MessageBox.Show(e.Message);
                 Environment.Exit(0);
+            }
+        }
+
+        void eventManager_m_OnCredentialsUpdateRequired(bool showMessage)
+        {
+            if (showMessage)
+            {
+                MessageBox.Show("Credentials required");
+            } // end if
+
+            CredentialConfigureWindow credentialWindow = new CredentialConfigureWindow();
+            credentialWindow.ShowDialog();
+
+            string username = credentialWindow.Username;
+            string password = credentialWindow.Password;
+
+            if (!username.Equals(String.Empty) && !password.Equals(String.Empty))
+            {
+                eventManager_m.TriggerNewCredentialsEvent(username, password);
             }
         }
 

@@ -64,15 +64,14 @@ namespace BasicGitClient
             if (Directory.Exists(defaultDir_m))
             {
                 fbd.SelectedPath = defaultDir_m;
-            }
+            } // end if
 
-            DialogResult result = fbd.ShowDialog();
-            if (result == System.Windows.Forms.DialogResult.OK)
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string directory = fbd.SelectedPath;
 
                 eventManager_m.TriggerDirectoryChangedEvent(directory);
-            }
+            } // end if
         } // end method
 
         private void fileMenuCloseApp_Click(object sender, EventArgs e)

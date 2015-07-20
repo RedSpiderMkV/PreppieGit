@@ -77,7 +77,9 @@ namespace BasicGitClient
             }
         }
 
-        void eventManager_m_OnCredentialsUpdateRequired(bool showMessage)
+        #endregion
+
+        private void eventManager_m_OnCredentialsUpdateRequired(bool showMessage)
         {
             if (showMessage)
             {
@@ -95,8 +97,6 @@ namespace BasicGitClient
                 eventManager_m.TriggerNewCredentialsEvent(username, password);
             }
         }
-
-        #endregion
 
         private void btnStatus_Click(object sender, EventArgs e)
         {
@@ -130,7 +130,6 @@ namespace BasicGitClient
             gitClient_m.SetDirectory(newDirectoryFullPath);
             // repopulate tree view
 
-            xmlHandler_m.SetLastLocation(newDirectoryFullPath);
             // get remote name
             showOrigin();
         } // end method

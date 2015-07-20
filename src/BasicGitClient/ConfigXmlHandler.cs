@@ -15,6 +15,7 @@ namespace BasicGitClient
         {
             eventManager_m = eventManager;
             eventManager_m.OnNewCredentials += new UIEventManager.NewCredentialsEvent(eventManager_m_OnNewCredentials);
+            eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
 
             if (!File.Exists(configFile_m))
             {
@@ -117,6 +118,11 @@ namespace BasicGitClient
         private void eventManager_m_OnNewCredentials(string username, string password)
         {
             SetCredentials(username, password);
+        } // end method
+
+        private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
+        {
+            SetLastLocation(newDirectoryFullPath);
         } // end method
 
         #endregion

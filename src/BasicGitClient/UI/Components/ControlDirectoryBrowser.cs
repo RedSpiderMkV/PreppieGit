@@ -85,6 +85,11 @@ namespace BasicGitClient
 
         private void populateFileList()
         {
+            if (currentSelectedNode_m == null)
+            {
+                return;
+            } // end if
+
             lbFileList.Items.Clear();
             DirectoryInfo nodeDirInfo = (DirectoryInfo)currentSelectedNode_m.Tag;
 

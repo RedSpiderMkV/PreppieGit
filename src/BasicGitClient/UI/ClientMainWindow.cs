@@ -36,6 +36,7 @@ namespace BasicGitClient
             try
             {
                 eventManager_m = new UIEventManager();
+                eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
 
                 xmlHandler_m = new XmlHandler();
                 gitClient_m = new GitClientAccessor();
@@ -60,11 +61,7 @@ namespace BasicGitClient
                 // Populate tree view.
                 //populateTreeView();
 
-                MenuStrip menuStrip = new MenuStrip();
-                menuStrip.Items.Add("File");
-
-                menuStrip.BackColor = this.BackColor;
-
+                MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, defaultDir_m)).GetMainMenuStrip();
                 this.Controls.Add(menuStrip);
             }
             catch (Win32Exception)
@@ -111,32 +108,17 @@ namespace BasicGitClient
             Environment.Exit(0);
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            tbDirectory.Text = newDirectoryFullPath;
 
-            if (Directory.Exists(defaultDir_m))
-            {
-                fbd.SelectedPath = defaultDir_m;
-            }
+            gitClient_m.SetDirectory(newDirectoryFullPath);
+            // repopulate tree view
 
-            DialogResult result = fbd.ShowDialog();
-            if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                string directory = fbd.SelectedPath;
-                tbDirectory.Text = directory;
-
-                eventManager_m.TriggerDirectoryChangedEvent(directory);
-
-                gitClient_m.SetDirectory(directory);
-                // repopulate tree view
-                //populateTreeView();
-
-                xmlHandler_m.SetLastLocation(directory);
-                // get remote name
-                showOrigin();
-            }
-        }
+            xmlHandler_m.SetLastLocation(newDirectoryFullPath);
+            // get remote name
+            showOrigin();
+        } // end method
 
         private void configureEmailToolStripMenuItem_Click(object sender, EventArgs e)
         {

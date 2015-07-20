@@ -68,6 +68,7 @@
     <Compile Include="UI\Components\ControlDirectoryBrowser.Designer.cs">
       <DependentUpon>ControlDirectoryBrowser.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Components\MainMenuStripBuilder\FileMenuItemBuilder.cs" />
     <Compile Include="UI\Components\MainMenuStripBuilder\MainMenuStripBuilder.cs" />
     <Compile Include="UI\CredentialConfigureWindow.cs">
       <SubType>Form</SubType>

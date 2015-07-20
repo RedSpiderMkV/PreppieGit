@@ -60,17 +60,9 @@
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.cMenuOutputBox = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cMenuOutputBox_Clear = new System.Windows.Forms.ToolStripMenuItem();
-            this.cMnuFileViewer = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.renameFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.mnuStrip.SuspendLayout();
             this.cMenuOutputBox.SuspendLayout();
-            this.cMnuFileViewer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
@@ -334,59 +326,6 @@
             this.cMenuOutputBox_Clear.Text = "Clear";
             this.cMenuOutputBox_Clear.Click += new System.EventHandler(this.cMenuOutputBox_Clear_Click);
             // 
-            // cMnuFileViewer
-            // 
-            this.cMnuFileViewer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newFileToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.openFileToolStripMenuItem,
-            this.renameFileToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.deleteFolderToolStripMenuItem});
-            this.cMnuFileViewer.Name = "cMnuFileViewer";
-            this.cMnuFileViewer.Size = new System.Drawing.Size(150, 120);
-            this.cMnuFileViewer.Opening += new System.ComponentModel.CancelEventHandler(this.cMnuFileViewer_Opening);
-            // 
-            // newFileToolStripMenuItem
-            // 
-            this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
-            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.newFileToolStripMenuItem.Text = "New File";
-            this.newFileToolStripMenuItem.Click += new System.EventHandler(this.newFileToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(146, 6);
-            // 
-            // openFileToolStripMenuItem
-            // 
-            this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.openFileToolStripMenuItem.Text = "Open File";
-            this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
-            // 
-            // renameFileToolStripMenuItem
-            // 
-            this.renameFileToolStripMenuItem.Name = "renameFileToolStripMenuItem";
-            this.renameFileToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.renameFileToolStripMenuItem.Text = "Rename File";
-            this.renameFileToolStripMenuItem.Click += new System.EventHandler(this.renameFileToolStripMenuItem_Click);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.deleteToolStripMenuItem.Text = "Delete File";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // deleteFolderToolStripMenuItem
-            // 
-            this.deleteFolderToolStripMenuItem.Name = "deleteFolderToolStripMenuItem";
-            this.deleteFolderToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.deleteFolderToolStripMenuItem.Text = "Delete Folder";
-            this.deleteFolderToolStripMenuItem.Click += new System.EventHandler(this.deleteFolderToolStripMenuItem_Click);
-            // 
             // splitContainer2
             // 
             this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -424,7 +363,6 @@
             this.mnuStrip.ResumeLayout(false);
             this.mnuStrip.PerformLayout();
             this.cMenuOutputBox.ResumeLayout(false);
-            this.cMnuFileViewer.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
@@ -459,14 +397,7 @@
         private System.Windows.Forms.ToolStripMenuItem revertLastChangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem commitChangesToolStripMenuItem1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ContextMenuStrip cMnuFileViewer;
-        private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem renameFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem updategitignoreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeRepoUrlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setCredentialsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem configureRepoUsernameToolStripMenuItem1;

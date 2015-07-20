@@ -103,11 +103,6 @@ namespace BasicGitClient
             runCommand(GitCommands.PULL);
         }
 
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
         private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
         {
             tbDirectory.Text = newDirectoryFullPath;

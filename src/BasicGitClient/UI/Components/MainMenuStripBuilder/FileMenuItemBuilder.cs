@@ -39,7 +39,7 @@ namespace BasicGitClient
             {
                 Name = "fileMenuCloseToolStripItem",
                 Text = "&Close",
-                ShortcutKeys = Keys.Alt | Keys.F3,
+                ShortcutKeys = Keys.Alt | Keys.F4,
                 ShortcutKeyDisplayString = "Alt+F4",
                 ShowShortcutKeys = true
             };

@@ -28,7 +28,7 @@ namespace BasicGitClient
             {
                 Name = "fileMenuOpenToolStripItem",
                 Text = "&Open",
-                ShortcutKeys = Keys.Control & Keys.O,
+                ShortcutKeys = Keys.Control | Keys.O,
                 ShortcutKeyDisplayString = "Ctrl+O",
                 ShowShortcutKeys = true
             };
@@ -39,7 +39,7 @@ namespace BasicGitClient
             {
                 Name = "fileMenuCloseToolStripItem",
                 Text = "&Close",
-                ShortcutKeys = Keys.Alt & Keys.F4,
+                ShortcutKeys = Keys.Alt | Keys.F3,
                 ShortcutKeyDisplayString = "Alt+F4",
                 ShowShortcutKeys = true
             };

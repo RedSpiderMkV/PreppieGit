@@ -59,6 +59,13 @@ namespace BasicGitClient
 
                 // Populate tree view.
                 //populateTreeView();
+
+                MenuStrip menuStrip = new MenuStrip();
+                menuStrip.Items.Add("File");
+
+                menuStrip.BackColor = this.BackColor;
+
+                this.Controls.Add(menuStrip);
             }
             catch (Win32Exception)
             {
@@ -580,6 +587,6 @@ namespace BasicGitClient
         private void cMenuOutputBox_Clear_Click(object sender, EventArgs e)
         {
             rtbOutput.Clear();
-        } // end method
+        }
     }
 }

@@ -171,22 +171,25 @@ namespace BasicGitClient
             switch (task)
             {
                 case DirectoryTask.CREATE:
-                    if (currentSelectedNode_m != null)
                     {
                         SingleTextBoxDialogWindow dialog = new SingleTextBoxDialogWindow("New Directory", "Name");
                         DialogResult result = dialog.ShowDialog();
 
                         if (result == DialogResult.OK)
                         {
-                            string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath + "\\" + dialog.TextField;
+                            string dirPath;
+                            if (currentSelectedNode_m != null && currentSelectedNode_m.FullPath != null)
+                            {
+                                dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath + "\\" + dialog.TextField;
+                            }
+                            else
+                            {
+                                dirPath = currentDirectoryPath_m + "\\" + dialog.TextField;
+                            } // end if
+
                             Directory.CreateDirectory(dirPath);
                         } // end if
-                    }
-                    else
-                    {
-                        string dirPath = currentDirectoryPath_m + "\\New Folder";
-                        Directory.CreateDirectory(currentDirectoryPath_m + "\\New Folder");
-                    } // end if
+                    } // end case
                     break;
                 case DirectoryTask.DELETE:
                     if (currentSelectedNode_m != null)
@@ -249,9 +252,9 @@ namespace BasicGitClient
 
         private void ctxMnuFileBrowser_Opening(object sender, CancelEventArgs e)
         {
-            ctxMnuFileBrowser.Items["deleteToolStripMenuItem"].Enabled
-                = ctxMnuFileBrowser.Items["renameToolStripMenuItem"].Enabled
-                = ctxMnuFileBrowser.Items["openFileToolStripMenuItem"].Enabled
+            deleteFileToolStripMenuItem.Enabled
+                = renameFileToolStripMenuItem.Enabled
+                = openFileToolStripMenuItem.Enabled
                 = lbFileList.SelectedItem != null;
         } // end method
 

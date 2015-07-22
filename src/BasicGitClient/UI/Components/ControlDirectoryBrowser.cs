@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Data;
 using System.IO;
@@ -152,11 +153,11 @@ namespace BasicGitClient
             {
                 fileModifyToolstripHandler(DirectoryTask.CREATE);
             }
-            else if (sender == renameDirectoryToolStripMenuItem)
+            else if (sender == renameFileToolStripMenuItem)
             {
                 fileModifyToolstripHandler(DirectoryTask.RENAME);
             }
-            else if (sender == deleteDirectoryToolStripMenuItem)
+            else if (sender == deleteFileToolStripMenuItem)
             {
                 fileModifyToolstripHandler(DirectoryTask.DELETE);
             }
@@ -255,6 +256,7 @@ namespace BasicGitClient
                     File.Delete(dirPath + "\\" + lbFileList.Text);
                     break;
                 case DirectoryTask.OPEN:
+                    Process.Start(dirPath + "\\" + lbFileList.Text);
                     break;
                 case DirectoryTask.RENAME:
                     name = getStringFromDialogBox("Rename", "Name");

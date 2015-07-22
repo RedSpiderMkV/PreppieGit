@@ -168,59 +168,56 @@ namespace BasicGitClient
 
         private void directoryModifyToolstripHandler(DirectoryTask task)
         {
+            string dirPath = getDirectoryPath();
+
             switch (task)
             {
                 case DirectoryTask.CREATE:
+                    string name = getStringFromDialogBox("New Directory", "Name");
+
+                    if (String.IsNullOrEmpty(name))
                     {
-                        SingleTextBoxDialogWindow dialog = new SingleTextBoxDialogWindow("New Directory", "Name");
-                        DialogResult result = dialog.ShowDialog();
+                        break;
+                    } // end if
 
-                        if (result == DialogResult.OK)
-                        {
-                            string dirPath;
-                            if (currentSelectedNode_m != null && currentSelectedNode_m.FullPath != null)
-                            {
-                                dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath + "\\" + dialog.TextField;
-                            }
-                            else
-                            {
-                                dirPath = currentDirectoryPath_m + "\\" + dialog.TextField;
-                            } // end if
+                    if (String.IsNullOrEmpty(dirPath))
+                    {
+                        dirPath = currentDirectoryPath_m + "\\" + name;
+                    }
+                    else
+                    {
+                        dirPath += "\\" + name;
+                    } // end if
 
-                            Directory.CreateDirectory(dirPath);
-                        } // end if
-                    } // end case
+                    Directory.CreateDirectory(dirPath);
                     break;
                 case DirectoryTask.DELETE:
-                    if (currentSelectedNode_m != null)
+                    if (!String.IsNullOrEmpty(dirPath))
                     {
-                        string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath;
                         Directory.Delete(dirPath, true);
                     } // end if
                     break;
                 case DirectoryTask.RENAME:
-                    if (currentSelectedNode_m != null)
+                    if (!String.IsNullOrEmpty(dirPath))
                     {
-                        string dirPath = Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath; ;
+                        string newName = getStringFromDialogBox("Rename", "Name");
 
-                        SingleTextBoxDialogWindow dialog = new SingleTextBoxDialogWindow("Rename", "Name");
-                        DialogResult result = dialog.ShowDialog();
-
-                        if (result == DialogResult.OK)
+                        if (String.IsNullOrEmpty(newName))
                         {
-                            string newName = dialog.TextField;
-                            string[] dirPathParts = dirPath.Split('\\');
-                            dirPathParts[dirPathParts.Length - 1] = newName;
-
-                            string newFullPath = "";
-
-                            foreach (string part in dirPathParts)
-                            {
-                                newFullPath += part + "\\";
-                            } // end foreach
-
-                            Directory.Move(dirPath, newFullPath);
+                            break;
                         } // end if
+
+                        string[] dirPathParts = dirPath.Split('\\');
+                        dirPathParts[dirPathParts.Length - 1] = newName;
+
+                        string newFullPath = "";
+
+                        foreach (string part in dirPathParts)
+                        {
+                            newFullPath += part + "\\";
+                        } // end foreach
+
+                        Directory.Move(dirPath, newFullPath);
                     } // end if
                     break;
                 default:
@@ -233,11 +230,27 @@ namespace BasicGitClient
 
         private void fileModifyToolstripHandler(DirectoryTask task)
         {
+            string dirPath;
             switch (task)
             {
                 case DirectoryTask.CREATE:
+                    string name = getStringFromDialogBox("New File", "Name");
+
+                    if (String.IsNullOrEmpty(name))
+                    {
+                        break;
+                    } // end if
+
+                    dirPath = getDirectoryPath() + "\\" + name;
+                    File.Create(dirPath);
+
                     break;
                 case DirectoryTask.DELETE:
+                    dirPath = getDirectoryPath();
+                    if (!String.IsNullOrEmpty(dirPath))
+                    {
+                        File.Delete(dirPath + "\\" + lbFileList.Text);
+                    } // end if
                     break;
                 case DirectoryTask.OPEN:
                     break;
@@ -258,9 +271,37 @@ namespace BasicGitClient
                 = lbFileList.SelectedItem != null;
         } // end method
 
+        private string getStringFromDialogBox(string title, string label)
+        {
+            SingleTextBoxDialogWindow dialog = new SingleTextBoxDialogWindow(title, label);
+            DialogResult result = dialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                return dialog.TextField;
+            } // end if
+
+            return String.Empty;
+        } // end method
+
+        private string getDirectoryPath()
+        {
+            if (currentSelectedNode_m != null && currentSelectedNode_m.FullPath != null)
+            {
+                return Directory.GetParent(currentDirectoryPath_m) + "\\" + currentSelectedNode_m.FullPath;
+            } // end if
+
+            return String.Empty;
+        } // end method
+
+        #region Private Data
+
         private UIEventManager eventManager_m;
         private TreeNode currentSelectedNode_m;
         private string currentDirectoryPath_m;
         private string treeViewSelectedDirectory_m;
+
+        #endregion
+
     } // end class
 } // end namespace

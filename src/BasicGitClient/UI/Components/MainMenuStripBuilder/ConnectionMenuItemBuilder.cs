@@ -59,12 +59,12 @@ namespace BasicGitClient
 
         private void configureEmailMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            eventManager_m.TriggerRepoOwnerChangeEvent(RepoOwnerChangeType.EMAIL);
         } // end method
 
         private void configureUsernameMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            eventManager_m.TriggerRepoOwnerChangeEvent(RepoOwnerChangeType.USERNAME);
         } // end method
 
         private void setCredentialsMenuItem_Click(object sender, EventArgs e)

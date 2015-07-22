@@ -41,7 +41,7 @@ namespace BasicGitClient
                 eventManager_m.OnRepoOwnerChangeRequest += new UIEventManager.RepoOwnerChangeRequestedEvent(eventManager_m_OnRepoOwnerChangeRequest);
 
                 xmlHandler_m = new XmlHandler(eventManager_m);
-                gitClient_m = new GitClientAccessor();
+                gitClient_m = new GitClientAccessor(eventManager_m);
 
                 runCommand(GitCommands.VERSION);
 

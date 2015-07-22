@@ -26,9 +26,12 @@ namespace BasicGitClient
 
         /// <summary>
         /// Initialise a new object to access the git client.
+        /// <param name="eventManager">Event manager used throughout app.</param>
         /// </summary>
-        public GitClientAccessor()
+        internal GitClientAccessor(UIEventManager eventManager)
         {
+            eventManager_m = eventManager;
+
             procInfo_m = new ProcessStartInfo
             {
                 CreateNoWindow = true,
@@ -51,7 +54,7 @@ namespace BasicGitClient
         public void SetDirectory(string directory)
         {
             RepoDirectory = procInfo_m.WorkingDirectory = directory;
-        }
+        } // end method
 
         /// <summary>
         /// Run a git command and retrieve the output and error messages.
@@ -81,6 +84,8 @@ namespace BasicGitClient
 
         // Process runner information.
         private ProcessStartInfo procInfo_m;
+        // Event manager - events used to interact with rest of program.
+        private UIEventManager eventManager_m;
 
         #endregion
     }

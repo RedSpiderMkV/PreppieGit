@@ -230,31 +230,44 @@ namespace BasicGitClient
 
         private void fileModifyToolstripHandler(DirectoryTask task)
         {
-            string dirPath;
+            string dirPath = getDirectoryPath();
+
+            if (String.IsNullOrEmpty(dirPath))
+            {
+                return;
+            } // end if
+
+            string name;
+
             switch (task)
             {
                 case DirectoryTask.CREATE:
-                    string name = getStringFromDialogBox("New File", "Name");
+                    name = getStringFromDialogBox("New File", "Name");
 
                     if (String.IsNullOrEmpty(name))
                     {
                         break;
                     } // end if
 
-                    dirPath = getDirectoryPath() + "\\" + name;
-                    File.Create(dirPath);
-
+                    File.Create(dirPath + "\\" + name);
                     break;
                 case DirectoryTask.DELETE:
-                    dirPath = getDirectoryPath();
-                    if (!String.IsNullOrEmpty(dirPath))
-                    {
-                        File.Delete(dirPath + "\\" + lbFileList.Text);
-                    } // end if
+                    File.Delete(dirPath + "\\" + lbFileList.Text);
                     break;
                 case DirectoryTask.OPEN:
                     break;
                 case DirectoryTask.RENAME:
+                    name = getStringFromDialogBox("Rename", "Name");
+
+                    if (String.IsNullOrEmpty(name))
+                    {
+                        break;
+                    } // end if
+
+                    string currentPath = dirPath + "\\" + lbFileList.Text;
+                    string newPath = dirPath + "\\" + name;
+
+                    File.Move(currentPath, newPath);
                     break;
                 default:
                     return;

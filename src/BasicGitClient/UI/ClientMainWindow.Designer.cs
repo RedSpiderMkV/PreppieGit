@@ -37,10 +37,6 @@
             this.btnStatus = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.mnuStrip = new System.Windows.Forms.MenuStrip();
-            this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setCredentialsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.configureRepoUsernameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.configureEmailAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setOriginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToHeadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,7 +127,6 @@
             // 
             this.mnuStrip.BackColor = System.Drawing.SystemColors.Control;
             this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connectionToolStripMenuItem,
             this.advancedToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.mnuStrip.Location = new System.Drawing.Point(0, 0);
@@ -139,37 +134,6 @@
             this.mnuStrip.Size = new System.Drawing.Size(423, 24);
             this.mnuStrip.TabIndex = 11;
             this.mnuStrip.Text = "menuStrip1";
-            // 
-            // connectionToolStripMenuItem
-            // 
-            this.connectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setCredentialsToolStripMenuItem1,
-            this.configureRepoUsernameToolStripMenuItem1,
-            this.configureEmailAddressToolStripMenuItem});
-            this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.connectionToolStripMenuItem.Text = "Connection";
-            // 
-            // setCredentialsToolStripMenuItem1
-            // 
-            this.setCredentialsToolStripMenuItem1.Name = "setCredentialsToolStripMenuItem1";
-            this.setCredentialsToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
-            this.setCredentialsToolStripMenuItem1.Text = "Set Credentials";
-            this.setCredentialsToolStripMenuItem1.Click += new System.EventHandler(this.configureEmailToolStripMenuItem_Click);
-            // 
-            // configureRepoUsernameToolStripMenuItem1
-            // 
-            this.configureRepoUsernameToolStripMenuItem1.Name = "configureRepoUsernameToolStripMenuItem1";
-            this.configureRepoUsernameToolStripMenuItem1.Size = new System.Drawing.Size(211, 22);
-            this.configureRepoUsernameToolStripMenuItem1.Text = "Configure Repo Username";
-            this.configureRepoUsernameToolStripMenuItem1.Click += new System.EventHandler(this.configureRepoUsernameToolStripMenuItem_Click);
-            // 
-            // configureEmailAddressToolStripMenuItem
-            // 
-            this.configureEmailAddressToolStripMenuItem.Name = "configureEmailAddressToolStripMenuItem";
-            this.configureEmailAddressToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.configureEmailAddressToolStripMenuItem.Text = "Configure Email Address";
-            this.configureEmailAddressToolStripMenuItem.Click += new System.EventHandler(this.configureRepoEmailToolStripMenuItem_Click);
             // 
             // advancedToolStripMenuItem
             // 
@@ -380,7 +344,6 @@
         private System.Windows.Forms.Button btnStatus;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.MenuStrip mnuStrip;
-        private System.Windows.Forms.ToolStripMenuItem connectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -399,9 +362,6 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ToolStripMenuItem updategitignoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeRepoUrlToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setCredentialsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem configureRepoUsernameToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem configureEmailAddressToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip cMenuOutputBox;
         private System.Windows.Forms.ToolStripMenuItem cMenuOutputBox_Clear;
     }

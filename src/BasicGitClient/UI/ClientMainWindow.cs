@@ -161,17 +161,6 @@ namespace BasicGitClient
             showOrigin();
         } // end method
 
-        private void configureEmailToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CredentialConfigureWindow credentialWindow = new CredentialConfigureWindow();
-            credentialWindow.ShowDialog();
-
-            string username = credentialWindow.Username;
-            string password = credentialWindow.Password;
-
-            xmlHandler_m.SetCredentials(username, password);
-        }
-
         private void setOriginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingleTextBoxDialogWindow setOriginWindow = new SingleTextBoxDialogWindow("Set Origin...");
@@ -230,28 +219,6 @@ namespace BasicGitClient
             addAll();
             commitChanges();
             pushCommits();
-        }
-
-        private void configureRepoEmailToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SingleTextBoxDialogWindow emailDialogWindow = new SingleTextBoxDialogWindow("Set email...", "Email");
-            emailDialogWindow.ShowDialog();
-
-            if (!string.IsNullOrEmpty(emailDialogWindow.TextField))
-            {
-                runCommand(GitCommands.SET_EMAIL + emailDialogWindow.TextField);
-            }
-        }
-
-        private void configureRepoUsernameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SingleTextBoxDialogWindow userNameDialogWindow = new SingleTextBoxDialogWindow("Set Username...", "Name");
-            userNameDialogWindow.ShowDialog();
-
-            if (!string.IsNullOrEmpty(userNameDialogWindow.TextField))
-            {
-                runCommand(GitCommands.SET_USERNAME + userNameDialogWindow.TextField);
-            }
         }
 
         private void revertLastChangeToolStripMenuItem_Click(object sender, EventArgs e)

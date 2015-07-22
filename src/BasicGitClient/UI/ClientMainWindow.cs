@@ -78,6 +78,8 @@ namespace BasicGitClient
             }
         }
 
+        #endregion
+
         private void eventManager_m_OnRepoOwnerChangeRequest(RepoOwnerChangeType type)
         {
             string title, label, command;
@@ -103,8 +105,6 @@ namespace BasicGitClient
                 runCommand(command + dialogWindow.TextField);
             } // end if
         } // end method
-
-        #endregion
 
         private void eventManager_m_OnCredentialsUpdateRequired(bool showMessage)
         {

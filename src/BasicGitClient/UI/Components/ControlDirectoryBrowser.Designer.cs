@@ -37,11 +37,11 @@
             this.deleteDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbFileList = new System.Windows.Forms.ListBox();
             this.ctxMnuFileBrowser = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -88,28 +88,28 @@
             this.renameDirectoryToolStripMenuItem,
             this.deleteDirectoryToolStripMenuItem});
             this.ctxMnuDirBrowser.Name = "ctxMnuDirBrowser";
-            this.ctxMnuDirBrowser.Size = new System.Drawing.Size(172, 92);
+            this.ctxMnuDirBrowser.Size = new System.Drawing.Size(172, 70);
             // 
             // newDirectoryToolStripMenuItem
             // 
             this.newDirectoryToolStripMenuItem.Name = "newDirectoryToolStripMenuItem";
-            this.newDirectoryToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.newDirectoryToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.newDirectoryToolStripMenuItem.Text = "New Directory";
-            this.newDirectoryToolStripMenuItem.Click += new System.EventHandler(this.newDirectoryToolStripMenuItem_Click);
+            this.newDirectoryToolStripMenuItem.Click += new System.EventHandler(this.toolStripDirectoryMenuItem_Click);
             // 
             // renameDirectoryToolStripMenuItem
             // 
             this.renameDirectoryToolStripMenuItem.Name = "renameDirectoryToolStripMenuItem";
             this.renameDirectoryToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.renameDirectoryToolStripMenuItem.Text = "Rename Directory";
-            this.renameDirectoryToolStripMenuItem.Click += new System.EventHandler(this.renameDirectoryToolStripMenuItem_Click);
+            this.renameDirectoryToolStripMenuItem.Click += new System.EventHandler(this.toolStripDirectoryMenuItem_Click);
             // 
             // deleteDirectoryToolStripMenuItem
             // 
             this.deleteDirectoryToolStripMenuItem.Name = "deleteDirectoryToolStripMenuItem";
-            this.deleteDirectoryToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.deleteDirectoryToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.deleteDirectoryToolStripMenuItem.Text = "Delete Directory";
-            this.deleteDirectoryToolStripMenuItem.Click += new System.EventHandler(this.deleteDirectoryToolStripMenuItem_Click);
+            this.deleteDirectoryToolStripMenuItem.Click += new System.EventHandler(this.toolStripDirectoryMenuItem_Click);
             // 
             // lbFileList
             // 
@@ -129,40 +129,44 @@
             this.newFileToolStripMenuItem,
             this.toolStripMenuItem2,
             this.openFileToolStripMenuItem,
-            this.renameToolStripMenuItem,
-            this.deleteToolStripMenuItem});
+            this.renameFileToolStripMenuItem,
+            this.deleteFileToolStripMenuItem});
             this.ctxMnuFileBrowser.Name = "ctxMnuFileBrowser";
             this.ctxMnuFileBrowser.Size = new System.Drawing.Size(153, 120);
             this.ctxMnuFileBrowser.Opening += new System.ComponentModel.CancelEventHandler(this.ctxMnuFileBrowser_Opening);
-            // 
-            // openFileToolStripMenuItem
-            // 
-            this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.openFileToolStripMenuItem.Text = "Open File";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // newFileToolStripMenuItem
             // 
             this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
             this.newFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newFileToolStripMenuItem.Text = "New File";
+            this.newFileToolStripMenuItem.Click += new System.EventHandler(this.toolStripFileMenuItem_Click);
             // 
-            // renameToolStripMenuItem
+            // toolStripMenuItem2
             // 
-            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.renameToolStripMenuItem.Text = "Rename File";
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
-            // deleteToolStripMenuItem
+            // openFileToolStripMenuItem
             // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.deleteToolStripMenuItem.Text = "Delete File";
+            this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openFileToolStripMenuItem.Text = "Open File";
+            this.openFileToolStripMenuItem.Click += new System.EventHandler(this.toolStripFileMenuItem_Click);
+            // 
+            // renameFileToolStripMenuItem
+            // 
+            this.renameFileToolStripMenuItem.Name = "renameFileToolStripMenuItem";
+            this.renameFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.renameFileToolStripMenuItem.Text = "Rename File";
+            this.renameFileToolStripMenuItem.Click += new System.EventHandler(this.toolStripFileMenuItem_Click);
+            // 
+            // deleteFileToolStripMenuItem
+            // 
+            this.deleteFileToolStripMenuItem.Name = "deleteFileToolStripMenuItem";
+            this.deleteFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteFileToolStripMenuItem.Text = "Delete File";
+            this.deleteFileToolStripMenuItem.Click += new System.EventHandler(this.toolStripFileMenuItem_Click);
             // 
             // ControlDirectoryBrowser
             // 
@@ -191,8 +195,8 @@
         private System.Windows.Forms.ToolStripMenuItem renameDirectoryToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip ctxMnuFileBrowser;
         private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renameFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
     }

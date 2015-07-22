@@ -130,22 +130,43 @@ namespace BasicGitClient
             } // end if
         } // end method
 
-        private void newDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripDirectoryMenuItem_Click(object sender, EventArgs e)
         {
-            directoryModify(DirectoryTask.CREATE);
-        }
+            if (sender == newDirectoryToolStripMenuItem)
+            {
+                directoryModifyToolstripHandler(DirectoryTask.CREATE);
+            }
+            else if (sender == renameDirectoryToolStripMenuItem)
+            {
+                directoryModifyToolstripHandler(DirectoryTask.RENAME);
+            }
+            else if (sender == deleteDirectoryToolStripMenuItem)
+            {
+                directoryModifyToolstripHandler(DirectoryTask.DELETE);
+            } // end if
+        } // end method
 
-        private void deleteDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripFileMenuItem_Click(object sender, EventArgs e)
         {
-            directoryModify(DirectoryTask.DELETE);
-        }
+            if (sender == newFileToolStripMenuItem)
+            {
+                fileModifyToolstripHandler(DirectoryTask.CREATE);
+            }
+            else if (sender == renameDirectoryToolStripMenuItem)
+            {
+                fileModifyToolstripHandler(DirectoryTask.RENAME);
+            }
+            else if (sender == deleteDirectoryToolStripMenuItem)
+            {
+                fileModifyToolstripHandler(DirectoryTask.DELETE);
+            }
+            else if (sender == openFileToolStripMenuItem)
+            {
+                fileModifyToolstripHandler(DirectoryTask.OPEN);
+            } // end if
+        } // end method
 
-        private void renameDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            directoryModify(DirectoryTask.RENAME);
-        }
-
-        private void directoryModify(DirectoryTask task)
+        private void directoryModifyToolstripHandler(DirectoryTask task)
         {
             switch (task)
             {
@@ -207,10 +228,18 @@ namespace BasicGitClient
             lbFileList.Items.Clear();
         } // end method
 
-        private void FileModify(DirectoryTask task)
+        private void fileModifyToolstripHandler(DirectoryTask task)
         {
             switch (task)
             {
+                case DirectoryTask.CREATE:
+                    break;
+                case DirectoryTask.DELETE:
+                    break;
+                case DirectoryTask.OPEN:
+                    break;
+                case DirectoryTask.RENAME:
+                    break;
                 default:
                     return;
             } // end switch

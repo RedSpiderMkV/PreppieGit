@@ -30,9 +30,21 @@ namespace BasicGitClient
         public delegate void NewGitCommandEvent(string command);
         public event NewGitCommandEvent OnNewGitCommandIssued;
 
+        public delegate void GitResponseEvent(string output, string error);
+        public event GitResponseEvent OnNewGitResponse;
+
         #endregion
 
         #region Public Methods
+
+        public void TriggerGitResponseEvent(string output, string error)
+        {
+            GitResponseEvent handler = OnNewGitResponse;
+            if (handler != null)
+            {
+                OnNewGitResponse(output, error);
+            } // end if
+        } // end method
 
         public void TriggerNewGitCommandEvent(string command)
         {

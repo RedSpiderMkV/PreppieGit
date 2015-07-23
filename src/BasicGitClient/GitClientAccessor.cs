@@ -86,7 +86,10 @@ namespace BasicGitClient
 
         private void eventManager_m_OnNewGitCommandIssued(string command)
         {
-            throw new NotImplementedException();
+            string error, output;
+            RunGitCommand(command, out output, out error);
+
+            eventManager_m.TriggerGitResponseEvent(output, error);
         } // end method
 
         #endregion

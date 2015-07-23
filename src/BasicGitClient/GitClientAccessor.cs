@@ -32,6 +32,7 @@ namespace BasicGitClient
         {
             eventManager_m = eventManager;
 
+            eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
             eventManager_m.OnNewGitCommandIssued += new UIEventManager.NewGitCommandEvent(eventManager_m_OnNewGitCommandIssued);
 
             procInfo_m = new ProcessStartInfo
@@ -86,10 +87,24 @@ namespace BasicGitClient
 
         private void eventManager_m_OnNewGitCommandIssued(string command)
         {
-            string error, output;
+            string error = "", output = "";
+
             RunGitCommand(command, out output, out error);
 
+            if (command.Equals(GitCommands.ADD) || command.Equals(GitCommands.ADD_ALL))
+            {
+                if (String.IsNullOrEmpty(output) && String.IsNullOrEmpty(error))
+                {
+                    output = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
+                } // end if
+            } // end if
+
             eventManager_m.TriggerGitResponseEvent(output, error);
+        } // end method
+
+        private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
+        {
+            SetDirectory(newDirectoryFullPath);
         } // end method
 
         #endregion

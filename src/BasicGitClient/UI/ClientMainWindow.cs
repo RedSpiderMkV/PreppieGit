@@ -39,6 +39,7 @@ namespace BasicGitClient
                 eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
                 eventManager_m.OnCredentialsUpdateRequired += new UIEventManager.UpdateCredentialsEvent(eventManager_m_OnCredentialsUpdateRequired);
                 eventManager_m.OnRepoOwnerChangeRequest += new UIEventManager.RepoOwnerChangeRequestedEvent(eventManager_m_OnRepoOwnerChangeRequest);
+                eventManager_m.OnNewGitResponse += new UIEventManager.GitResponseEvent(eventManager_m_OnNewGitResponse);
 
                 xmlHandler_m = new XmlHandler(eventManager_m);
                 gitClient_m = new GitClientAccessor(eventManager_m);
@@ -154,9 +155,6 @@ namespace BasicGitClient
         {
             tbDirectory.Text = newDirectoryFullPath;
 
-            gitClient_m.SetDirectory(newDirectoryFullPath);
-            // repopulate tree view
-
             // get remote name
             showOrigin();
         } // end method
@@ -184,7 +182,6 @@ namespace BasicGitClient
             }
 
             showOrigin();
-            displayGitOutput();
         }
 
         private void initialiseNewRepoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -195,8 +192,7 @@ namespace BasicGitClient
         private void showOriginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showOrigin();
-            displayGitOutput();
-        }
+        } // end method
 
         private void cloneToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -232,28 +228,30 @@ namespace BasicGitClient
         {
             Cursor = Cursors.WaitCursor;
 
-            gitClient_m.RunGitCommand(command, out output_m, out error_m);
-            updateRtbOutput(output_m, error_m);
+            eventManager_m.TriggerNewGitCommandEvent(command);
 
             Cursor = Cursors.Default;
         }
 
         private void updateRtbOutput(string output, string error)
         {
+            if (output_m == string.Empty && error_m == string.Empty)
+            {
+                output_m = "Error running command..." + Environment.NewLine;
+            }
+
             rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
             rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
         }
 
         private void addAll()
         {
-            gitClient_m.RunGitCommand(GitCommands.ADD_ALL, out output_m, out error_m);
+            eventManager_m.TriggerNewGitCommandEvent(GitCommands.ADD_ALL);
 
             if (String.Equals(String.Empty, output_m) && String.Equals(String.Empty, error_m))
             {
                 output_m = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
-            }
-
-            displayGitOutput();
+            } // end if
         } // end method
 
         private void commitChanges()
@@ -266,14 +264,12 @@ namespace BasicGitClient
             if (comment != String.Empty)
             {
                 string command = GitCommands.COMMIT + " " + comment;
-                gitClient_m.RunGitCommand(command, out output_m, out error_m);
+                eventManager_m.TriggerNewGitCommandEvent(command);
             }
             else
             {
                 output_m = "\nNo comment added.  Not committed..";
-            }
-
-            displayGitOutput();
+            } // end if
         } // end method
 
         private void pushCommits()
@@ -290,9 +286,10 @@ namespace BasicGitClient
 
         private void showOrigin()
         {
-            gitClient_m.RunGitCommand(GitCommands.SHOW_ORIGIN, out output_m, out error_m);
+            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
+            //gitClient_m.RunGitCommand(GitCommands.SHOW_ORIGIN, out output_m, out error_m);
 
-            try
+            /*try
             {
                 if (!String.IsNullOrEmpty(output_m))
                 {
@@ -304,54 +301,8 @@ namespace BasicGitClient
             catch (Exception)
             {
                 MessageBox.Show("Error getting origin data.  Check it is set.");
-            }
+            }*/
         } // end method
-
-        private void displayGitOutput()
-        {
-            if (output_m == string.Empty && error_m == string.Empty)
-            {
-                output_m = "Error running command..." + Environment.NewLine;
-            }
-
-            updateRtbOutput(output_m, error_m);
-        } // end method
-
-        private void deleteDirectory(string path, bool recursive)
-        {
-            // Delete all files and sub-folders?
-            if (recursive)
-            {
-                // Yep... Let's do this
-                var subfolders = Directory.GetDirectories(path);
-                foreach (var s in subfolders)
-                {
-                    deleteDirectory(s, recursive);
-                }
-            }
-
-            // Get all files of the folder
-            string[] files = Directory.GetFiles(path);
-            foreach (string file in files)
-            {
-                // Get the attributes of the file
-                FileAttributes attr = File.GetAttributes(file);
-
-                // Is this file marked as 'read-only'?
-                if ((attr & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
-                {
-                    // Yes... Remove the 'read-only' attribute, then
-                    File.SetAttributes(file, attr ^ FileAttributes.ReadOnly);
-                }
-
-                // Delete the file
-                File.Delete(file);
-            }
-
-            // When we get here, all the files of the folder were
-            // already deleted, so we just delete the empty folder
-            Directory.Delete(path);
-        }
 
         #endregion
 
@@ -398,5 +349,10 @@ namespace BasicGitClient
         {
             rtbOutput.Clear();
         }
+
+        private void eventManager_m_OnNewGitResponse(string output, string error)
+        {
+            updateRtbOutput(output, error);
+        } // end method
     }
 }

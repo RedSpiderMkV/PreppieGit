@@ -15,13 +15,8 @@ namespace BasicGitClient
     {
         #region Private Data
 
-        private string error_m;
-        private string output_m;
         private string defaultDir_m;
-        private string remoteName_m;
-        private string treeViewSelectedDirectory_m;
         private XmlHandler xmlHandler_m;
-        private TreeNode currentSelectedNode_m;
         private GitClientAccessor gitClient_m;
         private UIEventManager eventManager_m;
 
@@ -235,9 +230,9 @@ namespace BasicGitClient
 
         private void updateRtbOutput(string output, string error)
         {
-            if (output_m == string.Empty && error_m == string.Empty)
+            if (output == string.Empty && error == string.Empty)
             {
-                output_m = "Error running command..." + Environment.NewLine;
+                output = "Error running command..." + Environment.NewLine;
             }
 
             rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
@@ -247,11 +242,6 @@ namespace BasicGitClient
         private void addAll()
         {
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.ADD_ALL);
-
-            if (String.Equals(String.Empty, output_m) && String.Equals(String.Empty, error_m))
-            {
-                output_m = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
-            } // end if
         } // end method
 
         private void commitChanges()
@@ -268,7 +258,7 @@ namespace BasicGitClient
             }
             else
             {
-                output_m = "\nNo comment added.  Not committed..";
+                updateRtbOutput("\nNo comment added.  Not committed..", string.Empty);
             } // end if
         } // end method
 
@@ -277,7 +267,8 @@ namespace BasicGitClient
             string username, password;
             xmlHandler_m.GetCredentials(out username, out password);
 
-            string command = String.Format(GitCommands.PUSH, username, password, remoteName_m);
+            string directoryName = Path.GetDirectoryName(defaultDir_m);
+            string command = String.Format(GitCommands.PUSH, username, password, directoryName);
             runCommand(command);
 
             // push then pull required due to master/origin local mismatch
@@ -287,21 +278,6 @@ namespace BasicGitClient
         private void showOrigin()
         {
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
-            //gitClient_m.RunGitCommand(GitCommands.SHOW_ORIGIN, out output_m, out error_m);
-
-            /*try
-            {
-                if (!String.IsNullOrEmpty(output_m))
-                {
-                    remoteName_m = output_m.Split('\n')[0].Split('\t')[1]
-                    .Split(new string[] { "(fetch)" }, StringSplitOptions.None)[0]
-                    .Split(new string[] { "github.com" }, StringSplitOptions.None)[1];
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error getting origin data.  Check it is set.");
-            }*/
         } // end method
 
         #endregion

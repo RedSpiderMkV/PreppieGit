@@ -26,6 +26,6 @@ namespace BasicGitClient
         public const string REVERT = "revert HEAD";
         public const string VERSION = "--version";
 
-        public static string PUSH = "push https://{0}:{1}@github.com{2} master";
+        public static string PUSH = "push https://{0}:{1}@github.com/{0}/{2} master";
     }
 }

@@ -387,7 +387,7 @@ namespace BasicGitClient
             {
                 runCommand("rm -r --cached .");
                 runCommand("add .");
-                btnStatus_Click(this, null);
+                runCommand(GitCommands.STATUS);
                 runCommand("commit -m \"gitignore updated\"");
 
                 pushCommits();

@@ -27,9 +27,21 @@ namespace BasicGitClient
         public delegate void RepoOwnerChangeRequestedEvent(RepoOwnerChangeType type);
         public event RepoOwnerChangeRequestedEvent OnRepoOwnerChangeRequest;
 
+        public delegate void NewGitCommandEvent(string command);
+        public event NewGitCommandEvent OnNewGitCommandIssued;
+
         #endregion
 
         #region Public Methods
+
+        public void TriggerNewGitCommandEvent(string command)
+        {
+            NewGitCommandEvent handler = OnNewGitCommandIssued;
+            if (handler != null)
+            {
+                OnNewGitCommandIssued(command);
+            } // end if
+        } // end method
 
         public void TriggerRepoOwnerChangeEvent(RepoOwnerChangeType type)
         {

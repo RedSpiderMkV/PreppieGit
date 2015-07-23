@@ -32,6 +32,8 @@ namespace BasicGitClient
         {
             eventManager_m = eventManager;
 
+            eventManager_m.OnNewGitCommandIssued += new UIEventManager.NewGitCommandEvent(eventManager_m_OnNewGitCommandIssued);
+
             procInfo_m = new ProcessStartInfo
             {
                 CreateNoWindow = true,
@@ -76,6 +78,15 @@ namespace BasicGitClient
                 gitProc.WaitForExit();
                 gitProc.Close();
             } // end using
+        } // end method
+
+        #endregion
+
+        #region Private Methods
+
+        private void eventManager_m_OnNewGitCommandIssued(string command)
+        {
+            throw new NotImplementedException();
         } // end method
 
         #endregion

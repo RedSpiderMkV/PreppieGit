@@ -44,7 +44,7 @@ namespace BasicGitClient
                 string defaultDir = xmlHandler_m.GetLastLocation();
                 tbDirectory.Text = defaultDir;
                 tbDirectory.SelectionStart = tbDirectory.TextLength;
-                gitClient_m.SetDirectory(defaultDir);
+                eventManager_m.TriggerDirectoryChangedEvent(defaultDir);
 
                 string[] parts = defaultDir.Split('\\');
                 repoName_m = parts[parts.Length - 1];
@@ -55,9 +55,6 @@ namespace BasicGitClient
                 directoryBrowser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 
                 splitContainer2.Panel1.Controls.Add(directoryBrowser);
-
-                // set remote
-                showOrigin();
 
                 MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, defaultDir)).GetMainMenuStrip();
                 this.Controls.Add(menuStrip);

@@ -59,9 +59,6 @@ namespace BasicGitClient
                 // set remote
                 showOrigin();
 
-                // Populate tree view.
-                //populateTreeView();
-
                 MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, defaultDir)).GetMainMenuStrip();
                 this.Controls.Add(menuStrip);
             }
@@ -74,8 +71,8 @@ namespace BasicGitClient
             {
                 MessageBox.Show(e.Message);
                 Environment.Exit(0);
-            }
-        }
+            } // end try-catch
+        } // end method
 
         #endregion
 
@@ -121,8 +118,8 @@ namespace BasicGitClient
             if (!username.Equals(String.Empty) && !password.Equals(String.Empty))
             {
                 eventManager_m.TriggerNewCredentialsEvent(username, password);
-            }
-        }
+            } // end if
+        } // end method
 
         private void btnStatus_Click(object sender, EventArgs e)
         {

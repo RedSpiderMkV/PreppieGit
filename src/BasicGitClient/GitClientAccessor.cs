@@ -85,6 +85,10 @@ namespace BasicGitClient
 
         #region Private Methods
 
+        /// <summary>
+        /// New command event handler, triggered when new commands are issued.
+        /// </summary>
+        /// <param name="command">Command to be executed.</param>
         private void eventManager_m_OnNewGitCommandIssued(string command)
         {
             string error = "", output = "";
@@ -102,6 +106,10 @@ namespace BasicGitClient
             eventManager_m.TriggerGitResponseEvent(output, error);
         } // end method
 
+        /// <summary>
+        /// Directory changed event handler.
+        /// </summary>
+        /// <param name="newDirectoryFullPath">New directory, name and path.</param>
         private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
         {
             SetDirectory(newDirectoryFullPath);

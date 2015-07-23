@@ -15,7 +15,7 @@ namespace BasicGitClient
     {
         #region Private Data
 
-        private string defaultDir_m;
+        private string repoName_m;
         private XmlHandler xmlHandler_m;
         private GitClientAccessor gitClient_m;
         private UIEventManager eventManager_m;
@@ -41,12 +41,15 @@ namespace BasicGitClient
 
                 runCommand(GitCommands.VERSION);
 
-                defaultDir_m = xmlHandler_m.GetLastLocation();
-                tbDirectory.Text = defaultDir_m;
+                string defaultDir = xmlHandler_m.GetLastLocation();
+                tbDirectory.Text = defaultDir;
                 tbDirectory.SelectionStart = tbDirectory.TextLength;
-                gitClient_m.SetDirectory(defaultDir_m);
+                gitClient_m.SetDirectory(defaultDir);
 
-                ControlDirectoryBrowser directoryBrowser = new ControlDirectoryBrowser(eventManager_m, defaultDir_m, splitContainer2.Panel1.Height);
+                string[] parts = defaultDir.Split('\\');
+                repoName_m = parts[parts.Length - 1];
+
+                ControlDirectoryBrowser directoryBrowser = new ControlDirectoryBrowser(eventManager_m, defaultDir, splitContainer2.Panel1.Height);
                 directoryBrowser.Width = splitContainer2.Panel1.Width;
                 directoryBrowser.Height = splitContainer2.Panel1.Height;
                 directoryBrowser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -59,7 +62,7 @@ namespace BasicGitClient
                 // Populate tree view.
                 //populateTreeView();
 
-                MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, defaultDir_m)).GetMainMenuStrip();
+                MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, defaultDir)).GetMainMenuStrip();
                 this.Controls.Add(menuStrip);
             }
             catch (Win32Exception)
@@ -267,8 +270,7 @@ namespace BasicGitClient
             string username, password;
             xmlHandler_m.GetCredentials(out username, out password);
 
-            string directoryName = Path.GetDirectoryName(defaultDir_m);
-            string command = String.Format(GitCommands.PUSH, username, password, directoryName);
+            string command = String.Format(GitCommands.PUSH, username, password, repoName_m);
             runCommand(command);
 
             // push then pull required due to master/origin local mismatch

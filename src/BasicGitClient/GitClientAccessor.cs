@@ -44,7 +44,7 @@ namespace BasicGitClient
                 UseShellExecute = false,
                 FileName = "git"
             };
-        }
+        } // end method
 
         #endregion
 
@@ -125,5 +125,5 @@ namespace BasicGitClient
         private UIEventManager eventManager_m;
 
         #endregion
-    }
-}
+    } // end class
+} // end namespace

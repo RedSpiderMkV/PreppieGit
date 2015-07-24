@@ -83,6 +83,17 @@ namespace BasicGitClient
                 Text = "Change Repo URL"
             };
 
+            setRepoUrlMenuItem.Click += new EventHandler(setRepoUrlMenuItem_Click);
+            resetToHeadMenuItem.Click += new EventHandler(resetToHeadMenuItem_Click);
+            cloneUrlMenuItem.Click += new EventHandler(cloneUrlMenuItem_Click);
+            initialiseNewRepoActionMenuItem.Click += new EventHandler(initialiseNewRepoActionMenuItem_Click);
+            showOriginActionMenuItem.Click += new EventHandler(showOriginActionMenuItem_Click);
+            pushChangesActionMenuItem.Click += new EventHandler(pushChangesActionMenuItem_Click);
+            revertLastChangeActionMenuItem.Click += new EventHandler(revertLastChangeActionMenuItem_Click);
+            commitChangesActionMenuItem.Click += new EventHandler(commitChangesActionMenuItem_Click);
+            updateGitIgnoreActionMenuItem.Click += new EventHandler(updateGitIgnoreActionMenuItem_Click);
+            changeRepoUrlActionMenuItem.Click += new EventHandler(changeRepoUrlActionMenuItem_Click);
+
             actionMenu.DropDownItems.Add(setRepoUrlMenuItem);
             actionMenu.DropDownItems.Add(resetToHeadMenuItem);
             actionMenu.DropDownItems.Add(cloneUrlMenuItem);
@@ -95,6 +106,60 @@ namespace BasicGitClient
             actionMenu.DropDownItems.Add(changeRepoUrlActionMenuItem);
 
             return actionMenu;
+        } // end method
+
+        #endregion
+
+        #region Private Methods
+
+        private void changeRepoUrlActionMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        } // end method
+
+        private void updateGitIgnoreActionMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        } // end method
+
+        private void commitChangesActionMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        } // end method
+
+        private void revertLastChangeActionMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        } // end method
+
+        private void pushChangesActionMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        } // end method
+
+        private void showOriginActionMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        } // end method
+
+        private void initialiseNewRepoActionMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        } // end method
+
+        private void cloneUrlMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        } // end method
+
+        private void resetToHeadMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        } // end method
+
+        private void setRepoUrlMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         } // end method
 
         #endregion

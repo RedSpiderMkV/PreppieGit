@@ -19,6 +19,7 @@ namespace BasicGitClient
         private XmlHandler xmlHandler_m;
         private GitClientAccessor gitClient_m;
         private UIEventManager eventManager_m;
+        private UIActionEventManager actionEventManager_m;
 
         #endregion
 
@@ -31,6 +32,7 @@ namespace BasicGitClient
             try
             {
                 eventManager_m = new UIEventManager();
+                actionEventManager_m = new UIActionEventManager();
                 eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
                 eventManager_m.OnCredentialsUpdateRequired += new UIEventManager.UpdateCredentialsEvent(eventManager_m_OnCredentialsUpdateRequired);
                 eventManager_m.OnRepoOwnerChangeRequest += new UIEventManager.RepoOwnerChangeRequestedEvent(eventManager_m_OnRepoOwnerChangeRequest);
@@ -56,7 +58,7 @@ namespace BasicGitClient
                 
                 splitContainer2.Panel1.Controls.Add(directoryBrowser);
 
-                MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, defaultDir)).GetMainMenuStrip();
+                MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, actionEventManager_m, defaultDir)).GetMainMenuStrip();
                 this.Controls.Add(menuStrip);
             }
             catch (Win32Exception)
@@ -146,9 +148,7 @@ namespace BasicGitClient
         private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
         {
             tbDirectory.Text = newDirectoryFullPath;
-
-            // get remote name
-            showOrigin();
+            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
         } // end method
 
         private void setOriginToolStripMenuItem_Click(object sender, EventArgs e)
@@ -173,7 +173,7 @@ namespace BasicGitClient
                 runCommand(GitCommands.SET_URL + newUrlDialog.TextField);
             }
 
-            showOrigin();
+            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
         }
 
         private void initialiseNewRepoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -183,7 +183,7 @@ namespace BasicGitClient
 
         private void showOriginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            showOrigin();
+            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
         } // end method
 
         private void cloneToolStripMenuItem_Click(object sender, EventArgs e)
@@ -269,11 +269,6 @@ namespace BasicGitClient
 
             // push then pull required due to master/origin local mismatch
             runCommand(GitCommands.PULL);
-        } // end method
-
-        private void showOrigin()
-        {
-            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
         } // end method
 
         #endregion

@@ -11,7 +11,7 @@ namespace BasicGitClient
     {
         #region Public Methods
 
-        public MainMenuStripBuilder(Color menuBackgroundColor, UIEventManager eventManager, string defaultDirectory)
+        public MainMenuStripBuilder(Color menuBackgroundColor, UIEventManager eventManager, UIActionEventManager actionEventManager, string defaultDirectory)
         {
             mainMenuStrip_m = new MenuStrip();
             mainMenuStrip_m.BackColor = menuBackgroundColor;
@@ -36,6 +36,7 @@ namespace BasicGitClient
 
         private MenuStrip mainMenuStrip_m;
         private UIEventManager eventManager_m;
+        private UIActionEventManager actionEventManager_m;
         private string defaultDir_m;
 
         #endregion

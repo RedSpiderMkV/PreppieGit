@@ -10,9 +10,9 @@ namespace BasicGitClient
     {
         #region Public Methods
 
-        public ActionMenuItemBuilder(UIEventManager eventManager)
+        public ActionMenuItemBuilder(UIActionEventManager actionEventManager)
         {
-            eventManager_m = eventManager;
+            actionEventManager_m = actionEventManager;
         } // end method
 
         public ToolStripMenuItem GetActionMenuItem()
@@ -139,7 +139,7 @@ namespace BasicGitClient
 
         private void showOriginActionMenuItem_Click(object sender, EventArgs e)
         {
-            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
+            //eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
         } // end method
 
         private void initialiseNewRepoActionMenuItem_Click(object sender, EventArgs e)
@@ -166,8 +166,7 @@ namespace BasicGitClient
 
         #region Private Data
 
-        private UIEventManager eventManager_m;
-        private XmlHandler xmlHandler_m;
+        private UIActionEventManager actionEventManager_m;
 
         #endregion
     } // end class

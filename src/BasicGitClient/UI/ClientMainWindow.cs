@@ -288,12 +288,14 @@ namespace BasicGitClient
                 {
                     rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
                     rtbOutput.SelectionColor = Color.DarkRed;
+                    rtbOutput.SelectionFont = new Font(rtbOutput.SelectionFont, FontStyle.Bold);
                 }
 
                 if (rtbOutput.Lines[i].Contains("new file: "))
                 {
                     rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
                     rtbOutput.SelectionColor = Color.DarkGreen;
+                    rtbOutput.SelectionFont = new Font(rtbOutput.SelectionFont, FontStyle.Bold);
                 }
             }
 

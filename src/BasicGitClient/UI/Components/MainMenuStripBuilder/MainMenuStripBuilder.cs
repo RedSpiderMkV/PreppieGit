@@ -24,7 +24,7 @@ namespace BasicGitClient
         {
             mainMenuStrip_m.Items.Add((new FileMenuItemBuilder(eventManager_m, defaultDir_m)).GetFileMenu());
             mainMenuStrip_m.Items.Add((new ConnectionMenuItemBuilder(eventManager_m)).GetConnectionMenuItem());
-            mainMenuStrip_m.Items.Add("Actions");
+            mainMenuStrip_m.Items.Add((new ActionMenuItemBuilder(eventManager_m)).GetActionMenuItem());
             mainMenuStrip_m.Items.Add("Help");
 
             return mainMenuStrip_m;

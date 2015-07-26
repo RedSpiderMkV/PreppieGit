@@ -60,12 +60,6 @@ namespace BasicGitClient
                 Text = "Revert Last Change"
             };
 
-            ToolStripMenuItem updateGitIgnoreActionMenuItem = new ToolStripMenuItem()
-            {
-                Name = "updateGitIgnoreActionMenuItem",
-                Text = "Update .gitignore"
-            };
-
             ToolStripMenuItem changeRepoUrlActionMenuItem = new ToolStripMenuItem()
             {
                 Name = "changeRepoUrlActionMenuItem",
@@ -78,7 +72,6 @@ namespace BasicGitClient
             initialiseNewRepoActionMenuItem.Click += new EventHandler(initialiseNewRepoActionMenuItem_Click);
             showOriginActionMenuItem.Click += new EventHandler(showOriginActionMenuItem_Click);
             revertLastChangeActionMenuItem.Click += new EventHandler(revertLastChangeActionMenuItem_Click);
-            updateGitIgnoreActionMenuItem.Click += new EventHandler(updateGitIgnoreActionMenuItem_Click);
             changeRepoUrlActionMenuItem.Click += new EventHandler(changeRepoUrlActionMenuItem_Click);
 
             actionMenu.DropDownItems.Add(setRepoOriginMenuItem);
@@ -87,7 +80,6 @@ namespace BasicGitClient
             actionMenu.DropDownItems.Add(initialiseNewRepoActionMenuItem);
             actionMenu.DropDownItems.Add(showOriginActionMenuItem);
             actionMenu.DropDownItems.Add(revertLastChangeActionMenuItem);
-            actionMenu.DropDownItems.Add(updateGitIgnoreActionMenuItem);
             actionMenu.DropDownItems.Add(changeRepoUrlActionMenuItem);
 
             return actionMenu;
@@ -104,14 +96,9 @@ namespace BasicGitClient
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
         } // end method
 
-        private void updateGitIgnoreActionMenuItem_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        } // end method
-
         private void revertLastChangeActionMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            runCommand(GitCommands.REVERT);
         } // end method
 
         private void showOriginActionMenuItem_Click(object sender, EventArgs e)

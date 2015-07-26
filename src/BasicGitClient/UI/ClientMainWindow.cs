@@ -151,69 +151,6 @@ namespace BasicGitClient
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
         } // end method
 
-        private void setOriginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SingleTextBoxDialogWindow setOriginWindow = new SingleTextBoxDialogWindow("Set Origin...");
-            setOriginWindow.ShowDialog();
-
-            if (!String.IsNullOrEmpty(setOriginWindow.TextField))
-            {
-                string command = GitCommands.SET_ORIGIN_BRANCH + setOriginWindow.TextField;
-                runCommand(command);
-            }
-        }
-
-        private void changeRepoUrlToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SingleTextBoxDialogWindow newUrlDialog = new SingleTextBoxDialogWindow("Set Repo URL");
-            DialogResult dialogResult = newUrlDialog.ShowDialog();
-
-            if (!String.IsNullOrEmpty(newUrlDialog.TextField))
-            {
-                runCommand(GitCommands.SET_URL_ORIGIN_BRANCH + newUrlDialog.TextField);
-            }
-
-            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
-        }
-
-        private void initialiseNewRepoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            runCommand(GitCommands.INIT);
-        }
-
-        private void showOriginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
-        } // end method
-
-        private void cloneToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SingleTextBoxDialogWindow cloneWindow = new SingleTextBoxDialogWindow("Clone");
-            cloneWindow.ShowDialog();
-
-            if (!string.IsNullOrEmpty(cloneWindow.TextField))
-            {
-                runCommand(GitCommands.CLONE + cloneWindow.TextField);
-            }
-        }
-
-        private void resetToHeadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            runCommand(GitCommands.RESET);
-        }
-
-        private void pushAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            addAll();
-            commitChanges();
-            pushCommits();
-        }
-
-        private void revertLastChangeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            runCommand(GitCommands.REVERT);
-        }
-
         #region Helper Methods
 
         private void runCommand(string command)
@@ -297,22 +234,6 @@ namespace BasicGitClient
 
             rtbOutput.SelectionStart = rtbOutput.TextLength;
             rtbOutput.ScrollToCaret();
-        }
-
-        private void updategitignoreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Have you committed outstanding code changes?",
-                "Commit Changes", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                runCommand("rm -r --cached .");
-                runCommand("add .");
-                runCommand(GitCommands.STATUS);
-                runCommand("commit -m \"gitignore updated\"");
-
-                pushCommits();
-            }
         }
 
         private void cMenuOutputBox_Clear_Click(object sender, EventArgs e)

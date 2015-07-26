@@ -36,28 +36,11 @@
             this.btnPush = new System.Windows.Forms.Button();
             this.btnStatus = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.mnuStrip = new System.Windows.Forms.MenuStrip();
-            this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setOriginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetToHeadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cloneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.initialiseNewRepoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showOriginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pushAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.revertLastChangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.commitChangesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.updategitignoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changeRepoUrlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.cMenuOutputBox = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cMenuOutputBox_Clear = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.mnuStrip.SuspendLayout();
             this.cMenuOutputBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -122,136 +105,6 @@
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // mnuStrip
-            // 
-            this.mnuStrip.BackColor = System.Drawing.SystemColors.Control;
-            this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.advancedToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.mnuStrip.Location = new System.Drawing.Point(0, 0);
-            this.mnuStrip.Name = "mnuStrip";
-            this.mnuStrip.Size = new System.Drawing.Size(423, 24);
-            this.mnuStrip.TabIndex = 11;
-            this.mnuStrip.Text = "menuStrip1";
-            // 
-            // advancedToolStripMenuItem
-            // 
-            this.advancedToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setOriginToolStripMenuItem,
-            this.resetToHeadToolStripMenuItem,
-            this.cloneToolStripMenuItem,
-            this.initialiseNewRepoToolStripMenuItem,
-            this.showOriginToolStripMenuItem,
-            this.pushAllToolStripMenuItem,
-            this.revertLastChangeToolStripMenuItem,
-            this.commitChangesToolStripMenuItem1,
-            this.updategitignoreToolStripMenuItem,
-            this.changeRepoUrlToolStripMenuItem});
-            this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.advancedToolStripMenuItem.Text = "Actions";
-            // 
-            // setOriginToolStripMenuItem
-            // 
-            this.setOriginToolStripMenuItem.Name = "setOriginToolStripMenuItem";
-            this.setOriginToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.setOriginToolStripMenuItem.Text = "Set Repo Url";
-            this.setOriginToolStripMenuItem.Click += new System.EventHandler(this.setOriginToolStripMenuItem_Click);
-            // 
-            // resetToHeadToolStripMenuItem
-            // 
-            this.resetToHeadToolStripMenuItem.Name = "resetToHeadToolStripMenuItem";
-            this.resetToHeadToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.resetToHeadToolStripMenuItem.Text = "Reset to Head";
-            this.resetToHeadToolStripMenuItem.Click += new System.EventHandler(this.resetToHeadToolStripMenuItem_Click);
-            // 
-            // cloneToolStripMenuItem
-            // 
-            this.cloneToolStripMenuItem.Name = "cloneToolStripMenuItem";
-            this.cloneToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.cloneToolStripMenuItem.Text = "Clone";
-            this.cloneToolStripMenuItem.Click += new System.EventHandler(this.cloneToolStripMenuItem_Click);
-            // 
-            // initialiseNewRepoToolStripMenuItem
-            // 
-            this.initialiseNewRepoToolStripMenuItem.Name = "initialiseNewRepoToolStripMenuItem";
-            this.initialiseNewRepoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.initialiseNewRepoToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.initialiseNewRepoToolStripMenuItem.Text = "Initialise New Repo";
-            this.initialiseNewRepoToolStripMenuItem.Click += new System.EventHandler(this.initialiseNewRepoToolStripMenuItem_Click);
-            // 
-            // showOriginToolStripMenuItem
-            // 
-            this.showOriginToolStripMenuItem.Name = "showOriginToolStripMenuItem";
-            this.showOriginToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.showOriginToolStripMenuItem.Text = "Show Origin";
-            this.showOriginToolStripMenuItem.Click += new System.EventHandler(this.showOriginToolStripMenuItem_Click);
-            // 
-            // pushAllToolStripMenuItem
-            // 
-            this.pushAllToolStripMenuItem.Name = "pushAllToolStripMenuItem";
-            this.pushAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
-                        | System.Windows.Forms.Keys.P)));
-            this.pushAllToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.pushAllToolStripMenuItem.Text = "Push All";
-            this.pushAllToolStripMenuItem.ToolTipText = "Add, commit, push all changes";
-            this.pushAllToolStripMenuItem.Click += new System.EventHandler(this.pushAllToolStripMenuItem_Click);
-            // 
-            // revertLastChangeToolStripMenuItem
-            // 
-            this.revertLastChangeToolStripMenuItem.Name = "revertLastChangeToolStripMenuItem";
-            this.revertLastChangeToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.revertLastChangeToolStripMenuItem.Text = "Revert Last Change";
-            this.revertLastChangeToolStripMenuItem.Click += new System.EventHandler(this.revertLastChangeToolStripMenuItem_Click);
-            // 
-            // commitChangesToolStripMenuItem1
-            // 
-            this.commitChangesToolStripMenuItem1.Name = "commitChangesToolStripMenuItem1";
-            this.commitChangesToolStripMenuItem1.Size = new System.Drawing.Size(212, 22);
-            this.commitChangesToolStripMenuItem1.Text = "Commit Changes";
-            this.commitChangesToolStripMenuItem1.Click += new System.EventHandler(this.btnCommit_Click);
-            // 
-            // updategitignoreToolStripMenuItem
-            // 
-            this.updategitignoreToolStripMenuItem.Name = "updategitignoreToolStripMenuItem";
-            this.updategitignoreToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.updategitignoreToolStripMenuItem.Text = "Update .gitignore";
-            this.updategitignoreToolStripMenuItem.Click += new System.EventHandler(this.updategitignoreToolStripMenuItem_Click);
-            // 
-            // changeRepoUrlToolStripMenuItem
-            // 
-            this.changeRepoUrlToolStripMenuItem.Name = "changeRepoUrlToolStripMenuItem";
-            this.changeRepoUrlToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.changeRepoUrlToolStripMenuItem.Text = "Change Repo Url";
-            this.changeRepoUrlToolStripMenuItem.Click += new System.EventHandler(this.changeRepoUrlToolStripMenuItem_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contactToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.aboutToolStripMenuItem1});
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.aboutToolStripMenuItem.Text = "Help";
-            // 
-            // contactToolStripMenuItem
-            // 
-            this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
-            this.contactToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.contactToolStripMenuItem.Text = "Contact";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(120, 6);
-            // 
-            // aboutToolStripMenuItem1
-            // 
-            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
-            this.aboutToolStripMenuItem1.Text = "About";
             // 
             // label1
             // 
@@ -319,13 +172,9 @@
             this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.btnPull);
             this.Controls.Add(this.tbDirectory);
-            this.Controls.Add(this.mnuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.mnuStrip;
             this.Name = "ClientMainWindow";
             this.Text = "PreppieGit";
-            this.mnuStrip.ResumeLayout(false);
-            this.mnuStrip.PerformLayout();
             this.cMenuOutputBox.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -343,25 +192,9 @@
         private System.Windows.Forms.Button btnPush;
         private System.Windows.Forms.Button btnStatus;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.MenuStrip mnuStrip;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox rtbOutput;
-        private System.Windows.Forms.ToolStripMenuItem advancedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setOriginToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem resetToHeadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cloneToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem initialiseNewRepoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showOriginToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pushAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem revertLastChangeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem commitChangesToolStripMenuItem1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ToolStripMenuItem updategitignoreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem changeRepoUrlToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip cMenuOutputBox;
         private System.Windows.Forms.ToolStripMenuItem cMenuOutputBox_Clear;
     }

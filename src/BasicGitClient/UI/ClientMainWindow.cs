@@ -41,6 +41,7 @@ namespace BasicGitClient
                 eventManager_m.OnCredentialsUpdateRequired += new UIEventManager.UpdateCredentialsEvent(eventManager_m_OnCredentialsUpdateRequired);
                 eventManager_m.OnRepoOwnerChangeRequest += new UIEventManager.RepoOwnerChangeRequestedEvent(eventManager_m_OnRepoOwnerChangeRequest);
                 eventManager_m.OnNewGitResponse += new UIEventManager.GitResponseEvent(eventManager_m_OnNewGitResponse);
+                eventManager_m.OnCompletionNotification += new UIEventManager.CommandCompletionNotificationEvent(eventManager_m_OnCompletionNotification);
 
                 string defaultDir = xmlHandler_m.GetLastLocation();
                 tbDirectory.Text = defaultDir;
@@ -74,6 +75,11 @@ namespace BasicGitClient
         } // end method
 
         #endregion
+
+        private void eventManager_m_OnCompletionNotification(string completionMessage)
+        {
+            updateRtbOutput(completionMessage, String.Empty);
+        } // end method
 
         private void eventManager_m_OnNewGitResponse(string output, string error)
         {

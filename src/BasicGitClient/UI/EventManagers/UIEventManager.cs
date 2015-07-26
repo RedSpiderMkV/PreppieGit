@@ -42,9 +42,21 @@ namespace BasicGitClient
         public delegate void CursorChangeRequiredEvent(CursorUpdateType cursorType);
         public event CursorChangeRequiredEvent OnCursorChangeRequired;
 
+        public delegate void CommandCompletionNotificationEvent(string completionMessage);
+        public event CommandCompletionNotificationEvent OnCompletionNotification;
+
         #endregion
 
         #region Public Methods
+
+        public void TriggerCompletionNotificationEvent(string completionMessage)
+        {
+            CommandCompletionNotificationEvent handler = OnCompletionNotification;
+            if (handler != null)
+            {
+                OnCompletionNotification(completionMessage);
+            } // end if
+        } // end method
 
         public void TriggerCursorChangeEvent(CursorUpdateType cursorType)
         {

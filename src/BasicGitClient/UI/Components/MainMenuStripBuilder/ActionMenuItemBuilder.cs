@@ -114,6 +114,7 @@ namespace BasicGitClient
         private void cloneUrlMenuItem_Click(object sender, EventArgs e)
         {
             runCommandWithSingleTextInput(GitCommands.CLONE, "Clone");
+            eventManager_m.TriggerCompletionNotificationEvent("Cloning complete");
         } // end method
 
         private void resetToHeadMenuItem_Click(object sender, EventArgs e)

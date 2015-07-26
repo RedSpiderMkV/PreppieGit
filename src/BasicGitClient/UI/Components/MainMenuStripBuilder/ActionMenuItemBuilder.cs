@@ -147,23 +147,22 @@ namespace BasicGitClient
 
         private void initialiseNewRepoActionMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            runCommand(GitCommands.INIT);
         } // end method
 
         private void cloneUrlMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            runCommandWithSingleTextInput(GitCommands.CLONE, "Clone");
         } // end method
 
         private void resetToHeadMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            runCommand(GitCommands.RESET);
         } // end method
 
         private void setRepoOriginMenuItem_Click(object sender, EventArgs e)
         {
             runCommand(GitCommands.SET_ORIGIN_BRANCH);
-            throw new NotImplementedException();
         } // end method
 
         private void runCommand(string command)

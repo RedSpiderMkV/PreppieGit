@@ -46,8 +46,7 @@ namespace BasicGitClient
                 tbDirectory.SelectionStart = tbDirectory.TextLength;
                 eventManager_m.TriggerDirectoryChangedEvent(defaultDir);
 
-                string[] parts = defaultDir.Split('\\');
-                repoName_m = parts[parts.Length - 1];
+                updateRepoName();
 
                 ControlDirectoryBrowser directoryBrowser = new ControlDirectoryBrowser(eventManager_m, defaultDir, splitContainer2.Panel1.Height);
                 directoryBrowser.Width = splitContainer2.Panel1.Width;
@@ -104,6 +103,8 @@ namespace BasicGitClient
             {
                 runCommand(command + dialogWindow.TextField);
             } // end if
+
+            updateRepoName();
         } // end method
 
         private void eventManager_m_OnCredentialsUpdateRequired(bool showMessage)
@@ -245,5 +246,11 @@ namespace BasicGitClient
         {
             rtbOutput.Clear();
         }
+
+        private void updateRepoName()
+        {
+            string[] parts = tbDirectory.Text.Split('\\');
+            repoName_m = parts[parts.Length - 1];
+        } // end method
     }
 }

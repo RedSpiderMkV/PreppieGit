@@ -41,8 +41,6 @@ namespace BasicGitClient
                 xmlHandler_m = new XmlHandler(eventManager_m);
                 gitClient_m = new GitClientAccessor(eventManager_m);
 
-                runCommand(GitCommands.VERSION);
-
                 string defaultDir = xmlHandler_m.GetLastLocation();
                 tbDirectory.Text = defaultDir;
                 tbDirectory.SelectionStart = tbDirectory.TextLength;
@@ -60,6 +58,8 @@ namespace BasicGitClient
 
                 MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, actionEventManager_m, defaultDir)).GetMainMenuStrip();
                 this.Controls.Add(menuStrip);
+
+                runCommand(GitCommands.VERSION);
             }
             catch (Win32Exception)
             {
@@ -234,6 +234,7 @@ namespace BasicGitClient
 
             rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
             rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+            rtbOutput.AppendText(Environment.NewLine);
         }
 
         private void addAll()

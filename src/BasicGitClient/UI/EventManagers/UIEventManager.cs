@@ -11,6 +11,12 @@ namespace BasicGitClient
         USERNAME
     } // end enum
 
+    enum CursorUpdateType
+    {
+        CURSOR_WAIT,
+        CURSOR_NORMAL
+    } // end enum
+
     internal class UIEventManager
     {
         #region Events
@@ -33,9 +39,21 @@ namespace BasicGitClient
         public delegate void GitResponseEvent(string output, string error);
         public event GitResponseEvent OnNewGitResponse;
 
+        public delegate void CursorChangeRequiredEvent(CursorUpdateType cursorType);
+        public event CursorChangeRequiredEvent OnCursorChangeRequired;
+
         #endregion
 
         #region Public Methods
+
+        public void TriggerCursorChangeEvent(CursorUpdateType cursorType)
+        {
+            CursorChangeRequiredEvent handler = OnCursorChangeRequired;
+            if (handler != null)
+            {
+                OnCursorChangeRequired(cursorType);
+            } // end if
+        } // end method
 
         public void TriggerGitResponseEvent(string output, string error)
         {

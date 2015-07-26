@@ -95,7 +95,15 @@ namespace BasicGitClient
 
             RunGitCommand(command, out output, out error);
 
-            if (command.Equals(GitCommands.ADD) || command.Equals(GitCommands.ADD_ALL))
+            if (command.StartsWith(GitCommands.SET_URL))
+            {
+                if (String.IsNullOrEmpty(output) && String.IsNullOrEmpty(error))
+                {
+                    output = Environment.NewLine + "URL has been set.  Check URL\r\n" + Environment.NewLine;
+                } // end if
+            } // end if
+
+            if (command.StartsWith(GitCommands.ADD))
             {
                 if (String.IsNullOrEmpty(output) && String.IsNullOrEmpty(error))
                 {

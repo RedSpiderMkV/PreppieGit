@@ -50,10 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UI\CommitCommentWindow.cs">
+    <Compile Include="UI\InputWindows\CommitCommentWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\CommitCommentWindow.Designer.cs">
+    <Compile Include="UI\InputWindows\CommitCommentWindow.Designer.cs">
       <DependentUpon>CommitCommentWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ClientMainWindow.cs">
@@ -73,10 +73,10 @@
     <Compile Include="UI\Components\MainMenuStripBuilder\FileMenuItemBuilder.cs" />
     <Compile Include="UI\Components\MainMenuStripBuilder\HelpMenuItemBuilder.cs" />
     <Compile Include="UI\Components\MainMenuStripBuilder\MainMenuStripBuilder.cs" />
-    <Compile Include="UI\CredentialConfigureWindow.cs">
+    <Compile Include="UI\InputWindows\CredentialConfigureWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\CredentialConfigureWindow.Designer.cs">
+    <Compile Include="UI\InputWindows\CredentialConfigureWindow.Designer.cs">
       <DependentUpon>CredentialConfigureWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="ConfigXmlHandler.cs" />
@@ -85,14 +85,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\EventManagers\UIActionEventManager.cs" />
-    <Compile Include="UI\SingleTextBoxDialogWindow.cs">
+    <Compile Include="UI\InputWindows\SingleTextBoxDialogWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\SingleTextBoxDialogWindow.Designer.cs">
+    <Compile Include="UI\InputWindows\SingleTextBoxDialogWindow.Designer.cs">
       <DependentUpon>SingleTextBoxDialogWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\EventManagers\UIEventManager.cs" />
-    <EmbeddedResource Include="UI\CommitCommentWindow.resx">
+    <EmbeddedResource Include="UI\InputWindows\CommitCommentWindow.resx">
       <DependentUpon>CommitCommentWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ClientMainWindow.resx">
@@ -101,7 +101,7 @@
     <EmbeddedResource Include="UI\Components\ControlDirectoryBrowser.resx">
       <DependentUpon>ControlDirectoryBrowser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\CredentialConfigureWindow.resx">
+    <EmbeddedResource Include="UI\InputWindows\CredentialConfigureWindow.resx">
       <DependentUpon>CredentialConfigureWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -114,7 +114,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\SingleTextBoxDialogWindow.resx">
+    <EmbeddedResource Include="UI\InputWindows\SingleTextBoxDialogWindow.resx">
       <DependentUpon>SingleTextBoxDialogWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />

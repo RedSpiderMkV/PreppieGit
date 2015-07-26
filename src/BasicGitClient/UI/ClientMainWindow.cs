@@ -75,6 +75,11 @@ namespace BasicGitClient
 
         #endregion
 
+        private void eventManager_m_OnNewGitResponse(string output, string error)
+        {
+            updateRtbOutput(output, error);
+        } // end method
+
         private void eventManager_m_OnRepoOwnerChangeRequest(RepoOwnerChangeType type)
         {
             string title, label, command;
@@ -120,6 +125,12 @@ namespace BasicGitClient
             } // end if
         } // end method
 
+        private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
+        {
+            tbDirectory.Text = newDirectoryFullPath;
+            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
+        } // end method
+
         private void btnStatus_Click(object sender, EventArgs e)
         {
             runCommand(GitCommands.STATUS);
@@ -144,12 +155,6 @@ namespace BasicGitClient
         {
             runCommand(GitCommands.PULL);
         }
-
-        private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
-        {
-            tbDirectory.Text = newDirectoryFullPath;
-            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
-        } // end method
 
         #region Helper Methods
 
@@ -240,10 +245,5 @@ namespace BasicGitClient
         {
             rtbOutput.Clear();
         }
-
-        private void eventManager_m_OnNewGitResponse(string output, string error)
-        {
-            updateRtbOutput(output, error);
-        } // end method
     }
 }

@@ -71,6 +71,7 @@
     <Compile Include="UI\Components\MainMenuStripBuilder\ActionMenuItemBuilder.cs" />
     <Compile Include="UI\Components\MainMenuStripBuilder\ConnectionMenuItemBuilder.cs" />
     <Compile Include="UI\Components\MainMenuStripBuilder\FileMenuItemBuilder.cs" />
+    <Compile Include="UI\Components\MainMenuStripBuilder\HelpMenuItemBuilder.cs" />
     <Compile Include="UI\Components\MainMenuStripBuilder\MainMenuStripBuilder.cs" />
     <Compile Include="UI\CredentialConfigureWindow.cs">
       <SubType>Form</SubType>

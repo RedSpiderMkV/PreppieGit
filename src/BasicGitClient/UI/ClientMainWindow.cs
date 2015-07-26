@@ -130,6 +130,7 @@ namespace BasicGitClient
         {
             tbDirectory.Text = newDirectoryFullPath;
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
+            updateRepoName();
         } // end method
 
         private void btnStatus_Click(object sender, EventArgs e)

@@ -33,13 +33,14 @@ namespace BasicGitClient
             {
                 eventManager_m = new UIEventManager();
                 actionEventManager_m = new UIActionEventManager();
+
+                xmlHandler_m = new XmlHandler(eventManager_m);
+                gitClient_m = new GitClientAccessor(eventManager_m);
+
                 eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
                 eventManager_m.OnCredentialsUpdateRequired += new UIEventManager.UpdateCredentialsEvent(eventManager_m_OnCredentialsUpdateRequired);
                 eventManager_m.OnRepoOwnerChangeRequest += new UIEventManager.RepoOwnerChangeRequestedEvent(eventManager_m_OnRepoOwnerChangeRequest);
                 eventManager_m.OnNewGitResponse += new UIEventManager.GitResponseEvent(eventManager_m_OnNewGitResponse);
-
-                xmlHandler_m = new XmlHandler(eventManager_m);
-                gitClient_m = new GitClientAccessor(eventManager_m);
 
                 string defaultDir = xmlHandler_m.GetLastLocation();
                 tbDirectory.Text = defaultDir;

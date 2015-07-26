@@ -54,22 +54,10 @@ namespace BasicGitClient
                 Text = "Show Origin"
             };
 
-            ToolStripMenuItem pushChangesActionMenuItem = new ToolStripMenuItem()
-            {
-                Name = "pushChangesActionMenuItem",
-                Text = "Push All"
-            };
-
             ToolStripMenuItem revertLastChangeActionMenuItem = new ToolStripMenuItem()
             {
                 Name = "revertLastChangeActionMenuItem",
                 Text = "Revert Last Change"
-            };
-
-            ToolStripMenuItem commitChangesActionMenuItem = new ToolStripMenuItem()
-            {
-                Name = "commitChangesActionMenuItem",
-                Text = "Commit Changes"
             };
 
             ToolStripMenuItem updateGitIgnoreActionMenuItem = new ToolStripMenuItem()
@@ -89,9 +77,7 @@ namespace BasicGitClient
             cloneUrlMenuItem.Click += new EventHandler(cloneUrlMenuItem_Click);
             initialiseNewRepoActionMenuItem.Click += new EventHandler(initialiseNewRepoActionMenuItem_Click);
             showOriginActionMenuItem.Click += new EventHandler(showOriginActionMenuItem_Click);
-            pushChangesActionMenuItem.Click += new EventHandler(pushChangesActionMenuItem_Click);
             revertLastChangeActionMenuItem.Click += new EventHandler(revertLastChangeActionMenuItem_Click);
-            commitChangesActionMenuItem.Click += new EventHandler(commitChangesActionMenuItem_Click);
             updateGitIgnoreActionMenuItem.Click += new EventHandler(updateGitIgnoreActionMenuItem_Click);
             changeRepoUrlActionMenuItem.Click += new EventHandler(changeRepoUrlActionMenuItem_Click);
 
@@ -100,9 +86,7 @@ namespace BasicGitClient
             actionMenu.DropDownItems.Add(cloneUrlMenuItem);
             actionMenu.DropDownItems.Add(initialiseNewRepoActionMenuItem);
             actionMenu.DropDownItems.Add(showOriginActionMenuItem);
-            actionMenu.DropDownItems.Add(pushChangesActionMenuItem);
             actionMenu.DropDownItems.Add(revertLastChangeActionMenuItem);
-            actionMenu.DropDownItems.Add(commitChangesActionMenuItem);
             actionMenu.DropDownItems.Add(updateGitIgnoreActionMenuItem);
             actionMenu.DropDownItems.Add(changeRepoUrlActionMenuItem);
 
@@ -125,17 +109,7 @@ namespace BasicGitClient
             throw new NotImplementedException();
         } // end method
 
-        private void commitChangesActionMenuItem_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        } // end method
-
         private void revertLastChangeActionMenuItem_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        } // end method
-
-        private void pushChangesActionMenuItem_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         } // end method

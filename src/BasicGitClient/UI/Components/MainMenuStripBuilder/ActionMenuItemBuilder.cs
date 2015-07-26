@@ -24,10 +24,10 @@ namespace BasicGitClient
                 Text = "Actions"
             };
 
-            ToolStripMenuItem setRepoUrlMenuItem = new ToolStripMenuItem()
+            ToolStripMenuItem setRepoOriginMenuItem = new ToolStripMenuItem()
             {
                 Name = "setRepoUrlActionMenuItem",
-                Text = "Set Repo URL"
+                Text = "Set Repo Origin"
             };
 
             ToolStripMenuItem resetToHeadMenuItem = new ToolStripMenuItem()
@@ -84,7 +84,7 @@ namespace BasicGitClient
                 Text = "Change Repo URL"
             };
 
-            setRepoUrlMenuItem.Click += new EventHandler(setRepoUrlMenuItem_Click);
+            setRepoOriginMenuItem.Click += new EventHandler(setRepoOriginMenuItem_Click);
             resetToHeadMenuItem.Click += new EventHandler(resetToHeadMenuItem_Click);
             cloneUrlMenuItem.Click += new EventHandler(cloneUrlMenuItem_Click);
             initialiseNewRepoActionMenuItem.Click += new EventHandler(initialiseNewRepoActionMenuItem_Click);
@@ -95,7 +95,7 @@ namespace BasicGitClient
             updateGitIgnoreActionMenuItem.Click += new EventHandler(updateGitIgnoreActionMenuItem_Click);
             changeRepoUrlActionMenuItem.Click += new EventHandler(changeRepoUrlActionMenuItem_Click);
 
-            actionMenu.DropDownItems.Add(setRepoUrlMenuItem);
+            actionMenu.DropDownItems.Add(setRepoOriginMenuItem);
             actionMenu.DropDownItems.Add(resetToHeadMenuItem);
             actionMenu.DropDownItems.Add(cloneUrlMenuItem);
             actionMenu.DropDownItems.Add(initialiseNewRepoActionMenuItem);
@@ -120,7 +120,7 @@ namespace BasicGitClient
 
             if (!String.IsNullOrEmpty(newUrlDialog.TextField))
             {
-                runCommand(GitCommands.SET_URL + newUrlDialog.TextField);
+                runCommand(GitCommands.SET_URL_ORIGIN_BRANCH + newUrlDialog.TextField);
             }
 
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
@@ -166,8 +166,9 @@ namespace BasicGitClient
             throw new NotImplementedException();
         } // end method
 
-        private void setRepoUrlMenuItem_Click(object sender, EventArgs e)
+        private void setRepoOriginMenuItem_Click(object sender, EventArgs e)
         {
+            runCommand(GitCommands.SET_ORIGIN_BRANCH);
             throw new NotImplementedException();
         } // end method
 

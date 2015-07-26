@@ -95,23 +95,23 @@ namespace BasicGitClient
 
             RunGitCommand(command, out output, out error);
 
-            if (command.StartsWith(GitCommands.SET_URL))
+            if (validateOutput(command, GitCommands.SET_URL_ORIGIN_BRANCH, output, error))
             {
-                if (String.IsNullOrEmpty(output) && String.IsNullOrEmpty(error))
-                {
-                    output = Environment.NewLine + "URL has been set.  Check URL\r\n" + Environment.NewLine;
-                } // end if
+                output = Environment.NewLine + "URL has been set.  Check URL\r\n" + Environment.NewLine;
             } // end if
 
-            if (command.StartsWith(GitCommands.ADD))
+            if (validateOutput(command, GitCommands.ADD, output, error))
             {
-                if (String.IsNullOrEmpty(output) && String.IsNullOrEmpty(error))
-                {
-                    output = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
-                } // end if
+                output = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
             } // end if
 
             eventManager_m.TriggerGitResponseEvent(output, error);
+        } // end method
+
+        private bool validateOutput(string receivedCommand, string commandType, string output, string error)
+        {
+           
+            return (receivedCommand.StartsWith(commandType) && String.IsNullOrEmpty(output) && String.IsNullOrEmpty(error));
         } // end method
 
         /// <summary>

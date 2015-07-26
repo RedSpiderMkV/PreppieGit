@@ -16,9 +16,9 @@ namespace BasicGitClient
         public const string COMMIT = "commit -m";
         public const string INIT = "init";
         public const string PULL = "pull";
-        public const string SET_ORIGIN = "remote add origin ";
+        public const string SET_ORIGIN_BRANCH = "remote add origin ";
         public const string SET_EMAIL = "config --global user.email ";
-        public const string SET_URL = "remote set-url origin ";
+        public const string SET_URL_ORIGIN_BRANCH = "remote set-url origin ";
         public const string SET_USERNAME = "config --global user.name ";
         public const string SHOW_ORIGIN = "remote -v";
         public const string STATUS = "status";

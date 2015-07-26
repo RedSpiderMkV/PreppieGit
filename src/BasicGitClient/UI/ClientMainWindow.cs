@@ -158,7 +158,7 @@ namespace BasicGitClient
 
             if (!String.IsNullOrEmpty(setOriginWindow.TextField))
             {
-                string command = GitCommands.SET_ORIGIN + setOriginWindow.TextField;
+                string command = GitCommands.SET_ORIGIN_BRANCH + setOriginWindow.TextField;
                 runCommand(command);
             }
         }
@@ -170,7 +170,7 @@ namespace BasicGitClient
 
             if (!String.IsNullOrEmpty(newUrlDialog.TextField))
             {
-                runCommand(GitCommands.SET_URL + newUrlDialog.TextField);
+                runCommand(GitCommands.SET_URL_ORIGIN_BRANCH + newUrlDialog.TextField);
             }
 
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);

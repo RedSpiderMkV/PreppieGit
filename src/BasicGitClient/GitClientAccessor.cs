@@ -110,7 +110,6 @@ namespace BasicGitClient
 
         private bool validateOutput(string receivedCommand, string commandType, string output, string error)
         {
-           
             return (receivedCommand.StartsWith(commandType) && String.IsNullOrEmpty(output) && String.IsNullOrEmpty(error));
         } // end method
 

@@ -115,13 +115,7 @@ namespace BasicGitClient
 
         private void changeRepoUrlActionMenuItem_Click(object sender, EventArgs e)
         {
-            SingleTextBoxDialogWindow newUrlDialog = new SingleTextBoxDialogWindow("Set Repo URL");
-            DialogResult dialogResult = newUrlDialog.ShowDialog();
-
-            if (!String.IsNullOrEmpty(newUrlDialog.TextField))
-            {
-                runCommand(GitCommands.SET_URL_ORIGIN_BRANCH + newUrlDialog.TextField);
-            }
+            runCommandWithSingleTextInput(GitCommands.SET_URL_ORIGIN_BRANCH, "Set Repo URL");
 
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
         } // end method
@@ -179,6 +173,17 @@ namespace BasicGitClient
             eventManager_m.TriggerNewGitCommandEvent(command);
             
             eventManager_m.TriggerCursorChangeEvent(CursorUpdateType.CURSOR_NORMAL);
+        } // end method
+
+        private void runCommandWithSingleTextInput(string gitCommand, string label)
+        {
+            SingleTextBoxDialogWindow newUrlDialog = new SingleTextBoxDialogWindow(label);
+            DialogResult dialogResult = newUrlDialog.ShowDialog();
+
+            if (!String.IsNullOrEmpty(newUrlDialog.TextField))
+            {
+                runCommand(gitCommand + newUrlDialog.TextField);
+            } // end if
         } // end method
 
         #endregion

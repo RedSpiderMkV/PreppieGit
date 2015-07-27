@@ -189,7 +189,7 @@ namespace BasicGitClient
                     {
                         dirPath += "\\" + name;
                     } // end if
-
+                    
                     Directory.CreateDirectory(dirPath);
                     break;
                 case DirectoryTask.DELETE:
@@ -250,7 +250,8 @@ namespace BasicGitClient
                         break;
                     } // end if
 
-                    File.Create(dirPath + "\\" + name);
+                    using (FileStream fs = File.Create(dirPath + "\\" + name)) { }
+
                     break;
                 case DirectoryTask.DELETE:
                     File.Delete(dirPath + "\\" + lbFileList.Text);

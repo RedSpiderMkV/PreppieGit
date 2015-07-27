@@ -250,8 +250,8 @@ namespace BasicGitClient
                         break;
                     } // end if
 
-                    using (FileStream fs = File.Create(dirPath + "\\" + name)) { }
-
+                    FileStream fs = File.Create(dirPath + "\\" + name);
+                    fs.Dispose();
                     break;
                 case DirectoryTask.DELETE:
                     File.Delete(dirPath + "\\" + lbFileList.Text);

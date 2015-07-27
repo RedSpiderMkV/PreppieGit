@@ -22,10 +22,10 @@ namespace BasicGitClient
 
         public MenuStrip GetMainMenuStrip()
         {
-            mainMenuStrip_m.Items.Add((new FileMenuItemBuilder(eventManager_m, defaultDir_m)).GetFileMenu());
-            mainMenuStrip_m.Items.Add((new ConnectionMenuItemBuilder(eventManager_m)).GetConnectionMenuItem());
-            mainMenuStrip_m.Items.Add((new ActionMenuItemBuilder(eventManager_m, actionEventManager_m)).GetActionMenuItem());
-            mainMenuStrip_m.Items.Add((new HelpMenuItemBuilder()).GetHelpMenuItems());
+            mainMenuStrip_m.Items.Add((new FileMenuItemBuilder(eventManager_m, defaultDir_m)).GetSubMenuItem());
+            mainMenuStrip_m.Items.Add((new ConnectionMenuItemBuilder(eventManager_m)).GetSubMenuItem());
+            mainMenuStrip_m.Items.Add((new ActionMenuItemBuilder(eventManager_m, actionEventManager_m)).GetSubMenuItem());
+            mainMenuStrip_m.Items.Add((new HelpMenuItemBuilder()).GetSubMenuItem());
 
             return mainMenuStrip_m;
         } // end method

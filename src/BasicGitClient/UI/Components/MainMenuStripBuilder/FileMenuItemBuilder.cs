@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace BasicGitClient
 {
-    internal class FileMenuItemBuilder
+    internal class FileMenuItemBuilder : ISubMenuItemBuilder
     {
         #region Public Methods
 
@@ -16,7 +16,7 @@ namespace BasicGitClient
             eventManager_m = eventManager;
         } // end method
 
-        public ToolStripMenuItem GetFileMenu()
+        public ToolStripMenuItem GetSubMenuItem()
         {
             ToolStripMenuItem fileMenu = new ToolStripMenuItem()
             {

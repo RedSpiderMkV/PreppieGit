@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace BasicGitClient
 {
-    internal class HelpMenuItemBuilder
+    internal class HelpMenuItemBuilder : ISubMenuItemBuilder
     {
         #region Public Methods
 
@@ -15,7 +15,7 @@ namespace BasicGitClient
             // not sure yet what is required here
         } // end method
 
-        public ToolStripMenuItem GetHelpMenuItems()
+        public ToolStripMenuItem GetSubMenuItem()
         {
             ToolStripMenuItem helpMenu = new ToolStripMenuItem()
             {

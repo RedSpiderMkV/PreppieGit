@@ -2,3 +2,4 @@ src/BasicGitClient/bin
 src/BasicGitClient/obj
 src/Installer/bin
 src/Installer/obj
+*.suo

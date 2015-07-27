@@ -92,8 +92,7 @@ namespace BasicGitClient
         private void changeRepoUrlActionMenuItem_Click(object sender, EventArgs e)
         {
             runCommandWithSingleTextInput(GitCommands.SET_URL_ORIGIN_BRANCH, "Set Repo URL");
-
-            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
+            runCommand(GitCommands.SHOW_ORIGIN);
         } // end method
 
         private void revertLastChangeActionMenuItem_Click(object sender, EventArgs e)
@@ -103,7 +102,7 @@ namespace BasicGitClient
 
         private void showOriginActionMenuItem_Click(object sender, EventArgs e)
         {
-            eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
+            runCommand(GitCommands.SHOW_ORIGIN);
         } // end method
 
         private void initialiseNewRepoActionMenuItem_Click(object sender, EventArgs e)

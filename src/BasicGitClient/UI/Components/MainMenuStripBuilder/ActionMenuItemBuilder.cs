@@ -123,7 +123,7 @@ namespace BasicGitClient
 
         private void setRepoOriginMenuItem_Click(object sender, EventArgs e)
         {
-            runCommand(GitCommands.SET_ORIGIN_BRANCH);
+            runCommandWithSingleTextInput(GitCommands.SET_ORIGIN_BRANCH, "URL");
         } // end method
 
         private void runCommand(string command)

@@ -134,12 +134,12 @@
             this.cMenuOutputBox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cMenuOutputBox_Clear});
             this.cMenuOutputBox.Name = "cMenuOutputBox";
-            this.cMenuOutputBox.Size = new System.Drawing.Size(153, 48);
+            this.cMenuOutputBox.Size = new System.Drawing.Size(111, 26);
             // 
             // cMenuOutputBox_Clear
             // 
             this.cMenuOutputBox_Clear.Name = "cMenuOutputBox_Clear";
-            this.cMenuOutputBox_Clear.Size = new System.Drawing.Size(152, 22);
+            this.cMenuOutputBox_Clear.Size = new System.Drawing.Size(110, 22);
             this.cMenuOutputBox_Clear.Text = "Clear";
             this.cMenuOutputBox_Clear.Click += new System.EventHandler(this.cMenuOutputBox_Clear_Click);
             // 
@@ -165,8 +165,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 498);
             this.Controls.Add(this.splitContainer2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnStatus);
             this.Controls.Add(this.btnPush);
             this.Controls.Add(this.btnCommit);

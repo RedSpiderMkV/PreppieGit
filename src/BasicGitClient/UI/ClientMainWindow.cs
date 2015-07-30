@@ -39,7 +39,6 @@ namespace BasicGitClient
 
                 eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
                 eventManager_m.OnCredentialsUpdateRequired += new UIEventManager.UpdateCredentialsEvent(eventManager_m_OnCredentialsUpdateRequired);
-                eventManager_m.OnRepoOwnerChangeRequest += new UIEventManager.RepoOwnerChangeRequestedEvent(eventManager_m_OnRepoOwnerChangeRequest);
                 eventManager_m.OnNewGitResponse += new UIEventManager.GitResponseEvent(eventManager_m_OnNewGitResponse);
                 eventManager_m.OnCompletionNotification += new UIEventManager.CommandCompletionNotificationEvent(eventManager_m_OnCompletionNotification);
 
@@ -84,35 +83,6 @@ namespace BasicGitClient
         private void eventManager_m_OnNewGitResponse(string output, string error)
         {
             updateRtbOutput(output, error);
-        } // end method
-
-        private void eventManager_m_OnRepoOwnerChangeRequest(RepoOwnerChangeType type)
-        {
-            string title, label, command;
-
-            if (type == RepoOwnerChangeType.EMAIL)
-            {
-                title = "Set Email...";
-                label = "Email";
-                command = GitCommands.SET_EMAIL;
-            }
-            else
-            {
-                title = "Set Username...";
-                label = "Name";
-                command = GitCommands.SET_USERNAME;
-            } // end if
-
-            SingleTextBoxDialogWindow dialogWindow = new SingleTextBoxDialogWindow(title, label);
-            dialogWindow.ShowDialog();
-
-            if (!string.IsNullOrEmpty(dialogWindow.TextField))
-            {
-                runCommand(command + dialogWindow.TextField);
-            } // end if
-
-            // repo name hasn't changed
-            //updateRepoName();
         } // end method
 
         private void eventManager_m_OnCredentialsUpdateRequired(bool showMessage)

@@ -41,6 +41,7 @@
             this.cMenuOutputBox = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cMenuOutputBox_Clear = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.btnPanelGroup = new System.Windows.Forms.Panel();
             this.cMenuOutputBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -123,7 +124,7 @@
             this.rtbOutput.Location = new System.Drawing.Point(0, 0);
             this.rtbOutput.Name = "rtbOutput";
             this.rtbOutput.ReadOnly = true;
-            this.rtbOutput.Size = new System.Drawing.Size(396, 181);
+            this.rtbOutput.Size = new System.Drawing.Size(396, 176);
             this.rtbOutput.TabIndex = 14;
             this.rtbOutput.Text = "";
             this.rtbOutput.WordWrap = false;
@@ -155,15 +156,25 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.rtbOutput);
-            this.splitContainer2.Size = new System.Drawing.Size(396, 369);
-            this.splitContainer2.SplitterDistance = 184;
+            this.splitContainer2.Size = new System.Drawing.Size(396, 358);
+            this.splitContainer2.SplitterDistance = 178;
             this.splitContainer2.TabIndex = 17;
+            // 
+            // btnPanelGroup
+            // 
+            this.btnPanelGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPanelGroup.Location = new System.Drawing.Point(13, 481);
+            this.btnPanelGroup.Name = "btnPanelGroup";
+            this.btnPanelGroup.Size = new System.Drawing.Size(396, 44);
+            this.btnPanelGroup.TabIndex = 18;
             // 
             // ClientMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 498);
+            this.ClientSize = new System.Drawing.Size(423, 537);
+            this.Controls.Add(this.btnPanelGroup);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label1);
@@ -197,6 +208,7 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ContextMenuStrip cMenuOutputBox;
         private System.Windows.Forms.ToolStripMenuItem cMenuOutputBox_Clear;
+        private System.Windows.Forms.Panel btnPanelGroup;
     }
 }
 

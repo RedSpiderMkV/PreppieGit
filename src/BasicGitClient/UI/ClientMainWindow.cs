@@ -20,6 +20,7 @@ namespace BasicGitClient
         private GitClientAccessor gitClient_m;
         private UIEventManager eventManager_m;
         private UIActionEventManager actionEventManager_m;
+        private ButtonGroup btnGroup_m;
 
         #endregion
 
@@ -58,6 +59,12 @@ namespace BasicGitClient
 
                 MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, actionEventManager_m, defaultDir)).GetMainMenuStrip();
                 this.Controls.Add(menuStrip);
+
+                btnGroup_m = new ButtonGroup();
+                btnGroup_m.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+                btnGroup_m.Width = btnPanelGroup.Width;
+                btnGroup_m.Height = btnPanelGroup.Height;
+                btnPanelGroup.Controls.Add(btnGroup_m);
 
                 runCommand(GitCommands.VERSION);
             }

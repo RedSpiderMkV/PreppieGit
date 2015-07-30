@@ -99,6 +99,9 @@
       <DependentUpon>SingleTextBoxDialogWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\EventManagers\UIEventManager.cs" />
+    <EmbeddedResource Include="UI\Components\ButtonGroup.resx">
+      <DependentUpon>ButtonGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\InputWindows\CommitCommentWindow.resx">
       <DependentUpon>CommitCommentWindow.cs</DependentUpon>
     </EmbeddedResource>

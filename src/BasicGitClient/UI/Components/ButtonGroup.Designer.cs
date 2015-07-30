@@ -1,4 +1,4 @@
-﻿namespace PreppieGit.UI.Components
+﻿namespace BasicGitClient
 {
     partial class ButtonGroup
     {
@@ -28,10 +28,137 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.btnScrollRight = new System.Windows.Forms.Button();
+            this.btnScrollLeft = new System.Windows.Forms.Button();
+            this.panelInner = new System.Windows.Forms.Panel();
+            this.panelOuter = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnStatus = new System.Windows.Forms.Button();
+            this.btnPush = new System.Windows.Forms.Button();
+            this.btnCommit = new System.Windows.Forms.Button();
+            this.btnPull = new System.Windows.Forms.Button();
+            this.panelInner.SuspendLayout();
+            this.panelOuter.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // btnScrollRight
+            // 
+            this.btnScrollRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnScrollRight.Location = new System.Drawing.Point(454, 0);
+            this.btnScrollRight.Name = "btnScrollRight";
+            this.btnScrollRight.Size = new System.Drawing.Size(27, 44);
+            this.btnScrollRight.TabIndex = 0;
+            this.btnScrollRight.Text = ">>";
+            this.btnScrollRight.UseVisualStyleBackColor = true;
+            this.btnScrollRight.Click += new System.EventHandler(this.btnScrollRight_Click);
+            // 
+            // btnScrollLeft
+            // 
+            this.btnScrollLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnScrollLeft.Location = new System.Drawing.Point(0, 0);
+            this.btnScrollLeft.Name = "btnScrollLeft";
+            this.btnScrollLeft.Size = new System.Drawing.Size(27, 44);
+            this.btnScrollLeft.TabIndex = 1;
+            this.btnScrollLeft.Text = "<<";
+            this.btnScrollLeft.UseVisualStyleBackColor = true;
+            this.btnScrollLeft.Click += new System.EventHandler(this.btnScrollLeft_Click);
+            // 
+            // panelInner
+            // 
+            this.panelInner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panelInner.Controls.Add(this.btnAdd);
+            this.panelInner.Controls.Add(this.btnStatus);
+            this.panelInner.Controls.Add(this.btnPush);
+            this.panelInner.Controls.Add(this.btnCommit);
+            this.panelInner.Controls.Add(this.btnPull);
+            this.panelInner.Location = new System.Drawing.Point(3, 3);
+            this.panelInner.Name = "panelInner";
+            this.panelInner.Size = new System.Drawing.Size(406, 28);
+            this.panelInner.TabIndex = 11;
+            // 
+            // panelOuter
+            // 
+            this.panelOuter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelOuter.Controls.Add(this.panelInner);
+            this.panelOuter.Location = new System.Drawing.Point(33, 3);
+            this.panelOuter.Name = "panelOuter";
+            this.panelOuter.Size = new System.Drawing.Size(415, 35);
+            this.panelOuter.TabIndex = 12;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 13;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.Location = new System.Drawing.Point(327, 3);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(75, 23);
+            this.btnStatus.TabIndex = 12;
+            this.btnStatus.Text = "Status";
+            this.btnStatus.UseVisualStyleBackColor = true;
+            // 
+            // btnPush
+            // 
+            this.btnPush.Location = new System.Drawing.Point(165, 3);
+            this.btnPush.Name = "btnPush";
+            this.btnPush.Size = new System.Drawing.Size(75, 23);
+            this.btnPush.TabIndex = 11;
+            this.btnPush.Text = "Push";
+            this.btnPush.UseVisualStyleBackColor = true;
+            // 
+            // btnCommit
+            // 
+            this.btnCommit.Location = new System.Drawing.Point(84, 3);
+            this.btnCommit.Name = "btnCommit";
+            this.btnCommit.Size = new System.Drawing.Size(75, 23);
+            this.btnCommit.TabIndex = 10;
+            this.btnCommit.Text = "Commit";
+            this.btnCommit.UseVisualStyleBackColor = true;
+            // 
+            // btnPull
+            // 
+            this.btnPull.Location = new System.Drawing.Point(246, 3);
+            this.btnPull.Name = "btnPull";
+            this.btnPull.Size = new System.Drawing.Size(75, 23);
+            this.btnPull.TabIndex = 9;
+            this.btnPull.Text = "Pull";
+            this.btnPull.UseVisualStyleBackColor = true;
+            // 
+            // ButtonGroup
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panelOuter);
+            this.Controls.Add(this.btnScrollLeft);
+            this.Controls.Add(this.btnScrollRight);
+            this.Name = "ButtonGroup";
+            this.Size = new System.Drawing.Size(481, 44);
+            this.panelInner.ResumeLayout(false);
+            this.panelOuter.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnScrollRight;
+        private System.Windows.Forms.Button btnScrollLeft;
+        private System.Windows.Forms.Panel panelInner;
+        private System.Windows.Forms.Panel panelOuter;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnStatus;
+        private System.Windows.Forms.Button btnPush;
+        private System.Windows.Forms.Button btnCommit;
+        private System.Windows.Forms.Button btnPull;
     }
 }

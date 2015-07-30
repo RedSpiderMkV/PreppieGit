@@ -7,13 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PreppieGit.UI.Components
+namespace BasicGitClient
 {
     public partial class ButtonGroup : UserControl
     {
         public ButtonGroup()
         {
             InitializeComponent();
+        }
+
+        private void btnScrollLeft_Click(object sender, EventArgs e)
+        {
+            panelInner.Location = new Point(panelInner.Location.X + 10, panelInner.Location.Y);
+        }
+
+        private void btnScrollRight_Click(object sender, EventArgs e)
+        {
+            panelInner.Location = new Point(panelInner.Location.X - 10, panelInner.Location.Y);
         }
     }
 }

@@ -67,7 +67,8 @@
             // 
             // panelInner
             // 
-            this.panelInner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panelInner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.panelInner.Controls.Add(this.btnAdd);
             this.panelInner.Controls.Add(this.btnStatus);
             this.panelInner.Controls.Add(this.btnPush);

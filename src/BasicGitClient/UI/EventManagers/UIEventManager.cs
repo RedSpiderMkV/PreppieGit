@@ -58,15 +58,6 @@ namespace BasicGitClient
             } // end if
         } // end method
 
-        public void TriggerCursorChangeEvent(CursorUpdateType cursorType)
-        {
-            CursorChangeRequiredEvent handler = OnCursorChangeRequired;
-            if (handler != null)
-            {
-                OnCursorChangeRequired(cursorType);
-            } // end if
-        } // end method
-
         public void TriggerGitResponseEvent(string output, string error)
         {
             GitResponseEvent handler = OnNewGitResponse;
@@ -78,7 +69,7 @@ namespace BasicGitClient
 
         public void TriggerNewGitCommandEvent(string command)
         {
-            TriggerCursorChangeEvent(CursorUpdateType.CURSOR_WAIT);
+            triggerCursorChangeEvent(CursorUpdateType.CURSOR_WAIT);
             
             NewGitCommandEvent handler = OnNewGitCommandIssued;
             if (handler != null)
@@ -86,7 +77,7 @@ namespace BasicGitClient
                 OnNewGitCommandIssued(command);
             } // end if
 
-            TriggerCursorChangeEvent(CursorUpdateType.CURSOR_NORMAL);
+            triggerCursorChangeEvent(CursorUpdateType.CURSOR_NORMAL);
         } // end method
 
         public void TriggerRepoOwnerChangeEvent(RepoOwnerChangeType type)
@@ -122,6 +113,19 @@ namespace BasicGitClient
             if (handler != null)
             {
                 OnCredentialsUpdateRequired(showMessageBox);
+            } // end if
+        } // end method
+
+        #endregion
+
+        #region Private Methods
+
+        private void triggerCursorChangeEvent(CursorUpdateType cursorType)
+        {
+            CursorChangeRequiredEvent handler = OnCursorChangeRequired;
+            if (handler != null)
+            {
+                OnCursorChangeRequired(cursorType);
             } // end if
         } // end method
 

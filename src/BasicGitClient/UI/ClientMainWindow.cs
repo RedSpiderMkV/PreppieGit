@@ -87,6 +87,7 @@ namespace BasicGitClient
 
         private void eventManager_m_OnCredentialsUpdateRequired(bool showMessage)
         {
+            // Consider having this event handled in a separate class altogether
             if (showMessage)
             {
                 MessageBox.Show("Credentials required");

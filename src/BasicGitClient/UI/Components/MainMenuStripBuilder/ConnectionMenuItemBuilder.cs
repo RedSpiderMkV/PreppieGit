@@ -69,6 +69,8 @@ namespace BasicGitClient
 
         private void setCredentialsMenuItem_Click(object sender, EventArgs e)
         {
+            // this is handled in client window... consider having all these handled
+            // somewhere else...
             eventManager_m.TriggerUpdateCredentialsEvent(false);
         } // end method
 

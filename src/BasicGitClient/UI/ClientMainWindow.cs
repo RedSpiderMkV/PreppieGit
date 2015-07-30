@@ -111,7 +111,8 @@ namespace BasicGitClient
                 runCommand(command + dialogWindow.TextField);
             } // end if
 
-            updateRepoName();
+            // repo name hasn't changed
+            //updateRepoName();
         } // end method
 
         private void eventManager_m_OnCredentialsUpdateRequired(bool showMessage)
@@ -122,14 +123,15 @@ namespace BasicGitClient
             } // end if
 
             CredentialConfigureWindow credentialWindow = new CredentialConfigureWindow();
-            credentialWindow.ShowDialog();
-
-            string username = credentialWindow.Username;
-            string password = credentialWindow.Password;
-
-            if (!username.Equals(String.Empty) && !password.Equals(String.Empty))
+            if (credentialWindow.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                eventManager_m.TriggerNewCredentialsEvent(username, password);
+                string username = credentialWindow.Username;
+                string password = credentialWindow.Password;
+
+                if (!username.Equals(String.Empty) && !password.Equals(String.Empty))
+                {
+                    eventManager_m.TriggerNewCredentialsEvent(username, password);
+                } // end if
             } // end if
         } // end method
 

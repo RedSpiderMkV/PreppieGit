@@ -128,11 +128,7 @@ namespace BasicGitClient
 
         private void runCommand(string command)
         {
-            eventManager_m.TriggerCursorChangeEvent(CursorUpdateType.CURSOR_WAIT);
-            
             eventManager_m.TriggerNewGitCommandEvent(command);
-            
-            eventManager_m.TriggerCursorChangeEvent(CursorUpdateType.CURSOR_NORMAL);
         } // end method
 
         private void runCommandWithSingleTextInput(string gitCommand, string label)

@@ -59,17 +59,44 @@ namespace BasicGitClient
 
         private void configureEmailMenuItem_Click(object sender, EventArgs e)
         {
-            eventManager_m.TriggerRepoOwnerChangeEvent(RepoOwnerChangeType.EMAIL);
+            userConfigurationUpdate(RepoOwnerChangeType.EMAIL);
         } // end method
 
         private void configureUsernameMenuItem_Click(object sender, EventArgs e)
         {
-            eventManager_m.TriggerRepoOwnerChangeEvent(RepoOwnerChangeType.USERNAME);
+            userConfigurationUpdate(RepoOwnerChangeType.USERNAME);
         } // end method
 
         private void setCredentialsMenuItem_Click(object sender, EventArgs e)
         {
             eventManager_m.TriggerUpdateCredentialsEvent(false);
+        } // end method
+
+        private void userConfigurationUpdate(RepoOwnerChangeType updateType)
+        {
+            string title, label, command;
+
+            if (updateType == RepoOwnerChangeType.EMAIL)
+            {
+                title = "Set Email...";
+                label = "Email";
+                command = GitCommands.SET_EMAIL;
+            }
+            else
+            {
+                title = "Set Username...";
+                label = "Name";
+                command = GitCommands.SET_USERNAME;
+            } // end if
+
+            SingleTextBoxDialogWindow dialogWindow = new SingleTextBoxDialogWindow(title, label);
+            if (dialogWindow.ShowDialog() == DialogResult.OK)
+            {
+                if (!string.IsNullOrEmpty(dialogWindow.TextField))
+                {
+                    eventManager_m.TriggerNewGitCommandEvent(command + dialogWindow.TextField);
+                } // end if
+            } // end if
         } // end method
 
         #endregion

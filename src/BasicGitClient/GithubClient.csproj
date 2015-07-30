@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\Components\ButtonGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Components\ButtonGroup.Designer.cs">
+      <DependentUpon>ButtonGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Components\MainMenuStripBuilder\ISubMenuItemBuilder.cs" />
     <Compile Include="UI\InputWindows\CommitCommentWindow.cs">
       <SubType>Form</SubType>

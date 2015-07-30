@@ -78,11 +78,15 @@ namespace BasicGitClient
 
         public void TriggerNewGitCommandEvent(string command)
         {
+            TriggerCursorChangeEvent(CursorUpdateType.CURSOR_WAIT);
+            
             NewGitCommandEvent handler = OnNewGitCommandIssued;
             if (handler != null)
             {
                 OnNewGitCommandIssued(command);
             } // end if
+
+            TriggerCursorChangeEvent(CursorUpdateType.CURSOR_NORMAL);
         } // end method
 
         public void TriggerRepoOwnerChangeEvent(RepoOwnerChangeType type)

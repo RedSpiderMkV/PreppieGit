@@ -156,17 +156,17 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.rtbOutput);
-            this.splitContainer2.Size = new System.Drawing.Size(396, 358);
-            this.splitContainer2.SplitterDistance = 178;
+            this.splitContainer2.Size = new System.Drawing.Size(396, 359);
+            this.splitContainer2.SplitterDistance = 179;
             this.splitContainer2.TabIndex = 17;
             // 
             // btnPanelGroup
             // 
             this.btnPanelGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPanelGroup.Location = new System.Drawing.Point(13, 481);
+            this.btnPanelGroup.Location = new System.Drawing.Point(13, 482);
             this.btnPanelGroup.Name = "btnPanelGroup";
-            this.btnPanelGroup.Size = new System.Drawing.Size(396, 44);
+            this.btnPanelGroup.Size = new System.Drawing.Size(396, 43);
             this.btnPanelGroup.TabIndex = 18;
             // 
             // ClientMainWindow

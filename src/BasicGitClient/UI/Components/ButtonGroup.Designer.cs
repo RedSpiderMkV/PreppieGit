@@ -45,9 +45,9 @@
             // 
             this.btnScrollRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnScrollRight.Location = new System.Drawing.Point(454, 0);
+            this.btnScrollRight.Location = new System.Drawing.Point(454, 6);
             this.btnScrollRight.Name = "btnScrollRight";
-            this.btnScrollRight.Size = new System.Drawing.Size(27, 44);
+            this.btnScrollRight.Size = new System.Drawing.Size(27, 32);
             this.btnScrollRight.TabIndex = 0;
             this.btnScrollRight.Text = ">>";
             this.btnScrollRight.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@
             // 
             this.btnScrollLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnScrollLeft.Location = new System.Drawing.Point(0, 0);
+            this.btnScrollLeft.Location = new System.Drawing.Point(0, 6);
             this.btnScrollLeft.Name = "btnScrollLeft";
-            this.btnScrollLeft.Size = new System.Drawing.Size(27, 44);
+            this.btnScrollLeft.Size = new System.Drawing.Size(27, 32);
             this.btnScrollLeft.TabIndex = 1;
             this.btnScrollLeft.Text = "<<";
             this.btnScrollLeft.UseVisualStyleBackColor = true;

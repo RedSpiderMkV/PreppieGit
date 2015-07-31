@@ -60,7 +60,7 @@ namespace BasicGitClient
                 MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, actionEventManager_m, defaultDir)).GetMainMenuStrip();
                 this.Controls.Add(menuStrip);
 
-                btnGroup_m = new ButtonGroup();
+                btnGroup_m = new ButtonGroup(eventManager_m);
                 btnGroup_m.Anchor = AnchorStyles.Left | AnchorStyles.Right;
                 btnGroup_m.Width = btnPanelGroup.Width;
                 btnGroup_m.Height = btnPanelGroup.Height;
@@ -149,11 +149,7 @@ namespace BasicGitClient
 
         private void runCommand(string command)
         {
-            Cursor = Cursors.WaitCursor;
-
             eventManager_m.TriggerNewGitCommandEvent(command);
-
-            Cursor = Cursors.Default;
         }
 
         private void updateRtbOutput(string output, string error)

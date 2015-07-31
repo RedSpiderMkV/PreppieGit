@@ -11,8 +11,9 @@ namespace BasicGitClient
 {
     public partial class ButtonGroup : UserControl
     {
-        public ButtonGroup()
+        internal ButtonGroup(UIEventManager eventManager)
         {
+            eventManager_m = eventManager;
             InitializeComponent();
         }
 
@@ -30,6 +31,33 @@ namespace BasicGitClient
 
         private void btn_Click(object sender, EventArgs e)
         {
+            if (sender == btnAdd)
+            {
+                eventManager_m.TriggerNewGitCommandEvent(GitCommands.ADD_ALL);
+            }
+            else if (sender == btnCommit)
+            {
+                CommitCommentWindow commitWindow = new CommitCommentWindow();
+                commitWindow.ShowDialog();
+
+                string comment = commitWindow.CommitComment;
+
+                if (comment != String.Empty)
+                {
+                    string command = GitCommands.COMMIT + " " + comment;
+                    eventManager_m.TriggerNewGitCommandEvent(command);
+                }
+                else
+                {
+                    //updateRtbOutput("\nNo comment added.  Not committed..", string.Empty);
+                } // end if
+            }
         } // end method
+
+        #region Private Data
+
+        private UIEventManager eventManager_m;
+
+        #endregion
     }
 }

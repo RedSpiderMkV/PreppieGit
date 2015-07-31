@@ -31,11 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientMainWindow));
             this.tbDirectory = new System.Windows.Forms.TextBox();
-            this.btnPull = new System.Windows.Forms.Button();
-            this.btnCommit = new System.Windows.Forms.Button();
-            this.btnPush = new System.Windows.Forms.Button();
-            this.btnStatus = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.cMenuOutputBox = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -57,56 +52,6 @@
             this.tbDirectory.Size = new System.Drawing.Size(457, 20);
             this.tbDirectory.TabIndex = 0;
             // 
-            // btnPull
-            // 
-            this.btnPull.Location = new System.Drawing.Point(252, 137);
-            this.btnPull.Name = "btnPull";
-            this.btnPull.Size = new System.Drawing.Size(75, 23);
-            this.btnPull.TabIndex = 3;
-            this.btnPull.Text = "Pull";
-            this.btnPull.UseVisualStyleBackColor = true;
-            this.btnPull.Click += new System.EventHandler(this.btnPull_Click);
-            // 
-            // btnCommit
-            // 
-            this.btnCommit.Location = new System.Drawing.Point(90, 137);
-            this.btnCommit.Name = "btnCommit";
-            this.btnCommit.Size = new System.Drawing.Size(75, 23);
-            this.btnCommit.TabIndex = 4;
-            this.btnCommit.Text = "Commit";
-            this.btnCommit.UseVisualStyleBackColor = true;
-            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
-            // 
-            // btnPush
-            // 
-            this.btnPush.Location = new System.Drawing.Point(171, 137);
-            this.btnPush.Name = "btnPush";
-            this.btnPush.Size = new System.Drawing.Size(75, 23);
-            this.btnPush.TabIndex = 5;
-            this.btnPush.Text = "Push";
-            this.btnPush.UseVisualStyleBackColor = true;
-            this.btnPush.Click += new System.EventHandler(this.btnPush_Click);
-            // 
-            // btnStatus
-            // 
-            this.btnStatus.Location = new System.Drawing.Point(333, 137);
-            this.btnStatus.Name = "btnStatus";
-            this.btnStatus.Size = new System.Drawing.Size(75, 23);
-            this.btnStatus.TabIndex = 7;
-            this.btnStatus.Text = "Status";
-            this.btnStatus.UseVisualStyleBackColor = true;
-            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(9, 137);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 8;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -124,7 +69,7 @@
             this.rtbOutput.Location = new System.Drawing.Point(0, 0);
             this.rtbOutput.Name = "rtbOutput";
             this.rtbOutput.ReadOnly = true;
-            this.rtbOutput.Size = new System.Drawing.Size(454, 176);
+            this.rtbOutput.Size = new System.Drawing.Size(454, 191);
             this.rtbOutput.TabIndex = 14;
             this.rtbOutput.Text = "";
             this.rtbOutput.WordWrap = false;
@@ -149,15 +94,15 @@
             this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer2.Location = new System.Drawing.Point(12, 166);
+            this.splitContainer2.Location = new System.Drawing.Point(12, 137);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.rtbOutput);
-            this.splitContainer2.Size = new System.Drawing.Size(454, 359);
-            this.splitContainer2.SplitterDistance = 179;
+            this.splitContainer2.Size = new System.Drawing.Size(454, 388);
+            this.splitContainer2.SplitterDistance = 193;
             this.splitContainer2.TabIndex = 17;
             // 
             // btnPanelGroup
@@ -176,13 +121,8 @@
             this.ClientSize = new System.Drawing.Size(481, 537);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnPanelGroup);
             this.Controls.Add(this.tbDirectory);
-            this.Controls.Add(this.btnStatus);
-            this.Controls.Add(this.btnPush);
-            this.Controls.Add(this.btnCommit);
-            this.Controls.Add(this.btnPull);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientMainWindow";
             this.Text = "PreppieGit";
@@ -198,11 +138,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbDirectory;
-        private System.Windows.Forms.Button btnPull;
-        private System.Windows.Forms.Button btnCommit;
-        private System.Windows.Forms.Button btnPush;
-        private System.Windows.Forms.Button btnStatus;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox rtbOutput;
         private System.Windows.Forms.SplitContainer splitContainer2;

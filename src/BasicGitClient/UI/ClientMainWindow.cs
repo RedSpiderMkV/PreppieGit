@@ -120,31 +120,6 @@ namespace BasicGitClient
             updateRepoName();
         } // end method
 
-        private void btnStatus_Click(object sender, EventArgs e)
-        {
-            runCommand(GitCommands.STATUS);
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            addAll();
-        }
-
-        private void btnCommit_Click(object sender, EventArgs e)
-        {
-            commitChanges();
-        }
-
-        private void btnPush_Click(object sender, EventArgs e)
-        {
-            pushCommits();
-        }
-
-        private void btnPull_Click(object sender, EventArgs e)
-        {
-            runCommand(GitCommands.PULL);
-        }
-
         #region Helper Methods
 
         private void runCommand(string command)

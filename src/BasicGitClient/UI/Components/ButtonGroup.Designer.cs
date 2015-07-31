@@ -51,7 +51,7 @@
             this.btnScrollRight.TabIndex = 0;
             this.btnScrollRight.Text = ">";
             this.btnScrollRight.UseVisualStyleBackColor = true;
-            this.btnScrollRight.Click += new System.EventHandler(this.btnScrollRight_Click);
+            this.btnScrollRight.Click += new System.EventHandler(this.btnScroll_Click);
             // 
             // btnScrollLeft
             // 
@@ -63,7 +63,7 @@
             this.btnScrollLeft.TabIndex = 1;
             this.btnScrollLeft.Text = "<";
             this.btnScrollLeft.UseVisualStyleBackColor = true;
-            this.btnScrollLeft.Click += new System.EventHandler(this.btnScrollLeft_Click);
+            this.btnScrollLeft.Click += new System.EventHandler(this.btnScroll_Click);
             // 
             // panelInner
             // 
@@ -87,6 +87,7 @@
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btn_Click);
             // 
             // btnStatus
             // 
@@ -96,6 +97,7 @@
             this.btnStatus.TabIndex = 12;
             this.btnStatus.Text = "Status";
             this.btnStatus.UseVisualStyleBackColor = true;
+            this.btnStatus.Click += new System.EventHandler(this.btn_Click);
             // 
             // btnPush
             // 
@@ -105,6 +107,7 @@
             this.btnPush.TabIndex = 11;
             this.btnPush.Text = "Push";
             this.btnPush.UseVisualStyleBackColor = true;
+            this.btnPush.Click += new System.EventHandler(this.btn_Click);
             // 
             // btnCommit
             // 
@@ -114,6 +117,7 @@
             this.btnCommit.TabIndex = 10;
             this.btnCommit.Text = "Commit";
             this.btnCommit.UseVisualStyleBackColor = true;
+            this.btnCommit.Click += new System.EventHandler(this.btn_Click);
             // 
             // btnPull
             // 
@@ -123,6 +127,7 @@
             this.btnPull.TabIndex = 9;
             this.btnPull.Text = "Pull";
             this.btnPull.UseVisualStyleBackColor = true;
+            this.btnPull.Click += new System.EventHandler(this.btn_Click);
             // 
             // panelOuter
             // 

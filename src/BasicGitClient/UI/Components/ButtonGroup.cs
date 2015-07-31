@@ -16,14 +16,20 @@ namespace BasicGitClient
             InitializeComponent();
         }
 
-        private void btnScrollLeft_Click(object sender, EventArgs e)
+        private void btnScroll_Click(object sender, EventArgs e)
         {
-            panelInner.Location = new Point(panelInner.Location.X + 10, panelInner.Location.Y);
-        }
+            if (sender == btnScrollLeft)
+            {
+                panelInner.Location = new Point(panelInner.Location.X + 10, panelInner.Location.Y);
+            }
+            else if (sender == btnScrollRight)
+            {
+                panelInner.Location = new Point(panelInner.Location.X - 10, panelInner.Location.Y);
+            } // end if
+        } // end method
 
-        private void btnScrollRight_Click(object sender, EventArgs e)
+        private void btn_Click(object sender, EventArgs e)
         {
-            panelInner.Location = new Point(panelInner.Location.X - 10, panelInner.Location.Y);
-        }
+        } // end method
     }
 }

@@ -59,7 +59,7 @@
             // 
             // btnPull
             // 
-            this.btnPull.Location = new System.Drawing.Point(253, 88);
+            this.btnPull.Location = new System.Drawing.Point(252, 137);
             this.btnPull.Name = "btnPull";
             this.btnPull.Size = new System.Drawing.Size(75, 23);
             this.btnPull.TabIndex = 3;
@@ -69,7 +69,7 @@
             // 
             // btnCommit
             // 
-            this.btnCommit.Location = new System.Drawing.Point(91, 88);
+            this.btnCommit.Location = new System.Drawing.Point(90, 137);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(75, 23);
             this.btnCommit.TabIndex = 4;
@@ -79,7 +79,7 @@
             // 
             // btnPush
             // 
-            this.btnPush.Location = new System.Drawing.Point(172, 88);
+            this.btnPush.Location = new System.Drawing.Point(171, 137);
             this.btnPush.Name = "btnPush";
             this.btnPush.Size = new System.Drawing.Size(75, 23);
             this.btnPush.TabIndex = 5;
@@ -89,7 +89,7 @@
             // 
             // btnStatus
             // 
-            this.btnStatus.Location = new System.Drawing.Point(334, 88);
+            this.btnStatus.Location = new System.Drawing.Point(333, 137);
             this.btnStatus.Name = "btnStatus";
             this.btnStatus.Size = new System.Drawing.Size(75, 23);
             this.btnStatus.TabIndex = 7;
@@ -99,7 +99,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(10, 88);
+            this.btnAdd.Location = new System.Drawing.Point(9, 137);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 8;
@@ -149,7 +149,7 @@
             this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer2.Location = new System.Drawing.Point(13, 117);
+            this.splitContainer2.Location = new System.Drawing.Point(12, 166);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -164,9 +164,9 @@
             // 
             this.btnPanelGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPanelGroup.Location = new System.Drawing.Point(13, 482);
+            this.btnPanelGroup.Location = new System.Drawing.Point(10, 88);
             this.btnPanelGroup.Name = "btnPanelGroup";
-            this.btnPanelGroup.Size = new System.Drawing.Size(454, 43);
+            this.btnPanelGroup.Size = new System.Drawing.Size(457, 43);
             this.btnPanelGroup.TabIndex = 18;
             // 
             // ClientMainWindow
@@ -174,15 +174,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 537);
-            this.Controls.Add(this.btnPanelGroup);
             this.Controls.Add(this.splitContainer2);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnPanelGroup);
+            this.Controls.Add(this.tbDirectory);
             this.Controls.Add(this.btnStatus);
             this.Controls.Add(this.btnPush);
             this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.btnPull);
-            this.Controls.Add(this.tbDirectory);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientMainWindow";
             this.Text = "PreppieGit";

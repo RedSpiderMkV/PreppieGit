@@ -31,12 +31,12 @@
             this.btnScrollRight = new System.Windows.Forms.Button();
             this.btnScrollLeft = new System.Windows.Forms.Button();
             this.panelInner = new System.Windows.Forms.Panel();
-            this.panelOuter = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnStatus = new System.Windows.Forms.Button();
             this.btnPush = new System.Windows.Forms.Button();
             this.btnCommit = new System.Windows.Forms.Button();
             this.btnPull = new System.Windows.Forms.Button();
+            this.panelOuter = new System.Windows.Forms.Panel();
             this.panelInner.SuspendLayout();
             this.panelOuter.SuspendLayout();
             this.SuspendLayout();
@@ -45,11 +45,11 @@
             // 
             this.btnScrollRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnScrollRight.Location = new System.Drawing.Point(454, 6);
+            this.btnScrollRight.Location = new System.Drawing.Point(466, 6);
             this.btnScrollRight.Name = "btnScrollRight";
-            this.btnScrollRight.Size = new System.Drawing.Size(27, 32);
+            this.btnScrollRight.Size = new System.Drawing.Size(15, 32);
             this.btnScrollRight.TabIndex = 0;
-            this.btnScrollRight.Text = ">>";
+            this.btnScrollRight.Text = ">";
             this.btnScrollRight.UseVisualStyleBackColor = true;
             this.btnScrollRight.Click += new System.EventHandler(this.btnScrollRight_Click);
             // 
@@ -59,9 +59,9 @@
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.btnScrollLeft.Location = new System.Drawing.Point(0, 6);
             this.btnScrollLeft.Name = "btnScrollLeft";
-            this.btnScrollLeft.Size = new System.Drawing.Size(27, 32);
+            this.btnScrollLeft.Size = new System.Drawing.Size(15, 32);
             this.btnScrollLeft.TabIndex = 1;
-            this.btnScrollLeft.Text = "<<";
+            this.btnScrollLeft.Text = "<";
             this.btnScrollLeft.UseVisualStyleBackColor = true;
             this.btnScrollLeft.Click += new System.EventHandler(this.btnScrollLeft_Click);
             // 
@@ -76,19 +76,8 @@
             this.panelInner.Controls.Add(this.btnPull);
             this.panelInner.Location = new System.Drawing.Point(3, 3);
             this.panelInner.Name = "panelInner";
-            this.panelInner.Size = new System.Drawing.Size(406, 28);
+            this.panelInner.Size = new System.Drawing.Size(433, 28);
             this.panelInner.TabIndex = 11;
-            // 
-            // panelOuter
-            // 
-            this.panelOuter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelOuter.Controls.Add(this.panelInner);
-            this.panelOuter.Location = new System.Drawing.Point(33, 3);
-            this.panelOuter.Name = "panelOuter";
-            this.panelOuter.Size = new System.Drawing.Size(415, 35);
-            this.panelOuter.TabIndex = 12;
             // 
             // btnAdd
             // 
@@ -134,6 +123,17 @@
             this.btnPull.TabIndex = 9;
             this.btnPull.Text = "Pull";
             this.btnPull.UseVisualStyleBackColor = true;
+            // 
+            // panelOuter
+            // 
+            this.panelOuter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelOuter.Controls.Add(this.panelInner);
+            this.panelOuter.Location = new System.Drawing.Point(21, 3);
+            this.panelOuter.Name = "panelOuter";
+            this.panelOuter.Size = new System.Drawing.Size(439, 35);
+            this.panelOuter.TabIndex = 12;
             // 
             // ButtonGroup
             // 

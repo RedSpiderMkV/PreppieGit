@@ -49,7 +49,7 @@ namespace BasicGitClient
                 }
                 else
                 {
-                    //updateRtbOutput("\nNo comment added.  Not committed..", string.Empty);
+                    eventManager_m.TriggerNotificationEvent("\nNo comment added.  Not committed..");
                 } // end if
             }
         } // end method

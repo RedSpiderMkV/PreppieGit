@@ -41,7 +41,7 @@ namespace BasicGitClient
                 eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
                 eventManager_m.OnCredentialsUpdateRequired += new UIEventManager.UpdateCredentialsEvent(eventManager_m_OnCredentialsUpdateRequired);
                 eventManager_m.OnNewGitResponse += new UIEventManager.GitResponseEvent(eventManager_m_OnNewGitResponse);
-                eventManager_m.OnCompletionNotification += new UIEventManager.CommandCompletionNotificationEvent(eventManager_m_OnCompletionNotification);
+                eventManager_m.OnNewNotification += new UIEventManager.NotificationEvent(eventManager_m_OnCompletionNotification);
 
                 string defaultDir = xmlHandler_m.GetLastLocation();
                 tbDirectory.Text = defaultDir;

@@ -45,9 +45,21 @@ namespace BasicGitClient
         public delegate void NotificationEvent(string completionMessage);
         public event NotificationEvent OnNewNotification;
 
+        public delegate void NewRepoNameEvent(string newRepoName);
+        public event NewRepoNameEvent OnNewRepoName;
+
         #endregion
 
         #region Public Methods
+
+        public void TriggerNewRepoNameEvent(string repoName)
+        {
+            NewRepoNameEvent handler = OnNewRepoName;
+            if (handler != null)
+            {
+                OnNewRepoName(repoName);
+            } // end if
+        } // end method
 
         public void TriggerNotificationEvent(string message)
         {

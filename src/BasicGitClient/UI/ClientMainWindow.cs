@@ -41,7 +41,7 @@ namespace BasicGitClient
                 eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
                 eventManager_m.OnCredentialsUpdateRequired += new UIEventManager.UpdateCredentialsEvent(eventManager_m_OnCredentialsUpdateRequired);
                 eventManager_m.OnNewGitResponse += new UIEventManager.GitResponseEvent(eventManager_m_OnNewGitResponse);
-                eventManager_m.OnNewNotification += new UIEventManager.NotificationEvent(eventManager_m_OnCompletionNotification);
+                eventManager_m.OnNewNotification += new UIEventManager.NotificationEvent(eventManager_m_OnNewNotification);
                 eventManager_m.OnCursorChangeRequired += new UIEventManager.CursorChangeRequiredEvent(eventManager_m_OnCursorChangeRequired);
 
                 string defaultDir = xmlHandler_m.GetLastLocation();
@@ -67,7 +67,7 @@ namespace BasicGitClient
                 btnGroup_m.Height = btnPanelGroup.Height;
                 btnPanelGroup.Controls.Add(btnGroup_m);
 
-                runCommand(GitCommands.VERSION);
+                eventManager_m.TriggerNewGitCommandEvent(GitCommands.VERSION);
             }
             catch (Win32Exception)
             {
@@ -95,7 +95,7 @@ namespace BasicGitClient
             } // end if
         } // end method
 
-        private void eventManager_m_OnCompletionNotification(string completionMessage)
+        private void eventManager_m_OnNewNotification(string completionMessage)
         {
             updateRtbOutput(completionMessage, String.Empty);
         } // end method
@@ -133,61 +133,17 @@ namespace BasicGitClient
             updateRepoName();
         } // end method
 
-        #region Helper Methods
-
-        private void runCommand(string command)
-        {
-            eventManager_m.TriggerNewGitCommandEvent(command);
-        }
-
         private void updateRtbOutput(string output, string error)
         {
             if (output == string.Empty && error == string.Empty)
             {
                 output = "Error running command..." + Environment.NewLine;
-            }
+            } // end if
 
             rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
             rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
             rtbOutput.AppendText(Environment.NewLine);
-        }
-
-        private void addAll()
-        {
-            eventManager_m.TriggerNewGitCommandEvent(GitCommands.ADD_ALL);
         } // end method
-
-        private void commitChanges()
-        {
-            CommitCommentWindow commitWindow = new CommitCommentWindow();
-            commitWindow.ShowDialog();
-
-            string comment = commitWindow.CommitComment;
-
-            if (comment != String.Empty)
-            {
-                string command = GitCommands.COMMIT + " " + comment;
-                eventManager_m.TriggerNewGitCommandEvent(command);
-            }
-            else
-            {
-                updateRtbOutput("\nNo comment added.  Not committed..", string.Empty);
-            } // end if
-        } // end method
-
-        private void pushCommits()
-        {
-            string username, password;
-            xmlHandler_m.GetCredentials(out username, out password);
-
-            string command = String.Format(GitCommands.PUSH, username, password, repoName_m);
-            runCommand(command);
-
-            // push then pull required due to master/origin local mismatch
-            runCommand(GitCommands.PULL);
-        } // end method
-
-        #endregion
 
         private void rtbOutput_TextChanged(object sender, EventArgs e)
         {

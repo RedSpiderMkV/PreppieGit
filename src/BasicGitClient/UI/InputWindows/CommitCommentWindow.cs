@@ -31,6 +31,11 @@ namespace BasicGitClient
                 commitComment();
             }
 
+            if (e.KeyData == Keys.Escape)
+            {
+                this.Close();
+            } // end if
+
             if (e.Control && e.KeyCode == Keys.A)
             {
                 tbComment.SelectAll();

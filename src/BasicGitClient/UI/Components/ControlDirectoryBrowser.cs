@@ -99,10 +99,19 @@ namespace BasicGitClient
             lbFileList.Items.Clear();
             DirectoryInfo nodeDirInfo = (DirectoryInfo)currentSelectedNode_m.Tag;
 
-            foreach (FileInfo file in nodeDirInfo.GetFiles())
+            try
             {
-                lbFileList.Items.Add(file.Name);
-            } // end foreach
+                foreach (FileInfo file in nodeDirInfo.GetFiles())
+                {
+                    lbFileList.Items.Add(file.Name);
+                } // end foreach
+            }
+            catch (DirectoryNotFoundException)
+            {
+                // directory may have been deleted/renamed
+                populateTreeView();
+                populateFileList();
+            } // end try-catch
         } // end method
 
         private void tvDirectoryList_AfterSelect(object sender, TreeViewEventArgs e)

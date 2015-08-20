@@ -11,7 +11,7 @@ namespace BasicGitClient
 {
     internal partial class OutputDataTextBox : UserControl
     {
-        private UIEventManager eventManager_m;
+        #region Public Methods
 
         public OutputDataTextBox(UIEventManager eventManager, int width, int height)
         {
@@ -28,6 +28,10 @@ namespace BasicGitClient
             eventManager_m.OnNewNotification += new UIEventManager.NotificationEvent(eventManager_m_OnNewNotification);
             eventManager_m.OnNewGitResponse += new UIEventManager.GitResponseEvent(eventManager_m_OnNewGitResponse);
         } // end method
+
+        #endregion
+
+        #region Private Methods
 
         private void eventManager_m_OnNewGitResponse(string output, string error)
         {
@@ -75,5 +79,14 @@ namespace BasicGitClient
             rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
             rtbOutput.AppendText(Environment.NewLine);
         } // end method
+
+        #endregion
+
+        #region Private Data
+
+        // Event manager
+        private UIEventManager eventManager_m;
+
+        #endregion
     }
 }

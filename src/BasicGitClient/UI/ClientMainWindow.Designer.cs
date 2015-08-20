@@ -35,7 +35,7 @@
             this.cMenuOutputBox = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cMenuOutputBox_Clear = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.btnPanelGroup = new System.Windows.Forms.Panel();
+            this.btnPanelGroup_m = new System.Windows.Forms.Panel();
             this.cMenuOutputBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.SuspendLayout();
@@ -87,12 +87,12 @@
             // 
             // btnPanelGroup
             // 
-            this.btnPanelGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.btnPanelGroup_m.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPanelGroup.Location = new System.Drawing.Point(10, 88);
-            this.btnPanelGroup.Name = "btnPanelGroup";
-            this.btnPanelGroup.Size = new System.Drawing.Size(457, 43);
-            this.btnPanelGroup.TabIndex = 18;
+            this.btnPanelGroup_m.Location = new System.Drawing.Point(10, 88);
+            this.btnPanelGroup_m.Name = "btnPanelGroup";
+            this.btnPanelGroup_m.Size = new System.Drawing.Size(457, 43);
+            this.btnPanelGroup_m.TabIndex = 18;
             // 
             // ClientMainWindow
             // 
@@ -101,7 +101,7 @@
             this.ClientSize = new System.Drawing.Size(481, 537);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnPanelGroup);
+            this.Controls.Add(this.btnPanelGroup_m);
             this.Controls.Add(this.tbDirectory);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientMainWindow";
@@ -121,7 +121,7 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ContextMenuStrip cMenuOutputBox;
         private System.Windows.Forms.ToolStripMenuItem cMenuOutputBox_Clear;
-        private System.Windows.Forms.Panel btnPanelGroup;
+        private System.Windows.Forms.Panel btnPanelGroup_m;
     }
 }
 

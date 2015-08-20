@@ -21,6 +21,7 @@ namespace BasicGitClient
         private UIEventManager eventManager_m;
         private UIActionEventManager actionEventManager_m;
         private ButtonGroup btnGroup_m;
+        private OutputDataTextBox outputDataTextBox_m;
 
         #endregion
 
@@ -57,6 +58,11 @@ namespace BasicGitClient
                 directoryBrowser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 
                 splitContainer2.Panel1.Controls.Add(directoryBrowser);
+                
+                outputDataTextBox_m = new OutputDataTextBox(eventManager_m);
+                outputDataTextBox_m.Width = splitContainer2.Panel2.Width;
+                outputDataTextBox_m.Height = splitContainer2.Panel2.Height;
+                splitContainer2.Panel2.Controls.Add(outputDataTextBox_m);
 
                 MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, actionEventManager_m, defaultDir)).GetMainMenuStrip();
                 this.Controls.Add(menuStrip);
@@ -97,12 +103,12 @@ namespace BasicGitClient
 
         private void eventManager_m_OnNewNotification(string completionMessage)
         {
-            updateRtbOutput(completionMessage, String.Empty);
+            //updateRtbOutput(completionMessage, String.Empty);
         } // end method
 
         private void eventManager_m_OnNewGitResponse(string output, string error)
         {
-            updateRtbOutput(output, error);
+            //updateRtbOutput(output, error);
         } // end method
 
         private void eventManager_m_OnCredentialsUpdateRequired(bool showMessage)
@@ -133,46 +139,46 @@ namespace BasicGitClient
             updateRepoName();
         } // end method
 
-        private void updateRtbOutput(string output, string error)
-        {
-            if (output == string.Empty && error == string.Empty)
-            {
-                output = "Error running command..." + Environment.NewLine;
-            } // end if
+        //private void updateRtbOutput(string output, string error)
+        //{
+        //    if (output == string.Empty && error == string.Empty)
+        //    {
+        //        output = "Error running command..." + Environment.NewLine;
+        //    } // end if
 
-            rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-            rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
-            rtbOutput.AppendText(Environment.NewLine);
-        } // end method
+        //    rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
+        //    rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
+        //    rtbOutput.AppendText(Environment.NewLine);
+        //} // end method
 
-        private void rtbOutput_TextChanged(object sender, EventArgs e)
-        {
-            for (int i = 0; i < rtbOutput.Lines.Length; ++i)
-            {
-                if (rtbOutput.Lines[i].Contains("modified: ")
-                    || rtbOutput.Lines[i].Contains("renamed: ")
-                    || rtbOutput.Lines[i].Contains("deleted: "))
-                {
-                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
-                    rtbOutput.SelectionColor = Color.DarkRed;
-                    rtbOutput.SelectionFont = new Font(rtbOutput.SelectionFont, FontStyle.Bold);
-                }
+        //private void rtbOutput_TextChanged(object sender, EventArgs e)
+        //{
+        //    for (int i = 0; i < rtbOutput.Lines.Length; ++i)
+        //    {
+        //        if (rtbOutput.Lines[i].Contains("modified: ")
+        //            || rtbOutput.Lines[i].Contains("renamed: ")
+        //            || rtbOutput.Lines[i].Contains("deleted: "))
+        //        {
+        //            rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
+        //            rtbOutput.SelectionColor = Color.DarkRed;
+        //            rtbOutput.SelectionFont = new Font(rtbOutput.SelectionFont, FontStyle.Bold);
+        //        }
 
-                if (rtbOutput.Lines[i].Contains("new file: "))
-                {
-                    rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
-                    rtbOutput.SelectionColor = Color.DarkGreen;
-                    rtbOutput.SelectionFont = new Font(rtbOutput.SelectionFont, FontStyle.Bold);
-                }
-            }
+        //        if (rtbOutput.Lines[i].Contains("new file: "))
+        //        {
+        //            rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
+        //            rtbOutput.SelectionColor = Color.DarkGreen;
+        //            rtbOutput.SelectionFont = new Font(rtbOutput.SelectionFont, FontStyle.Bold);
+        //        }
+        //    }
 
-            rtbOutput.SelectionStart = rtbOutput.TextLength;
-            rtbOutput.ScrollToCaret();
-        }
+        //    rtbOutput.SelectionStart = rtbOutput.TextLength;
+        //    rtbOutput.ScrollToCaret();
+        //}
 
         private void cMenuOutputBox_Clear_Click(object sender, EventArgs e)
         {
-            rtbOutput.Clear();
+            //rtbOutput.Clear();
         }
 
         private void updateRepoName()

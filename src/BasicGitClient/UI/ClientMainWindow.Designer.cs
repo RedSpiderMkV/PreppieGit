@@ -32,14 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientMainWindow));
             this.tbDirectory = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.cMenuOutputBox = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cMenuOutputBox_Clear = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btnPanelGroup = new System.Windows.Forms.Panel();
             this.cMenuOutputBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,20 +58,6 @@
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "Git Location";
-            // 
-            // rtbOutput
-            // 
-            this.rtbOutput.BackColor = System.Drawing.SystemColors.Window;
-            this.rtbOutput.ContextMenuStrip = this.cMenuOutputBox;
-            this.rtbOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbOutput.Location = new System.Drawing.Point(0, 0);
-            this.rtbOutput.Name = "rtbOutput";
-            this.rtbOutput.ReadOnly = true;
-            this.rtbOutput.Size = new System.Drawing.Size(454, 191);
-            this.rtbOutput.TabIndex = 14;
-            this.rtbOutput.Text = "";
-            this.rtbOutput.WordWrap = false;
-            this.rtbOutput.TextChanged += new System.EventHandler(this.rtbOutput_TextChanged);
             // 
             // cMenuOutputBox
             // 
@@ -97,10 +81,6 @@
             this.splitContainer2.Location = new System.Drawing.Point(12, 137);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.rtbOutput);
             this.splitContainer2.Size = new System.Drawing.Size(454, 388);
             this.splitContainer2.SplitterDistance = 193;
             this.splitContainer2.TabIndex = 17;
@@ -127,7 +107,6 @@
             this.Name = "ClientMainWindow";
             this.Text = "PreppieGit";
             this.cMenuOutputBox.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -139,7 +118,6 @@
 
         private System.Windows.Forms.TextBox tbDirectory;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox rtbOutput;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ContextMenuStrip cMenuOutputBox;
         private System.Windows.Forms.ToolStripMenuItem cMenuOutputBox_Clear;

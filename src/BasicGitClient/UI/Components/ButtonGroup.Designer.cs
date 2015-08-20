@@ -61,6 +61,7 @@
             // 
             // btnStatus
             // 
+            this.btnStatus.FlatAppearance.BorderSize = 0;
             this.btnStatus.Location = new System.Drawing.Point(324, 0);
             this.btnStatus.Name = "btnStatus";
             this.btnStatus.Size = new System.Drawing.Size(75, 33);

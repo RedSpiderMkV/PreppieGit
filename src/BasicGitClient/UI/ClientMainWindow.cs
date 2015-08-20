@@ -41,8 +41,6 @@ namespace BasicGitClient
 
                 eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
                 eventManager_m.OnCredentialsUpdateRequired += new UIEventManager.UpdateCredentialsEvent(eventManager_m_OnCredentialsUpdateRequired);
-                eventManager_m.OnNewGitResponse += new UIEventManager.GitResponseEvent(eventManager_m_OnNewGitResponse);
-                eventManager_m.OnNewNotification += new UIEventManager.NotificationEvent(eventManager_m_OnNewNotification);
                 eventManager_m.OnCursorChangeRequired += new UIEventManager.CursorChangeRequiredEvent(eventManager_m_OnCursorChangeRequired);
 
                 string defaultDir = xmlHandler_m.GetLastLocation();
@@ -98,16 +96,6 @@ namespace BasicGitClient
             } // end if
         } // end method
 
-        private void eventManager_m_OnNewNotification(string completionMessage)
-        {
-            //updateRtbOutput(completionMessage, String.Empty);
-        } // end method
-
-        private void eventManager_m_OnNewGitResponse(string output, string error)
-        {
-            //updateRtbOutput(output, error);
-        } // end method
-
         private void eventManager_m_OnCredentialsUpdateRequired(bool showMessage)
         {
             // Consider having this event handled in a separate class altogether
@@ -135,43 +123,6 @@ namespace BasicGitClient
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
             updateRepoName();
         } // end method
-
-        //private void updateRtbOutput(string output, string error)
-        //{
-        //    if (output == string.Empty && error == string.Empty)
-        //    {
-        //        output = "Error running command..." + Environment.NewLine;
-        //    } // end if
-
-        //    rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));
-        //    rtbOutput.AppendText(error.Replace("\n", Environment.NewLine));
-        //    rtbOutput.AppendText(Environment.NewLine);
-        //} // end method
-
-        //private void rtbOutput_TextChanged(object sender, EventArgs e)
-        //{
-        //    for (int i = 0; i < rtbOutput.Lines.Length; ++i)
-        //    {
-        //        if (rtbOutput.Lines[i].Contains("modified: ")
-        //            || rtbOutput.Lines[i].Contains("renamed: ")
-        //            || rtbOutput.Lines[i].Contains("deleted: "))
-        //        {
-        //            rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
-        //            rtbOutput.SelectionColor = Color.DarkRed;
-        //            rtbOutput.SelectionFont = new Font(rtbOutput.SelectionFont, FontStyle.Bold);
-        //        }
-
-        //        if (rtbOutput.Lines[i].Contains("new file: "))
-        //        {
-        //            rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
-        //            rtbOutput.SelectionColor = Color.DarkGreen;
-        //            rtbOutput.SelectionFont = new Font(rtbOutput.SelectionFont, FontStyle.Bold);
-        //        }
-        //    }
-
-        //    rtbOutput.SelectionStart = rtbOutput.TextLength;
-        //    rtbOutput.ScrollToCaret();
-        //}
 
         private void cMenuOutputBox_Clear_Click(object sender, EventArgs e)
         {

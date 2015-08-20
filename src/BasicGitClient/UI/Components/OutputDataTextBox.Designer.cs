@@ -33,9 +33,13 @@
             // 
             // rtbOutput
             // 
-            this.rtbOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbOutput.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.rtbOutput.Location = new System.Drawing.Point(0, 0);
             this.rtbOutput.Name = "rtbOutput";
+            this.rtbOutput.ReadOnly = true;
             this.rtbOutput.Size = new System.Drawing.Size(150, 150);
             this.rtbOutput.TabIndex = 0;
             this.rtbOutput.Text = "";

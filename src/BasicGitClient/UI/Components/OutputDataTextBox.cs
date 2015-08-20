@@ -19,6 +19,9 @@ namespace BasicGitClient
 
             this.Width = width;
             this.Height = height;
+            this.Dock = DockStyle.Fill;
+
+            this.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
 
             eventManager_m = eventManager;
 

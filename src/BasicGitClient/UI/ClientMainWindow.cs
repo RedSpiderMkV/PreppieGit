@@ -48,10 +48,7 @@ namespace BasicGitClient
                 tbDirectory.SelectionStart = tbDirectory.TextLength;
                 eventManager_m.TriggerDirectoryChangedEvent(defaultDir);
 
-                ControlDirectoryBrowser directoryBrowser = new ControlDirectoryBrowser(eventManager_m, defaultDir, splitContainer2.Panel1.Height);
-                directoryBrowser.Width = splitContainer2.Panel1.Width;
-                directoryBrowser.Height = splitContainer2.Panel1.Height;
-                directoryBrowser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                ControlDirectoryBrowser directoryBrowser = new ControlDirectoryBrowser(eventManager_m, defaultDir, splitContainer2.Panel1.Width, splitContainer2.Panel1.Height);
                 splitContainer2.Panel1.Controls.Add(directoryBrowser);
                 
                 outputDataTextBox_m = new OutputDataTextBox(eventManager_m, splitContainer2.Panel2.Width, splitContainer2.Panel2.Height);

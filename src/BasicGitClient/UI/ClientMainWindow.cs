@@ -50,18 +50,13 @@ namespace BasicGitClient
                 tbDirectory.SelectionStart = tbDirectory.TextLength;
                 eventManager_m.TriggerDirectoryChangedEvent(defaultDir);
 
-                updateRepoName();
-
                 ControlDirectoryBrowser directoryBrowser = new ControlDirectoryBrowser(eventManager_m, defaultDir, splitContainer2.Panel1.Height);
                 directoryBrowser.Width = splitContainer2.Panel1.Width;
                 directoryBrowser.Height = splitContainer2.Panel1.Height;
                 directoryBrowser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                
                 splitContainer2.Panel1.Controls.Add(directoryBrowser);
                 
-                outputDataTextBox_m = new OutputDataTextBox(eventManager_m);
-                outputDataTextBox_m.Width = splitContainer2.Panel2.Width;
-                outputDataTextBox_m.Height = splitContainer2.Panel2.Height;
+                outputDataTextBox_m = new OutputDataTextBox(eventManager_m, splitContainer2.Panel2.Width, splitContainer2.Panel2.Height);
                 splitContainer2.Panel2.Controls.Add(outputDataTextBox_m);
 
                 MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, actionEventManager_m, defaultDir)).GetMainMenuStrip();
@@ -72,6 +67,8 @@ namespace BasicGitClient
                 btnGroup_m.Width = btnPanelGroup.Width;
                 btnGroup_m.Height = btnPanelGroup.Height;
                 btnPanelGroup.Controls.Add(btnGroup_m);
+
+                updateRepoName();
 
                 eventManager_m.TriggerNewGitCommandEvent(GitCommands.VERSION);
             }

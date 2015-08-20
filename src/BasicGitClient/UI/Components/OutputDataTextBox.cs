@@ -13,9 +13,12 @@ namespace BasicGitClient
     {
         private UIEventManager eventManager_m;
 
-        public OutputDataTextBox(UIEventManager eventManager)
+        public OutputDataTextBox(UIEventManager eventManager, int width, int height)
         {
             InitializeComponent();
+
+            this.Width = width;
+            this.Height = height;
 
             eventManager_m = eventManager;
 

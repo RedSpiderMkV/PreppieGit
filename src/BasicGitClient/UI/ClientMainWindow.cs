@@ -57,10 +57,7 @@ namespace BasicGitClient
                 MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, actionEventManager_m, defaultDir)).GetMainMenuStrip();
                 this.Controls.Add(menuStrip);
 
-                btnGroup_m = new ButtonGroup(eventManager_m, xmlHandler_m, repoName_m);
-                btnGroup_m.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-                btnGroup_m.Width = btnPanelGroup.Width;
-                btnGroup_m.Height = btnPanelGroup.Height;
+                btnGroup_m = new ButtonGroup(eventManager_m, xmlHandler_m, repoName_m, btnPanelGroup.Width, btnPanelGroup.Height);
                 btnPanelGroup.Controls.Add(btnGroup_m);
 
                 updateRepoName();

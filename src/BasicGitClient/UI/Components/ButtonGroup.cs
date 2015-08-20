@@ -13,8 +13,13 @@ namespace BasicGitClient
     {
         #region Constructors
 
-        internal ButtonGroup(UIEventManager eventManager, XmlHandler xmlHandler, string repoName)
+        internal ButtonGroup(UIEventManager eventManager, XmlHandler xmlHandler, string repoName, int width, int height)
         {
+            this.Width = width;
+            this.Height = height;
+
+            this.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+
             eventManager_m = eventManager;
             xmlHandler_m = xmlHandler;
             repoName_m = repoName;

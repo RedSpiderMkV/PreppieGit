@@ -85,12 +85,12 @@
             this.splitContainer2.SplitterDistance = 193;
             this.splitContainer2.TabIndex = 17;
             // 
-            // btnPanelGroup
+            // btnPanelGroup_m
             // 
             this.btnPanelGroup_m.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPanelGroup_m.Location = new System.Drawing.Point(10, 88);
-            this.btnPanelGroup_m.Name = "btnPanelGroup";
+            this.btnPanelGroup_m.Name = "btnPanelGroup_m";
             this.btnPanelGroup_m.Size = new System.Drawing.Size(457, 43);
             this.btnPanelGroup_m.TabIndex = 18;
             // 

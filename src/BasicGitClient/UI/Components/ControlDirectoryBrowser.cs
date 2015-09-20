@@ -139,14 +139,9 @@ namespace BasicGitClient
             currentSelectedNode_m = e.Node;
             tvDirectoryList.SelectedNode = e.Node;
 
-            if (tvDirectoryList.SelectedNode.IsExpanded)
-            {
-                tvDirectoryList.SelectedNode.ImageIndex = tvDirectoryList.SelectedNode.SelectedImageIndex = (int)DirectoryState.OPEN;
-            }
-            else
-            {
-                tvDirectoryList.SelectedNode.ImageIndex = tvDirectoryList.SelectedNode.SelectedImageIndex = (int)DirectoryState.CLOSED;
-            } // end if
+            tvDirectoryList.SelectedNode.ImageIndex =
+                tvDirectoryList.SelectedNode.SelectedImageIndex =
+                tvDirectoryList.SelectedNode.IsExpanded ? (int)DirectoryState.OPEN : (int)DirectoryState.CLOSED;
 
             populateFileList();
         } // end method

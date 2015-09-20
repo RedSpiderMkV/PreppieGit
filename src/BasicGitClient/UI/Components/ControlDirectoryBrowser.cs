@@ -268,41 +268,48 @@ namespace BasicGitClient
 
             string name;
 
-            switch (task)
+            try
             {
-                case DirectoryTask.CREATE:
-                    name = getStringFromDialogBox("New File", "Name");
+                switch (task)
+                {
+                    case DirectoryTask.CREATE:
+                        name = getStringFromDialogBox("New File", "Name");
 
-                    if (String.IsNullOrEmpty(name))
-                    {
+                        if (String.IsNullOrEmpty(name))
+                        {
+                            break;
+                        } // end if
+
+                        FileStream fs = File.Create(dirPath + "\\" + name);
+                        fs.Dispose();
                         break;
-                    } // end if
-
-                    FileStream fs = File.Create(dirPath + "\\" + name);
-                    fs.Dispose();
-                    break;
-                case DirectoryTask.DELETE:
-                    File.Delete(dirPath + "\\" + lbFileList.Text);
-                    break;
-                case DirectoryTask.OPEN:
-                    Process.Start(dirPath + "\\" + lbFileList.Text);
-                    break;
-                case DirectoryTask.RENAME:
-                    name = getStringFromDialogBox("Rename", "Name");
-
-                    if (String.IsNullOrEmpty(name))
-                    {
+                    case DirectoryTask.DELETE:
+                        File.Delete(dirPath + "\\" + lbFileList.Text);
                         break;
-                    } // end if
+                    case DirectoryTask.OPEN:
+                        Process.Start(dirPath + "\\" + lbFileList.Text);
+                        break;
+                    case DirectoryTask.RENAME:
+                        name = getStringFromDialogBox("Rename", "Name");
 
-                    string currentPath = dirPath + "\\" + lbFileList.Text;
-                    string newPath = dirPath + "\\" + name;
+                        if (String.IsNullOrEmpty(name))
+                        {
+                            break;
+                        } // end if
 
-                    File.Move(currentPath, newPath);
-                    break;
-                default:
-                    return;
-            } // end switch
+                        string currentPath = dirPath + "\\" + lbFileList.Text;
+                        string newPath = dirPath + "\\" + name;
+
+                        File.Move(currentPath, newPath);
+                        break;
+                    default:
+                        return;
+                } // end switch
+            }
+            catch (Exception)
+            {
+                // TODO: lazy error handling... do it right at some point
+            } // end try-catch
 
             populateFileList();
         } // end method

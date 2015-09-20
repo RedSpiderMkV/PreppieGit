@@ -82,7 +82,7 @@
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.splitContainer2.Size = new System.Drawing.Size(454, 388);
-            this.splitContainer2.SplitterDistance = 193;
+            this.splitContainer2.SplitterDistance = 245;
             this.splitContainer2.TabIndex = 17;
             // 
             // btnPanelGroup_m

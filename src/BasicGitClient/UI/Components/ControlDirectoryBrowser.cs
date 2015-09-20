@@ -306,9 +306,10 @@ namespace BasicGitClient
                         return;
                 } // end switch
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 // TODO: lazy error handling... do it right at some point
+                eventManager_m.TriggerNotificationEvent("Error occured: " + e.Message);
             } // end try-catch
 
             populateFileList();

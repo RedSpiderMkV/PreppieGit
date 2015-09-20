@@ -19,6 +19,12 @@ namespace BasicGitClient
         OPEN
     } // end enum
 
+    enum DirectoryState
+    {
+        CLOSED = 0,
+        OPEN = 1
+    } // end enum
+
     internal partial class ControlDirectoryBrowser : UserControl
     {
         public ControlDirectoryBrowser(UIEventManager eventManager, string currentDirectory, int width, int height)
@@ -30,6 +36,7 @@ namespace BasicGitClient
             tvDirectoryList.Location = lbFileList.Location = new Point(0, 0);
             tvDirectoryList.Height = lbFileList.Height = height;
             tvDirectoryList.Width = splitContainer1.Panel1.Width;
+
             lbFileList.Width = splitContainer1.Panel2.Width;
 
             this.Width = width;
@@ -131,6 +138,15 @@ namespace BasicGitClient
         {
             currentSelectedNode_m = e.Node;
             tvDirectoryList.SelectedNode = e.Node;
+
+            if (tvDirectoryList.SelectedNode.IsExpanded)
+            {
+                tvDirectoryList.SelectedNode.ImageIndex = tvDirectoryList.SelectedNode.SelectedImageIndex = (int)DirectoryState.OPEN;
+            }
+            else
+            {
+                tvDirectoryList.SelectedNode.ImageIndex = tvDirectoryList.SelectedNode.SelectedImageIndex = (int)DirectoryState.CLOSED;
+            } // end if
 
             populateFileList();
         } // end method

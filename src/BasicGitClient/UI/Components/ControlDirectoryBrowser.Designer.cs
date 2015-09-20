@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlDirectoryBrowser));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvDirectoryList = new System.Windows.Forms.TreeView();
             this.ctxMnuDirBrowser = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renameDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageListDirectory = new System.Windows.Forms.ImageList(this.components);
             this.lbFileList = new System.Windows.Forms.ListBox();
             this.ctxMnuFileBrowser = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,12 +75,16 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tvDirectoryList.ContextMenuStrip = this.ctxMnuDirBrowser;
+            this.tvDirectoryList.ImageIndex = 0;
+            this.tvDirectoryList.ImageList = this.imageListDirectory;
             this.tvDirectoryList.Location = new System.Drawing.Point(3, 3);
             this.tvDirectoryList.Name = "tvDirectoryList";
+            this.tvDirectoryList.SelectedImageIndex = 0;
             this.tvDirectoryList.Size = new System.Drawing.Size(68, 144);
             this.tvDirectoryList.TabIndex = 0;
             this.tvDirectoryList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDirectoryList_AfterSelect);
             this.tvDirectoryList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvDirectoryList_NodeMouseClick);
+            this.tvDirectoryList.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvDirectoryList_NodeMouseClick);
             this.tvDirectoryList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvDirectoryList_KeyDown);
             // 
             // ctxMnuDirBrowser
@@ -110,6 +116,13 @@
             this.deleteDirectoryToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.deleteDirectoryToolStripMenuItem.Text = "Delete Directory";
             this.deleteDirectoryToolStripMenuItem.Click += new System.EventHandler(this.toolStripDirectoryMenuItem_Click);
+            // 
+            // imageListDirectory
+            // 
+            this.imageListDirectory.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListDirectory.ImageStream")));
+            this.imageListDirectory.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListDirectory.Images.SetKeyName(0, "closedFolder.png");
+            this.imageListDirectory.Images.SetKeyName(1, "openFolder.png");
             // 
             // lbFileList
             // 
@@ -199,5 +212,6 @@
         private System.Windows.Forms.ToolStripMenuItem deleteFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ImageList imageListDirectory;
     }
 }

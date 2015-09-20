@@ -130,5 +130,5 @@ namespace BasicGitClient
 
             eventManager_m.TriggerNewRepoNameEvent(repoName_m);
         } // end method
-    }
-}
+    } // end class
+} // end namespace

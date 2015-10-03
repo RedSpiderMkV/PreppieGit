@@ -163,7 +163,7 @@ namespace BasicGitClient
 
         private void toolStripDirectoryMenuItem_Click(object sender, EventArgs e)
         {
-            int task = (int)((ToolStripMenuItem)sender).Tag;
+            int task = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
             switch(task)
             {
                 case (int)FileContextMenuItem.NEWFILE:
@@ -185,7 +185,7 @@ namespace BasicGitClient
 
         private void toolStripFileMenuItem_Click(object sender, EventArgs e)
         {
-            int task = (int)((ToolStripMenuItem)sender).Tag;
+            int task = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
             switch (task)
             {
                 case (int)FileContextMenuItem.NEWFILE:

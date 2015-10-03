@@ -25,6 +25,14 @@ namespace BasicGitClient
         OPEN = 1
     } // end enum
 
+    enum FileContextMenuItem
+    {
+        NEWFILE = 0,
+        OPENFILE = 1,
+        RENAMEFILE = 2,
+        DELETEFILE = 3
+    } // end enum
+
     internal partial class ControlDirectoryBrowser : UserControl
     {
         public ControlDirectoryBrowser(UIEventManager eventManager, string currentDirectory, int width, int height)
@@ -66,17 +74,16 @@ namespace BasicGitClient
             tvDirectoryList.Nodes.Clear();
             lbFileList.Items.Clear();
 
-            TreeNode rootNode;
             DirectoryInfo info = new DirectoryInfo(currentDirectoryPath_m);
 
             if (info.Exists)
             {
-                rootNode = new TreeNode(info.Name);
+                TreeNode rootNode = new TreeNode(info.Name);
                 rootNode.Tag = info;
                 addDirectoriesToNode(info.GetDirectories(), rootNode);
                 tvDirectoryList.Nodes.Add(rootNode);
             } // end if
-        }
+        } // end method
 
         private void addDirectoriesToNode(DirectoryInfo[] subDirs, TreeNode nodeToAddTo)
         {
@@ -172,22 +179,22 @@ namespace BasicGitClient
 
         private void toolStripFileMenuItem_Click(object sender, EventArgs e)
         {
-            if (sender == newFileToolStripMenuItem)
+            int task = (int)((ToolStripMenuItem)sender).Tag;
+            switch (task)
             {
-                fileModifyToolstripHandler(DirectoryTask.CREATE);
-            }
-            else if (sender == renameFileToolStripMenuItem)
-            {
-                fileModifyToolstripHandler(DirectoryTask.RENAME);
-            }
-            else if (sender == deleteFileToolStripMenuItem)
-            {
-                fileModifyToolstripHandler(DirectoryTask.DELETE);
-            }
-            else if (sender == openFileToolStripMenuItem)
-            {
-                fileModifyToolstripHandler(DirectoryTask.OPEN);
-            } // end if
+                case (int)FileContextMenuItem.NEWFILE:
+                    fileModifyToolstripHandler(DirectoryTask.CREATE);
+                    break;
+                case (int)FileContextMenuItem.OPENFILE:
+                    fileModifyToolstripHandler(DirectoryTask.OPEN);
+                    break;
+                case (int)FileContextMenuItem.RENAMEFILE:
+                    fileModifyToolstripHandler(DirectoryTask.RENAME);
+                    break;
+                case (int)FileContextMenuItem.DELETEFILE:
+                    fileModifyToolstripHandler(DirectoryTask.DELETE);
+                    break;
+            } // end switch
         } // end method
 
         private void directoryModifyToolstripHandler(DirectoryTask task)

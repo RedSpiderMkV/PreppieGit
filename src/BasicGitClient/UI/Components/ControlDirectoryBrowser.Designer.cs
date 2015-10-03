@@ -152,6 +152,7 @@
             // 
             this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
             this.newFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newFileToolStripMenuItem.Tag = "0";
             this.newFileToolStripMenuItem.Text = "New File";
             this.newFileToolStripMenuItem.Click += new System.EventHandler(this.toolStripFileMenuItem_Click);
             // 
@@ -164,6 +165,7 @@
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
             this.openFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openFileToolStripMenuItem.Tag = "1";
             this.openFileToolStripMenuItem.Text = "Open File";
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.toolStripFileMenuItem_Click);
             // 
@@ -171,6 +173,7 @@
             // 
             this.renameFileToolStripMenuItem.Name = "renameFileToolStripMenuItem";
             this.renameFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.renameFileToolStripMenuItem.Tag = "2";
             this.renameFileToolStripMenuItem.Text = "Rename File";
             this.renameFileToolStripMenuItem.Click += new System.EventHandler(this.toolStripFileMenuItem_Click);
             // 
@@ -178,6 +181,7 @@
             // 
             this.deleteFileToolStripMenuItem.Name = "deleteFileToolStripMenuItem";
             this.deleteFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteFileToolStripMenuItem.Tag = "3";
             this.deleteFileToolStripMenuItem.Text = "Delete File";
             this.deleteFileToolStripMenuItem.Click += new System.EventHandler(this.toolStripFileMenuItem_Click);
             // 

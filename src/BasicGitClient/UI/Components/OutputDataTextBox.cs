@@ -72,7 +72,8 @@ namespace BasicGitClient
         {
             if (output == string.Empty && error == string.Empty)
             {
-                output = "Error running command..." + Environment.NewLine;
+                //output = "Error running command..." + Environment.NewLine;
+                output = Environment.NewLine;
             } // end if
 
             rtbOutput.AppendText(output.Replace("\n", Environment.NewLine));

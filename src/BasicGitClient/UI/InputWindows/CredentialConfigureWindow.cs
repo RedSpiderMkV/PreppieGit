@@ -54,12 +54,15 @@ namespace BasicGitClient
             Username = tbUsername.Text;
             Password = tbPassword.Text;
 
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
         } // end method
 
         private void cancelHandler()
         {
             ClearCredentials();
+
+            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
         } // end method
 

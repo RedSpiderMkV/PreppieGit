@@ -43,6 +43,7 @@
             this.rtbOutput.Size = new System.Drawing.Size(150, 150);
             this.rtbOutput.TabIndex = 0;
             this.rtbOutput.Text = "";
+            this.rtbOutput.WordWrap = false;
             this.rtbOutput.TextChanged += new System.EventHandler(this.rtbOutput_TextChanged);
             // 
             // OutputDataTextBox

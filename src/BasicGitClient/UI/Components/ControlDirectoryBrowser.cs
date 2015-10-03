@@ -194,6 +194,8 @@ namespace BasicGitClient
                 case (int)FileContextMenuItem.DELETEFILE:
                     fileModifyToolstripHandler(DirectoryTask.DELETE);
                     break;
+                default:
+                    return;
             } // end switch
         } // end method
 

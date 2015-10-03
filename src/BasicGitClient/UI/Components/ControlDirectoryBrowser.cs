@@ -163,18 +163,24 @@ namespace BasicGitClient
 
         private void toolStripDirectoryMenuItem_Click(object sender, EventArgs e)
         {
-            if (sender == newDirectoryToolStripMenuItem)
+            int task = (int)((ToolStripMenuItem)sender).Tag;
+            switch(task)
             {
-                directoryModifyToolstripHandler(DirectoryTask.CREATE);
-            }
-            else if (sender == renameDirectoryToolStripMenuItem)
-            {
-                directoryModifyToolstripHandler(DirectoryTask.RENAME);
-            }
-            else if (sender == deleteDirectoryToolStripMenuItem)
-            {
-                directoryModifyToolstripHandler(DirectoryTask.DELETE);
-            } // end if
+                case (int)FileContextMenuItem.NEWFILE:
+                    directoryModifyToolstripHandler(DirectoryTask.CREATE);
+                    break;
+                case (int)FileContextMenuItem.OPENFILE:
+                    directoryModifyToolstripHandler(DirectoryTask.OPEN);
+                    break;
+                case (int)FileContextMenuItem.RENAMEFILE:
+                    directoryModifyToolstripHandler(DirectoryTask.RENAME);
+                    break;
+                case (int)FileContextMenuItem.DELETEFILE:
+                    directoryModifyToolstripHandler(DirectoryTask.DELETE);
+                    break;
+                default:
+                    return;
+            } // end switch
         } // end method
 
         private void toolStripFileMenuItem_Click(object sender, EventArgs e)

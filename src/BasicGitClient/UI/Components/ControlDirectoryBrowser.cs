@@ -11,26 +11,18 @@ using System.Windows.Forms;
 
 namespace BasicGitClient
 {
-    enum DirectoryTask
-    {
-        CREATE,
-        RENAME,
-        DELETE,
-        OPEN
-    } // end enum
-
     enum DirectoryState
     {
         CLOSED = 0,
         OPEN = 1
     } // end enum
 
-    enum FileContextMenuItem
+    enum ContextMenuItemTask
     {
-        NEWFILE = 0,
-        OPENFILE = 1,
-        RENAMEFILE = 2,
-        DELETEFILE = 3
+        CREATE = 0,
+        OPEN = 1,
+        RENAME = 2,
+        DELETE = 3
     } // end enum
 
     internal partial class ControlDirectoryBrowser : UserControl
@@ -163,55 +155,23 @@ namespace BasicGitClient
 
         private void toolStripDirectoryMenuItem_Click(object sender, EventArgs e)
         {
-            int task = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
-            switch(task)
-            {
-                case (int)FileContextMenuItem.NEWFILE:
-                    directoryModifyToolstripHandler(DirectoryTask.CREATE);
-                    break;
-                case (int)FileContextMenuItem.OPENFILE:
-                    directoryModifyToolstripHandler(DirectoryTask.OPEN);
-                    break;
-                case (int)FileContextMenuItem.RENAMEFILE:
-                    directoryModifyToolstripHandler(DirectoryTask.RENAME);
-                    break;
-                case (int)FileContextMenuItem.DELETEFILE:
-                    directoryModifyToolstripHandler(DirectoryTask.DELETE);
-                    break;
-                default:
-                    return;
-            } // end switch
+            ContextMenuItemTask task = (ContextMenuItemTask)Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
+            directoryModifyToolstripHandler(task);
         } // end method
 
         private void toolStripFileMenuItem_Click(object sender, EventArgs e)
         {
-            int task = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
-            switch (task)
-            {
-                case (int)FileContextMenuItem.NEWFILE:
-                    fileModifyToolstripHandler(DirectoryTask.CREATE);
-                    break;
-                case (int)FileContextMenuItem.OPENFILE:
-                    fileModifyToolstripHandler(DirectoryTask.OPEN);
-                    break;
-                case (int)FileContextMenuItem.RENAMEFILE:
-                    fileModifyToolstripHandler(DirectoryTask.RENAME);
-                    break;
-                case (int)FileContextMenuItem.DELETEFILE:
-                    fileModifyToolstripHandler(DirectoryTask.DELETE);
-                    break;
-                default:
-                    return;
-            } // end switch
+            ContextMenuItemTask task = (ContextMenuItemTask)Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
+            fileModifyToolstripHandler(task);
         } // end method
 
-        private void directoryModifyToolstripHandler(DirectoryTask task)
+        private void directoryModifyToolstripHandler(ContextMenuItemTask task)
         {
             string dirPath = getDirectoryPath();
 
             switch (task)
             {
-                case DirectoryTask.CREATE:
+                case ContextMenuItemTask.CREATE:
                     string name = getStringFromDialogBox("New Directory", "Name");
 
                     if (String.IsNullOrEmpty(name))
@@ -230,13 +190,13 @@ namespace BasicGitClient
                     
                     Directory.CreateDirectory(dirPath);
                     break;
-                case DirectoryTask.DELETE:
+                case ContextMenuItemTask.DELETE:
                     if (!String.IsNullOrEmpty(dirPath))
                     {
                         Directory.Delete(dirPath, true);
                     } // end if
                     break;
-                case DirectoryTask.RENAME:
+                case ContextMenuItemTask.RENAME:
                     if (!String.IsNullOrEmpty(dirPath))
                     {
                         string newName = getStringFromDialogBox("Rename", "Name");
@@ -267,7 +227,7 @@ namespace BasicGitClient
             lbFileList.Items.Clear();
         } // end method
 
-        private void fileModifyToolstripHandler(DirectoryTask task)
+        private void fileModifyToolstripHandler(ContextMenuItemTask task)
         {
             string dirPath = getDirectoryPath();
 
@@ -282,7 +242,7 @@ namespace BasicGitClient
             {
                 switch (task)
                 {
-                    case DirectoryTask.CREATE:
+                    case ContextMenuItemTask.CREATE:
                         name = getStringFromDialogBox("New File", "Name");
 
                         if (String.IsNullOrEmpty(name))
@@ -293,13 +253,13 @@ namespace BasicGitClient
                         FileStream fs = File.Create(dirPath + "\\" + name);
                         fs.Dispose();
                         break;
-                    case DirectoryTask.DELETE:
+                    case ContextMenuItemTask.DELETE:
                         File.Delete(dirPath + "\\" + lbFileList.Text);
                         break;
-                    case DirectoryTask.OPEN:
+                    case ContextMenuItemTask.OPEN:
                         Process.Start(dirPath + "\\" + lbFileList.Text);
                         break;
-                    case DirectoryTask.RENAME:
+                    case ContextMenuItemTask.RENAME:
                         name = getStringFromDialogBox("Rename", "Name");
 
                         if (String.IsNullOrEmpty(name))

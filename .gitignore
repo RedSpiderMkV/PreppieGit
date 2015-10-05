@@ -2,5 +2,5 @@ src/BasicGitClient/bin
 src/BasicGitClient/obj
 src/Installer/bin
 src/Installer/obj
-src/BasicGitClient.suo
+src/BasicGitClient.suo`
 *.suo

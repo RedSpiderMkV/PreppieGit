@@ -81,6 +81,11 @@ namespace BasicGitClient
             rtbOutput.AppendText(Environment.NewLine);
         } // end method
 
+        private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbOutput.Text = "";
+        } // end method
+
         #endregion
 
         #region Private Data
@@ -89,5 +94,5 @@ namespace BasicGitClient
         private UIEventManager eventManager_m;
 
         #endregion
-    }
-}
+    } // end class
+} // end namespace

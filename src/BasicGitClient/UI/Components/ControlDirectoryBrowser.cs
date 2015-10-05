@@ -223,7 +223,6 @@ namespace BasicGitClient
                 case ContextMenuItemTask.SHOW:
                     Process.Start(dirPath);
                     return;
-                    break;
                 default:
                     return;
             } // end switch

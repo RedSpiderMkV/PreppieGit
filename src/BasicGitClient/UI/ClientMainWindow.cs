@@ -118,11 +118,6 @@ namespace BasicGitClient
             updateRepoName();
         } // end method
 
-        private void cMenuOutputBox_Clear_Click(object sender, EventArgs e)
-        {
-            //rtbOutput.Clear();
-        }
-
         private void updateRepoName()
         {
             string[] parts = tbDirectory.Text.Split('\\');

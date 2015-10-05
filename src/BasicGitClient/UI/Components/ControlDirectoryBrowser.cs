@@ -22,7 +22,8 @@ namespace BasicGitClient
         CREATE = 0,
         OPEN = 1,
         RENAME = 2,
-        DELETE = 3
+        DELETE = 3,
+        SHOW = 4
     } // end enum
 
     internal partial class ControlDirectoryBrowser : UserControl
@@ -218,6 +219,10 @@ namespace BasicGitClient
 
                         Directory.Move(dirPath, newFullPath);
                     } // end if
+                    break;
+                case ContextMenuItemTask.SHOW:
+                    Process.Start(dirPath);
+                    return;
                     break;
                 default:
                     return;

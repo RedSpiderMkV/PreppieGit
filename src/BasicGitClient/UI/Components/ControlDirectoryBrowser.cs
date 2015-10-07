@@ -45,6 +45,7 @@ namespace BasicGitClient
             this.Width = width;
             this.Height = height;
             this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            splitContainer1.SplitterDistance = (int)(width * 0.35);
 
             populateTreeView();
             //populateFileList();

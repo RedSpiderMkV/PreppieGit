@@ -37,6 +37,8 @@ namespace BasicGitClient
             tvDirectoryList.Location = lbFileList.Location = new Point(0, 0);
             tvDirectoryList.Height = lbFileList.Height = height;
             tvDirectoryList.Width = splitContainer1.Panel1.Width;
+            tvDirectoryList.Scrollable = true;
+            tvDirectoryList.Dock = DockStyle.Fill;
 
             lbFileList.Width = splitContainer1.Panel2.Width;
 

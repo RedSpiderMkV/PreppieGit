@@ -75,16 +75,14 @@
             // 
             // tvDirectoryList
             // 
-            this.tvDirectoryList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tvDirectoryList.ContextMenuStrip = this.ctxMnuDirBrowser;
+            this.tvDirectoryList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvDirectoryList.ImageIndex = 0;
             this.tvDirectoryList.ImageList = this.imageListDirectory;
-            this.tvDirectoryList.Location = new System.Drawing.Point(3, 3);
+            this.tvDirectoryList.Location = new System.Drawing.Point(0, 0);
             this.tvDirectoryList.Name = "tvDirectoryList";
             this.tvDirectoryList.SelectedImageIndex = 0;
-            this.tvDirectoryList.Size = new System.Drawing.Size(68, 144);
+            this.tvDirectoryList.Size = new System.Drawing.Size(74, 150);
             this.tvDirectoryList.TabIndex = 0;
             this.tvDirectoryList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvDirectoryList_AfterSelect);
             this.tvDirectoryList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvDirectoryList_NodeMouseClick);
@@ -148,14 +146,13 @@
             // 
             // lbFileList
             // 
-            this.lbFileList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lbFileList.ContextMenuStrip = this.ctxMnuFileBrowser;
+            this.lbFileList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbFileList.FormattingEnabled = true;
-            this.lbFileList.Location = new System.Drawing.Point(3, 3);
+            this.lbFileList.IntegralHeight = false;
+            this.lbFileList.Location = new System.Drawing.Point(0, 0);
             this.lbFileList.Name = "lbFileList";
-            this.lbFileList.Size = new System.Drawing.Size(66, 147);
+            this.lbFileList.Size = new System.Drawing.Size(72, 150);
             this.lbFileList.TabIndex = 0;
             // 
             // ctxMnuFileBrowser

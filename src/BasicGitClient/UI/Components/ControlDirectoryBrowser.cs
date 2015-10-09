@@ -34,7 +34,7 @@ namespace BasicGitClient
 
             currentDirectoryPath_m = currentDirectory;
 
-            tvDirectoryList.Location = lbFileList.Location = new Point(0, 0);
+            //tvDirectoryList.Location = lbFileList.Location = new Point(0, 0);
             tvDirectoryList.Height = lbFileList.Height = height;
             tvDirectoryList.Width = splitContainer1.Panel1.Width;
             tvDirectoryList.Scrollable = true;

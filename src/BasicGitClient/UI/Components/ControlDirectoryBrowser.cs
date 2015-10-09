@@ -334,5 +334,21 @@ namespace BasicGitClient
 
         #endregion
 
+        private void ControlDirectoryBrowser_Resize(object sender, EventArgs e)
+        {
+            //label1.Width = splitContainer1.Panel1.Width;
+        }
+
+        private void splitContainer1_Panel1_Resize(object sender, EventArgs e)
+        {
+            lblDirectoryList.Width = splitContainer1.Panel1.Width;
+        }
+
+        private void lbFileList_Resize(object sender, EventArgs e)
+        {
+            lblFileList.Location = new Point(splitContainer1.SplitterDistance + 4, lblFileList.Location.Y);
+            lblFileList.Width = splitContainer1.Panel2.Width;
+        }
+
     } // end class
 } // end namespace

@@ -56,12 +56,6 @@
     <Compile Include="UI\Components\ButtonGroup.Designer.cs">
       <DependentUpon>ButtonGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Components\ImageButtonControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Components\ImageButtonControl.Designer.cs">
-      <DependentUpon>ImageButtonControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Components\MainMenuStripBuilder\ISubMenuItemBuilder.cs" />
     <Compile Include="UI\Components\OutputDataTextBox.cs">
       <SubType>UserControl</SubType>
@@ -113,9 +107,6 @@
     <Compile Include="UI\EventManagers\UIEventManager.cs" />
     <EmbeddedResource Include="UI\Components\ButtonGroup.resx">
       <DependentUpon>ButtonGroup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Components\ImageButtonControl.resx">
-      <DependentUpon>ImageButtonControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Components\OutputDataTextBox.resx">
       <DependentUpon>OutputDataTextBox.cs</DependentUpon>

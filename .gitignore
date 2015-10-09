@@ -2,5 +2,10 @@ src/BasicGitClient/bin
 src/BasicGitClient/obj
 src/Installer/bin
 src/Installer/obj
+<<<<<<< HEAD
 src/BasicGitClient.suo
 src/*.suo
+=======
+src/BasicGitClient.suo`
+*.suo
+>>>>>>> 9c423a423e8a0cfbfa3627ee9c4c77bc82f197e9

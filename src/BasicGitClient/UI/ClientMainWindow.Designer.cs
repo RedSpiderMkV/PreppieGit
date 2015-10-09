@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientMainWindow));
             this.tbDirectory = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cMenuOutputBox = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cMenuOutputBox_Clear = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btnPanelGroup_m = new System.Windows.Forms.Panel();
-            this.cMenuOutputBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
@@ -58,20 +54,6 @@
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "Git Location";
-            // 
-            // cMenuOutputBox
-            // 
-            this.cMenuOutputBox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cMenuOutputBox_Clear});
-            this.cMenuOutputBox.Name = "cMenuOutputBox";
-            this.cMenuOutputBox.Size = new System.Drawing.Size(111, 26);
-            // 
-            // cMenuOutputBox_Clear
-            // 
-            this.cMenuOutputBox_Clear.Name = "cMenuOutputBox_Clear";
-            this.cMenuOutputBox_Clear.Size = new System.Drawing.Size(110, 22);
-            this.cMenuOutputBox_Clear.Text = "Clear";
-            this.cMenuOutputBox_Clear.Click += new System.EventHandler(this.cMenuOutputBox_Clear_Click);
             // 
             // splitContainer2
             // 
@@ -106,7 +88,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientMainWindow";
             this.Text = "PreppieGit";
-            this.cMenuOutputBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -119,8 +100,6 @@
         private System.Windows.Forms.TextBox tbDirectory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ContextMenuStrip cMenuOutputBox;
-        private System.Windows.Forms.ToolStripMenuItem cMenuOutputBox_Clear;
         private System.Windows.Forms.Panel btnPanelGroup_m;
     }
 }

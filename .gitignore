@@ -3,4 +3,4 @@ src/BasicGitClient/obj
 src/Installer/bin
 src/Installer/obj
 src/BasicGitClient.suo
-*.suo
+src/*.suo

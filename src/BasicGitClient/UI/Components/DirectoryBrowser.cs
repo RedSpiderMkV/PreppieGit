@@ -26,9 +26,9 @@ namespace BasicGitClient
         SHOW = 4
     } // end enum
 
-    internal partial class ControlDirectoryBrowser : UserControl
+    internal partial class DirectoryBrowser : UserControl
     {
-        public ControlDirectoryBrowser(UIEventManager eventManager, string currentDirectory, int width, int height)
+        public DirectoryBrowser(UIEventManager eventManager, string currentDirectory, int width, int height)
         {
             InitializeComponent();
 

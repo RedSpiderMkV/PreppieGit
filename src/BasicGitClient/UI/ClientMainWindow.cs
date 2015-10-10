@@ -45,14 +45,16 @@ namespace BasicGitClient
 
                 string defaultDir = xmlHandler_m.GetLastLocation();
                 tbDirectory.Text = defaultDir;
-                tbDirectory.SelectionStart = tbDirectory.TextLength;
                 eventManager_m.TriggerDirectoryChangedEvent(defaultDir);
 
-                ControlDirectoryBrowser directoryBrowser = new ControlDirectoryBrowser(eventManager_m, defaultDir, splitContainer2.Panel1.Width, splitContainer2.Panel1.Height);
-                splitContainer2.Panel1.Controls.Add(directoryBrowser);
+                BranchBrowser branchBrowser = new BranchBrowser();
+                splitContainerMiddle.Panel1.Controls.Add(branchBrowser);
+
+                DirectoryBrowser directoryBrowser = new DirectoryBrowser(eventManager_m, defaultDir, splitContainterMain.Panel1.Width, splitContainterMain.Panel1.Height);
+                splitContainerMiddle.Panel2.Controls.Add(directoryBrowser);
                 
-                outputDataTextBox_m = new OutputDataTextBox(eventManager_m, splitContainer2.Panel2.Width, splitContainer2.Panel2.Height);
-                splitContainer2.Panel2.Controls.Add(outputDataTextBox_m);
+                outputDataTextBox_m = new OutputDataTextBox(eventManager_m, splitContainterMain.Panel2.Width, splitContainterMain.Panel2.Height);
+                splitContainterMain.Panel2.Controls.Add(outputDataTextBox_m);
 
                 MenuStrip menuStrip = (new MainMenuStripBuilder(this.BackColor, eventManager_m, actionEventManager_m, defaultDir)).GetMainMenuStrip();
                 this.Controls.Add(menuStrip);

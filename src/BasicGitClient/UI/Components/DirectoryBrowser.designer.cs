@@ -1,6 +1,6 @@
 ﻿namespace BasicGitClient
 {
-    partial class ControlDirectoryBrowser
+    partial class DirectoryBrowser
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlDirectoryBrowser));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DirectoryBrowser));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvDirectoryList = new System.Windows.Forms.TreeView();
             this.ctxMnuDirBrowser = new System.Windows.Forms.ContextMenuStrip(this.components);

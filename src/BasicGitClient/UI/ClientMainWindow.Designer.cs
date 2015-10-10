@@ -31,18 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientMainWindow));
             this.tbDirectory = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.splitContainterMain = new System.Windows.Forms.SplitContainer();
+            this.splitContainerMiddle = new System.Windows.Forms.SplitContainer();
             this.btnPanelGroup_m = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainterMain)).BeginInit();
+            this.splitContainterMain.Panel1.SuspendLayout();
+            this.splitContainterMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMiddle)).BeginInit();
+            this.splitContainerMiddle.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbDirectory
             // 
             this.tbDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDirectory.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tbDirectory.Location = new System.Drawing.Point(10, 62);
             this.tbDirectory.Name = "tbDirectory";
+            this.tbDirectory.ReadOnly = true;
             this.tbDirectory.Size = new System.Drawing.Size(457, 20);
             this.tbDirectory.TabIndex = 0;
             // 
@@ -55,17 +61,31 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Git Location";
             // 
-            // splitContainer2
+            // splitContainterMain
             // 
-            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.splitContainterMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer2.Location = new System.Drawing.Point(12, 137);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainer2.Size = new System.Drawing.Size(454, 388);
-            this.splitContainer2.SplitterDistance = 245;
-            this.splitContainer2.TabIndex = 17;
+            this.splitContainterMain.Location = new System.Drawing.Point(12, 137);
+            this.splitContainterMain.Name = "splitContainterMain";
+            this.splitContainterMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainterMain.Panel1
+            // 
+            this.splitContainterMain.Panel1.Controls.Add(this.splitContainerMiddle);
+            this.splitContainterMain.Size = new System.Drawing.Size(454, 388);
+            this.splitContainterMain.SplitterDistance = 245;
+            this.splitContainterMain.TabIndex = 17;
+            // 
+            // splitContainerMiddle
+            // 
+            this.splitContainerMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerMiddle.IsSplitterFixed = true;
+            this.splitContainerMiddle.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerMiddle.Name = "splitContainerMiddle";
+            this.splitContainerMiddle.Size = new System.Drawing.Size(454, 245);
+            this.splitContainerMiddle.SplitterDistance = 158;
+            this.splitContainerMiddle.TabIndex = 0;
             // 
             // btnPanelGroup_m
             // 
@@ -81,15 +101,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 537);
-            this.Controls.Add(this.splitContainer2);
+            this.Controls.Add(this.splitContainterMain);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPanelGroup_m);
             this.Controls.Add(this.tbDirectory);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientMainWindow";
             this.Text = "PreppieGit";
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
+            this.splitContainterMain.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainterMain)).EndInit();
+            this.splitContainterMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMiddle)).EndInit();
+            this.splitContainerMiddle.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,8 +122,9 @@
 
         private System.Windows.Forms.TextBox tbDirectory;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitContainterMain;
         private System.Windows.Forms.Panel btnPanelGroup_m;
+        private System.Windows.Forms.SplitContainer splitContainerMiddle;
     }
 }
 

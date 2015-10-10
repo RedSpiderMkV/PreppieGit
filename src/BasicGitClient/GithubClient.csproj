@@ -50,11 +50,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\Components\BranchBrowser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Components\BranchBrowser.Designer.cs">
+      <DependentUpon>BranchBrowser.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Components\ButtonGroup.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Components\ButtonGroup.Designer.cs">
       <DependentUpon>ButtonGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Components\DirectoryBrowser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Components\DirectoryBrowser.designer.cs">
+      <DependentUpon>DirectoryBrowser.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Components\MainMenuStripBuilder\ISubMenuItemBuilder.cs" />
     <Compile Include="UI\Components\OutputDataTextBox.cs">
@@ -74,12 +86,6 @@
     </Compile>
     <Compile Include="UI\ClientMainWindow.Designer.cs">
       <DependentUpon>ClientMainWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Components\ControlDirectoryBrowser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Components\ControlDirectoryBrowser.Designer.cs">
-      <DependentUpon>ControlDirectoryBrowser.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Components\MainMenuStripBuilder\ActionMenuItemBuilder.cs" />
     <Compile Include="UI\Components\MainMenuStripBuilder\ConnectionMenuItemBuilder.cs" />
@@ -105,8 +111,14 @@
       <DependentUpon>SingleTextBoxDialogWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\EventManagers\UIEventManager.cs" />
+    <EmbeddedResource Include="UI\Components\BranchBrowser.resx">
+      <DependentUpon>BranchBrowser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Components\ButtonGroup.resx">
       <DependentUpon>ButtonGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Components\DirectoryBrowser.resx">
+      <DependentUpon>DirectoryBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Components\OutputDataTextBox.resx">
       <DependentUpon>OutputDataTextBox.cs</DependentUpon>
@@ -116,9 +128,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ClientMainWindow.resx">
       <DependentUpon>ClientMainWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Components\ControlDirectoryBrowser.resx">
-      <DependentUpon>ControlDirectoryBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\InputWindows\CredentialConfigureWindow.resx">
       <DependentUpon>CredentialConfigureWindow.cs</DependentUpon>

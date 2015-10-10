@@ -246,14 +246,14 @@
             this.lblFileList.TabIndex = 3;
             this.lblFileList.Text = "File List";
             // 
-            // ControlDirectoryBrowser
+            // DirectoryBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblFileList);
             this.Controls.Add(this.lblDirectoryList);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "ControlDirectoryBrowser";
+            this.Name = "DirectoryBrowser";
             this.Resize += new System.EventHandler(this.ControlDirectoryBrowser_Resize);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

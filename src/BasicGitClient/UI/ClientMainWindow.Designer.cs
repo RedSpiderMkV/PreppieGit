@@ -80,11 +80,12 @@
             // splitContainerMiddle
             // 
             this.splitContainerMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerMiddle.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainerMiddle.IsSplitterFixed = true;
             this.splitContainerMiddle.Location = new System.Drawing.Point(0, 0);
             this.splitContainerMiddle.Name = "splitContainerMiddle";
             this.splitContainerMiddle.Size = new System.Drawing.Size(454, 245);
-            this.splitContainerMiddle.SplitterDistance = 158;
+            this.splitContainerMiddle.SplitterDistance = 185;
             this.splitContainerMiddle.TabIndex = 0;
             // 
             // btnPanelGroup_m

@@ -325,6 +325,33 @@ namespace BasicGitClient
             return String.Empty;
         } // end method
 
+        private void ControlDirectoryBrowser_Resize(object sender, EventArgs e)
+        {
+            repositionFileListLabel();
+            repositionDirectoryLabel();
+        } // end method
+
+        private void splitContainer1_Panel1_Resize(object sender, EventArgs e)
+        {
+            repositionDirectoryLabel();
+        } // end method
+
+        private void lbFileList_Resize(object sender, EventArgs e)
+        {
+            repositionFileListLabel();
+        } // end method
+
+        private void repositionDirectoryLabel()
+        {
+            lblDirectoryList.Width = splitContainer1.Panel1.Width;
+        } // end method
+
+        private void repositionFileListLabel()
+        {
+            lblFileList.Location = new Point(splitContainer1.SplitterDistance + 4, lblFileList.Location.Y);
+            lblFileList.Width = splitContainer1.Panel2.Width;
+        } // end method
+
         #region Private Data
 
         private UIEventManager eventManager_m;
@@ -333,22 +360,6 @@ namespace BasicGitClient
         private string treeViewSelectedDirectory_m;
 
         #endregion
-
-        private void ControlDirectoryBrowser_Resize(object sender, EventArgs e)
-        {
-            //label1.Width = splitContainer1.Panel1.Width;
-        }
-
-        private void splitContainer1_Panel1_Resize(object sender, EventArgs e)
-        {
-            lblDirectoryList.Width = splitContainer1.Panel1.Width;
-        }
-
-        private void lbFileList_Resize(object sender, EventArgs e)
-        {
-            lblFileList.Location = new Point(splitContainer1.SplitterDistance + 4, lblFileList.Location.Y);
-            lblFileList.Width = splitContainer1.Panel2.Width;
-        }
 
     } // end class
 } // end namespace

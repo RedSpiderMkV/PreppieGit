@@ -14,6 +14,8 @@ namespace BasicGitClient
         public BranchBrowser()
         {
             InitializeComponent();
+            
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
     }
 }

@@ -237,7 +237,7 @@
             // 
             // lblFileList
             // 
-            this.lblFileList.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFileList.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblFileList.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.lblFileList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFileList.Location = new System.Drawing.Point(78, 0);

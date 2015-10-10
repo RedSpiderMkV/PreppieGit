@@ -33,6 +33,8 @@ namespace BasicGitClient
 
             try
             {
+                titleText_m = "PreppieGit v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+
                 eventManager_m = new UIEventManager();
                 actionEventManager_m = new UIActionEventManager();
 
@@ -115,6 +117,9 @@ namespace BasicGitClient
 
         private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
         {
+            string name = Path.GetFileName(newDirectoryFullPath);
+            this.Text = titleText_m + " - " + name;
+
             tbDirectory.Text = newDirectoryFullPath;
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
             updateRepoName();
@@ -127,5 +132,11 @@ namespace BasicGitClient
 
             eventManager_m.TriggerNewRepoNameEvent(repoName_m);
         } // end method
+
+        #region Private Data
+
+        private static string titleText_m;
+
+        #endregion
     } // end class
 } // end namespace

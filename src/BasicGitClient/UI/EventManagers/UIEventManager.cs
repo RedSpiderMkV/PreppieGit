@@ -57,9 +57,21 @@ namespace BasicGitClient
         public delegate void GitBranchResponseEvent(string output, BranchResponseType branchType);
         public event GitBranchResponseEvent OnNewGitBranchEvent;
 
+        public delegate void RefreshDirectoryEvent();
+        public event RefreshDirectoryEvent OnRefreshDirectoryRequest;
+
         #endregion
 
         #region Public Methods
+
+        public void TriggerDirectoryRefreshEvent()
+        {
+            RefreshDirectoryEvent handler = OnRefreshDirectoryRequest;
+            if (handler != null)
+            {
+                OnRefreshDirectoryRequest();
+            } // end if
+        } // end method
 
         public void TriggerNewBranchResponseEvent(string output, BranchResponseType branchType)
         {

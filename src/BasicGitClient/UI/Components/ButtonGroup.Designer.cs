@@ -34,11 +34,13 @@
             this.btnPush = new System.Windows.Forms.Button();
             this.btnCommit = new System.Windows.Forms.Button();
             this.btnPull = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.panelInner.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelInner
             // 
+            this.panelInner.Controls.Add(this.btnRefresh);
             this.panelInner.Controls.Add(this.btnAdd);
             this.panelInner.Controls.Add(this.btnStatus);
             this.panelInner.Controls.Add(this.btnPush);
@@ -46,7 +48,7 @@
             this.panelInner.Controls.Add(this.btnPull);
             this.panelInner.Location = new System.Drawing.Point(0, 0);
             this.panelInner.Name = "panelInner";
-            this.panelInner.Size = new System.Drawing.Size(404, 33);
+            this.panelInner.Size = new System.Drawing.Size(483, 33);
             this.panelInner.TabIndex = 12;
             // 
             // btnAdd
@@ -100,13 +102,24 @@
             this.btnPull.UseVisualStyleBackColor = true;
             this.btnPull.Click += new System.EventHandler(this.btn_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.Location = new System.Drawing.Point(405, 0);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 33);
+            this.btnRefresh.TabIndex = 14;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btn_Click);
+            // 
             // ButtonGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelInner);
             this.Name = "ButtonGroup";
-            this.Size = new System.Drawing.Size(410, 33);
+            this.Size = new System.Drawing.Size(486, 33);
             this.panelInner.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -120,6 +133,7 @@
         private System.Windows.Forms.Button btnPush;
         private System.Windows.Forms.Button btnCommit;
         private System.Windows.Forms.Button btnPull;
+        private System.Windows.Forms.Button btnRefresh;
 
     }
 }

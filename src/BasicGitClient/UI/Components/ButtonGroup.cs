@@ -80,7 +80,13 @@ namespace BasicGitClient
             else if (sender == btnStatus)
             {
                 eventManager_m.TriggerNewGitCommandEvent(GitCommands.STATUS);
-            } // end if
+            }
+            else if (sender == btnRefresh)
+            {
+                eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_LOCAL);
+                eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_REMOTE);
+                eventManager_m.TriggerDirectoryRefreshEvent();
+            }
         } // end method
 
         #endregion

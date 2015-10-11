@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace BasicGitClient
 {
+    #region Enums
+
     enum DirectoryState
     {
         CLOSED = 0,
@@ -26,8 +28,12 @@ namespace BasicGitClient
         SHOW = 4
     } // end enum
 
+    #endregion
+
     internal partial class DirectoryBrowser : UserControl
     {
+        #region Public Methods
+
         public DirectoryBrowser(UIEventManager eventManager, string currentDirectory, int width, int height)
         {
             InitializeComponent();
@@ -54,6 +60,16 @@ namespace BasicGitClient
 
             eventManager_m = eventManager;
             eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
+            eventManager.OnRefreshDirectoryRequest += new UIEventManager.RefreshDirectoryEvent(eventManager_OnRefreshDirectoryRequest);
+        } // end method
+
+        #endregion
+
+        #region Private Methods
+
+        private void eventManager_OnRefreshDirectoryRequest()
+        {
+            populateTreeView();
         } // end method
 
         private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
@@ -351,6 +367,8 @@ namespace BasicGitClient
             lblFileList.Location = new Point(splitContainer1.SplitterDistance + 4, lblFileList.Location.Y);
             lblFileList.Width = splitContainer1.Panel2.Width;
         } // end method
+
+        #endregion
 
         #region Private Data
 

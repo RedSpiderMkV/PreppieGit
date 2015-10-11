@@ -44,6 +44,8 @@ namespace BasicGitClient
 
         private void setListBoxValues(string branches, ListBox listBox)
         {
+            listBox.Items.Clear();
+
             foreach (string branch in branches.Split('\n'))
             {
                 if (String.IsNullOrEmpty(branch) || String.IsNullOrWhiteSpace(branch))

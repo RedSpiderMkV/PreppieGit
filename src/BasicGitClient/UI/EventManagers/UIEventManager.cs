@@ -11,6 +11,12 @@ namespace BasicGitClient
         USERNAME
     } // end enum
 
+    enum BranchResponseType
+    {
+        LOCAL,
+        REMOTE
+    } // end enum
+
     enum CursorUpdateType
     {
         CURSOR_WAIT,
@@ -48,9 +54,21 @@ namespace BasicGitClient
         public delegate void NewRepoNameEvent(string newRepoName);
         public event NewRepoNameEvent OnNewRepoName;
 
+        public delegate void GitBranchResponseEvent(string output, BranchResponseType branchType);
+        public event GitBranchResponseEvent OnNewGitBranchEvent;
+
         #endregion
 
         #region Public Methods
+
+        public void TriggerNewBranchResponseEvent(string output, BranchResponseType branchType)
+        {
+            GitBranchResponseEvent handler = OnNewGitBranchEvent;
+            if (handler != null)
+            {
+                OnNewGitBranchEvent(output, branchType);
+            } // end if
+        } // end method
 
         public void TriggerNewRepoNameEvent(string repoName)
         {

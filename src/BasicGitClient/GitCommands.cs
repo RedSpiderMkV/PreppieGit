@@ -25,6 +25,8 @@ namespace BasicGitClient
         public const string RESET = "reset --hard";
         public const string REVERT = "revert HEAD";
         public const string VERSION = "--version";
+        public const string BRANCH_LOCAL = "branch";
+        public const string BRANCH_REMOTE = "branch -r";
 
         public static string PUSH = "push https://{0}:{1}@github.com/{0}/{2} master";
     }

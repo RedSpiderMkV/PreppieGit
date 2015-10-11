@@ -1,6 +1,6 @@
 ﻿namespace BasicGitClient
 {
-    partial class BranchBrowser
+    internal partial class BranchBrowser
     {
         /// <summary> 
         /// Required designer variable.

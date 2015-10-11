@@ -49,7 +49,7 @@
             this.tbDirectory.Location = new System.Drawing.Point(10, 62);
             this.tbDirectory.Name = "tbDirectory";
             this.tbDirectory.ReadOnly = true;
-            this.tbDirectory.Size = new System.Drawing.Size(457, 20);
+            this.tbDirectory.Size = new System.Drawing.Size(596, 20);
             this.tbDirectory.TabIndex = 0;
             // 
             // label1
@@ -73,7 +73,7 @@
             // splitContainterMain.Panel1
             // 
             this.splitContainterMain.Panel1.Controls.Add(this.splitContainerMiddle);
-            this.splitContainterMain.Size = new System.Drawing.Size(454, 388);
+            this.splitContainterMain.Size = new System.Drawing.Size(593, 388);
             this.splitContainterMain.SplitterDistance = 245;
             this.splitContainterMain.TabIndex = 17;
             // 
@@ -84,7 +84,7 @@
             this.splitContainerMiddle.IsSplitterFixed = true;
             this.splitContainerMiddle.Location = new System.Drawing.Point(0, 0);
             this.splitContainerMiddle.Name = "splitContainerMiddle";
-            this.splitContainerMiddle.Size = new System.Drawing.Size(454, 245);
+            this.splitContainerMiddle.Size = new System.Drawing.Size(593, 245);
             this.splitContainerMiddle.SplitterDistance = 185;
             this.splitContainerMiddle.TabIndex = 0;
             // 
@@ -94,14 +94,14 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPanelGroup_m.Location = new System.Drawing.Point(10, 88);
             this.btnPanelGroup_m.Name = "btnPanelGroup_m";
-            this.btnPanelGroup_m.Size = new System.Drawing.Size(457, 43);
+            this.btnPanelGroup_m.Size = new System.Drawing.Size(596, 43);
             this.btnPanelGroup_m.TabIndex = 18;
             // 
             // ClientMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 537);
+            this.ClientSize = new System.Drawing.Size(620, 537);
             this.Controls.Add(this.splitContainterMain);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPanelGroup_m);

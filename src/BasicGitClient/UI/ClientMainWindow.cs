@@ -49,7 +49,7 @@ namespace BasicGitClient
                 tbDirectory.Text = defaultDir;
                 eventManager_m.TriggerDirectoryChangedEvent(defaultDir);
 
-                BranchBrowser branchBrowser = new BranchBrowser();
+                BranchBrowser branchBrowser = new BranchBrowser(eventManager_m);
                 splitContainerMiddle.Panel1.Controls.Add(branchBrowser);
 
                 DirectoryBrowser directoryBrowser = new DirectoryBrowser(eventManager_m, defaultDir, splitContainterMain.Panel1.Width, splitContainterMain.Panel1.Height);
@@ -67,6 +67,8 @@ namespace BasicGitClient
                 updateRepoName();
 
                 eventManager_m.TriggerNewGitCommandEvent(GitCommands.VERSION);
+                eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_LOCAL);
+                eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_REMOTE);
             }
             catch (Win32Exception)
             {

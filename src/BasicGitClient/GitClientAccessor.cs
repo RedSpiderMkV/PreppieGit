@@ -95,6 +95,7 @@ namespace BasicGitClient
 
             RunGitCommand(command, out output, out error);
 
+            // TODO: this needs to be modified to make it more generic or something
             if (validateOutput(command, GitCommands.SET_URL_ORIGIN_BRANCH, output, error))
             {
                 output = Environment.NewLine + "URL has been set.  Check URL\r\n" + Environment.NewLine;
@@ -105,7 +106,18 @@ namespace BasicGitClient
                 output = Environment.NewLine + "Added all modified files.  Check status " + Environment.NewLine;
             } // end if
 
-            eventManager_m.TriggerGitResponseEvent(output, error);
+            if (String.Equals(command, GitCommands.BRANCH_LOCAL))
+            {
+                eventManager_m.TriggerNewBranchResponseEvent(output, BranchResponseType.LOCAL);
+            }
+            else if (String.Equals(command, GitCommands.BRANCH_REMOTE))
+            {
+                eventManager_m.TriggerNewBranchResponseEvent(output, BranchResponseType.REMOTE);
+            }
+            else
+            {
+                eventManager_m.TriggerGitResponseEvent(output, error);
+            } // end if
         } // end method
 
         private bool validateOutput(string receivedCommand, string commandType, string output, string error)

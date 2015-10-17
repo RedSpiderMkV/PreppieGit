@@ -105,8 +105,8 @@
       <DependentUpon>CredentialConfigureWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="ConfigXmlHandler.cs" />
-    <Compile Include="GitClientAccessor.cs" />
-    <Compile Include="GitCommands.cs" />
+    <Compile Include="GitClient\GitClientAccessor.cs" />
+    <Compile Include="GitClient\GitCommands.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\EventManagers\UIActionEventManager.cs" />

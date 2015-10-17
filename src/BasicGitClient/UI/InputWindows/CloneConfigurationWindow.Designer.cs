@@ -111,6 +111,7 @@
             this.Controls.Add(this.lblUrl);
             this.Controls.Add(this.tbDirectory);
             this.Controls.Add(this.tbUrl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "CloneConfigurationWindow";
             this.Text = "Clone Repo";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CloneConfigurationWindow_KeyDown);

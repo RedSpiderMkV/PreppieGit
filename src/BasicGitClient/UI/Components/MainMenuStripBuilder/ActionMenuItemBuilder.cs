@@ -112,7 +112,8 @@ namespace BasicGitClient
 
         private void cloneUrlMenuItem_Click(object sender, EventArgs e)
         {
-            runCommandWithSingleTextInput(GitCommands.CLONE, "Clone");
+            //runCommandWithSingleTextInput(GitCommands.CLONE, "Clone");
+            runCloneCommand();
             eventManager_m.TriggerNotificationEvent("Cloning complete");
         } // end method
 
@@ -139,6 +140,17 @@ namespace BasicGitClient
             if (!String.IsNullOrEmpty(newUrlDialog.TextField))
             {
                 runCommand(gitCommand + newUrlDialog.TextField);
+            } // end if
+        } // end method
+
+        private void runCloneCommand()
+        {
+            CloneConfigurationWindow cloneDialog = new CloneConfigurationWindow();
+            DialogResult result = cloneDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                runCommand(GitCommands.CLONE + cloneDialog.CloningRepoUrl + " \"" + cloneDialog.CloningDirectory + "\"");
             } // end if
         } // end method
 

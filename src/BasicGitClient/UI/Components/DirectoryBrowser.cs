@@ -41,12 +41,12 @@ namespace BasicGitClient
             currentDirectoryPath_m = currentDirectory;
 
             //tvDirectoryList.Location = lbFileList.Location = new Point(0, 0);
-            tvDirectoryList.Height = lbFileList.Height = height;
-            tvDirectoryList.Width = splitContainer1.Panel1.Width;
+            //tvDirectoryList.Height = lbFileList.Height = height;
+            //tvDirectoryList.Width = splitContainer1.Panel1.Width;
             tvDirectoryList.Scrollable = true;
             //tvDirectoryList.Dock = DockStyle.Fill;
 
-            lbFileList.Width = splitContainer1.Panel2.Width;
+            //lbFileList.Width = splitContainer1.Panel2.Width;
             //lbFileList.Dock = DockStyle.Fill;
             //lbFileList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
@@ -343,29 +343,6 @@ namespace BasicGitClient
 
         private void ControlDirectoryBrowser_Resize(object sender, EventArgs e)
         {
-            repositionFileListLabel();
-            repositionDirectoryLabel();
-        } // end method
-
-        private void splitContainer1_Panel1_Resize(object sender, EventArgs e)
-        {
-            repositionDirectoryLabel();
-        } // end method
-
-        private void lbFileList_Resize(object sender, EventArgs e)
-        {
-            repositionFileListLabel();
-        } // end method
-
-        private void repositionDirectoryLabel()
-        {
-            lblDirectoryList.Width = splitContainer1.Panel1.Width;
-        } // end method
-
-        private void repositionFileListLabel()
-        {
-            lblFileList.Location = new Point(splitContainer1.SplitterDistance + 4, lblFileList.Location.Y);
-            lblFileList.Width = splitContainer1.Panel2.Width;
         } // end method
 
         #endregion

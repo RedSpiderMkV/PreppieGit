@@ -39,6 +39,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.openInExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageListDirectory = new System.Windows.Forms.ImageList(this.components);
+            this.lblDirectoryList = new System.Windows.Forms.Label();
             this.lbFileList = new System.Windows.Forms.ListBox();
             this.ctxMnuFileBrowser = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,6 @@
             this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openInExplorerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblDirectoryList = new System.Windows.Forms.Label();
             this.lblFileList = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -63,28 +63,31 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(0, 19);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.tvDirectoryList);
-            this.splitContainer1.Panel1.Resize += new System.EventHandler(this.splitContainer1_Panel1_Resize);
+            this.splitContainer1.Panel1.Controls.Add(this.lblDirectoryList);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.lbFileList);
-            this.splitContainer1.Size = new System.Drawing.Size(150, 131);
+            this.splitContainer1.Panel2.Controls.Add(this.lblFileList);
+            this.splitContainer1.Size = new System.Drawing.Size(150, 150);
             this.splitContainer1.SplitterDistance = 74;
             this.splitContainer1.TabIndex = 0;
             // 
             // tvDirectoryList
             // 
+            this.tvDirectoryList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tvDirectoryList.ContextMenuStrip = this.ctxMnuDirBrowser;
-            this.tvDirectoryList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvDirectoryList.ImageIndex = 0;
             this.tvDirectoryList.ImageList = this.imageListDirectory;
-            this.tvDirectoryList.Location = new System.Drawing.Point(0, 0);
+            this.tvDirectoryList.Location = new System.Drawing.Point(0, 19);
             this.tvDirectoryList.Name = "tvDirectoryList";
             this.tvDirectoryList.SelectedImageIndex = 0;
             this.tvDirectoryList.Size = new System.Drawing.Size(74, 131);
@@ -149,17 +152,31 @@
             this.imageListDirectory.Images.SetKeyName(0, "closedFolder.png");
             this.imageListDirectory.Images.SetKeyName(1, "openFolder.png");
             // 
+            // lblDirectoryList
+            // 
+            this.lblDirectoryList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDirectoryList.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblDirectoryList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDirectoryList.Location = new System.Drawing.Point(0, 0);
+            this.lblDirectoryList.Name = "lblDirectoryList";
+            this.lblDirectoryList.Size = new System.Drawing.Size(74, 19);
+            this.lblDirectoryList.TabIndex = 2;
+            this.lblDirectoryList.Text = "Directory";
+            // 
             // lbFileList
             // 
+            this.lbFileList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lbFileList.ContextMenuStrip = this.ctxMnuFileBrowser;
-            this.lbFileList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbFileList.FormattingEnabled = true;
+            this.lbFileList.HorizontalScrollbar = true;
             this.lbFileList.IntegralHeight = false;
-            this.lbFileList.Location = new System.Drawing.Point(0, 0);
+            this.lbFileList.Location = new System.Drawing.Point(0, 19);
             this.lbFileList.Name = "lbFileList";
             this.lbFileList.Size = new System.Drawing.Size(72, 131);
             this.lbFileList.TabIndex = 0;
-            this.lbFileList.Resize += new System.EventHandler(this.lbFileList_Resize);
             // 
             // ctxMnuFileBrowser
             // 
@@ -225,22 +242,13 @@
             this.openInExplorerToolStripMenuItem1.Text = "Open In Explorer";
             this.openInExplorerToolStripMenuItem1.Click += new System.EventHandler(this.toolStripFileMenuItem_Click);
             // 
-            // lblDirectoryList
-            // 
-            this.lblDirectoryList.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblDirectoryList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDirectoryList.Location = new System.Drawing.Point(0, 0);
-            this.lblDirectoryList.Name = "lblDirectoryList";
-            this.lblDirectoryList.Size = new System.Drawing.Size(74, 19);
-            this.lblDirectoryList.TabIndex = 2;
-            this.lblDirectoryList.Text = "Directory";
-            // 
             // lblFileList
             // 
-            this.lblFileList.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblFileList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFileList.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.lblFileList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFileList.Location = new System.Drawing.Point(78, 0);
+            this.lblFileList.Location = new System.Drawing.Point(0, 0);
             this.lblFileList.Name = "lblFileList";
             this.lblFileList.Size = new System.Drawing.Size(72, 19);
             this.lblFileList.TabIndex = 3;
@@ -250,8 +258,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblFileList);
-            this.Controls.Add(this.lblDirectoryList);
             this.Controls.Add(this.splitContainer1);
             this.Name = "DirectoryBrowser";
             this.Resize += new System.EventHandler(this.ControlDirectoryBrowser_Resize);

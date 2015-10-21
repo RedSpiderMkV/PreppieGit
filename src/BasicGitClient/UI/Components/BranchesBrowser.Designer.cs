@@ -30,10 +30,10 @@
         {
             this.tabRemote = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbRemoteBranches = new System.Windows.Forms.ListBox();
             this.lbLocalBranches = new System.Windows.Forms.ListBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lbRemoteBranches = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabRemote.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -64,16 +64,36 @@
             this.tabPage1.Text = "Local";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // lbLocalBranches
+            // 
+            this.lbLocalBranches.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbLocalBranches.FormattingEnabled = true;
+            this.lbLocalBranches.IntegralHeight = false;
+            this.lbLocalBranches.Location = new System.Drawing.Point(3, 3);
+            this.lbLocalBranches.Name = "lbLocalBranches";
+            this.lbLocalBranches.Size = new System.Drawing.Size(288, 227);
+            this.lbLocalBranches.TabIndex = 6;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.lbRemoteBranches);
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(294, 237);
+            this.tabPage2.Size = new System.Drawing.Size(294, 233);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Remote";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lbRemoteBranches
+            // 
+            this.lbRemoteBranches.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbRemoteBranches.FormattingEnabled = true;
+            this.lbRemoteBranches.IntegralHeight = false;
+            this.lbRemoteBranches.Location = new System.Drawing.Point(3, 3);
+            this.lbRemoteBranches.Name = "lbRemoteBranches";
+            this.lbRemoteBranches.Size = new System.Drawing.Size(288, 227);
+            this.lbRemoteBranches.TabIndex = 7;
             // 
             // label1
             // 
@@ -86,28 +106,6 @@
             this.label1.Size = new System.Drawing.Size(302, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Branches";
-            // 
-            // lbRemoteBranches
-            // 
-            this.lbRemoteBranches.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lbRemoteBranches.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbRemoteBranches.FormattingEnabled = true;
-            this.lbRemoteBranches.IntegralHeight = false;
-            this.lbRemoteBranches.Location = new System.Drawing.Point(3, 3);
-            this.lbRemoteBranches.Name = "lbRemoteBranches";
-            this.lbRemoteBranches.Size = new System.Drawing.Size(288, 231);
-            this.lbRemoteBranches.TabIndex = 7;
-            // 
-            // lbLocalBranches
-            // 
-            this.lbLocalBranches.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lbLocalBranches.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbLocalBranches.FormattingEnabled = true;
-            this.lbLocalBranches.IntegralHeight = false;
-            this.lbLocalBranches.Location = new System.Drawing.Point(3, 3);
-            this.lbLocalBranches.Name = "lbLocalBranches";
-            this.lbLocalBranches.Size = new System.Drawing.Size(288, 227);
-            this.lbLocalBranches.TabIndex = 6;
             // 
             // BranchesBrowser
             // 

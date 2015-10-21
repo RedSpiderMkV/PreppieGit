@@ -141,7 +141,7 @@ namespace BasicGitClient
             {
                 // directory may have been deleted/renamed
                 populateTreeView();
-                populateFileList();
+                //populateFileList();
             } // end try-catch
         } // end method
 

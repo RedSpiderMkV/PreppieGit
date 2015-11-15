@@ -74,6 +74,12 @@
     <Compile Include="UI\Components\DirectoryBrowser.designer.cs">
       <DependentUpon>DirectoryBrowser.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Components\FileBrowser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Components\FileBrowser.Designer.cs">
+      <DependentUpon>FileBrowser.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Components\MainMenuStripBuilder\ISubMenuItemBuilder.cs" />
     <Compile Include="UI\Components\OutputDataTextBox.cs">
       <SubType>UserControl</SubType>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Components\DirectoryBrowser.resx">
       <DependentUpon>DirectoryBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Components\FileBrowser.resx">
+      <DependentUpon>FileBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Components\OutputDataTextBox.resx">
       <DependentUpon>OutputDataTextBox.cs</DependentUpon>

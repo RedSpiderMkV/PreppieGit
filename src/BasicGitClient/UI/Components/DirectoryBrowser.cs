@@ -40,15 +40,7 @@ namespace BasicGitClient
 
             currentDirectoryPath_m = currentDirectory;
 
-            //tvDirectoryList.Location = lbFileList.Location = new Point(0, 0);
-            //tvDirectoryList.Height = lbFileList.Height = height;
-            //tvDirectoryList.Width = splitContainer1.Panel1.Width;
             tvDirectoryList.Scrollable = true;
-            //tvDirectoryList.Dock = DockStyle.Fill;
-
-            //lbFileList.Width = splitContainer1.Panel2.Width;
-            //lbFileList.Dock = DockStyle.Fill;
-            //lbFileList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
             this.Width = width;
             this.Height = height;
@@ -56,7 +48,6 @@ namespace BasicGitClient
             splitContainer1.SplitterDistance = (int)(width * 0.35);
 
             populateTreeView();
-            //populateFileList();
 
             eventManager_m = eventManager;
             eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);

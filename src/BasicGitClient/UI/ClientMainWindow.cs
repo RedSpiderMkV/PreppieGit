@@ -49,13 +49,15 @@ namespace BasicGitClient
                 tbDirectory.Text = defaultDir;
                 eventManager_m.TriggerDirectoryChangedEvent(defaultDir);
 
-                //BranchBrowser branchBrowser = new BranchBrowser(eventManager_m);
-                BranchesBrowser branchBrowser = new BranchesBrowser(eventManager_m);
-                splitContainerMiddle.Panel1.Controls.Add(branchBrowser);
-
                 DirectoryBrowser directoryBrowser = new DirectoryBrowser(eventManager_m, defaultDir, splitContainterMain.Panel1.Width, splitContainterMain.Panel1.Height);
-                splitContainerMiddle.Panel2.Controls.Add(directoryBrowser);
-                
+                splitContainerMiddleInner.Panel1.Controls.Add(directoryBrowser);
+
+                BranchesBrowser branchBrowser = new BranchesBrowser(eventManager_m);
+                splitContainerMiddleInner.Panel2.Controls.Add(branchBrowser);
+
+                FileBrowser fileBrowser = new FileBrowser(eventManager_m);
+                splitContainerMiddle.Panel2.Controls.Add(fileBrowser);
+
                 outputDataTextBox_m = new OutputDataTextBox(eventManager_m, splitContainterMain.Panel2.Width, splitContainterMain.Panel2.Height);
                 splitContainterMain.Panel2.Controls.Add(outputDataTextBox_m);
 

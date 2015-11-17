@@ -13,13 +13,14 @@ namespace BasicGitClient
     {
         #region Public Methods
 
-        public FileBrowser(UIEventManager eventManager)
+        internal FileBrowser(UIEventManager eventManager)
         {
             InitializeComponent();
 
             eventManager_m = eventManager;
 
-            this.Anchor = AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            this.Dock = DockStyle.Fill;
+            //this.Anchor = AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 
             eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
         } // end method

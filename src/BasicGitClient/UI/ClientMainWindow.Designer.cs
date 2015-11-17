@@ -34,11 +34,15 @@
             this.splitContainterMain = new System.Windows.Forms.SplitContainer();
             this.splitContainerMiddle = new System.Windows.Forms.SplitContainer();
             this.btnPanelGroup_m = new System.Windows.Forms.Panel();
+            this.splitContainerMiddleInner = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainterMain)).BeginInit();
             this.splitContainterMain.Panel1.SuspendLayout();
             this.splitContainterMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMiddle)).BeginInit();
+            this.splitContainerMiddle.Panel1.SuspendLayout();
             this.splitContainerMiddle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMiddleInner)).BeginInit();
+            this.splitContainerMiddleInner.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbDirectory
@@ -84,9 +88,12 @@
             // 
             this.splitContainerMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerMiddle.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainerMiddle.IsSplitterFixed = true;
             this.splitContainerMiddle.Location = new System.Drawing.Point(0, 0);
             this.splitContainerMiddle.Name = "splitContainerMiddle";
+            // 
+            // splitContainerMiddle.Panel1
+            // 
+            this.splitContainerMiddle.Panel1.Controls.Add(this.splitContainerMiddleInner);
             this.splitContainerMiddle.Size = new System.Drawing.Size(593, 245);
             this.splitContainerMiddle.SplitterDistance = 185;
             this.splitContainerMiddle.TabIndex = 0;
@@ -99,6 +106,16 @@
             this.btnPanelGroup_m.Name = "btnPanelGroup_m";
             this.btnPanelGroup_m.Size = new System.Drawing.Size(596, 43);
             this.btnPanelGroup_m.TabIndex = 18;
+            // 
+            // splitContainerMiddleInner
+            // 
+            this.splitContainerMiddleInner.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerMiddleInner.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerMiddleInner.Name = "splitContainerMiddleInner";
+            this.splitContainerMiddleInner.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContainerMiddleInner.Size = new System.Drawing.Size(185, 245);
+            this.splitContainerMiddleInner.SplitterDistance = 115;
+            this.splitContainerMiddleInner.TabIndex = 0;
             // 
             // ClientMainWindow
             // 
@@ -115,8 +132,11 @@
             this.splitContainterMain.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainterMain)).EndInit();
             this.splitContainterMain.ResumeLayout(false);
+            this.splitContainerMiddle.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMiddle)).EndInit();
             this.splitContainerMiddle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMiddleInner)).EndInit();
+            this.splitContainerMiddleInner.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,6 +149,7 @@
         private System.Windows.Forms.SplitContainer splitContainterMain;
         private System.Windows.Forms.Panel btnPanelGroup_m;
         private System.Windows.Forms.SplitContainer splitContainerMiddle;
+        private System.Windows.Forms.SplitContainer splitContainerMiddleInner;
     }
 }
 

@@ -44,8 +44,7 @@ namespace BasicGitClient
 
             this.Width = width;
             this.Height = height;
-            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            splitContainer1.SplitterDistance = (int)(width * 0.35);
+            this.Dock = DockStyle.Fill;
 
             populateTreeView();
 
@@ -77,7 +76,6 @@ namespace BasicGitClient
             } // end if
 
             tvDirectoryList.Nodes.Clear();
-            lbFileList.Items.Clear();
 
             DirectoryInfo info = new DirectoryInfo(currentDirectoryPath_m);
 
@@ -111,31 +109,6 @@ namespace BasicGitClient
             } // end foreach
         } // end method
 
-        private void populateFileList()
-        {
-            if (currentSelectedNode_m == null)
-            {
-                return;
-            } // end if
-
-            lbFileList.Items.Clear();
-            DirectoryInfo nodeDirInfo = (DirectoryInfo)currentSelectedNode_m.Tag;
-
-            try
-            {
-                foreach (FileInfo file in nodeDirInfo.GetFiles())
-                {
-                    lbFileList.Items.Add(file.Name);
-                } // end foreach
-            }
-            catch (DirectoryNotFoundException)
-            {
-                // directory may have been deleted/renamed
-                populateTreeView();
-                //populateFileList();
-            } // end try-catch
-        } // end method
-
         private void tvDirectoryList_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (tvDirectoryList.SelectedNode != null)
@@ -154,8 +127,6 @@ namespace BasicGitClient
             tvDirectoryList.SelectedNode.ImageIndex =
                 tvDirectoryList.SelectedNode.SelectedImageIndex =
                 tvDirectoryList.SelectedNode.IsExpanded ? (int)DirectoryState.OPEN : (int)DirectoryState.CLOSED;
-
-            populateFileList();
         } // end method
 
         private void tvDirectoryList_KeyDown(object sender, KeyEventArgs e)
@@ -170,12 +141,6 @@ namespace BasicGitClient
         {
             ContextMenuItemTask task = (ContextMenuItemTask)Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
             directoryModifyToolstripHandler(task);
-        } // end method
-
-        private void toolStripFileMenuItem_Click(object sender, EventArgs e)
-        {
-            ContextMenuItemTask task = (ContextMenuItemTask)Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
-            fileModifyToolstripHandler(task);
         } // end method
 
         private void directoryModifyToolstripHandler(ContextMenuItemTask task)
@@ -240,73 +205,6 @@ namespace BasicGitClient
             } // end switch
 
             populateTreeView();
-            lbFileList.Items.Clear();
-        } // end method
-
-        private void fileModifyToolstripHandler(ContextMenuItemTask task)
-        {
-            string dirPath = getDirectoryPath();
-
-            if (String.IsNullOrEmpty(dirPath))
-            {
-                return;
-            } // end if
-
-            string name;
-
-            try
-            {
-                switch (task)
-                {
-                    case ContextMenuItemTask.CREATE:
-                        name = getStringFromDialogBox("New File", "Name");
-
-                        if (String.IsNullOrEmpty(name))
-                        {
-                            break;
-                        } // end if
-
-                        FileStream fs = File.Create(dirPath + "\\" + name);
-                        fs.Dispose();
-                        break;
-                    case ContextMenuItemTask.DELETE:
-                        File.Delete(dirPath + "\\" + lbFileList.Text);
-                        break;
-                    case ContextMenuItemTask.OPEN:
-                        Process.Start(dirPath + "\\" + lbFileList.Text);
-                        break;
-                    case ContextMenuItemTask.RENAME:
-                        name = getStringFromDialogBox("Rename", "Name");
-
-                        if (String.IsNullOrEmpty(name))
-                        {
-                            break;
-                        } // end if
-
-                        string currentPath = dirPath + "\\" + lbFileList.Text;
-                        string newPath = dirPath + "\\" + name;
-
-                        File.Move(currentPath, newPath);
-                        break;
-                    default:
-                        return;
-                } // end switch
-            }
-            catch (Exception e)
-            {
-                // TODO: lazy error handling... do it right at some point
-                eventManager_m.TriggerNotificationEvent("Error occured: " + e.Message);
-            } // end try-catch
-
-            populateFileList();
-        } // end method
-
-        private void ctxMnuFileBrowser_Opening(object sender, CancelEventArgs e)
-        {
-            deleteFileToolStripMenuItem.Enabled
-                = renameFileToolStripMenuItem.Enabled
-                = openFileToolStripMenuItem.Enabled
-                = lbFileList.SelectedItem != null;
         } // end method
 
         private string getStringFromDialogBox(string title, string label)

@@ -110,6 +110,7 @@
             this.tvDirectoryList.SelectedImageIndex = 0;
             this.tvDirectoryList.Size = new System.Drawing.Size(150, 131);
             this.tvDirectoryList.TabIndex = 3;
+            this.tvDirectoryList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvDirectoryList_NodeMouseClick);
             // 
             // lblDirectoryList
             // 

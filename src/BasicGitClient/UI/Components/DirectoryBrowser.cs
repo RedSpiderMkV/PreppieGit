@@ -34,7 +34,8 @@ namespace BasicGitClient
     {
         #region Public Methods
 
-        public DirectoryBrowser(UIEventManager eventManager, string currentDirectory, int width, int height)
+        public DirectoryBrowser(UIEventManager eventManager, SelectedDirectoryEventManager selectedDirectoryEventManager,
+            string currentDirectory, int width, int height)
         {
             InitializeComponent();
 
@@ -51,6 +52,8 @@ namespace BasicGitClient
             eventManager_m = eventManager;
             eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
             eventManager.OnRefreshDirectoryRequest += new UIEventManager.RefreshDirectoryEvent(eventManager_OnRefreshDirectoryRequest);
+
+            directoryEventManager_m = selectedDirectoryEventManager;
         } // end method
 
         #endregion
@@ -127,6 +130,9 @@ namespace BasicGitClient
             tvDirectoryList.SelectedNode.ImageIndex =
                 tvDirectoryList.SelectedNode.SelectedImageIndex =
                 tvDirectoryList.SelectedNode.IsExpanded ? (int)DirectoryState.OPEN : (int)DirectoryState.CLOSED;
+
+            string directoryPath = getDirectoryPath();
+            directoryEventManager_m.TriggerSelectedDirectoryChangedEvent(directoryPath);
         } // end method
 
         private void tvDirectoryList_KeyDown(object sender, KeyEventArgs e)
@@ -238,6 +244,7 @@ namespace BasicGitClient
 
         #region Private Data
 
+        private SelectedDirectoryEventManager directoryEventManager_m;
         private UIEventManager eventManager_m;
         private TreeNode currentSelectedNode_m;
         private string currentDirectoryPath_m;

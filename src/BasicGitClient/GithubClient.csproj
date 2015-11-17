@@ -87,6 +87,7 @@
     <Compile Include="UI\Components\OutputDataTextBox.Designer.cs">
       <DependentUpon>OutputDataTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\EventManagers\SelectedDirectoryEventManager.cs" />
     <Compile Include="UI\InputWindows\CloneConfigurationWindow.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -47,15 +47,16 @@ namespace BasicGitClient
 
                 string defaultDir = xmlHandler_m.GetLastLocation();
                 tbDirectory.Text = defaultDir;
-                eventManager_m.TriggerDirectoryChangedEvent(defaultDir);
-
-                DirectoryBrowser directoryBrowser = new DirectoryBrowser(eventManager_m, defaultDir, splitContainterMain.Panel1.Width, splitContainterMain.Panel1.Height);
-                splitContainerMiddleInner.Panel1.Controls.Add(directoryBrowser);
 
                 BranchesBrowser branchBrowser = new BranchesBrowser(eventManager_m);
                 splitContainerMiddleInner.Panel2.Controls.Add(branchBrowser);
 
-                FileBrowser fileBrowser = new FileBrowser(eventManager_m);
+                SelectedDirectoryEventManager directoryEventManager = new SelectedDirectoryEventManager();
+
+                DirectoryBrowser directoryBrowser = new DirectoryBrowser(eventManager_m, directoryEventManager, defaultDir, splitContainterMain.Panel1.Width, splitContainterMain.Panel1.Height);
+                splitContainerMiddleInner.Panel1.Controls.Add(directoryBrowser);
+
+                FileBrowser fileBrowser = new FileBrowser(eventManager_m, directoryEventManager);
                 splitContainerMiddle.Panel2.Controls.Add(fileBrowser);
 
                 outputDataTextBox_m = new OutputDataTextBox(eventManager_m, splitContainterMain.Panel2.Width, splitContainterMain.Panel2.Height);
@@ -69,6 +70,7 @@ namespace BasicGitClient
 
                 updateRepoName();
 
+                eventManager_m.TriggerDirectoryChangedEvent(defaultDir);
                 eventManager_m.TriggerNewGitCommandEvent(GitCommands.VERSION);
                 eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_LOCAL);
                 eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_REMOTE);

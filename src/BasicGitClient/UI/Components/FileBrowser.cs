@@ -25,6 +25,7 @@ namespace BasicGitClient
             //this.Anchor = AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 
             eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
+            eventManager.OnRefreshDirectoryRequest += new UIEventManager.RefreshDirectoryEvent(eventManager_OnRefreshDirectoryRequest);
             directoryEventManager_m.OnSelectedDirectoryNodeChanged += new SelectedDirectoryEventManager.SelectedDirectoryNodeChangedEvent(directoryEventManager_m_OnSelectedDirectoryNodeChanged);
         } // end method
 
@@ -39,7 +40,12 @@ namespace BasicGitClient
 
         private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
         {
-            populateFileList(newDirectoryFullPath);
+            lbFileList.Items.Clear();
+        } // end method
+
+        private void eventManager_OnRefreshDirectoryRequest()
+        {
+            lbFileList.Items.Clear();
         } // end method
 
         private void populateFileList(string directory)

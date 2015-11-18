@@ -51,7 +51,7 @@
             this.toolStripSeparator1,
             this.openInExplorerToolStripMenuItem});
             this.ctxMnuDirBrowser.Name = "ctxMnuDirBrowser";
-            this.ctxMnuDirBrowser.Size = new System.Drawing.Size(172, 98);
+            this.ctxMnuDirBrowser.Size = new System.Drawing.Size(172, 120);
             // 
             // newDirectoryToolStripMenuItem
             // 

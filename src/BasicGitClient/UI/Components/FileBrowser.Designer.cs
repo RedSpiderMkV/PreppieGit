@@ -28,8 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbFileList = new System.Windows.Forms.ListBox();
             this.lblFileList = new System.Windows.Forms.Label();
+            this.ctxFileMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctxFileMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbFileList
@@ -57,6 +65,51 @@
             this.lblFileList.TabIndex = 5;
             this.lblFileList.Text = "File List";
             // 
+            // ctxFileMenuStrip
+            // 
+            this.ctxFileMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newFileToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.openToolStripMenuItem,
+            this.renameToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.ctxFileMenuStrip.Name = "ctxFileMenuStrip";
+            this.ctxFileMenuStrip.Size = new System.Drawing.Size(153, 120);
+            this.ctxFileMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.ctxFileMenuStrip_Opening);
+            // 
+            // newFileToolStripMenuItem
+            // 
+            this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
+            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newFileToolStripMenuItem.Text = "New File";
+            this.newFileToolStripMenuItem.Click += new System.EventHandler(this.toolStripDirectoryMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.toolStripDirectoryMenuItem_Click);
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.renameToolStripMenuItem.Text = "Rename";
+            this.renameToolStripMenuItem.Click += new System.EventHandler(this.toolStripDirectoryMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.toolStripDirectoryMenuItem_Click);
+            // 
             // FileBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -64,6 +117,7 @@
             this.Controls.Add(this.lbFileList);
             this.Controls.Add(this.lblFileList);
             this.Name = "FileBrowser";
+            this.ctxFileMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -72,5 +126,11 @@
 
         private System.Windows.Forms.ListBox lbFileList;
         private System.Windows.Forms.Label lblFileList;
+        private System.Windows.Forms.ContextMenuStrip ctxFileMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

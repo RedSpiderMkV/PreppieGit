@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,18 @@ using System.Windows.Forms;
 
 namespace BasicGitClient
 {
+    #region Enums
+
+    enum ContextMenuFileTask
+    {
+        NEW = 0,
+        OPEN = 1,
+        RENAME = 2,
+        DELETE = 3
+    } // end enum
+
+    #endregion
+
     public partial class FileBrowser : UserControl
     {
         #region Public Methods
@@ -20,9 +33,16 @@ namespace BasicGitClient
 
             eventManager_m = eventManager;
             directoryEventManager_m = directoryEventManager;
+            currentSelectedDirectory_m = "";
+
+            newFileToolStripMenuItem.Tag = ContextMenuFileTask.NEW;
+            openToolStripMenuItem.Tag = ContextMenuFileTask.OPEN;
+            renameToolStripMenuItem.Tag = ContextMenuFileTask.RENAME;
+            deleteToolStripMenuItem.Tag = ContextMenuFileTask.DELETE;
+
+            lbFileList.ContextMenuStrip = ctxFileMenuStrip;
 
             this.Dock = DockStyle.Fill;
-            //this.Anchor = AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 
             eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
             eventManager.OnRefreshDirectoryRequest += new UIEventManager.RefreshDirectoryEvent(eventManager_OnRefreshDirectoryRequest);
@@ -33,19 +53,115 @@ namespace BasicGitClient
 
         #region Private Methods
 
+        private void toolStripDirectoryMenuItem_Click(object sender, EventArgs e)
+        {
+            ContextMenuFileTask task = (ContextMenuFileTask)Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
+            handlerToolStripTask(task);
+        } // end method
+
+        private void handlerToolStripTask(ContextMenuFileTask task)
+        {
+            string fileName;
+            DialogResult result;
+
+            switch (task)
+            {
+                case ContextMenuFileTask.NEW:
+                    SingleTextBoxDialogWindow newFileNameWindow = new SingleTextBoxDialogWindow("File Name...");
+                    result = newFileNameWindow.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        fileName = currentSelectedDirectory_m + "\\" + newFileNameWindow.TextField;
+                        if (!File.Exists(fileName))
+                        {
+                            try
+                            {
+                                File.Create(fileName);
+                            }
+                            catch (Exception)
+                            {
+                                // log this probably..
+                            } // end try-catch
+                        } // end if
+                    } // end if
+
+                    break;
+                case ContextMenuFileTask.DELETE:
+                    fileName = currentSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
+                    if(File.Exists(fileName))
+                    {
+                        try
+                        {
+                            File.Delete(fileName);
+                        }
+                        catch (Exception)
+                        {
+                            // log this..
+                        } // end try-catch
+                    } // end if
+
+                    break;
+                case ContextMenuFileTask.OPEN:
+                    fileName = currentSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
+
+                    try
+                    {
+                        Process.Start(fileName);
+                    }
+                    catch (Exception)
+                    {
+                        //
+                    } // end try-catch
+
+                    break;
+                case ContextMenuFileTask.RENAME:
+                    SingleTextBoxDialogWindow renameWindow = new SingleTextBoxDialogWindow("Rename File");
+                    result = renameWindow.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        string currentFilename = currentSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
+                        fileName = currentSelectedDirectory_m + "\\" + renameWindow.TextField;
+
+                        try
+                        {
+                            File.Move(currentFilename, fileName);
+                        }
+                        catch (Exception)
+                        {
+                            //
+                        } // end try-catch
+                    } // end if
+
+                    break;
+                default:
+                    return;
+            } // end switch
+
+            populateFileList(currentSelectedDirectory_m);
+        } // end method
+
         private void directoryEventManager_m_OnSelectedDirectoryNodeChanged(string directoryFullPath)
         {
+            currentSelectedDirectory_m = directoryFullPath;
             populateFileList(directoryFullPath);
         } // end method
 
         private void eventManager_m_OnDirectoryChanged(string newDirectoryFullPath)
         {
-            lbFileList.Items.Clear();
+            clearFileList();
         } // end method
 
         private void eventManager_OnRefreshDirectoryRequest()
         {
+            clearFileList();
+        } // end method
+
+        private void clearFileList()
+        {
             lbFileList.Items.Clear();
+            currentSelectedDirectory_m = "";
         } // end method
 
         private void populateFileList(string directory)
@@ -58,12 +174,26 @@ namespace BasicGitClient
             } // end foreach
         } // end method
 
+        private void ctxFileMenuStrip_Opening(object sender, CancelEventArgs e)
+        {
+            if (lbFileList.SelectedItem == null)
+            {
+                deleteToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                deleteToolStripMenuItem.Enabled = true;
+            } // end if
+        } // end method
+
         #endregion
 
         #region Private Data
 
         private UIEventManager eventManager_m;
         private SelectedDirectoryEventManager directoryEventManager_m;
+
+        private string currentSelectedDirectory_m;
 
         #endregion
 

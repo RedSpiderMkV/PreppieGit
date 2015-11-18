@@ -19,7 +19,7 @@ namespace BasicGitClient
         OPEN = 1
     } // end enum
 
-    enum ContextMenuItemTask
+    enum ContextMenuDirectoryTask
     {
         CREATE = 0,
         OPEN = 1,
@@ -145,17 +145,17 @@ namespace BasicGitClient
 
         private void toolStripDirectoryMenuItem_Click(object sender, EventArgs e)
         {
-            ContextMenuItemTask task = (ContextMenuItemTask)Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
+            ContextMenuDirectoryTask task = (ContextMenuDirectoryTask)Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
             directoryModifyToolstripHandler(task);
         } // end method
 
-        private void directoryModifyToolstripHandler(ContextMenuItemTask task)
+        private void directoryModifyToolstripHandler(ContextMenuDirectoryTask task)
         {
             string dirPath = getDirectoryPath();
 
             switch (task)
             {
-                case ContextMenuItemTask.CREATE:
+                case ContextMenuDirectoryTask.CREATE:
                     string name = getStringFromDialogBox("New Directory", "Name");
 
                     if (String.IsNullOrEmpty(name))
@@ -174,13 +174,13 @@ namespace BasicGitClient
                     
                     Directory.CreateDirectory(dirPath);
                     break;
-                case ContextMenuItemTask.DELETE:
+                case ContextMenuDirectoryTask.DELETE:
                     if (!String.IsNullOrEmpty(dirPath))
                     {
                         Directory.Delete(dirPath, true);
                     } // end if
                     break;
-                case ContextMenuItemTask.RENAME:
+                case ContextMenuDirectoryTask.RENAME:
                     if (!String.IsNullOrEmpty(dirPath))
                     {
                         string newName = getStringFromDialogBox("Rename", "Name");
@@ -203,7 +203,7 @@ namespace BasicGitClient
                         Directory.Move(dirPath, newFullPath);
                     } // end if
                     break;
-                case ContextMenuItemTask.SHOW:
+                case ContextMenuDirectoryTask.SHOW:
                     Process.Start(dirPath);
                     return;
                 default:

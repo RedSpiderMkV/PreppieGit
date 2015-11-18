@@ -67,7 +67,7 @@ namespace BasicGitClient
             switch (task)
             {
                 case ContextMenuFileTask.NEW:
-                    SingleTextBoxDialogWindow newFileNameWindow = new SingleTextBoxDialogWindow("File Name...");
+                    SingleTextBoxDialogWindow newFileNameWindow = new SingleTextBoxDialogWindow("File Name...", "Name");
                     result = newFileNameWindow.ShowDialog();
 
                     if (result == DialogResult.OK)
@@ -116,7 +116,7 @@ namespace BasicGitClient
 
                     break;
                 case ContextMenuFileTask.RENAME:
-                    SingleTextBoxDialogWindow renameWindow = new SingleTextBoxDialogWindow("Rename File");
+                    SingleTextBoxDialogWindow renameWindow = new SingleTextBoxDialogWindow("Rename File", "Name");
                     result = renameWindow.ShowDialog();
 
                     if (result == DialogResult.OK)

@@ -31,6 +31,8 @@ namespace BasicGitClient
         {
             InitializeComponent();
 
+            this.MinimumSize = new Size(628,564);
+
             try
             {
                 titleText_m = "PreppieGit v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;

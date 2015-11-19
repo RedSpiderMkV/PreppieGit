@@ -76,6 +76,7 @@
             this.lbLocalBranches.Size = new System.Drawing.Size(288, 227);
             this.lbLocalBranches.TabIndex = 6;
             this.ttBranches.SetToolTip(this.lbLocalBranches, "Double click a branch to checkout");
+            this.lbLocalBranches.DoubleClick += new System.EventHandler(this.lbLocalBranches_DoubleClick);
             // 
             // tabPage2
             // 

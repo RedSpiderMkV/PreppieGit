@@ -57,6 +57,15 @@ namespace BasicGitClient
             } // end foreach
         } // end method
 
+        private void lbLocalBranches_DoubleClick(object sender, EventArgs e)
+        {
+            eventManager_m.TriggerNewGitCommandEvent(String.Format(GitCommands.BRANCH_CHECKOUT, lbLocalBranches.GetItemText(lbLocalBranches.SelectedItem)));
+            
+            eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_LOCAL);
+            eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_REMOTE);
+            eventManager_m.TriggerDirectoryRefreshEvent();
+        } // end method
+
         #endregion
 
         #region Private Data

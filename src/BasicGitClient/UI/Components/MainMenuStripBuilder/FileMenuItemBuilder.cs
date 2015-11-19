@@ -14,6 +14,7 @@ namespace BasicGitClient
         public FileMenuItemBuilder(UIEventManager eventManager, string defaultDirectory)
         {
             eventManager_m = eventManager;
+            defaultDir_m = defaultDirectory;
         } // end method
 
         public ToolStripMenuItem GetSubMenuItem()
@@ -68,9 +69,8 @@ namespace BasicGitClient
 
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                string directory = fbd.SelectedPath;
-
-                eventManager_m.TriggerDirectoryChangedEvent(directory);
+                defaultDir_m = fbd.SelectedPath;
+                eventManager_m.TriggerDirectoryChangedEvent(defaultDir_m);
             } // end if
         } // end method
 

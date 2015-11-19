@@ -50,12 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UI\Components\BranchBrowser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Components\BranchBrowser.Designer.cs">
-      <DependentUpon>BranchBrowser.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Components\BranchesBrowser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -130,9 +124,6 @@
       <DependentUpon>SingleTextBoxDialogWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\EventManagers\UIEventManager.cs" />
-    <EmbeddedResource Include="UI\Components\BranchBrowser.resx">
-      <DependentUpon>BranchBrowser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Components\BranchesBrowser.resx">
       <DependentUpon>BranchesBrowser.cs</DependentUpon>
     </EmbeddedResource>

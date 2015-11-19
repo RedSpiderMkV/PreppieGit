@@ -129,6 +129,10 @@ namespace BasicGitClient
 
             tbDirectory.Text = newDirectoryFullPath;
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.SHOW_ORIGIN);
+
+            eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_LOCAL);
+            eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_REMOTE);
+
             updateRepoName();
         } // end method
 

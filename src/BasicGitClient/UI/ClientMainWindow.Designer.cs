@@ -33,8 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainterMain = new System.Windows.Forms.SplitContainer();
             this.splitContainerMiddle = new System.Windows.Forms.SplitContainer();
-            this.btnPanelGroup_m = new System.Windows.Forms.Panel();
             this.splitContainerMiddleInner = new System.Windows.Forms.SplitContainer();
+            this.btnPanelGroup_m = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainterMain)).BeginInit();
             this.splitContainterMain.Panel1.SuspendLayout();
             this.splitContainterMain.SuspendLayout();
@@ -60,7 +60,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label1.BackColor = System.Drawing.Color.Silver;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(10, 43);
             this.label1.Name = "label1";
@@ -98,6 +98,16 @@
             this.splitContainerMiddle.SplitterDistance = 185;
             this.splitContainerMiddle.TabIndex = 0;
             // 
+            // splitContainerMiddleInner
+            // 
+            this.splitContainerMiddleInner.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerMiddleInner.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerMiddleInner.Name = "splitContainerMiddleInner";
+            this.splitContainerMiddleInner.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContainerMiddleInner.Size = new System.Drawing.Size(185, 245);
+            this.splitContainerMiddleInner.SplitterDistance = 114;
+            this.splitContainerMiddleInner.TabIndex = 0;
+            // 
             // btnPanelGroup_m
             // 
             this.btnPanelGroup_m.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -106,16 +116,6 @@
             this.btnPanelGroup_m.Name = "btnPanelGroup_m";
             this.btnPanelGroup_m.Size = new System.Drawing.Size(596, 43);
             this.btnPanelGroup_m.TabIndex = 18;
-            // 
-            // splitContainerMiddleInner
-            // 
-            this.splitContainerMiddleInner.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerMiddleInner.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerMiddleInner.Name = "splitContainerMiddleInner";
-            this.splitContainerMiddleInner.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainerMiddleInner.Size = new System.Drawing.Size(185, 245);
-            this.splitContainerMiddleInner.SplitterDistance = 115;
-            this.splitContainerMiddleInner.TabIndex = 0;
             // 
             // ClientMainWindow
             // 

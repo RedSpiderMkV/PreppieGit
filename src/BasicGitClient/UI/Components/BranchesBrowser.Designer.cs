@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabRemote = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lbLocalBranches = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lbRemoteBranches = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ttBranches = new System.Windows.Forms.ToolTip(this.components);
             this.tabRemote.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -73,6 +75,7 @@
             this.lbLocalBranches.Name = "lbLocalBranches";
             this.lbLocalBranches.Size = new System.Drawing.Size(288, 227);
             this.lbLocalBranches.TabIndex = 6;
+            this.ttBranches.SetToolTip(this.lbLocalBranches, "Double click a branch to checkout");
             // 
             // tabPage2
             // 
@@ -130,5 +133,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lbRemoteBranches;
         private System.Windows.Forms.ListBox lbLocalBranches;
+        private System.Windows.Forms.ToolTip ttBranches;
     }
 }

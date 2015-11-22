@@ -76,6 +76,7 @@ namespace BasicGitClient
                 eventManager_m.TriggerNewGitCommandEvent(GitCommands.VERSION);
                 eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_LOCAL);
                 eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_REMOTE);
+                eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_GET_CURRENT);
             }
             catch (Win32Exception)
             {

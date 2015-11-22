@@ -27,8 +27,9 @@ namespace BasicGitClient
         public const string VERSION = "--version";
         public const string BRANCH_LOCAL = "branch";
         public const string BRANCH_REMOTE = "branch -r";
+        public const string BRANCH_GET_CURRENT = "rev-parse --abbrev-ref HEAD";
 
         public static string BRANCH_CHECKOUT = "checkout {0}";
-        public static string PUSH = "push https://{0}:{1}@github.com/{0}/{2} master";
+        public static string PUSH = "push -u https://{0}:{1}@github.com/{0}/{2} {3}";
     }
 }

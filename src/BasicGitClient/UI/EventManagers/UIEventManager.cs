@@ -57,6 +57,9 @@ namespace BasicGitClient
         public delegate void GitBranchResponseEvent(string output, BranchResponseType branchType);
         public event GitBranchResponseEvent OnNewGitBranchEvent;
 
+        public delegate void GitBranchCheckoutEvent(string currentBranch);
+        public event GitBranchCheckoutEvent OnGitBranchCheckout;
+
         public delegate void RefreshDirectoryEvent();
         public event RefreshDirectoryEvent OnRefreshDirectoryRequest;
 
@@ -70,6 +73,15 @@ namespace BasicGitClient
             if (handler != null)
             {
                 OnRefreshDirectoryRequest();
+            } // end if
+        } // end method
+
+        public void TriggerNewGitBranchCheckout(string gitBranchName)
+        {
+            GitBranchCheckoutEvent handler = OnGitBranchCheckout;
+            if (handler != null)
+            {
+                OnGitBranchCheckout(gitBranchName);
             } // end if
         } // end method
 

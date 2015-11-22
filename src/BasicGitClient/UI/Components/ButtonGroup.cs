@@ -26,6 +26,7 @@ namespace BasicGitClient
             repoName_m = repoName;
 
             eventManager_m.OnNewRepoName += new UIEventManager.NewRepoNameEvent(eventManager_m_OnNewRepoName);
+            eventManager_m.OnGitBranchCheckout += new UIEventManager.GitBranchCheckoutEvent(eventManager_m_OnGitBranchCheckout);
 
             InitializeComponent();
         } // end method
@@ -33,6 +34,11 @@ namespace BasicGitClient
         #endregion
 
         #region Private Methods
+
+        private void eventManager_m_OnGitBranchCheckout(string currentBranch)
+        {
+            branchName_m = currentBranch;
+        } // end method
 
         private void eventManager_m_OnNewRepoName(string newRepoName)
         {
@@ -67,7 +73,7 @@ namespace BasicGitClient
                 string username, password;
                 xmlHandler_m.GetCredentials(out username, out password);
 
-                string command = String.Format(GitCommands.PUSH, username, password, repoName_m);
+                string command = String.Format(GitCommands.PUSH, username, password, repoName_m, branchName_m);
                 eventManager_m.TriggerNewGitCommandEvent(command);
 
                 // push then pull required due to master/origin local mismatch
@@ -96,6 +102,7 @@ namespace BasicGitClient
         private UIEventManager eventManager_m;
         private XmlHandler xmlHandler_m;
         private string repoName_m;
+        private string branchName_m;
 
         #endregion
     }

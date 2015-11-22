@@ -114,6 +114,11 @@ namespace BasicGitClient
             {
                 eventManager_m.TriggerNewBranchResponseEvent(output, BranchResponseType.REMOTE);
             }
+            else if (String.Equals(command, GitCommands.BRANCH_GET_CURRENT))
+            {
+                output = output.Trim();
+                eventManager_m.TriggerNewGitBranchCheckout(output);
+            }
             else
             {
                 eventManager_m.TriggerGitResponseEvent(output, error);

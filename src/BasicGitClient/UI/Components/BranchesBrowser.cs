@@ -59,7 +59,19 @@ namespace BasicGitClient
 
         private void lbLocalBranches_DoubleClick(object sender, EventArgs e)
         {
-            eventManager_m.TriggerNewGitCommandEvent(String.Format(GitCommands.BRANCH_CHECKOUT, lbLocalBranches.GetItemText(lbLocalBranches.SelectedItem)));
+            if (lbLocalBranches.SelectedItem == null)
+            {
+                return;
+            } // end if
+
+            string branch = lbLocalBranches.GetItemText(lbLocalBranches.SelectedItem);
+            if (branch.StartsWith("*"))
+            {
+                branch = branch.Remove(0, 1);
+            } // end if
+
+            eventManager_m.TriggerNewGitCommandEvent(String.Format(GitCommands.BRANCH_CHECKOUT, branch));
+            eventManager_m.TriggerNewGitBranchCheckout(branch);
             
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_LOCAL);
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_REMOTE);

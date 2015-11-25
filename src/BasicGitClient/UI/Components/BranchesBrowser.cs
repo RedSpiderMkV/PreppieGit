@@ -20,6 +20,8 @@ namespace BasicGitClient
 
             this.Dock = DockStyle.Fill;
 
+            listView1.Columns[1].Width = tabPageEX3.Width - 50;
+
             eventManager_m.OnNewGitBranchEvent += new UIEventManager.GitBranchResponseEvent(eventManager_m_OnNewGitBranchEvent);
         } // end method
 
@@ -85,10 +87,5 @@ namespace BasicGitClient
         private UIEventManager eventManager_m;
 
         #endregion
-
-        private void BranchesBrowser_Resize(object sender, EventArgs e)
-        {
-
-        }
     } // end class
 } // end namespace

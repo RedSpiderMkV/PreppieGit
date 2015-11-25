@@ -36,9 +36,14 @@
             this.tabPageEX1 = new Dotnetrix.Controls.TabPageEX();
             this.tabPageEX2 = new Dotnetrix.Controls.TabPageEX();
             this.lbRemoteBranches = new System.Windows.Forms.ListBox();
+            this.tabPageEX3 = new Dotnetrix.Controls.TabPageEX();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnCheckedOut = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnBranch = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabRemote.SuspendLayout();
             this.tabPageEX1.SuspendLayout();
             this.tabPageEX2.SuspendLayout();
+            this.tabPageEX3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -73,11 +78,12 @@
             this.tabRemote.Appearance = Dotnetrix.Controls.TabAppearanceEX.FlatTab;
             this.tabRemote.Controls.Add(this.tabPageEX1);
             this.tabRemote.Controls.Add(this.tabPageEX2);
+            this.tabRemote.Controls.Add(this.tabPageEX3);
             this.tabRemote.FlatBorderColor = System.Drawing.SystemColors.ControlDark;
             this.tabRemote.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabRemote.Location = new System.Drawing.Point(0, 24);
             this.tabRemote.Name = "tabRemote";
-            this.tabRemote.SelectedIndex = 1;
+            this.tabRemote.SelectedIndex = 2;
             this.tabRemote.SelectedTabFontStyle = System.Drawing.FontStyle.Regular;
             this.tabRemote.Size = new System.Drawing.Size(196, 256);
             this.tabRemote.TabIndex = 2;
@@ -111,6 +117,37 @@
             this.lbRemoteBranches.Size = new System.Drawing.Size(188, 227);
             this.lbRemoteBranches.TabIndex = 8;
             // 
+            // tabPageEX3
+            // 
+            this.tabPageEX3.Controls.Add(this.listView1);
+            this.tabPageEX3.Location = new System.Drawing.Point(4, 4);
+            this.tabPageEX3.Name = "tabPageEX3";
+            this.tabPageEX3.Size = new System.Drawing.Size(188, 227);
+            this.tabPageEX3.TabIndex = 2;
+            this.tabPageEX3.Text = "tabPageEX3";
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnCheckedOut,
+            this.columnBranch});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(188, 227);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnCheckedOut
+            // 
+            this.columnCheckedOut.Text = "*";
+            this.columnCheckedOut.Width = 26;
+            // 
+            // columnBranch
+            // 
+            this.columnBranch.Text = "Branch";
+            // 
             // BranchesBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,10 +156,10 @@
             this.Controls.Add(this.label1);
             this.Name = "BranchesBrowser";
             this.Size = new System.Drawing.Size(196, 280);
-            this.Resize += new System.EventHandler(this.BranchesBrowser_Resize);
             this.tabRemote.ResumeLayout(false);
             this.tabPageEX1.ResumeLayout(false);
             this.tabPageEX2.ResumeLayout(false);
+            this.tabPageEX3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -136,5 +173,9 @@
         private System.Windows.Forms.ListBox lbLocalBranches;
         private Dotnetrix.Controls.TabPageEX tabPageEX2;
         private System.Windows.Forms.ListBox lbRemoteBranches;
+        private Dotnetrix.Controls.TabPageEX tabPageEX3;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnCheckedOut;
+        private System.Windows.Forms.ColumnHeader columnBranch;
     }
 }

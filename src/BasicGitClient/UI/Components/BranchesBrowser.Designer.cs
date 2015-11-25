@@ -29,75 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tabRemote = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lbLocalBranches = new System.Windows.Forms.ListBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lbRemoteBranches = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ttBranches = new System.Windows.Forms.ToolTip(this.components);
+            this.lbLocalBranches = new System.Windows.Forms.ListBox();
+            this.tabRemote = new Dotnetrix.Controls.TabControlEX();
+            this.tabPageEX1 = new Dotnetrix.Controls.TabPageEX();
+            this.tabPageEX2 = new Dotnetrix.Controls.TabPageEX();
+            this.lbRemoteBranches = new System.Windows.Forms.ListBox();
             this.tabRemote.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPageEX1.SuspendLayout();
+            this.tabPageEX2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tabRemote
-            // 
-            this.tabRemote.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.tabRemote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabRemote.Controls.Add(this.tabPage1);
-            this.tabRemote.Controls.Add(this.tabPage2);
-            this.tabRemote.Location = new System.Drawing.Point(0, 21);
-            this.tabRemote.Name = "tabRemote";
-            this.tabRemote.SelectedIndex = 0;
-            this.tabRemote.Size = new System.Drawing.Size(302, 259);
-            this.tabRemote.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.lbLocalBranches);
-            this.tabPage1.Location = new System.Drawing.Point(4, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(294, 233);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Local";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // lbLocalBranches
-            // 
-            this.lbLocalBranches.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbLocalBranches.FormattingEnabled = true;
-            this.lbLocalBranches.IntegralHeight = false;
-            this.lbLocalBranches.Location = new System.Drawing.Point(3, 3);
-            this.lbLocalBranches.Name = "lbLocalBranches";
-            this.lbLocalBranches.Size = new System.Drawing.Size(288, 227);
-            this.lbLocalBranches.TabIndex = 6;
-            this.ttBranches.SetToolTip(this.lbLocalBranches, "Double click a branch to checkout");
-            this.lbLocalBranches.DoubleClick += new System.EventHandler(this.lbLocalBranches_DoubleClick);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.lbRemoteBranches);
-            this.tabPage2.Location = new System.Drawing.Point(4, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(294, 233);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Remote";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // lbRemoteBranches
-            // 
-            this.lbRemoteBranches.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbRemoteBranches.FormattingEnabled = true;
-            this.lbRemoteBranches.IntegralHeight = false;
-            this.lbRemoteBranches.Location = new System.Drawing.Point(3, 3);
-            this.lbRemoteBranches.Name = "lbRemoteBranches";
-            this.lbRemoteBranches.Size = new System.Drawing.Size(288, 227);
-            this.lbRemoteBranches.TabIndex = 7;
             // 
             // label1
             // 
@@ -107,33 +49,92 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 21);
+            this.label1.Size = new System.Drawing.Size(196, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Branches";
+            // 
+            // lbLocalBranches
+            // 
+            this.lbLocalBranches.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbLocalBranches.FormattingEnabled = true;
+            this.lbLocalBranches.IntegralHeight = false;
+            this.lbLocalBranches.Location = new System.Drawing.Point(0, 0);
+            this.lbLocalBranches.Name = "lbLocalBranches";
+            this.lbLocalBranches.Size = new System.Drawing.Size(188, 227);
+            this.lbLocalBranches.TabIndex = 7;
+            this.ttBranches.SetToolTip(this.lbLocalBranches, "Double click a branch to checkout");
+            // 
+            // tabRemote
+            // 
+            this.tabRemote.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabRemote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabRemote.Appearance = Dotnetrix.Controls.TabAppearanceEX.FlatTab;
+            this.tabRemote.Controls.Add(this.tabPageEX1);
+            this.tabRemote.Controls.Add(this.tabPageEX2);
+            this.tabRemote.FlatBorderColor = System.Drawing.SystemColors.ControlDark;
+            this.tabRemote.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabRemote.Location = new System.Drawing.Point(0, 24);
+            this.tabRemote.Name = "tabRemote";
+            this.tabRemote.SelectedIndex = 1;
+            this.tabRemote.SelectedTabFontStyle = System.Drawing.FontStyle.Regular;
+            this.tabRemote.Size = new System.Drawing.Size(196, 256);
+            this.tabRemote.TabIndex = 2;
+            this.tabRemote.UseVisualStyles = false;
+            // 
+            // tabPageEX1
+            // 
+            this.tabPageEX1.Controls.Add(this.lbLocalBranches);
+            this.tabPageEX1.Location = new System.Drawing.Point(4, 4);
+            this.tabPageEX1.Name = "tabPageEX1";
+            this.tabPageEX1.Size = new System.Drawing.Size(188, 227);
+            this.tabPageEX1.TabIndex = 0;
+            this.tabPageEX1.Text = "Local";
+            // 
+            // tabPageEX2
+            // 
+            this.tabPageEX2.Controls.Add(this.lbRemoteBranches);
+            this.tabPageEX2.Location = new System.Drawing.Point(4, 4);
+            this.tabPageEX2.Name = "tabPageEX2";
+            this.tabPageEX2.Size = new System.Drawing.Size(188, 227);
+            this.tabPageEX2.TabIndex = 1;
+            this.tabPageEX2.Text = "Remote";
+            // 
+            // lbRemoteBranches
+            // 
+            this.lbRemoteBranches.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbRemoteBranches.FormattingEnabled = true;
+            this.lbRemoteBranches.IntegralHeight = false;
+            this.lbRemoteBranches.Location = new System.Drawing.Point(0, 0);
+            this.lbRemoteBranches.Name = "lbRemoteBranches";
+            this.lbRemoteBranches.Size = new System.Drawing.Size(188, 227);
+            this.lbRemoteBranches.TabIndex = 8;
             // 
             // BranchesBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tabRemote);
+            this.Controls.Add(this.label1);
             this.Name = "BranchesBrowser";
-            this.Size = new System.Drawing.Size(302, 280);
+            this.Size = new System.Drawing.Size(196, 280);
+            this.Resize += new System.EventHandler(this.BranchesBrowser_Resize);
             this.tabRemote.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.tabPageEX1.ResumeLayout(false);
+            this.tabPageEX2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabRemote;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lbRemoteBranches;
-        private System.Windows.Forms.ListBox lbLocalBranches;
         private System.Windows.Forms.ToolTip ttBranches;
+        private Dotnetrix.Controls.TabControlEX tabRemote;
+        private Dotnetrix.Controls.TabPageEX tabPageEX1;
+        private System.Windows.Forms.ListBox lbLocalBranches;
+        private Dotnetrix.Controls.TabPageEX tabPageEX2;
+        private System.Windows.Forms.ListBox lbRemoteBranches;
     }
 }

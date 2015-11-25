@@ -85,5 +85,10 @@ namespace BasicGitClient
         private UIEventManager eventManager_m;
 
         #endregion
+
+        private void BranchesBrowser_Resize(object sender, EventArgs e)
+        {
+
+        }
     } // end class
 } // end namespace

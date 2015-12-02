@@ -20,7 +20,7 @@ namespace BasicGitClient
 
             this.Dock = DockStyle.Fill;
 
-            listView1.Columns[1].Width = tabPageEX3.Width - 50;
+            lvLocalBranches.Columns[1].Width = tabPageEX3.Width - 50;
 
             eventManager_m.OnNewGitBranchEvent += new UIEventManager.GitBranchResponseEvent(eventManager_m_OnNewGitBranchEvent);
         } // end method
@@ -34,20 +34,46 @@ namespace BasicGitClient
             switch (branchType)
             {
                 case BranchResponseType.LOCAL:
-                    setListBoxValues(output, lbLocalBranches);
+                    setListViewValues(output, lvLocalBranches);
                     break;
                 case BranchResponseType.REMOTE:
-                    setListBoxValues(output, lbRemoteBranches);
+                    setListViewValues(output, lvRemoteBranches);
                     break;
                 default:
                     break;
             } // end switch
         } // end method
 
+        private void setListViewValues(string branches, ListView listView)
+        {
+            listView.Items.Clear();
+
+            foreach (string branch in branches.Split('\n'))
+            {
+                if (String.IsNullOrEmpty(branch) || String.IsNullOrWhiteSpace(branch))
+                {
+                    continue;
+                } // end if
+
+                string branchName = branch;
+                ListViewItem item = new ListViewItem(branchName);
+
+                if (branch.StartsWith("*"))
+                {
+                    branchName = branch.Substring(1);
+
+                    item = new ListViewItem(branchName);
+                    item.SubItems.Add("*");
+                } // end if
+
+                listView.Items.Add(item);
+            } // end foreach
+        } // end method
+
         private void setListBoxValues(string branches, ListBox listBox)
         {
             listBox.Items.Clear();
-
+            
             foreach (string branch in branches.Split('\n'))
             {
                 if (String.IsNullOrEmpty(branch) || String.IsNullOrWhiteSpace(branch))
@@ -61,7 +87,7 @@ namespace BasicGitClient
 
         private void lbLocalBranches_DoubleClick(object sender, EventArgs e)
         {
-            if (lbLocalBranches.SelectedItem == null)
+            /*if (lbLocalBranches.SelectedItem == null)
             {
                 return;
             } // end if
@@ -77,7 +103,7 @@ namespace BasicGitClient
             
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_LOCAL);
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_REMOTE);
-            eventManager_m.TriggerDirectoryRefreshEvent();
+            eventManager_m.TriggerDirectoryRefreshEvent();*/
         } // end method
 
         #endregion

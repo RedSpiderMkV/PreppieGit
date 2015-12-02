@@ -32,16 +32,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ttBranches = new System.Windows.Forms.ToolTip(this.components);
             this.tabRemote = new Dotnetrix.Controls.TabControlEX();
+            this.tabPageEX3 = new Dotnetrix.Controls.TabPageEX();
+            this.lvLocalBranches = new System.Windows.Forms.ListView();
+            this.columnBranch = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnCheckedOut = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageEX4 = new Dotnetrix.Controls.TabPageEX();
             this.lvRemoteBranches = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPageEX3 = new Dotnetrix.Controls.TabPageEX();
-            this.lvLocalBranches = new System.Windows.Forms.ListView();
-            this.columnCheckedOut = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnBranch = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabRemote.SuspendLayout();
-            this.tabPageEX4.SuspendLayout();
             this.tabPageEX3.SuspendLayout();
+            this.tabPageEX4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -75,6 +75,39 @@
             this.tabRemote.TabIndex = 2;
             this.tabRemote.UseVisualStyles = false;
             // 
+            // tabPageEX3
+            // 
+            this.tabPageEX3.Controls.Add(this.lvLocalBranches);
+            this.tabPageEX3.Location = new System.Drawing.Point(4, 4);
+            this.tabPageEX3.Name = "tabPageEX3";
+            this.tabPageEX3.Size = new System.Drawing.Size(188, 227);
+            this.tabPageEX3.TabIndex = 2;
+            this.tabPageEX3.Text = "Local";
+            // 
+            // lvLocalBranches
+            // 
+            this.lvLocalBranches.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnBranch,
+            this.columnCheckedOut});
+            this.lvLocalBranches.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvLocalBranches.Location = new System.Drawing.Point(0, 0);
+            this.lvLocalBranches.Name = "lvLocalBranches";
+            this.lvLocalBranches.Size = new System.Drawing.Size(188, 227);
+            this.lvLocalBranches.TabIndex = 0;
+            this.lvLocalBranches.UseCompatibleStateImageBehavior = false;
+            this.lvLocalBranches.View = System.Windows.Forms.View.Details;
+            this.lvLocalBranches.DoubleClick += new System.EventHandler(this.lvLocalBranches_DoubleClick);
+            // 
+            // columnBranch
+            // 
+            this.columnBranch.Text = "Branch";
+            this.columnBranch.Width = 151;
+            // 
+            // columnCheckedOut
+            // 
+            this.columnCheckedOut.Text = "*";
+            this.columnCheckedOut.Width = 26;
+            // 
             // tabPageEX4
             // 
             this.tabPageEX4.Controls.Add(this.lvRemoteBranches);
@@ -101,38 +134,6 @@
             this.columnHeader2.Text = "Branch";
             this.columnHeader2.Width = 183;
             // 
-            // tabPageEX3
-            // 
-            this.tabPageEX3.Controls.Add(this.lvLocalBranches);
-            this.tabPageEX3.Location = new System.Drawing.Point(4, 4);
-            this.tabPageEX3.Name = "tabPageEX3";
-            this.tabPageEX3.Size = new System.Drawing.Size(188, 227);
-            this.tabPageEX3.TabIndex = 2;
-            this.tabPageEX3.Text = "Local";
-            // 
-            // lvLocalBranches
-            // 
-            this.lvLocalBranches.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnBranch,
-            this.columnCheckedOut});
-            this.lvLocalBranches.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvLocalBranches.Location = new System.Drawing.Point(0, 0);
-            this.lvLocalBranches.Name = "lvLocalBranches";
-            this.lvLocalBranches.Size = new System.Drawing.Size(188, 227);
-            this.lvLocalBranches.TabIndex = 0;
-            this.lvLocalBranches.UseCompatibleStateImageBehavior = false;
-            this.lvLocalBranches.View = System.Windows.Forms.View.Details;
-            // 
-            // columnCheckedOut
-            // 
-            this.columnCheckedOut.Text = "*";
-            this.columnCheckedOut.Width = 26;
-            // 
-            // columnBranch
-            // 
-            this.columnBranch.Text = "Branch";
-            this.columnBranch.Width = 151;
-            // 
             // BranchesBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,8 +143,8 @@
             this.Name = "BranchesBrowser";
             this.Size = new System.Drawing.Size(196, 280);
             this.tabRemote.ResumeLayout(false);
-            this.tabPageEX4.ResumeLayout(false);
             this.tabPageEX3.ResumeLayout(false);
+            this.tabPageEX4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -85,9 +85,9 @@ namespace BasicGitClient
             } // end foreach
         } // end method
 
-        private void lbLocalBranches_DoubleClick(object sender, EventArgs e)
+        private void lvLocalBranches_DoubleClick(object sender, EventArgs e)
         {
-            /*if (lbLocalBranches.SelectedItem == null)
+            /*if (lvLocalBranches.SelectedItem == null)
             {
                 return;
             } // end if

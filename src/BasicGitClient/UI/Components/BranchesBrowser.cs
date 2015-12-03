@@ -20,8 +20,6 @@ namespace BasicGitClient
 
             this.Dock = DockStyle.Fill;
 
-            lvLocalBranches.Columns[1].Width = tabPageEX3.Width - 50;
-
             eventManager_m.OnNewGitBranchEvent += new UIEventManager.GitBranchResponseEvent(eventManager_m_OnNewGitBranchEvent);
         } // end method
 
@@ -60,7 +58,7 @@ namespace BasicGitClient
 
                 if (branch.StartsWith("*"))
                 {
-                    branchName = branch.Substring(1);
+                    branchName = branch.Remove(0, 2);
 
                     item = new ListViewItem(branchName);
                     item.SubItems.Add("*");
@@ -87,15 +85,16 @@ namespace BasicGitClient
 
         private void lvLocalBranches_DoubleClick(object sender, EventArgs e)
         {
-            /*if (lvLocalBranches.SelectedItem == null)
+            if (lvLocalBranches.SelectedItems.Count == 0)
             {
                 return;
             } // end if
 
-            string branch = lbLocalBranches.GetItemText(lbLocalBranches.SelectedItem);
+
+            string branch = lvLocalBranches.SelectedItems[0].Text;
             if (branch.StartsWith("*"))
             {
-                branch = branch.Remove(0, 1);
+                branch = branch.Remove(0, 2);
             } // end if
 
             eventManager_m.TriggerNewGitCommandEvent(String.Format(GitCommands.BRANCH_CHECKOUT, branch));
@@ -103,7 +102,7 @@ namespace BasicGitClient
             
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_LOCAL);
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_REMOTE);
-            eventManager_m.TriggerDirectoryRefreshEvent();*/
+            eventManager_m.TriggerDirectoryRefreshEvent();
         } // end method
 
         #endregion

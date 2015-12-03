@@ -166,23 +166,39 @@ namespace BasicGitClient
 
         private void populateFileList(string directory)
         {
-            lbFileList.Items.Clear();
-
-            foreach (string fileWithPath in Directory.GetFiles(directory))
+            if (directory.Length > 0)
             {
-                lbFileList.Items.Add(Path.GetFileName(fileWithPath));
-            } // end foreach
+                lbFileList.Items.Clear();
+
+                foreach (string fileWithPath in Directory.GetFiles(directory))
+                {
+                    lbFileList.Items.Add(Path.GetFileName(fileWithPath));
+                } // end foreach
+            } // end if
         } // end method
 
         private void ctxFileMenuStrip_Opening(object sender, CancelEventArgs e)
         {
+            if (currentSelectedDirectory_m.Equals(""))
+            {
+                ctxFileMenuStrip.Enabled = false;
+            }
+            else
+            {
+                ctxFileMenuStrip.Enabled = true;
+            } // end if
+
             if (lbFileList.SelectedItem == null)
             {
                 deleteToolStripMenuItem.Enabled = false;
+                openToolStripMenuItem.Enabled = false;
+                renameToolStripMenuItem.Enabled = false;
             }
             else
             {
                 deleteToolStripMenuItem.Enabled = true;
+                openToolStripMenuItem.Enabled = true;
+                renameToolStripMenuItem.Enabled = true;
             } // end if
         } // end method
 

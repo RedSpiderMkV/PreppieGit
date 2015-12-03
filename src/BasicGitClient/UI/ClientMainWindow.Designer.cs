@@ -53,7 +53,7 @@
             this.tbDirectory.Location = new System.Drawing.Point(10, 62);
             this.tbDirectory.Name = "tbDirectory";
             this.tbDirectory.ReadOnly = true;
-            this.tbDirectory.Size = new System.Drawing.Size(596, 20);
+            this.tbDirectory.Size = new System.Drawing.Size(608, 20);
             this.tbDirectory.TabIndex = 0;
             // 
             // label1
@@ -64,7 +64,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(10, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(595, 19);
+            this.label1.Size = new System.Drawing.Size(607, 19);
             this.label1.TabIndex = 13;
             this.label1.Text = "Git Location";
             // 
@@ -80,8 +80,8 @@
             // splitContainterMain.Panel1
             // 
             this.splitContainterMain.Panel1.Controls.Add(this.splitContainerMiddle);
-            this.splitContainterMain.Size = new System.Drawing.Size(593, 388);
-            this.splitContainterMain.SplitterDistance = 245;
+            this.splitContainterMain.Size = new System.Drawing.Size(605, 404);
+            this.splitContainterMain.SplitterDistance = 255;
             this.splitContainterMain.TabIndex = 17;
             // 
             // splitContainerMiddle
@@ -94,7 +94,7 @@
             // splitContainerMiddle.Panel1
             // 
             this.splitContainerMiddle.Panel1.Controls.Add(this.splitContainerMiddleInner);
-            this.splitContainerMiddle.Size = new System.Drawing.Size(593, 245);
+            this.splitContainerMiddle.Size = new System.Drawing.Size(605, 255);
             this.splitContainerMiddle.SplitterDistance = 185;
             this.splitContainerMiddle.TabIndex = 0;
             // 
@@ -104,8 +104,8 @@
             this.splitContainerMiddleInner.Location = new System.Drawing.Point(0, 0);
             this.splitContainerMiddleInner.Name = "splitContainerMiddleInner";
             this.splitContainerMiddleInner.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainerMiddleInner.Size = new System.Drawing.Size(185, 245);
-            this.splitContainerMiddleInner.SplitterDistance = 114;
+            this.splitContainerMiddleInner.Size = new System.Drawing.Size(185, 255);
+            this.splitContainerMiddleInner.SplitterDistance = 118;
             this.splitContainerMiddleInner.TabIndex = 0;
             // 
             // btnPanelGroup_m
@@ -114,14 +114,14 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPanelGroup_m.Location = new System.Drawing.Point(10, 88);
             this.btnPanelGroup_m.Name = "btnPanelGroup_m";
-            this.btnPanelGroup_m.Size = new System.Drawing.Size(596, 43);
+            this.btnPanelGroup_m.Size = new System.Drawing.Size(608, 43);
             this.btnPanelGroup_m.TabIndex = 18;
             // 
             // ClientMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 537);
+            this.ClientSize = new System.Drawing.Size(632, 553);
             this.Controls.Add(this.splitContainterMain);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPanelGroup_m);

@@ -9,3 +9,4 @@ Currently supports commonly used, simple functions when using git but hoping to 
 
 ![mainWindow image](./assets/mainWindow1.PNG "Main Window")
 
+test

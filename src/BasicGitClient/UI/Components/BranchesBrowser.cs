@@ -47,6 +47,7 @@ namespace BasicGitClient
             }
             else if (menuItem == checkoutToolStripMenuItem)
             {
+                checkoutSelectedBranch();
             }
             else if (menuItem == deleteToolStripMenuItem)
             {
@@ -110,6 +111,11 @@ namespace BasicGitClient
         } // end method
 
         private void lvLocalBranches_DoubleClick(object sender, EventArgs e)
+        {
+            checkoutSelectedBranch();
+        } // end method
+
+        private void checkoutSelectedBranch()
         {
             if (lvLocalBranches.SelectedItems.Count == 0)
             {

@@ -39,9 +39,15 @@
             this.tabPageEX4 = new Dotnetrix.Controls.TabPageEX();
             this.lvRemoteBranches = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ctxBranchesMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.newBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.checkoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabRemote.SuspendLayout();
             this.tabPageEX3.SuspendLayout();
             this.tabPageEX4.SuspendLayout();
+            this.ctxBranchesMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -89,7 +95,9 @@
             this.lvLocalBranches.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnBranch,
             this.columnCheckedOut});
+            this.lvLocalBranches.ContextMenuStrip = this.ctxBranchesMenu;
             this.lvLocalBranches.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvLocalBranches.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvLocalBranches.Location = new System.Drawing.Point(0, 0);
             this.lvLocalBranches.Name = "lvLocalBranches";
             this.lvLocalBranches.Size = new System.Drawing.Size(188, 227);
@@ -134,6 +142,42 @@
             this.columnHeader2.Text = "Branch";
             this.columnHeader2.Width = 183;
             // 
+            // ctxBranchesMenu
+            // 
+            this.ctxBranchesMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newBranchToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.checkoutToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.ctxBranchesMenu.Name = "ctBranchesMenu";
+            this.ctxBranchesMenu.Size = new System.Drawing.Size(167, 76);
+            // 
+            // newBranchToolStripMenuItem
+            // 
+            this.newBranchToolStripMenuItem.Name = "newBranchToolStripMenuItem";
+            this.newBranchToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.newBranchToolStripMenuItem.Text = "New Branch";
+            this.newBranchToolStripMenuItem.Click += new System.EventHandler(this.ctxBranchesMenuToolStripItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(163, 6);
+            // 
+            // checkoutToolStripMenuItem
+            // 
+            this.checkoutToolStripMenuItem.Name = "checkoutToolStripMenuItem";
+            this.checkoutToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.checkoutToolStripMenuItem.Text = "Checkout Branch";
+            this.checkoutToolStripMenuItem.Click += new System.EventHandler(this.ctxBranchesMenuToolStripItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.deleteToolStripMenuItem.Text = "Delete Branch";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.ctxBranchesMenuToolStripItem_Click);
+            // 
             // BranchesBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,6 +189,7 @@
             this.tabRemote.ResumeLayout(false);
             this.tabPageEX3.ResumeLayout(false);
             this.tabPageEX4.ResumeLayout(false);
+            this.ctxBranchesMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -161,5 +206,10 @@
         private Dotnetrix.Controls.TabPageEX tabPageEX4;
         private System.Windows.Forms.ListView lvRemoteBranches;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ContextMenuStrip ctxBranchesMenu;
+        private System.Windows.Forms.ToolStripMenuItem newBranchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem checkoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

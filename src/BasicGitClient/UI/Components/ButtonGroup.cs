@@ -91,7 +91,7 @@ namespace BasicGitClient
             {
                 eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_LOCAL);
                 eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_REMOTE);
-                eventManager_m.TriggerDirectoryRefreshEvent();
+                eventManager_m.TriggerRefreshControlsEvent();
             }
         } // end method
 

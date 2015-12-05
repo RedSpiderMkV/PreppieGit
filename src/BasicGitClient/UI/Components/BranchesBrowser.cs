@@ -21,11 +21,37 @@ namespace BasicGitClient
             this.Dock = DockStyle.Fill;
 
             eventManager_m.OnNewGitBranchEvent += new UIEventManager.GitBranchResponseEvent(eventManager_m_OnNewGitBranchEvent);
+            eventManager_m.OnRefreshControlsRequest += new UIEventManager.RefreshControlsEvent(eventManager_m_OnRefreshControlsRequest);
         } // end method
 
         #endregion
 
         #region Private Methods
+
+        private void ctxBranchesMenuToolStripItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
+
+            if (menuItem == newBranchToolStripMenuItem)
+            {
+                SingleTextBoxDialogWindow branchNameInputBox = new SingleTextBoxDialogWindow("Branch", "Name");
+                DialogResult result = branchNameInputBox.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    string newBranchName = branchNameInputBox.TextField;
+                    eventManager_m.TriggerNewGitCommandEvent(String.Format(GitCommands.BRANCH_CREATE, newBranchName));
+
+                    eventManager_m.TriggerRefreshControlsEvent();
+                } // end if
+            }
+            else if (menuItem == checkoutToolStripMenuItem)
+            {
+            }
+            else if (menuItem == deleteToolStripMenuItem)
+            {
+            } // end if
+        } // end method
 
         private void eventManager_m_OnNewGitBranchEvent(string output, BranchResponseType branchType)
         {
@@ -99,10 +125,19 @@ namespace BasicGitClient
 
             eventManager_m.TriggerNewGitCommandEvent(String.Format(GitCommands.BRANCH_CHECKOUT, branch));
             eventManager_m.TriggerNewGitBranchCheckout(branch);
-            
+
+            eventManager_m.TriggerRefreshControlsEvent();
+        } // end method
+
+        private void eventManager_m_OnRefreshControlsRequest()
+        {
+            updateBranches();
+        } // end method
+
+        private void updateBranches()
+        {
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_LOCAL);
             eventManager_m.TriggerNewGitCommandEvent(GitCommands.BRANCH_REMOTE);
-            eventManager_m.TriggerDirectoryRefreshEvent();
         } // end method
 
         #endregion

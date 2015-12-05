@@ -51,7 +51,7 @@ namespace BasicGitClient
 
             eventManager_m = eventManager;
             eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
-            eventManager.OnRefreshDirectoryRequest += new UIEventManager.RefreshDirectoryEvent(eventManager_OnRefreshDirectoryRequest);
+            eventManager.OnRefreshControlsRequest += new UIEventManager.RefreshControlsEvent(eventManager_OnRefreshDirectoryRequest);
 
             directoryEventManager_m = selectedDirectoryEventManager;
         } // end method

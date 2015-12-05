@@ -30,6 +30,7 @@ namespace BasicGitClient
         public const string BRANCH_GET_CURRENT = "rev-parse --abbrev-ref HEAD";
 
         public static string BRANCH_CHECKOUT = "checkout {0}";
+        public static string BRANCH_CREATE = "branch {0}";
         public static string PUSH = "push -u https://{0}:{1}@github.com/{0}/{2} {3}";
     }
 }

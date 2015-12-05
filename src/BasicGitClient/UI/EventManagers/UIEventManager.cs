@@ -60,19 +60,31 @@ namespace BasicGitClient
         public delegate void GitBranchCheckoutEvent(string currentBranch);
         public event GitBranchCheckoutEvent OnGitBranchCheckout;
 
-        public delegate void RefreshDirectoryEvent();
-        public event RefreshDirectoryEvent OnRefreshDirectoryRequest;
+        public delegate void GitBranchCreateEvent(string newBranchName);
+        public event GitBranchCreateEvent OnGitBranchCreate;
+
+        public delegate void RefreshControlsEvent();
+        public event RefreshControlsEvent OnRefreshControlsRequest;
 
         #endregion
 
         #region Public Methods
 
-        public void TriggerDirectoryRefreshEvent()
+        public void TriggerRefreshControlsEvent()
         {
-            RefreshDirectoryEvent handler = OnRefreshDirectoryRequest;
+            RefreshControlsEvent handler = OnRefreshControlsRequest;
             if (handler != null)
             {
-                OnRefreshDirectoryRequest();
+                OnRefreshControlsRequest();
+            } // end if
+        } // end method
+
+        public void TriggerNewGitBranchCreate(string newBranchName)
+        {
+            GitBranchCreateEvent handler = OnGitBranchCreate;
+            if (handler != null)
+            {
+                OnGitBranchCreate(newBranchName);
             } // end if
         } // end method
 

@@ -45,7 +45,7 @@ namespace BasicGitClient
             this.Dock = DockStyle.Fill;
 
             eventManager_m.OnDirectoryChanged += new UIEventManager.DirectoryChangedEvent(eventManager_m_OnDirectoryChanged);
-            eventManager.OnRefreshDirectoryRequest += new UIEventManager.RefreshDirectoryEvent(eventManager_OnRefreshDirectoryRequest);
+            eventManager.OnRefreshControlsRequest += new UIEventManager.RefreshControlsEvent(eventManager_OnRefreshDirectoryRequest);
             directoryEventManager_m.OnSelectedDirectoryNodeChanged += new SelectedDirectoryEventManager.SelectedDirectoryNodeChangedEvent(directoryEventManager_m_OnSelectedDirectoryNodeChanged);
         } // end method
 

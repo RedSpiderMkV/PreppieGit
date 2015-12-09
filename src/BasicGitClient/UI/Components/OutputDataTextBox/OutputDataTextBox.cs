@@ -68,10 +68,10 @@ namespace BasicGitClient
                 if (rtbOutput.Lines[i].Contains("modified: ")
                     || rtbOutput.Lines[i].Contains("renamed: ")
                     || rtbOutput.Lines[i].Contains("deleted: ")
-                    || rtbOutput.Lines[i].StartsWith("\t"))
+                    || rtbOutput.Lines[i].StartsWith("\t"))         // untracked files line starts with \t
                 {
                     rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
-                    rtbOutput.SelectionColor = state == OutputDataState.STAGED ? Color.Green : Color.DarkRed;
+                    rtbOutput.SelectionColor = state == OutputDataState.STAGED ? Color.DarkGreen : Color.DarkRed;
                     rtbOutput.SelectionFont = new Font(rtbOutput.SelectionFont, FontStyle.Bold);
                 }
 

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace BasicGitClient
@@ -44,28 +45,47 @@ namespace BasicGitClient
 
         private void rtbOutput_TextChanged(object sender, EventArgs e)
         {
+            OutputDataState state = OutputDataState.NONE;
+
             for (int i = 0; i < rtbOutput.Lines.Length; ++i)
             {
+                if(rtbOutput.Lines[i].Contains("Changes to be committed:"))
+                {
+                    state = OutputDataState.STAGED;
+                    continue;
+                }
+                else if (rtbOutput.Lines[i].Contains("Changes not staged for commit:"))
+                {
+                    state = OutputDataState.UNSTAGED;
+                    continue;
+                }
+                else if (rtbOutput.Lines[i].Contains("Untracked files:"))
+                {
+                    state = OutputDataState.UNTRACKED;
+                    continue;
+                } // end if
+
                 if (rtbOutput.Lines[i].Contains("modified: ")
                     || rtbOutput.Lines[i].Contains("renamed: ")
-                    || rtbOutput.Lines[i].Contains("deleted: "))
+                    || rtbOutput.Lines[i].Contains("deleted: ")
+                    || rtbOutput.Lines[i].StartsWith("\t"))
                 {
                     rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
-                    rtbOutput.SelectionColor = Color.DarkRed;
+                    rtbOutput.SelectionColor = state == OutputDataState.STAGED ? Color.Green : Color.DarkRed;
                     rtbOutput.SelectionFont = new Font(rtbOutput.SelectionFont, FontStyle.Bold);
                 }
 
-                if (rtbOutput.Lines[i].Contains("new file: "))
+                /*if (rtbOutput.Lines[i].Contains("new file: "))
                 {
                     rtbOutput.Select(rtbOutput.GetFirstCharIndexFromLine(i), rtbOutput.Lines[i].Length);
                     rtbOutput.SelectionColor = Color.DarkGreen;
                     rtbOutput.SelectionFont = new Font(rtbOutput.SelectionFont, FontStyle.Bold);
-                }
+                }*/
             }
 
             rtbOutput.SelectionStart = rtbOutput.TextLength;
             rtbOutput.ScrollToCaret();
-        }
+        } // end method
 
         private void updateRtbOutput(string output, string error)
         {

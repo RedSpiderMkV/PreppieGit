@@ -78,12 +78,13 @@
       <DependentUpon>FileBrowser.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Components\MainMenuStripBuilder\ISubMenuItemBuilder.cs" />
-    <Compile Include="UI\Components\OutputDataTextBox.cs">
+    <Compile Include="UI\Components\OutputDataTextBox\OutputDataTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Components\OutputDataTextBox.Designer.cs">
+    <Compile Include="UI\Components\OutputDataTextBox\OutputDataTextBox.Designer.cs">
       <DependentUpon>OutputDataTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Components\OutputDataTextBox\OutputDataTextboxState.cs" />
     <Compile Include="UI\EventManagers\SelectedDirectoryEventManager.cs" />
     <Compile Include="UI\InputWindows\CloneConfigurationWindow.cs">
       <SubType>Form</SubType>
@@ -139,7 +140,7 @@
     <EmbeddedResource Include="UI\Components\FileBrowser.resx">
       <DependentUpon>FileBrowser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Components\OutputDataTextBox.resx">
+    <EmbeddedResource Include="UI\Components\OutputDataTextBox\OutputDataTextBox.resx">
       <DependentUpon>OutputDataTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\InputWindows\CloneConfigurationWindow.resx">

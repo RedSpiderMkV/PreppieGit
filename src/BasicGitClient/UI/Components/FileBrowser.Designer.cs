@@ -52,6 +52,7 @@
             this.lbFileList.Name = "lbFileList";
             this.lbFileList.Size = new System.Drawing.Size(150, 131);
             this.lbFileList.TabIndex = 4;
+            this.lbFileList.DoubleClick += new System.EventHandler(this.lbFileList_DoubleClick);
             // 
             // lblFileList
             // 

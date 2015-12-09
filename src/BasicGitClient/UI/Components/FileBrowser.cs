@@ -53,6 +53,11 @@ namespace BasicGitClient
 
         #region Private Methods
 
+        private void lbFileList_DoubleClick(object sender, EventArgs e)
+        {
+            openSelectedFile();
+        } // end method
+
         private void toolStripDirectoryMenuItem_Click(object sender, EventArgs e)
         {
             ContextMenuFileTask task = (ContextMenuFileTask)Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
@@ -103,16 +108,7 @@ namespace BasicGitClient
 
                     break;
                 case ContextMenuFileTask.OPEN:
-                    fileName = currentSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
-
-                    try
-                    {
-                        Process.Start(fileName);
-                    }
-                    catch (Exception)
-                    {
-                        //
-                    } // end try-catch
+                    openSelectedFile();
 
                     break;
                 case ContextMenuFileTask.RENAME:
@@ -140,6 +136,20 @@ namespace BasicGitClient
             } // end switch
 
             populateFileList(currentSelectedDirectory_m);
+        } // end method
+
+        private void openSelectedFile()
+        {
+            string fileName = currentSelectedDirectory_m + "\\" + lbFileList.GetItemText(lbFileList.SelectedItem);
+
+            try
+            {
+                Process.Start(fileName);
+            }
+            catch (Exception)
+            {
+                //
+            } // end try-catch
         } // end method
 
         private void directoryEventManager_m_OnSelectedDirectoryNodeChanged(string directoryFullPath)

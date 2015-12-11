@@ -31,6 +31,7 @@ namespace BasicGitClient
 
         public static string BRANCH_CHECKOUT = "checkout {0}";
         public static string BRANCH_CREATE = "branch {0}";
+        public static string BRANCH_DELETE = "branch -d {0}";
         public static string PUSH = "push -u https://{0}:{1}@github.com/{0}/{2} {3}";
     }
 }

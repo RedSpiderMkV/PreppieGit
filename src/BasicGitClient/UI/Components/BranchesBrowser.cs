@@ -51,6 +51,9 @@ namespace BasicGitClient
             }
             else if (menuItem == deleteToolStripMenuItem)
             {
+                eventManager_m.TriggerNewGitCommandEvent(String.Format(GitCommands.BRANCH_DELETE, getSelectedBranchName()));
+
+                eventManager_m.TriggerRefreshControlsEvent();
             } // end if
         } // end method
 
@@ -115,6 +118,17 @@ namespace BasicGitClient
             checkoutSelectedBranch();
         } // end method
 
+        private string getSelectedBranchName()
+        {
+            string branch = lvLocalBranches.SelectedItems[0].Text;
+            if (branch.StartsWith("*"))
+            {
+                branch = branch.Remove(0, 2);
+            } // end if
+
+            return branch.TrimStart();
+        } // end method
+
         private void checkoutSelectedBranch()
         {
             if (lvLocalBranches.SelectedItems.Count == 0)
@@ -122,12 +136,7 @@ namespace BasicGitClient
                 return;
             } // end if
 
-
-            string branch = lvLocalBranches.SelectedItems[0].Text;
-            if (branch.StartsWith("*"))
-            {
-                branch = branch.Remove(0, 2);
-            } // end if
+            string branch = getSelectedBranchName();
 
             eventManager_m.TriggerNewGitCommandEvent(String.Format(GitCommands.BRANCH_CHECKOUT, branch));
             eventManager_m.TriggerNewGitBranchCheckout(branch);

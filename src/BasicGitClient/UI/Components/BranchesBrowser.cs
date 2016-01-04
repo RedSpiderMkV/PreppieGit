@@ -92,6 +92,8 @@ namespace BasicGitClient
 
                     item = new ListViewItem(branchName);
                     item.SubItems.Add("*");
+
+                    item.Font = new Font(item.Font, FontStyle.Bold);
                 } // end if
 
                 listView.Items.Add(item);

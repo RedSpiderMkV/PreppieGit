@@ -1,9 +1,16 @@
 *.vs
 
-src/BasicGitClient/bin
-src/BasicGitClient/obj
-src/Installer/bin
-src/Installer/obj
+#src/BasicGitClient/bin
+#src/BasicGitClient/obj
+#src/Installer/bin
+#src/Installer/obj
+
+*bin/
+*obj/
 
 src/BasicGitClient.suo
 src/*.suo
+src/packages
+
+*.dll
+*.xml

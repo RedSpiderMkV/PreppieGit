@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace BasicGitClient
@@ -14,6 +9,8 @@ namespace BasicGitClient
     public partial class ClientMainWindow : Form
     {
         #region Private Data
+
+        private static string titleText_m;
 
         private string repoName_m;
         private XmlHandler xmlHandler_m;
@@ -146,11 +143,5 @@ namespace BasicGitClient
 
             eventManager_m.TriggerNewRepoNameEvent(repoName_m);
         } // end method
-
-        #region Private Data
-
-        private static string titleText_m;
-
-        #endregion
     } // end class
 } // end namespace

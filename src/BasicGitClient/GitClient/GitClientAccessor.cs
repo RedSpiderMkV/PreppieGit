@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace BasicGitClient
 {
@@ -12,8 +8,17 @@ namespace BasicGitClient
     /// </summary>
     public class GitClientAccessor
     {
+        #region Private Data
+
+        // Process runner information.
+        private ProcessStartInfo procInfo_m;
+        // Event manager - events used to interact with rest of program.
+        private UIEventManager eventManager_m;
+
+        #endregion
+
         #region Properties
-        
+
         /// <summary>
         /// Directory in which client will operate.
         /// i.e. repo directory.
@@ -138,15 +143,6 @@ namespace BasicGitClient
         {
             SetDirectory(newDirectoryFullPath);
         } // end method
-
-        #endregion
-
-        #region Private Data
-
-        // Process runner information.
-        private ProcessStartInfo procInfo_m;
-        // Event manager - events used to interact with rest of program.
-        private UIEventManager eventManager_m;
 
         #endregion
     } // end class

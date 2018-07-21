@@ -1,3 +1,5 @@
+*.vs
+
 src/BasicGitClient/bin
 src/BasicGitClient/obj
 src/Installer/bin
